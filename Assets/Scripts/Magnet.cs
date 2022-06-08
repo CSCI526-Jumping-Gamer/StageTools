@@ -21,7 +21,7 @@ public class Magnet : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (isTriggered) {
+        if (isTriggered && playerMovement.GetIsMagnetized()) {
             Attract(otherRb2d);
         }
     }

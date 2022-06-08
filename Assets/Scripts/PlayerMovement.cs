@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     CircleCollider2D circleCollider2D;
     bool isTriggeredWithMagnet = false;
     bool isCollidedWithMagnet = false;
+    bool isMagnetized = false;
     [SerializeField] PlayerState playerState;
     bool isJumpPressed = false;
     Rope rope;
@@ -30,6 +31,13 @@ public class PlayerMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         playerControls = new PlayerControls();
+        playerControls.Player.Magnetize.performed += ctx => {
+            isMagnetized = true;
+        };
+
+        playerControls.Player.Magnetize.canceled += ctx => {
+            isMagnetized = false;
+        };
     }
     
     private void OnEnable() {
@@ -39,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable() {    
         playerControls.Player.Disable();
     }
-
 
     void FixedUpdate() {
         GetState();
@@ -55,17 +62,36 @@ public class PlayerMovement : MonoBehaviour
 
     void GetState() {
         if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Rope"))) {
-            if (Keyboard.current.upArrowKey.wasPressedThisFrame
-                    || Keyboard.current.downArrowKey.wasPressedThisFrame) {
+            if (isMoveUpOrDownPressed()) {
                 playerState = PlayerState.OnTheRope;
             }
         } else if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             playerState = PlayerState.OnTheGround;
-        } else if (isCollidedWithMagnet) { // TODO: change to iscollided
+        } else if (isCollidedWithMagnet && isMagnetized) { // TODO: change to iscollided
             playerState = PlayerState.OnTheMagnet;
         } else {
             playerState = PlayerState.InTheAir;
         }
+    }
+
+    bool isMoveUpOrDownPressed() {
+        if (Keyboard.current.upArrowKey.wasPressedThisFrame) {
+            return true;
+        }
+
+        if (Keyboard.current.wKey.wasPressedThisFrame) {
+            return true;
+        }
+
+        if (Keyboard.current.downArrowKey.wasPressedThisFrame) {
+            return true;
+        }
+
+        if (Keyboard.current.sKey.wasPressedThisFrame) {
+            return true;
+        }
+
+        return false;
     }
 
     void Move() {
@@ -258,5 +284,9 @@ public class PlayerMovement : MonoBehaviour
 
     public bool GetIsCollidedWithMagnet() {
         return isCollidedWithMagnet;
+    }
+
+    public bool GetIsMagnetized() {
+        return isMagnetized;
     }
 }

@@ -102,7 +102,7 @@ MonoBehaviour:
   isTriggered: 0
   isCollided: 0
   baseDistanceForce: 10
-  magnetForce: 150
+  magnetForce: 1500
 --- !u!58 &2747676975378689676
 CircleCollider2D:
   m_ObjectHideFlags: 0

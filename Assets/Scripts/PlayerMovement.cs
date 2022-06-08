@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PlayerState playerState;
     bool isJumpPressed = false;
     Rope rope;
+    PlayerControls playerControls;
 
     [SerializeField] float normalGravityScale = 8f;
     [SerializeField] float moveSpeed = 500f;
@@ -21,17 +22,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float climbSpeed = 400f;
     [SerializeField] float horizontalLossSpeed = 5f;
     [SerializeField] float verticalLossSpeed = 5f;
-    
+
 
     public bool isAttachedToRope = false;
 
     private void Awake() {
         rb2d = GetComponent<Rigidbody2D>();
-        circleCollider2D = GetComponent<CircleCollider2D>(); 
+        circleCollider2D = GetComponent<CircleCollider2D>();
+        playerControls = new PlayerControls();
+    }
+    
+    private void OnEnable() {
+        playerControls.Player.Enable();
     }
 
-    void Update()
-    {
+    private void OnDisable() {    
+        playerControls.Player.Disable();
+    }
+
+
+    void FixedUpdate() {
         GetState();
         Climb();
         Move();
@@ -131,7 +141,6 @@ public class PlayerMovement : MonoBehaviour
 
     void JumpOnTheRope() {
         if (hasHorizontalSpeed()) {
-            // circleCollider2D.enabled = false;
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed * Time.fixedDeltaTime);
         }
     }

@@ -20,7 +20,7 @@ public class Magnet : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if (isTriggered) {
             Attract(otherRb2d);
         }
@@ -38,13 +38,8 @@ public class Magnet : MonoBehaviour
 
     void Attract(Rigidbody2D otherRb2d) {
         Vector2 magnetDirection = (transform.position - otherRb2d.transform.position).normalized * Time.fixedDeltaTime;
-        float magnetYDirection = Mathf.Abs(magnetDirection.y) - 0.02f > Mathf.Epsilon ? magnetDirection.y : 0f;
-        
-        // if (Mathf.Abs(magnetDirection.y) ) {
-        //     Debug.Log("hello");
-        // }
-
-        magnetDirection = new Vector2(magnetDirection.x, magnetYDirection);
+        // float magnetYDirection = Mathf.Abs(magnetDirection.y) - 0.02f > Mathf.Epsilon ? magnetDirection.y : 0f;
+        // magnetDirection = new Vector2(magnetDirection.x, magnetYDirection);
         // Debug.Log(magnetDirection);
         float distance = Vector2.Distance(transform.position, otherRb2d.transform.position);
         float distanceFactor = (baseDistanceForce / (distance * distance));

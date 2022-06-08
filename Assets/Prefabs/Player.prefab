@@ -173,6 +173,6 @@ MonoBehaviour:
   moveSpeedOnRope: 300
   jumpSpeed: 1200
   climbSpeed: 400
-  horizontalLossSpeed: 5
-  verticalLossSpeed: 5
+  horizontalLossSpeed: 50
+  verticalLossSpeed: 50
   isAttachedToRope: 0

@@ -51,7 +51,9 @@ public class PlayerMovement : MonoBehaviour
 
     void GetState() {
         if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Rope"))) {
-            playerState = PlayerState.OnTheRope;
+            if (Keyboard.current.upArrowKey.wasPressedThisFrame) {
+                playerState = PlayerState.OnTheRope;
+            }
         } else if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             playerState = PlayerState.OnTheGround;
         } else if (isCollidedWithMagnet) { // TODO: change to iscollided
@@ -140,9 +142,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void JumpOnTheRope() {
-        if (hasHorizontalSpeed()) {
+        // if (hasHorizontalSpeed()) {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed * Time.fixedDeltaTime);
-        }
+        // }
     }
 
     void JumpInTheAir() {
@@ -188,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void ClimbOnTheRope() {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && hasHorizontalSpeed()) {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame) {
             circleCollider2D.enabled = false;
             Invoke("RestoreCollider", 0.1f);
         }

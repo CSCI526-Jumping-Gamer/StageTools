@@ -169,10 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerState: 0
   normalGravityScale: 8
-  moveSpeed: 500
-  moveSpeedOnRope: 300
-  jumpSpeed: 1200
-  climbSpeed: 400
-  horizontalLossSpeed: 50
-  verticalLossSpeed: 50
+  moveSpeed: 10
+  moveSpeedOnRope: 6
+  jumpSpeed: 24
+  climbSpeed: 8
+  horizontalLossSpeed: 40
+  verticalLossSpeed: 40
   isAttachedToRope: 0

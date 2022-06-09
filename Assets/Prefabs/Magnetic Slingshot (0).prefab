@@ -40,6 +40,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6570356901032802146}
     m_Modifications:
+    - target: {fileID: 3323480376342996008, guid: f22b8fa0b010ab442a0177de5c077547, type: 3}
+      propertyPath: magnetForce
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 4952222035804527437, guid: f22b8fa0b010ab442a0177de5c077547, type: 3}
       propertyPath: m_Name
       value: Small Magnet (1)
@@ -58,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7880707748762560030, guid: f22b8fa0b010ab442a0177de5c077547, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.19736788
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7880707748762560030, guid: f22b8fa0b010ab442a0177de5c077547, type: 3}
       propertyPath: m_LocalRotation.w
@@ -102,6 +106,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6570356901032802146}
     m_Modifications:
+    - target: {fileID: 3323480376342996008, guid: f22b8fa0b010ab442a0177de5c077547, type: 3}
+      propertyPath: magnetForce
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 4952222035804527437, guid: f22b8fa0b010ab442a0177de5c077547, type: 3}
       propertyPath: m_Icon
       value: 
@@ -124,7 +132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7880707748762560030, guid: f22b8fa0b010ab442a0177de5c077547, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.19736788
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7880707748762560030, guid: f22b8fa0b010ab442a0177de5c077547, type: 3}
       propertyPath: m_LocalRotation.w

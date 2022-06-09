@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 
 public class Magnet : MonoBehaviour
 {
-
     Rigidbody2D otherRb2d;
     PlayerMovement playerMovement;
     Rigidbody2D rb2d;
+    BoxCollider2D boxCollider2D;
 
     public bool isTriggered = false;
     public bool isCollided = false;
@@ -18,12 +18,20 @@ public class Magnet : MonoBehaviour
     private void Awake() {
         playerMovement = FindObjectOfType<PlayerMovement>();
         rb2d = GetComponent<Rigidbody2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     private void FixedUpdate() {
+        PhysicsMaterial2D material = new PhysicsMaterial2D();
+
         if (isTriggered && playerMovement.GetIsMagnetized()) {
+            material.friction = 0.4f;
             Attract(otherRb2d);
+        } else {
+            material.friction = 0f;
         }
+
+        boxCollider2D.sharedMaterial = material;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -37,7 +45,7 @@ public class Magnet : MonoBehaviour
     }
 
     void Attract(Rigidbody2D otherRb2d) {
-        Vector2 magnetDirection = (transform.position - otherRb2d.transform.position).normalized * Time.fixedDeltaTime;
+        Vector2 magnetDirection = (transform.position - otherRb2d.transform.position).normalized;
         // float magnetYDirection = Mathf.Abs(magnetDirection.y) - 0.02f > Mathf.Epsilon ? magnetDirection.y : 0f;
         // magnetDirection = new Vector2(magnetDirection.x, magnetYDirection);
         // Debug.Log(magnetDirection);
@@ -63,7 +71,5 @@ public class Magnet : MonoBehaviour
         playerMovement.SetIsCollidedWithMagnet(false);
         isCollided = false;
     }
-
-
 }
  

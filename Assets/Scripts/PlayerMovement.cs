@@ -8,8 +8,9 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D rb2d;
     CircleCollider2D circleCollider2D;
+    BoxCollider2D boxCollider2d;
     bool isTriggeredWithMagnet = false;
-    bool isCollidedWithMagnet = false;
+    [SerializeField] bool isCollidedWithMagnet = false;
     bool isMagnetized = false;
     bool isHoldingRope = false;
     [SerializeField] PlayerState playerState;
@@ -23,14 +24,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float swingSpeed = 10f;
     [SerializeField] float jumpSpeed = 24f;
     [SerializeField] float climbSpeed = 8f;
-    [SerializeField] float horizontalLossSpeed = 10f;
-    [SerializeField] float verticalLossSpeed = 10f;
+    [SerializeField] float horizontalLossSpeed = 40f;
+    [SerializeField] float verticalLossSpeed = 40f;
 
     public bool isAttachedToRope = false;
 
     private void Awake() {
         rb2d = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
+        boxCollider2d = GetComponent<BoxCollider2D>();
         playerControls = new PlayerControls();
         playerControls.Player.Magnetize.performed += ctx => {
             isMagnetized = true;
@@ -49,11 +51,11 @@ public class PlayerMovement : MonoBehaviour
         };
     }
     
-    private void OnEnable() {
+    public void OnEnable() {
         playerControls.Player.Enable();
     }
 
-    private void OnDisable() {    
+    public void OnDisable() {    
         playerControls.Player.Disable();
     }
 
@@ -80,12 +82,12 @@ public class PlayerMovement : MonoBehaviour
             if (isHoldingRope) {
                 playerState = PlayerState.OnTheRope;
             }
-        } else if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
+        } else if (boxCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             playerState = PlayerState.OnTheGround;
         } else if (isCollidedWithMagnet) { // TODO: change to iscollided
             if (isMagnetized) {
-                playerState = PlayerState.OnTheGround;
-            } else {
+                playerState = PlayerState.OnTheMagnet;
+            } else if (boxCollider2d.IsTouchingLayers(LayerMask.GetMask("Magnet"))) {
                 playerState = PlayerState.OnTheGround;
             }
         } else {
@@ -208,9 +210,7 @@ public class PlayerMovement : MonoBehaviour
             } else if (playerState == PlayerState.OnTheMagnet) {
                 JumpOnTheMagnet();
             } else if (playerState == PlayerState.OnTheRope) {
-                // if (!isMoveUpOrDownPressed() || isMoveLeftOrRightPressed()) {
-                    JumpOnTheRope();
-                // }
+                JumpOnTheRope();
             } else {
                 JumpInTheAir();
             }
@@ -222,7 +222,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void JumpOnTheMagnet() {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+        if (isMagnetized) {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+        }
     }
 
     void JumpOnTheRope() {
@@ -275,7 +277,6 @@ public class PlayerMovement : MonoBehaviour
     void ClimbOnTheRope() {
         // Vector2 ropePivotDirection = (rope.transform.parent.position - transform.position).normalized;
         // rb2d.velocity = ropePivotDirection * climbSpeed * moveInput.y;
-        
         rb2d.velocity = new Vector2(rb2d.velocity.x, climbSpeed * moveInput.y);
     }
 
@@ -290,7 +291,6 @@ public class PlayerMovement : MonoBehaviour
 
         } else {
             rb2d.gravityScale = 8f;
-
             // if (rope) {
             //     Rigidbody2D ropeRb2d = rope.GetComponent<Rigidbody2D>();
             //     ropeRb2d.velocity = new Vector2(0f, ropeRb2d.velocity.y);

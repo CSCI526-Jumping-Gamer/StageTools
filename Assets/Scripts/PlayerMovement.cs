@@ -10,19 +10,21 @@ public class PlayerMovement : MonoBehaviour
     CircleCollider2D circleCollider2D;
     bool isTriggeredWithMagnet = false;
     bool isCollidedWithMagnet = false;
+    bool isMagnetized = false;
+    bool isHoldingRope = false;
     [SerializeField] PlayerState playerState;
     bool isJumpPressed = false;
     Rope rope;
     PlayerControls playerControls;
 
     [SerializeField] float normalGravityScale = 8f;
-    [SerializeField] float moveSpeed = 500f;
-    [SerializeField] float moveSpeedOnRope = 300f;
-    [SerializeField] float jumpSpeed = 1200f;
-    [SerializeField] float climbSpeed = 400f;
-    [SerializeField] float horizontalLossSpeed = 5f;
-    [SerializeField] float verticalLossSpeed = 5f;
-
+    [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float moveSpeedOnRope = 6f;
+    [SerializeField] float swingSpeed = 10f;
+    [SerializeField] float jumpSpeed = 24f;
+    [SerializeField] float climbSpeed = 8f;
+    [SerializeField] float horizontalLossSpeed = 10f;
+    [SerializeField] float verticalLossSpeed = 10f;
 
     public bool isAttachedToRope = false;
 
@@ -30,16 +32,30 @@ public class PlayerMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         playerControls = new PlayerControls();
+        playerControls.Player.Magnetize.performed += ctx => {
+            isMagnetized = true;
+        };
+
+        playerControls.Player.Magnetize.canceled += ctx => {
+            isMagnetized = false;
+        };
+
+        playerControls.Player.HoldRope.performed += ctx => {
+            isHoldingRope = true;
+        };
+
+        playerControls.Player.HoldRope.canceled += ctx => {
+            isHoldingRope = false;
+        };
     }
     
-    private void OnEnable() {
+    public void OnEnable() {
         playerControls.Player.Enable();
     }
 
-    private void OnDisable() {    
+    public void OnDisable() {    
         playerControls.Player.Disable();
     }
-
 
     void FixedUpdate() {
         GetState();
@@ -55,17 +71,66 @@ public class PlayerMovement : MonoBehaviour
 
     void GetState() {
         if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Rope"))) {
-            if (Keyboard.current.upArrowKey.wasPressedThisFrame
-                    || Keyboard.current.downArrowKey.wasPressedThisFrame) {
+            if (!Keyboard.current.spaceKey.isPressed) {
+                if (isMoveUpOrDownPressed()) {
+                    playerState = PlayerState.OnTheRope;
+                }
+            }
+            
+            if (isHoldingRope) {
                 playerState = PlayerState.OnTheRope;
             }
         } else if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             playerState = PlayerState.OnTheGround;
         } else if (isCollidedWithMagnet) { // TODO: change to iscollided
-            playerState = PlayerState.OnTheMagnet;
+            if (isMagnetized) {
+                playerState = PlayerState.OnTheGround;
+            } else {
+                playerState = PlayerState.OnTheGround;
+            }
         } else {
             playerState = PlayerState.InTheAir;
         }
+    }
+
+    bool isMoveUpOrDownPressed() {
+        if (Keyboard.current.upArrowKey.isPressed) {
+            return true;
+        }
+
+        if (Keyboard.current.wKey.isPressed) {
+            return true;
+        }
+
+        if (Keyboard.current.downArrowKey.isPressed) {
+            return true;
+        }
+
+        if (Keyboard.current.sKey.isPressed) {
+            return true;
+        }
+
+        return false;
+    }
+
+    bool isMoveLeftOrRightPressed() {
+        if (Keyboard.current.leftArrowKey.isPressed) {
+            return true;
+        }
+
+        if (Keyboard.current.aKey.isPressed) {
+            return true;
+        }
+
+        if (Keyboard.current.rightArrowKey.isPressed) {
+            return true;
+        }
+
+        if (Keyboard.current.dKey.isPressed) {
+            return true;
+        }
+
+        return false;
     }
 
     void Move() {
@@ -74,7 +139,19 @@ public class PlayerMovement : MonoBehaviour
         } else if (playerState == PlayerState.OnTheMagnet) {
             MoveOnTheMagnet();
         } else if (playerState == PlayerState.OnTheRope) {
-            MoveOnTheRope();
+            if (!isHoldingRope) {
+                MoveOnTheRope();
+            } else {
+                if (rope) {
+                    rb2d.velocity = new Vector2(0f, 0f);
+                    Rigidbody2D ropeRb2d = rope.GetComponent<Rigidbody2D>();
+
+                    if (moveInput.x != 0) {
+                        // ropeRb2d.velocity = new Vector2(swingSpeed * moveInput.x, ropeRb2d.velocity.y);
+                        ropeRb2d.AddForce(new Vector2(swingSpeed * moveInput.x, 0f), ForceMode2D.Force);
+                    }
+                }
+            }
         } else {
             MoveInTheAir();
         }
@@ -84,38 +161,38 @@ public class PlayerMovement : MonoBehaviour
         if (isAccelerating()) {
             Decelerate();
         } else {
-            rb2d.velocity = new Vector2(moveInput.x * moveSpeed * Time.fixedDeltaTime, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
         }
     }
 
     void MoveOnTheMagnet() {
-        rb2d.velocity = new Vector2(moveInput.x * moveSpeed * Time.fixedDeltaTime, rb2d.velocity.y);
+        rb2d.velocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
     }
 
     void MoveOnTheRope() {
-        rb2d.velocity = new Vector2(moveInput.x * moveSpeedOnRope * Time.fixedDeltaTime, rb2d.velocity.y);
+        rb2d.velocity = new Vector2(moveInput.x * moveSpeedOnRope, rb2d.velocity.y);
     }
 
     void MoveInTheAir() {
         if (isAccelerating()) {
             Decelerate();
         } else {
-            rb2d.velocity = new Vector2(moveInput.x * moveSpeed * Time.fixedDeltaTime, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
         }
     }
 
     void Decelerate() {
-        if (rb2d.velocity.x > moveSpeed * Time.fixedDeltaTime + 3f) {
+        if (rb2d.velocity.x > moveSpeed + 3f) {
             rb2d.velocity -= new Vector2(horizontalLossSpeed, verticalLossSpeed) * Time.fixedDeltaTime;
-        } else if (rb2d.velocity.x < -moveSpeed * Time.fixedDeltaTime - 3f) {
+        } else if (rb2d.velocity.x < -moveSpeed - 3f) {
             rb2d.velocity -= new Vector2(-horizontalLossSpeed, verticalLossSpeed) * Time.fixedDeltaTime;   
         }
     }
 
     bool isAccelerating() {
-        if (rb2d.velocity.x > moveSpeed * Time.fixedDeltaTime + 3f) {
+        if (rb2d.velocity.x > moveSpeed + 3f) {
             return true;
-        } else if (rb2d.velocity.x < -moveSpeed * Time.fixedDeltaTime - 3f) {
+        } else if (rb2d.velocity.x < -moveSpeed - 3f) {
             return true;
         }
 
@@ -131,7 +208,9 @@ public class PlayerMovement : MonoBehaviour
             } else if (playerState == PlayerState.OnTheMagnet) {
                 JumpOnTheMagnet();
             } else if (playerState == PlayerState.OnTheRope) {
-                JumpOnTheRope();
+                // if (!isMoveUpOrDownPressed() || isMoveLeftOrRightPressed()) {
+                    JumpOnTheRope();
+                // }
             } else {
                 JumpInTheAir();
             }
@@ -139,15 +218,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void JumpOnTheGround() {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed * Time.fixedDeltaTime);
+        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
     }
 
     void JumpOnTheMagnet() {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed * Time.fixedDeltaTime);
+        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
     }
 
     void JumpOnTheRope() {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed * Time.fixedDeltaTime);
+        circleCollider2D.enabled = false;
+        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
     }
 
     void JumpInTheAir() {
@@ -193,16 +273,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void ClimbOnTheRope() {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame) {
-            circleCollider2D.enabled = false;
-            // Invoke("RestoreCollider", 0.1f);
-        }
-
-        rb2d.velocity = new Vector2(rb2d.velocity.x, Time.fixedDeltaTime * climbSpeed * moveInput.y);
-    }
-
-    void RestoreCollider() {
-        circleCollider2D.enabled = true;
+        // Vector2 ropePivotDirection = (rope.transform.parent.position - transform.position).normalized;
+        // rb2d.velocity = ropePivotDirection * climbSpeed * moveInput.y;
+        
+        rb2d.velocity = new Vector2(rb2d.velocity.x, climbSpeed * moveInput.y);
     }
 
     void SwingRope() {
@@ -211,7 +285,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (isPlayerMovingLeftOrRight()) {
                 Rigidbody2D ropeRb2d = rope.GetComponent<Rigidbody2D>();
-                ropeRb2d.velocity = new Vector2(moveInput.x * moveSpeed * Time.fixedDeltaTime, rb2d.velocity.y);
+                ropeRb2d.velocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
             }
 
         } else {
@@ -258,5 +332,13 @@ public class PlayerMovement : MonoBehaviour
 
     public bool GetIsCollidedWithMagnet() {
         return isCollidedWithMagnet;
+    }
+
+    public bool GetIsMagnetized() {
+        return isMagnetized;
+    }
+
+    public bool GetIsHoldingRope() {
+        return isHoldingRope;
     }
 }

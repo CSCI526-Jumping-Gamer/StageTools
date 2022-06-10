@@ -6,7 +6,7 @@ public class AcceleratingTrail : MonoBehaviour
 {
     PlayerMovement playerMovement;
 
-    [SerializeField] float baseSpeed = 700f;
+    [SerializeField] float baseSpeed = 14f;
     [SerializeField] float horizontalAccelerateSpeed = 4f;
     [SerializeField] float verticalAccelerateSpeed = 4f;
 
@@ -37,9 +37,9 @@ public class AcceleratingTrail : MonoBehaviour
         float ySpeed = baseSpeed * verticalAccelerateSpeed * Mathf.Sin(angle / 180 * Mathf.PI);
 
         if (transform.rotation.z <= 0) {
-            otherRb2d.velocity = new Vector2(xSpeed, ySpeed) * Time.fixedDeltaTime;
+            otherRb2d.velocity = new Vector2(xSpeed, ySpeed);
         } else if (transform.rotation.z > 0) {
-            otherRb2d.velocity = new Vector2(-xSpeed, ySpeed) * Time.fixedDeltaTime;
+            otherRb2d.velocity = new Vector2(-xSpeed, ySpeed);
         }
     }
 

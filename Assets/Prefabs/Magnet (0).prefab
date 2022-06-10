@@ -102,7 +102,8 @@ MonoBehaviour:
   isTriggered: 0
   isCollided: 0
   baseDistanceForce: 10
-  magnetForce: 30
+  magnetForce: 50
+  MagnetAttractable: 0
 --- !u!58 &2747676975378689676
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,9 +117,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.028352737, y: -0.11855793}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 6.28106
 --- !u!61 &2318176099874218539
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float climbSpeed = 8f;
     [SerializeField] float horizontalLossSpeed = 10f;
     [SerializeField] float verticalLossSpeed = 10f;
+    [SerializeField] float maxDistnace = 10f;
+
 
     public bool isAttachedToRope = false;
 
@@ -49,11 +51,11 @@ public class PlayerMovement : MonoBehaviour
         };
     }
     
-    private void OnEnable() {
+    public void OnEnable() {
         playerControls.Player.Enable();
     }
 
-    private void OnDisable() {    
+    public void OnDisable() {    
         playerControls.Player.Disable();
     }
 
@@ -340,5 +342,11 @@ public class PlayerMovement : MonoBehaviour
 
     public bool GetIsHoldingRope() {
         return isHoldingRope;
+    }
+    private void OnDrawGizmosSelected()
+    {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, maxDistnace);
+        
     }
 }

@@ -149,7 +149,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -0.49}
-  m_ConnectedAnchor: {x: -0.01035733, y: 0.47999954}
+  m_ConnectedAnchor: {x: -0.010351638, y: 0.48000002}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -308,7 +308,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.49}
-  m_ConnectedAnchor: {x: 0.02, y: 1.9499998}
+  m_ConnectedAnchor: {x: 0.020000458, y: 1.9500003}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -332,7 +332,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -0.57}
-  m_ConnectedAnchor: {x: 0, y: 0.40000057}
+  m_ConnectedAnchor: {x: 0, y: 0.4000001}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -376,7 +376,6 @@ Transform:
   - {fileID: 5764391492954911599}
   - {fileID: 5764391493676816228}
   - {fileID: 5764391494695643299}
-  - {fileID: 8808914061009007540}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -418,7 +417,7 @@ DistanceJoint2D:
   m_Anchor: {x: -0.0092840195, y: 2.4080982}
   m_ConnectedAnchor: {x: 0.00000038210084, y: -0.0000006132852}
   m_AutoConfigureDistance: 1
-  m_Distance: 4.7783513
+  m_Distance: 22.300045
   m_MaxDistanceOnly: 0
 --- !u!1 &5764391493676816235
 GameObject:
@@ -569,7 +568,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -0.61}
-  m_ConnectedAnchor: {x: 0.01035733, y: 0.36999893}
+  m_ConnectedAnchor: {x: 0.010351638, y: 0.37000012}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -722,12 +721,12 @@ HingeJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 4845428516604509714}
+  m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -0.49}
-  m_ConnectedAnchor: {x: -0.000000011175871, y: 0.51441765}
+  m_ConnectedAnchor: {x: 0.020000458, y: -1.9499998}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -820,91 +819,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &7153186585293172370
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 5764391493675220610}
-    m_Modifications:
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.02000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.4644165
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503382300140970101, guid: 705909edb94598344965e07204683808, type: 3}
-      propertyPath: m_Name
-      value: Magnet (0)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 705909edb94598344965e07204683808, type: 3}
---- !u!1 &6042628861717778151 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3503382300140970101, guid: 705909edb94598344965e07204683808, type: 3}
-  m_PrefabInstance: {fileID: 7153186585293172370}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &4845428516604509714
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6042628861717778151}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!4 &8808914061009007540 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1835979799217020198, guid: 705909edb94598344965e07204683808, type: 3}
-  m_PrefabInstance: {fileID: 7153186585293172370}
-  m_PrefabAsset: {fileID: 0}

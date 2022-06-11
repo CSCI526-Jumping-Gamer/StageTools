@@ -17,11 +17,14 @@ public class AcceleratingTrail : MonoBehaviour
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
-        isTriggered = true;
-        Accelerate(other);
+        if (other.tag == "Player") {
+            isTriggered = true;
+            Accelerate(other);
+        }
     }
 
     private void Accelerate(Collider2D other) {
+        // Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();
         Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();
         float angle;
         
@@ -44,6 +47,8 @@ public class AcceleratingTrail : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        isTriggered = false;
+        if (other.tag == "Player") {
+            isTriggered = false;
+        }
     }
 }

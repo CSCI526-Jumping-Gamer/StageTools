@@ -7,17 +7,13 @@ public class MagneticField : MonoBehaviour
 {
     Rigidbody2D otherRb2d;
     PlayerMovement playerMovement;
-    Rigidbody2D rb2d;
-    
 
     public bool isTriggered = false;
     public float baseDistanceForce = 10f;
     public float magnetForce = 30f;
  
     private void Awake() {
-        playerMovement = FindObjectOfType<PlayerMovement>();
-        rb2d = GetComponent<Rigidbody2D>();
-        
+        playerMovement = FindObjectOfType<PlayerMovement>();        
     }
 
     private void FixedUpdate() {
@@ -27,8 +23,11 @@ public class MagneticField : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("trigger");
+        Debug.Log(other.name);
         if (other.gameObject.tag == "Player") {
-            Rigidbody2D otherRb2d = other.GetComponent<Rigidbody2D>();
+            Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();
+            // Rigidbody2D otherRb2d = other.GetComponent<Rigidbody2D>();
             // otherRb2d.velocity = new Vector2(0f, 0f);
             this.otherRb2d = otherRb2d;
             playerMovement.SetIsTriggeredWithMagnet(true);

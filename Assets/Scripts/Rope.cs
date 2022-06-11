@@ -19,7 +19,9 @@ public class Rope : MonoBehaviour
 
     void Start()
     {
-        
+        // Rigidbody2D[] rb2dArray = GetComponentsInParent<Rigidbody2D>();
+        // transform.parent.GetChildCount
+        // Debug.Log(transform.parent.GetChild(0).position); 
     }
 
     // Update is called once per frame
@@ -43,6 +45,8 @@ public class Rope : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        
+        if (other.tag == "Player") {
+            playerMovement.SetRope(null);
+        }
     }
 }

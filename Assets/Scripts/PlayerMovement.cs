@@ -28,12 +28,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float verticalLossSpeed = 40f;
     [SerializeField] float maxDistnace = 10f;
 
-    public bool isAttachedToRope = false;
-
     private void Awake() {
+        // rb2d = GetComponent<Rigidbody2D>();
         rb2d = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
-        boxCollider2d = GetComponent<BoxCollider2D>();
+        // boxCollider2d = GetComponent<BoxCollider2D>();
+        boxCollider2d = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();
         playerControls = new PlayerControls();
         playerControls.Player.Magnetize.performed += ctx => {
             isMagnetized = true;
@@ -90,6 +90,8 @@ public class PlayerMovement : MonoBehaviour
                 playerState = PlayerState.OnTheMagnet;
             } else if (boxCollider2d.IsTouchingLayers(LayerMask.GetMask("Magnet"))) {
                 playerState = PlayerState.OnTheGround;
+            } else {
+                playerState = PlayerState.InTheAir;
             }
         } else {
             playerState = PlayerState.InTheAir;
@@ -342,10 +344,10 @@ public class PlayerMovement : MonoBehaviour
     public bool GetIsHoldingRope() {
         return isHoldingRope;
     }
-    private void OnDrawGizmosSelected()
-    {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, maxDistnace);
+    // private void OnDrawGizmosSelected()
+    // {
+    //         Gizmos.color = Color.green;
+    //         Gizmos.DrawWireSphere(transform.position, maxDistnace);
         
-    }
+    // }
 }

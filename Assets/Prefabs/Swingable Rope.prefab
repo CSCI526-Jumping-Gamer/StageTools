@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7785947862944563486}
   - component: {fileID: 7785947862944563484}
+  - component: {fileID: 1023889352}
   m_Layer: 0
   m_Name: Swingable Rope
   m_TagString: Untagged
@@ -61,6 +62,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!232 &1023889352
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7785947862944563481}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 2702922894337232942}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 6.55
+  m_MaxDistanceOnly: 0
 --- !u!1 &7785947863341952042
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +172,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7785947862944563486}
     m_Modifications:
+    - target: {fileID: 371506379968273450, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300605204049518820, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_UseLimits
       value: 1
@@ -243,6 +271,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7785947862944563486}
     m_Modifications:
+    - target: {fileID: 371506379968273450, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300605204049518820, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_UseLimits
       value: 1
@@ -334,6 +370,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7785947862944563486}
     m_Modifications:
+    - target: {fileID: 371506379968273450, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300605204049518820, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_UseLimits
       value: 1
@@ -348,11 +392,11 @@ PrefabInstance:
       objectReference: {fileID: 2702922895119494257}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_AngleLimits.m_LowerAngle
-      value: -30
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_AngleLimits.m_UpperAngle
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6917991896874991296, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_Name
@@ -430,6 +474,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8831832398218466757, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
   m_PrefabInstance: {fileID: 7785947862730846410}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &2702922894337232942 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5300605204049518820, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+  m_PrefabInstance: {fileID: 7785947862730846410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7785947863303929529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -437,6 +486,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7785947862944563486}
     m_Modifications:
+    - target: {fileID: 371506379968273450, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300605204049518820, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_UseLimits
       value: 1
@@ -528,6 +585,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7785947862944563486}
     m_Modifications:
+    - target: {fileID: 371506379968273450, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300605204049518820, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_UseLimits
       value: 1
@@ -619,6 +684,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7785947862944563486}
     m_Modifications:
+    - target: {fileID: 371506379968273450, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300605204049518820, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_UseLimits
       value: 0
@@ -714,6 +787,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7785947862944563486}
     m_Modifications:
+    - target: {fileID: 371506379968273450, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300605204049518820, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_UseLimits
       value: 1

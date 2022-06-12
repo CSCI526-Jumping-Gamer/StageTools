@@ -32,8 +32,6 @@ public class MagneticField : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("trigger");
-        Debug.Log(other.name);
         if (other.gameObject.tag == "Player") {
             Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();
             // Rigidbody2D otherRb2d = other.GetComponent<Rigidbody2D>();

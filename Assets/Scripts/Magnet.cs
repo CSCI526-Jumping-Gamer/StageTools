@@ -31,7 +31,6 @@ public class Magnet : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log(other.gameObject.name);
         if (other.gameObject.tag == "Player") {
             playerMovement.SetIsCollidedWithMagnet(true);
             // Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();

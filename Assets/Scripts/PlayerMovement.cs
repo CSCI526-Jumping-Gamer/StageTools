@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     bool isJumpPressed = false;
     Rope rope;
     PlayerControls playerControls;
+    PlayerInput playerInput;
 
     [SerializeField] float normalGravityScale = 8f;
     [SerializeField] float moveSpeed = 10f;
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float climbSpeed = 8f;
     [SerializeField] float horizontalLossSpeed = 40f;
     [SerializeField] float verticalLossSpeed = 40f;
-    [SerializeField] float maxDistnace = 10f;
+    // [SerializeField] float maxDistance = 10f;
 
     private void Awake() {
         // rb2d = GetComponent<Rigidbody2D>();
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         // boxCollider2d = GetComponent<BoxCollider2D>();
         boxCollider2d = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();
         playerControls = new PlayerControls();
+        playerInput = GetComponent<PlayerInput>();
         playerControls.Player.Magnetize.performed += ctx => {
             isMagnetized = true;
         };
@@ -56,8 +58,20 @@ public class PlayerMovement : MonoBehaviour
         playerControls.Player.Enable();
     }
 
-    public void OnDisable() {    
+    public void OnDisable() {
         playerControls.Player.Disable();
+    }
+
+    public void DisablePlayerInput() {
+        playerInput.DeactivateInput();
+    }
+
+    public void EnablePlayerInputWithDelay(float delay) {
+        Invoke("EnablePlayerInput", delay);
+    }
+
+    public void EnablePlayerInput() {
+        playerInput.ActivateInput();
     }
 
     void FixedUpdate() {
@@ -347,7 +361,7 @@ public class PlayerMovement : MonoBehaviour
     // private void OnDrawGizmosSelected()
     // {
     //         Gizmos.color = Color.green;
-    //         Gizmos.DrawWireSphere(transform.position, maxDistnace);
+    //         Gizmos.DrawWireSphere(transform.position, maxDistance);
         
     // }
 }

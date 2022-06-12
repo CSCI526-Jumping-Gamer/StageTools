@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TwoPosition : MonoBehaviour
 {
-    
+
     private Transform child;
     private Transform curr; 
     [SerializeField] float moveSpeed = 10f;
 
-    
+
     private Vector3 startPos;
     void Awake()
     {
@@ -25,5 +25,5 @@ public class TwoPosition : MonoBehaviour
 
     }
 
-    
+
 }

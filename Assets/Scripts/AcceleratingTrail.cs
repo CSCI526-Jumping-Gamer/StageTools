@@ -19,6 +19,8 @@ public class AcceleratingTrail : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
             isTriggered = true;
+            // playerMovement.DisablePlayerInput();
+            // playerMovement.EnablePlayerInputWithDelay(0.1f);
             Accelerate(other);
         }
     }

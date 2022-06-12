@@ -211,9 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTriggered: 0
-  baseDistanceForce: 40
-  magnetForce: 800
-  MagnetAttractable: 0
+  baseDistanceForce: 15
+  magnetForce: 300
 --- !u!1 &4362886716463013158
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,9 +680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTriggered: 0
-  baseDistanceForce: 40
-  magnetForce: 800
-  MagnetAttractable: 0
+  baseDistanceForce: 15
+  magnetForce: 300
 --- !u!1 &9126367159045013194
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,18 +7,27 @@ public class MagneticField : MonoBehaviour
 {
     Rigidbody2D otherRb2d;
     PlayerMovement playerMovement;
+    Rigidbody2D rb2d;
+    LineRenderer lineRenderer;
 
     public bool isTriggered = false;
     public float baseDistanceForce = 10f;
     public float magnetForce = 30f;
+    [SerializeField] private bool MagnetAttractable;
  
     private void Awake() {
         playerMovement = FindObjectOfType<PlayerMovement>();        
+        lineRenderer = GetComponentInParent<LineRenderer>();
+        lineRenderer.enabled = false;
+        rb2d = GetComponentInParent<Rigidbody2D>();
     }
 
     private void FixedUpdate() {
         if (isTriggered && playerMovement.GetIsMagnetized()) {
             Attract(otherRb2d);
+            DrawRope(otherRb2d);
+        } else {
+            DeleteRope();
         }
     }
 
@@ -43,6 +52,9 @@ public class MagneticField : MonoBehaviour
         float distance = Vector2.Distance(transform.position, otherRb2d.transform.position);
         float distanceFactor = (baseDistanceForce / (distance * distance));
         otherRb2d.AddForce(distanceFactor * magnetForce * magnetDirection, ForceMode2D.Force);
+        if (MagnetAttractable) {
+            rb2d.AddForce(distanceFactor * magnetForce * -magnetDirection, ForceMode2D.Force);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
@@ -50,5 +62,14 @@ public class MagneticField : MonoBehaviour
             playerMovement.SetIsTriggeredWithMagnet(false);
             isTriggered = false;
         }
+    }
+    void DrawRope(Rigidbody2D otherRb2d)
+    {
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, otherRb2d.transform.position);
+    }
+    void DeleteRope() {
+        lineRenderer.enabled = false;
     }
 }

@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class SelfRotate : MonoBehaviour
 {
-    [SerializeField] float rotateSpeed = 200f;
+    [SerializeField] float startAngle = 0f;
+    [SerializeField] float endAngle = 90f;
+    [SerializeField] float duration = 2f;
+    [SerializeField] float selfRotateSpeed = 40f;
+    [SerializeField] bool isFullRotate = false;
     
-    private Vector3 rot;
-    private Transform trans;
-    [SerializeField] float angle = 90f;
-    [SerializeField] bool isAround = true;
-    [SerializeField] bool clockWise = true;
-    
-    void Awake() {
-        trans = transform;
-        rot = new Vector3(0, 0 ,0);
+    private void Start() {
+
     }
-    void Update()
-    {
-        rot.z = clockWise ? -1 : 1;
-        if (isAround) {
-            trans.Rotate(rot * rotateSpeed * Time.deltaTime, Space.Self);
+
+    private void Update() {
+        if (isFullRotate) {
+            transform.Rotate(new Vector3(0, 0, selfRotateSpeed) * Time.deltaTime);
         } else {
-            trans.localEulerAngles = new Vector3(0, 0, Mathf.PingPong(Time.time * rotateSpeed, angle * 2) - 45);
+            float currentAngle = Mathf.SmoothStep(startAngle, endAngle, Mathf.PingPong(Time.time / duration, 1));
+            transform.rotation = Quaternion.Euler(0, 0, currentAngle);
         }
     }
 }

@@ -59,8 +59,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5449289300719964508}
   m_LocalRotation: {x: 0, y: 0, z: 0.08715578, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13.348632, y: 0.8833106, z: 1}
+  m_LocalPosition: {x: 0.422, y: -0.2891, z: 0}
+  m_LocalScale: {x: 19.656258, y: 1.4075667, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8297439302912524309}
@@ -151,17 +151,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8297439302912524309}
     m_Modifications:
+    - target: {fileID: 292568520578776550, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 951517530759745832, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1342310104478392832, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: magnetForce
       value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1342310104478392832, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: baseDistanceForce
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1342310104478392833, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_Radius
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342310104478392836, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342310106060991305, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655440795135418516, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7660445
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655440795135418516, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655440795135418516, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655440795135418516, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6427876
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655440795135418516, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2648584874977528983, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -169,11 +205,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2648584874977528983, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.19
+      value: 1.63
       objectReference: {fileID: 0}
     - target: {fileID: 2648584874977528983, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.84
+      value: -4.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153205860755082332, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5445113258954397579, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_RootOrder
@@ -223,17 +263,65 @@ PrefabInstance:
       propertyPath: m_Name
       value: Magnet Slingshot (0)
       objectReference: {fileID: 0}
+    - target: {fileID: 5445113258954397580, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464486323078590452, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541025058693723648, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823568776104798616, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7903081215651940621, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316508937096742844, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7660445
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316508937096742844, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316508937096742844, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316508937096742844, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6427876
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316508937096742844, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 8589408598099346728, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: magnetForce
-      value: 800
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 8589408598099346728, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: baseDistanceForce
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8589408598099346729, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_Radius
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589408598099346732, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589408599729589345, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}

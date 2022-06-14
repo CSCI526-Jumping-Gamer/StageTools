@@ -103,6 +103,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5445113258954397579}
     m_Modifications:
+    - target: {fileID: 2428597905665262737, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428597905665262737, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286496, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -147,6 +155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4647406748989286496, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286499, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_Name
       value: Small Magnet (1)
@@ -157,11 +169,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: magnetForce
-      value: 300
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: baseDistanceForce
-      value: 15
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737979248506894220, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737979248506894220, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
@@ -177,6 +197,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5445113258954397579}
     m_Modifications:
+    - target: {fileID: 2428597905665262737, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428597905665262737, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286496, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -221,6 +249,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4647406748989286496, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286499, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_Name
       value: Small Magnet (0)
@@ -231,15 +263,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: magnetForce
-      value: 300
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: baseDistanceForce
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5737979248506894220, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737979248506894220, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737979248506894220, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}

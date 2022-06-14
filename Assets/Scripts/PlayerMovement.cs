@@ -201,6 +201,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Decelerate() {
+        rb2d.AddForce(new Vector2(moveInput.x * moveSpeed, 0f));
+
         if (rb2d.velocity.x > moveSpeed + 3f) {
             rb2d.velocity -= new Vector2(horizontalLossSpeed, verticalLossSpeed) * Time.fixedDeltaTime;
         } else if (rb2d.velocity.x < -moveSpeed - 3f) {
@@ -297,23 +299,23 @@ public class PlayerMovement : MonoBehaviour
         rb2d.velocity = new Vector2(rb2d.velocity.x, climbSpeed * moveInput.y);
     }
 
-    void SwingRope() {
-        if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Rope"))) {
-            rb2d.gravityScale = 0f;
+    // void SwingRope() {
+    //     if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Rope"))) {
+    //         rb2d.gravityScale = 0f;
 
-            if (isPlayerMovingLeftOrRight()) {
-                Rigidbody2D ropeRb2d = rope.GetComponent<Rigidbody2D>();
-                ropeRb2d.velocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
-            }
+    //         if (isPlayerMovingLeftOrRight()) {
+    //             Rigidbody2D ropeRb2d = rope.GetComponent<Rigidbody2D>();
+    //             ropeRb2d.velocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
+    //         }
 
-        } else {
-            rb2d.gravityScale = 8f;
-            // if (rope) {
-            //     Rigidbody2D ropeRb2d = rope.GetComponent<Rigidbody2D>();
-            //     ropeRb2d.velocity = new Vector2(0f, ropeRb2d.velocity.y);
-            // }
-        }
-    }
+    //     } else {
+    //         rb2d.gravityScale = 8f;
+    //         // if (rope) {
+    //         //     Rigidbody2D ropeRb2d = rope.GetComponent<Rigidbody2D>();
+    //         //     ropeRb2d.velocity = new Vector2(0f, ropeRb2d.velocity.y);
+    //         // }
+    //     }
+    // }
 
     bool isPlayerMovingLeftOrRight() {
         if (Keyboard.current.leftArrowKey.isPressed) {

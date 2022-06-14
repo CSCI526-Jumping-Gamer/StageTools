@@ -3,34 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class MagneticField : MonoBehaviour
 {
     Rigidbody2D otherRb2d;
     PlayerMovement playerMovement;
     Rigidbody2D rb2d;
-    LineRenderer lineRenderer;
+    [SerializeField] GameObject magneticLineGameObject;
+    MagneticLine magneticLine;
 
     public bool isTriggered = false;
     public float baseDistanceForce = 10f;
     public float magnetForce = 30f;
     [SerializeField] private bool MagnetAttractable;
- 
+
     private void Awake() {
         playerMovement = FindObjectOfType<PlayerMovement>();        
-        lineRenderer = GetComponentInParent<LineRenderer>();
-        lineRenderer.enabled = false;
         rb2d = GetComponentInParent<Rigidbody2D>();
+        magneticLine = magneticLineGameObject.GetComponent<MagneticLine>();
     }
 
+    private void Update() {
+        if (isTriggered && playerMovement.GetIsMagnetized()) {
+            magneticLine.DrawRope(otherRb2d);
+        } else {
+            magneticLine.DeleteRope();
+        }
+    }
     private void FixedUpdate() {
         if (isTriggered && playerMovement.GetIsMagnetized()) {
             Attract(otherRb2d);
-            DrawRope(otherRb2d);
-        } else {
-            DeleteRope();
+        } else if (!playerMovement.GetIsMagnetized()){
         }
     }
-
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
             Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();
@@ -61,13 +66,13 @@ public class MagneticField : MonoBehaviour
             isTriggered = false;
         }
     }
-    void DrawRope(Rigidbody2D otherRb2d)
-    {
-        lineRenderer.enabled = true;
-        lineRenderer.SetPosition(0, new Vector3(0f, 0f, 0f));
-        lineRenderer.SetPosition(1, otherRb2d.transform.position - transform.position);
-    }
-    void DeleteRope() {
-        lineRenderer.enabled = false;
-    }
+    // void DrawRope(Rigidbody2D otherRb2d)
+    // {
+    //     lineRenderer.enabled = true;
+    //     lineRenderer.SetPosition(0, new Vector3(0f, 0f, 0f));
+    //     lineRenderer.SetPosition(1, otherRb2d.transform.position - transform.position);
+    // }
+    // void DeleteRope() {
+    //     lineRenderer.enabled = false;
+    // }
 }

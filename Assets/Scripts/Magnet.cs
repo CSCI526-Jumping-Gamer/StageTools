@@ -35,10 +35,13 @@ public class Magnet : MonoBehaviour
             playerMovement.SetIsCollidedWithMagnet(true);
             // Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();
             Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();
-            otherRb2d.velocity = new Vector2(0f, 0f);
+            // otherRb2d.velocity = new Vector2(0f, 0f);
             isCollided = true;
         }
-        
+    }
+
+    private void OnCollisionStay(Collision other) {
+        Debug.Log("hello");
     }
 
     private void OnCollisionExit2D(Collision2D other) {

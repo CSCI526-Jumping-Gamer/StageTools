@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D rb2d;
     CircleCollider2D circleCollider2D;
-    BoxCollider2D boxCollider2d;
+    BoxCollider2D boxCollider2D;
     bool isTriggeredWithMagnet = false;
     [SerializeField] bool isCollidedWithMagnet = false;
     bool isMagnetized = false;
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         // boxCollider2d = GetComponent<BoxCollider2D>();
-        boxCollider2d = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();
+        boxCollider2D = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();
         playerControls = new PlayerControls();
         playerInput = GetComponent<PlayerInput>();
         playerControls.Player.Magnetize.performed += ctx => {
@@ -97,12 +97,12 @@ public class PlayerMovement : MonoBehaviour
             if (isHoldingRope) {
                 playerState = PlayerState.OnTheRope;
             }
-        } else if (boxCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
+        } else if (boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             playerState = PlayerState.OnTheGround;
         } else if (isCollidedWithMagnet) { // TODO: change to iscollided
             if (isMagnetized) {
                 playerState = PlayerState.OnTheMagnet;
-            } else if (boxCollider2d.IsTouchingLayers(LayerMask.GetMask("Magnet"))) {
+            } else if (boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Magnet"))) {
                 playerState = PlayerState.OnTheGround;
             } else {
                 playerState = PlayerState.InTheAir;

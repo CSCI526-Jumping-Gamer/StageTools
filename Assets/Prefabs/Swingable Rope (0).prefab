@@ -374,6 +374,18 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 1989312220948195754, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989312220948195754, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.085301206
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989312220948195754, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.509434
+      objectReference: {fileID: 0}
     - target: {fileID: 5300605204049518820, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_AngularDrag
       value: 1

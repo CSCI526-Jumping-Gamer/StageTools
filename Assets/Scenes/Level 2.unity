@@ -469,14 +469,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2144571803}
     m_Modifications:
-    - target: {fileID: 1342310104478392833, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2648584874977528983, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.69
-      objectReference: {fileID: 0}
     - target: {fileID: 5445113258954397579, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -487,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5445113258954397579, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.72
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 5445113258954397579, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -524,10 +516,6 @@ PrefabInstance:
     - target: {fileID: 5445113258954397580, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_Name
       value: Magnet Slingshot (0)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8589408598099346729, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
-      propertyPath: m_Radius
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
@@ -1159,7 +1147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 2.84, z: -10}
+  m_LocalPosition: {x: 51.3, y: 39.84, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1716,37 +1704,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2144571803}
     m_Modifications:
-    - target: {fileID: 341582554473122693, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1322325908283196372, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
-      propertyPath: m_Radius
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1322325908283196373, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
-      propertyPath: magnetForce
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 1322325908283196373, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
-      propertyPath: baseDistanceForce
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 1563667834719300161, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: m_Name
       value: Railgun (0)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385159202570686838, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385159202570686838, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4732091466315450986, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 8297439302912524309, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: m_RootOrder
@@ -1791,18 +1751,6 @@ PrefabInstance:
     - target: {fileID: 8297439302912524309, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8631916253473924348, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
-      propertyPath: m_Radius
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8631916253473924349, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
-      propertyPath: magnetForce
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8631916253473924349, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
-      propertyPath: baseDistanceForce
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
@@ -2702,7 +2650,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5477942466583315305, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03999996
+      value: 0.040000916
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477942466583315310, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.8810126
       objectReference: {fileID: 0}
     - target: {fileID: 6354031141402101216, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_RootOrder
@@ -2710,11 +2662,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6354031141402101216, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3
+      value: 51.3
       objectReference: {fileID: 0}
     - target: {fileID: 6354031141402101216, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8
+      value: 39.8
       objectReference: {fileID: 0}
     - target: {fileID: 6354031141402101216, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_LocalPosition.z

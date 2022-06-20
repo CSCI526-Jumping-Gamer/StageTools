@@ -151,6 +151,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8297439302912524309}
     m_Modifications:
+    - target: {fileID: 1053613862, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Offset.y
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494401341, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_Offset.y
+      value: -6
+      objectReference: {fileID: 0}
     - target: {fileID: 292568520578776550, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -161,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1342310104478392832, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: magnetForce
-      value: 600
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1342310104478392832, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: baseDistanceForce
@@ -205,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2648584874977528983, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.63
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 2648584874977528983, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -221,11 +229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5445113258954397579, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.23
+      value: 5.35
       objectReference: {fileID: 0}
     - target: {fileID: 5445113258954397579, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.14
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 5445113258954397579, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -305,7 +313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8589408598099346728, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: magnetForce
-      value: 600
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8589408598099346728, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: baseDistanceForce

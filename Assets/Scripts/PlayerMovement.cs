@@ -21,14 +21,19 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float normalGravityScale = 8f;
     [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float moveSpeedMultiplier = 1f;
+    [SerializeField] float finalMoveSpeed = 10f;
     [SerializeField] float moveSpeedOnRope = 6f;
     [SerializeField] float swingSpeed = 10f;
     [SerializeField] float jumpSpeed = 24f;
+    [SerializeField] float jumpSpeedMultiplier = 1f;
+    [SerializeField] float finalJumpSpeed = 24f;
     [SerializeField] float climbSpeed = 8f;
     [SerializeField] float horizontalLossSpeed = 40f;
     [SerializeField] float verticalLossSpeed = 40f;
     [SerializeField] bool canDoubleJump = false;
     [SerializeField] bool isAllowedToDoubleJump = false;
+    [SerializeField] int shieldCount = 0;
     // int count = 0;
     // [SerializeField] float maxDistance = 10f;
 
@@ -86,11 +91,17 @@ public class PlayerMovement : MonoBehaviour
         // count++;
         // Debug.Log(count);
         GetState();
+        GetPlayerSpeed();
         Climb();
         Move();
         Jump();
         Gravity();
         InputSystem.Update();
+    }
+
+    void GetPlayerSpeed() {
+        finalMoveSpeed = moveSpeed * moveSpeedMultiplier;
+        finalJumpSpeed = jumpSpeed * jumpSpeedMultiplier;
     }
     
     private void LateUpdate() {
@@ -191,12 +202,12 @@ public class PlayerMovement : MonoBehaviour
         if (isAccelerating()) {
             Decelerate();
         } else {
-            rb2d.velocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, rb2d.velocity.y);
         }
     }
 
     void MoveOnTheMagnet() {
-        rb2d.velocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
+        rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, rb2d.velocity.y);
     }
 
     void MoveOnTheRope() {
@@ -207,24 +218,24 @@ public class PlayerMovement : MonoBehaviour
         if (isAccelerating()) {
             Decelerate();
         } else {
-            rb2d.velocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, rb2d.velocity.y);
         }
     }
 
     void Decelerate() {
-        rb2d.AddForce(new Vector2(moveInput.x * moveSpeed, 0f));
+        rb2d.AddForce(new Vector2(moveInput.x * finalMoveSpeed, 0f));
 
-        if (rb2d.velocity.x > moveSpeed + 3f) {
+        if (rb2d.velocity.x > finalMoveSpeed + 3f) {
             rb2d.velocity -= new Vector2(horizontalLossSpeed, verticalLossSpeed) * Time.fixedDeltaTime;
-        } else if (rb2d.velocity.x < -moveSpeed - 3f) {
+        } else if (rb2d.velocity.x < -finalMoveSpeed - 3f) {
             rb2d.velocity -= new Vector2(-horizontalLossSpeed, verticalLossSpeed) * Time.fixedDeltaTime;   
         }
     }
 
     bool isAccelerating() {
-        if (rb2d.velocity.x > moveSpeed + 3f) {
+        if (rb2d.velocity.x > finalMoveSpeed + 3f) {
             return true;
-        } else if (rb2d.velocity.x < -moveSpeed - 3f) {
+        } else if (rb2d.velocity.x < -finalMoveSpeed - 3f) {
             return true;
         }
 
@@ -251,24 +262,24 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void JumpOnTheGround() {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+        rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
     }
 
     void JumpOnTheMagnet() {
         if (isMagnetized) {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
         }
     }
 
     void JumpOnTheRope() {
         circleCollider2D.enabled = false;
-        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+        rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
     }
 
     void JumpInTheAir() {
         if (canDoubleJump) {
             canDoubleJump = false;
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
         }
         // Can't jump again for now
     }
@@ -378,6 +389,15 @@ public class PlayerMovement : MonoBehaviour
     public bool GetIsHoldingRope() {
         return isHoldingRope;
     }
+
+    public int GetShieldCount() {
+        return shieldCount;
+    }
+
+    public void SetShieldCount(int count) {
+        shieldCount = count;
+    }
+
     // private void OnDrawGizmosSelected()
     // {
     //         Gizmos.color = Color.green;

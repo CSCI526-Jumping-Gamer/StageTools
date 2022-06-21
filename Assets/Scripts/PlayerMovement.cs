@@ -10,31 +10,41 @@ public class PlayerMovement : MonoBehaviour
     CircleCollider2D circleCollider2D;
     BoxCollider2D boxCollider2D;
     bool isTriggeredWithMagnet = false;
-    [SerializeField] bool isCollidedWithMagnet = false;
+    bool isCollidedWithMagnet = false;
     bool isMagnetized = false;
     bool isHoldingRope = false;
-    [SerializeField] PlayerState playerState;
     bool isJumpPressed = false;
+    bool canDoubleJump = false;
+    float finalMoveSpeed = 10f;
+    float finalJumpSpeed = 24f;
     Rope rope;
     PlayerControls playerControls;
     PlayerInput playerInput;
 
-    [SerializeField] float normalGravityScale = 8f;
+    [Header("Base Speed")]
     [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float moveSpeedMultiplier = 1f;
-    [SerializeField] float finalMoveSpeed = 10f;
     [SerializeField] float moveSpeedOnRope = 6f;
     [SerializeField] float swingSpeed = 10f;
     [SerializeField] float jumpSpeed = 24f;
-    [SerializeField] float jumpSpeedMultiplier = 1f;
-    [SerializeField] float finalJumpSpeed = 24f;
     [SerializeField] float climbSpeed = 8f;
-    [SerializeField] float horizontalLossSpeed = 40f;
-    [SerializeField] float verticalLossSpeed = 40f;
-    [SerializeField] bool canDoubleJump = false;
+    [SerializeField] float normalGravityScale = 8f;
+    
+    [Header("Speed Multiplier")]
+    [SerializeField] float moveSpeedMultiplier = 1f;
+    [SerializeField] float jumpSpeedMultiplier = 1f;
+
+    [Header("Speed Loss")]
+    [SerializeField] float horizontalSpeedLoss = 40f;
+    [SerializeField] float verticalSpeedLoss = 40f;
+
+    [Header("Player State (for debug usage)")]
+    [SerializeField] PlayerState playerState;
+
+    [Header("Card Attribute")]
     [SerializeField] bool isAllowedToDoubleJump = false;
+    [SerializeField] bool isAllowedToFly = false;
     [SerializeField] int shieldCount = 0;
-    // int count = 0;
+
     // [SerializeField] float maxDistance = 10f;
 
     private void Awake() {
@@ -202,7 +212,11 @@ public class PlayerMovement : MonoBehaviour
         if (isAccelerating()) {
             Decelerate();
         } else {
-            rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, rb2d.velocity.y);
+            if (isAllowedToFly) {
+                rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, moveInput.y * finalMoveSpeed);
+            } else {
+                rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, rb2d.velocity.y);
+            }
         }
     }
 
@@ -218,7 +232,11 @@ public class PlayerMovement : MonoBehaviour
         if (isAccelerating()) {
             Decelerate();
         } else {
-            rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, rb2d.velocity.y);
+            if (isAllowedToFly) {
+                rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, moveInput.y * finalMoveSpeed);
+            } else {
+                rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, rb2d.velocity.y);
+            }
         }
     }
 
@@ -226,9 +244,9 @@ public class PlayerMovement : MonoBehaviour
         rb2d.AddForce(new Vector2(moveInput.x * finalMoveSpeed, 0f));
 
         if (rb2d.velocity.x > finalMoveSpeed + 3f) {
-            rb2d.velocity -= new Vector2(horizontalLossSpeed, verticalLossSpeed) * Time.fixedDeltaTime;
+            rb2d.velocity -= new Vector2(horizontalSpeedLoss, verticalSpeedLoss) * Time.fixedDeltaTime;
         } else if (rb2d.velocity.x < -finalMoveSpeed - 3f) {
-            rb2d.velocity -= new Vector2(-horizontalLossSpeed, verticalLossSpeed) * Time.fixedDeltaTime;   
+            rb2d.velocity -= new Vector2(-horizontalSpeedLoss, verticalSpeedLoss) * Time.fixedDeltaTime;   
         }
     }
 
@@ -285,7 +303,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Gravity() {
-        if (playerState == PlayerState.OnTheGround) {
+        if (isAllowedToFly) {
+            rb2d.gravityScale = 0f;
+        } else if (playerState == PlayerState.OnTheGround) {
             rb2d.gravityScale = normalGravityScale;
         } else if (playerState == PlayerState.OnTheMagnet) {
             rb2d.gravityScale = 0f;

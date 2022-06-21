@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     [SerializeField] float loadDelay = 1f;
-    [SerializeField] int sceneNumber = 0;
     [SerializeField] ParticleSystem finishEffect;
 
     // Start is called before the first frame update
@@ -17,6 +16,10 @@ public class FinishLine : MonoBehaviour
         }
     }
     void ReloadScene() {
-        SceneManager.LoadScene(sceneNumber);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (currentSceneIndex < SceneManager.sceneCountInBuildSettings - 1) {
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
     }
 }

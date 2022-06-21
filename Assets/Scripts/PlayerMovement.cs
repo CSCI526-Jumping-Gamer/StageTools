@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float climbSpeed = 8f;
     [SerializeField] float horizontalLossSpeed = 40f;
     [SerializeField] float verticalLossSpeed = 40f;
+    [SerializeField] bool canDoubleJump = false;
+    [SerializeField] bool isAllowedToDoubleJump = false;
     // [SerializeField] float maxDistance = 10f;
 
     private void Awake() {
@@ -225,10 +227,13 @@ public class PlayerMovement : MonoBehaviour
             isJumpPressed = false;
 
             if (playerState == PlayerState.OnTheGround) {
+                canDoubleJump = isAllowedToDoubleJump == false ? false : true;
                 JumpOnTheGround();
             } else if (playerState == PlayerState.OnTheMagnet) {
+                canDoubleJump = isAllowedToDoubleJump == false ? false : true;
                 JumpOnTheMagnet();
             } else if (playerState == PlayerState.OnTheRope) {
+                canDoubleJump = isAllowedToDoubleJump == false ? false : true;
                 JumpOnTheRope();
             } else {
                 JumpInTheAir();
@@ -252,6 +257,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void JumpInTheAir() {
+        if (canDoubleJump) {
+            canDoubleJump = false;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+        }
         // Can't jump again for now
     }
 

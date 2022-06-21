@@ -33,7 +33,6 @@ public class MagneticField : MonoBehaviour
     private void FixedUpdate() {
         if (isTriggered && playerMovement.GetIsMagnetized()) {
             Attract(otherRb2d);
-        } else if (!playerMovement.GetIsMagnetized()){
         }
     }
     private void OnTriggerEnter2D(Collider2D other) {
@@ -55,6 +54,7 @@ public class MagneticField : MonoBehaviour
         float distance = Vector2.Distance(transform.position, otherRb2d.transform.position);
         float distanceFactor = (baseDistanceForce / (distance * distance));
         otherRb2d.AddForce(distanceFactor * magnetForce * magnetDirection, ForceMode2D.Force);
+
         if (MagnetAttractable) {
             rb2d.AddForce(distanceFactor * magnetForce * -magnetDirection, ForceMode2D.Force);
         }

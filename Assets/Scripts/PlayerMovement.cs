@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float verticalLossSpeed = 40f;
     [SerializeField] bool canDoubleJump = false;
     [SerializeField] bool isAllowedToDoubleJump = false;
+    // int count = 0;
     // [SerializeField] float maxDistance = 10f;
 
     private void Awake() {
@@ -76,12 +77,20 @@ public class PlayerMovement : MonoBehaviour
         playerInput.ActivateInput();
     }
 
+    private void Update() {
+        // Debug.Log("update");
+    }
+
     void FixedUpdate() {
+        // Debug.Log("fixed");
+        // count++;
+        // Debug.Log(count);
         GetState();
         Climb();
         Move();
         Jump();
         Gravity();
+        InputSystem.Update();
     }
     
     private void LateUpdate() {

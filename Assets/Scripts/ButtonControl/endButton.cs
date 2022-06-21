@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class endButton : MonoBehaviour
+public class EndButton : MonoBehaviour
 {
     public void restartScene() {
         Scene scene = SceneManager.GetActiveScene();

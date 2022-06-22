@@ -770,6 +770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4653821504257861322, guid: 664f0320e1a74be4a8d5201e95c5bcaa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 664f0320e1a74be4a8d5201e95c5bcaa, type: 3}
 --- !u!224 &890552876670924065 stripped

@@ -7,15 +7,26 @@ public class FinishLine : MonoBehaviour
 {
     [SerializeField] float loadDelay = 1f;
     [SerializeField] ParticleSystem finishEffect;
-    [SerializeField] GameObject endScene;
+    GameObject endScene;
+    PlayerMovement playerMovement;
     
 
     // Start is called before the first frame update
+    private void Awake() {
+        endScene = GameObject.FindWithTag("Result");
+        playerMovement = FindObjectOfType<PlayerMovement>();
+    }
+
+    private void Start() {
+        endScene.SetActive(false);
+    }
+
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
             finishEffect.Play();
             // Ian added
             endScene.SetActive(true); // activate end scene
+            playerMovement.DisablePlayerInput();
             FindObjectOfType<StarColor>().setStarColor(); // set the star color 
             TimeControl.timerObj.TimerEnd(); // end the timer;
             TimeControl.timerObj.showTimerOnEndCanvas();

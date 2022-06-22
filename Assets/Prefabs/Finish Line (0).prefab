@@ -118,7 +118,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadDelay: 1
   finishEffect: {fileID: 660051441}
-  endScene: {fileID: 0}
 --- !u!198 &660051441
 ParticleSystem:
   m_ObjectHideFlags: 0

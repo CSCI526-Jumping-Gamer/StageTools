@@ -9,6 +9,10 @@ public class MagnetHelper : MonoBehaviour
     public bool HelperSwitch;
     public Card1MagnetHelper helperController;
 
+    private void Awake() {
+        // helperController = GameObject.FindWithTag();
+    }
+
     public void Start() {
 
     }

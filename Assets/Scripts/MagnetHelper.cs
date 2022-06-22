@@ -9,12 +9,8 @@ public class MagnetHelper : MonoBehaviour
     public bool HelperSwitch;
     public Card1MagnetHelper helperController;
 
-    private void Awake() {
-        // helperController = GameObject.FindWithTag();
-    }
-
     public void Start() {
-
+        helperController = FindObjectOfType<Card1MagnetHelper>();
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player" && helperController.HelperEnabled) {

@@ -5,15 +5,28 @@ using UnityEngine;
 public class StarColor : MonoBehaviour
 {
     // Start is called before the first frame update
+    // TimeControl timeControl;
+    private void Start()
+    {
+
+    }
+
     public GameObject[] stars;
-    public void setStarColor() {
-        
-        int time = Random.Range(30, 121);
-        if (time <= 60) {
+    public void setStarColor()
+    {
+
+        float time = TimeControl.timerObj.getTimeElapsed();
+        Debug.Log(time);
+        if (time <= 60)
+        {
             stars[0].SetActive(true);
-        } else if (time <= 90){
+        }
+        else if (time <= 90)
+        {
             stars[1].SetActive(true);
-        } else {
+        }
+        else
+        {
             stars[2].SetActive(true);
         }
     }

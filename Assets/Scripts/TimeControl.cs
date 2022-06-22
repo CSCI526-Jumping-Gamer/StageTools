@@ -15,18 +15,21 @@ public class TimeControl : MonoBehaviour
     private float timeElapsed;
     private bool isTimerOn;
 
-    private void Awake() {
+    private void Awake()
+    {
         timerObj = this;
     }
 
-    private void Start() {
+    private void Start()
+    {
         timeCount.text = "Time: 00:00.00";
         timeSpendOnStage.text = "00 sec";
         isTimerOn = false;
         this.TimerBegin();
     }
 
-    public void TimerBegin() {
+    public void TimerBegin()
+    {
         isTimerOn = true;
         timeElapsed = 0f;
 
@@ -34,16 +37,25 @@ public class TimeControl : MonoBehaviour
 
     }
 
-    public void showTimerOnEndCanvas() {
+    public float getTimeElapsed()
+    {
+        return timeElapsed;
+    }
+
+    public void showTimerOnEndCanvas()
+    {
         timeSpendOnStage.text = timeSpan.ToString("ss'.'ff") + " sec";
     }
 
-    public void TimerEnd() {
+    public void TimerEnd()
+    {
         isTimerOn = false;
     }
 
-    private IEnumerator UpdateTimer() {
-        while (isTimerOn) {
+    private IEnumerator UpdateTimer()
+    {
+        while (isTimerOn)
+        {
             timeElapsed += Time.deltaTime;
             timeSpan = TimeSpan.FromSeconds(timeElapsed);
             string timerStr = "Time: " + timeSpan.ToString("mm':'ss'.'ff");

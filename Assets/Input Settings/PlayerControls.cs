@@ -80,6 +80,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseCard"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f4dcc51-d53c-43b4-a082-09c0bd76c1b8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -333,6 +342,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""HoldRope"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff01de50-000d-4990-a389-62f77223d088"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UseCard"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -926,6 +946,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Magnetize = m_Player.FindAction("Magnetize", throwIfNotFound: true);
         m_Player_HoldRope = m_Player.FindAction("HoldRope", throwIfNotFound: true);
+        m_Player_UseCard = m_Player.FindAction("UseCard", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1003,6 +1024,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Magnetize;
     private readonly InputAction m_Player_HoldRope;
+    private readonly InputAction m_Player_UseCard;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -1013,6 +1035,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Magnetize => m_Wrapper.m_Player_Magnetize;
         public InputAction @HoldRope => m_Wrapper.m_Player_HoldRope;
+        public InputAction @UseCard => m_Wrapper.m_Player_UseCard;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1040,6 +1063,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @HoldRope.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHoldRope;
                 @HoldRope.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHoldRope;
                 @HoldRope.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHoldRope;
+                @UseCard.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseCard;
+                @UseCard.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseCard;
+                @UseCard.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseCard;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1062,6 +1088,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @HoldRope.started += instance.OnHoldRope;
                 @HoldRope.performed += instance.OnHoldRope;
                 @HoldRope.canceled += instance.OnHoldRope;
+                @UseCard.started += instance.OnUseCard;
+                @UseCard.performed += instance.OnUseCard;
+                @UseCard.canceled += instance.OnUseCard;
             }
         }
     }
@@ -1224,6 +1253,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMagnetize(InputAction.CallbackContext context);
         void OnHoldRope(InputAction.CallbackContext context);
+        void OnUseCard(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

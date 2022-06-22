@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     Rope rope;
     PlayerControls playerControls;
     PlayerInput playerInput;
+    [SerializeField] PlayerCard playerCard;
 
     [Header("Base Speed")]
     [SerializeField] float moveSpeed = 10f;
@@ -30,8 +31,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float normalGravityScale = 8f;
     
     [Header("Speed Multiplier")]
-    [SerializeField] float moveSpeedMultiplier = 1f;
-    [SerializeField] float jumpSpeedMultiplier = 1f;
+    public float moveSpeedMultiplier = 1f;
+    public float jumpSpeedMultiplier = 1f;
 
     [Header("Speed Loss")]
     [SerializeField] float horizontalSpeedLoss = 40f;
@@ -41,9 +42,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PlayerState playerState;
 
     [Header("Card Attribute")]
-    [SerializeField] bool isAllowedToDoubleJump = false;
-    [SerializeField] bool isAllowedToFly = false;
-    [SerializeField] int shieldCount = 0;
+    public bool isAllowedToDoubleJump = false;
+    public bool isAllowedToFly = false;
+    public int shieldCount = 0;
 
     // [SerializeField] float maxDistance = 10f;
 
@@ -69,6 +70,9 @@ public class PlayerMovement : MonoBehaviour
 
         playerControls.Player.HoldRope.canceled += ctx => {
             isHoldingRope = false;
+        };
+        playerControls.Player.UseCard.performed += ctx => {
+            playerCard.StartCard();
         };
     }
     
@@ -416,6 +420,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetShieldCount(int count) {
         shieldCount = count;
+    }
+    public void SetIsAllowedDoubleJump(bool IsAllowed) {
+        isAllowedToDoubleJump = IsAllowed;
     }
 
     // private void OnDrawGizmosSelected()

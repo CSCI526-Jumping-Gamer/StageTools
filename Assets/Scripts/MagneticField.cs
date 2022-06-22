@@ -11,16 +11,22 @@ public class MagneticField : MonoBehaviour
     Rigidbody2D rb2d;
     [SerializeField] GameObject magneticLineGameObject;
     MagneticLine magneticLine;
+    [SerializeField] GameObject magnetHelperGameObject;
+    MagnetHelper magnetHelper;
 
     public bool isTriggered = false;
     public float baseDistanceForce = 10f;
     public float magnetForce = 30f;
     [SerializeField] private bool MagnetAttractable;
+    [SerializeField] private bool SlingShot;
 
     private void Awake() {
         playerMovement = FindObjectOfType<PlayerMovement>();        
         rb2d = GetComponentInParent<Rigidbody2D>();
         magneticLine = magneticLineGameObject.GetComponent<MagneticLine>();
+        if (SlingShot) {
+            magnetHelper = magnetHelperGameObject.GetComponent<MagnetHelper>();
+        }
     }
 
     private void Update() {
@@ -31,9 +37,16 @@ public class MagneticField : MonoBehaviour
         }
     }
     private void FixedUpdate() {
-        if (isTriggered && playerMovement.GetIsMagnetized()) {
-            Attract(otherRb2d);
+        if (SlingShot) {
+            if (isTriggered && playerMovement.GetIsMagnetized() && !magnetHelper.HelperSwitch) {
+                Attract(otherRb2d);
+            }
+        } else {
+            if (isTriggered && playerMovement.GetIsMagnetized()) {
+                Attract(otherRb2d);
+            }
         }
+
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
@@ -54,7 +67,6 @@ public class MagneticField : MonoBehaviour
         float distance = Vector2.Distance(transform.position, otherRb2d.transform.position);
         float distanceFactor = (baseDistanceForce / (distance * distance));
         otherRb2d.AddForce(distanceFactor * magnetForce * magnetDirection, ForceMode2D.Force);
-
         if (MagnetAttractable) {
             rb2d.AddForce(distanceFactor * magnetForce * -magnetDirection, ForceMode2D.Force);
         }
@@ -66,13 +78,4 @@ public class MagneticField : MonoBehaviour
             isTriggered = false;
         }
     }
-    // void DrawRope(Rigidbody2D otherRb2d)
-    // {
-    //     lineRenderer.enabled = true;
-    //     lineRenderer.SetPosition(0, new Vector3(0f, 0f, 0f));
-    //     lineRenderer.SetPosition(1, otherRb2d.transform.position - transform.position);
-    // }
-    // void DeleteRope() {
-    //     lineRenderer.enabled = false;
-    // }
 }

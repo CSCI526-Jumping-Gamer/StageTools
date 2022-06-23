@@ -9,14 +9,14 @@ public class ZeroForceZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         SlingshotHelper slingshotHelper = (SlingshotHelper)Inventory.instance.GetFirstCard();
 
-        if (other.gameObject.tag == "Player" && slingshotHelper.isHelperEnabled) {
+        if (other.gameObject.tag == "Player" && slingshotHelper && slingshotHelper.isHelperEnabled) {
             isTriggered = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other) {
         SlingshotHelper slingshotHelper = (SlingshotHelper)Inventory.instance.GetFirstCard();
 
-        if (other.gameObject.tag == "Player" && slingshotHelper.isHelperEnabled) {
+        if (other.gameObject.tag == "Player" && slingshotHelper && slingshotHelper.isHelperEnabled) {
             isTriggered = false;
         }
     }

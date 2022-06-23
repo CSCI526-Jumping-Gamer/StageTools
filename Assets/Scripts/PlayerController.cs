@@ -75,11 +75,12 @@ public class PlayerController : MonoBehaviour
             isHoldingRope = false;
         };
         playerControls.Player.UseCard.performed += ctx => {
-            // playerCard.StartCard();
-            // Card card = Inventory.instance.GetFirstCard();
-            // cardTimer.SetIsActivated(true);
-            // card.Activate();
-            cardTimer.Activate();
+            Card card = Inventory.instance.GetFirstCard();
+
+            if (card != null) {
+                card.Activate();
+                cardTimer.Activate(card);
+            }
         };
 
         if (instance != null) {

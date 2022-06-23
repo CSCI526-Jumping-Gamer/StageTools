@@ -14,6 +14,8 @@ public class Inventory : MonoBehaviour
         }
 
         instance = this;
+
+        Add(ScriptableObject.CreateInstance<SlingshotHelper>());
     }
 
     public void Add(Card card) {
@@ -25,6 +27,10 @@ public class Inventory : MonoBehaviour
     }
 
     public Card GetFirstCard() {
-        return cards[0];
+        if (cards.Count > 0) {
+            return cards[0];
+        }
+        
+        return null;
     }
 }

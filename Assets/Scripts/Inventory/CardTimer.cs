@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class CardTimer : MonoBehaviour
 {
-    bool isActivated;
+    bool isActivated = false;
     Card card;
 
     public Slider slider;
@@ -19,32 +19,14 @@ public class CardTimer : MonoBehaviour
     public float remainingTime;
 
     void Start() {
-        // Inventory.instance.Add(ScriptableObject.CreateInstance<DoubleJump>());
-        // Inventory.instance.Add(ScriptableObject.CreateInstance<SpeedUp>());
-        Inventory.instance.Add(ScriptableObject.CreateInstance<SlingshotHelper>());
-        card = Inventory.instance.GetFirstCard();
-        remainingTime = card.time;
-        cardName = card.cardName;
-        isActivated = false;
-        EnbableCardTimer();
-        DisplayTime(remainingTime, cardName);
+        DisableCardTimer();
     } 
 
-    IEnumerator ExampleCoroutine()
-    {
-        //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
-
-        //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(1);
-
-        //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-    }
-
-    public void Activate() {
+    public void Activate(Card card) {
+        this.card = card;
+        EnbableCardTimer();
+        DisplayTime(remainingTime, cardName);
         SetIsActivated(true);
-        card.Activate();
     }
 
     void Update() {
@@ -56,11 +38,14 @@ public class CardTimer : MonoBehaviour
                 isActivated = false;
                 card.Deactivate();
                 DisableCardTimer();
+                Inventory.instance.Remove(card);
             }
         }
     }
     
     public void EnbableCardTimer() {   
+        remainingTime = card.time;
+        cardName = card.cardName;
         background.enabled = true;
         fill.enabled = true;
         remainingTimeText.enabled = true;

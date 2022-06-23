@@ -39,6 +39,7 @@ public class CardTimer : MonoBehaviour
                 card.Deactivate();
                 DisableCardTimer();
                 Inventory.instance.Remove(card);
+                PlayerController.instance.SetIsUsingCard(false);
             }
         }
     }

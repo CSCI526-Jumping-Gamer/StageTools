@@ -7,7 +7,7 @@ public class SlingshotHelper : Card
     public bool isHelperEnabled = false;
 
     private void Awake() {
-        cardName = "Magnet Helper";
+        cardName = "Slingshot Helper";
         time = 3f;
         rank = 2;
     }

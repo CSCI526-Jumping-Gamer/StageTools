@@ -6,38 +6,56 @@ using TMPro;
 public class RandomCards : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject cardPanel;
+    GameObject cardPanel;
     [SerializeField] TextMeshProUGUI[] cardText;
     private Card[] threeStarsCards; // 25%
     private Card[] twoStarsCards; // 50%
     private Card[] oneStarsCards; // 25%
     private List<Card> cards;
+
     int[] randCardNumber;
     
     void Awake() {
-        // cardPanel = GameObject.FindWithTag("Cards");
-        cardPanel.SetActive(false);
+        cardPanel = GameObject.FindWithTag("CardPanel");
         randCardNumber = new int[]{ Random.Range(1, 100), Random.Range(1, 100), Random.Range(1, 100)};
         threeStarsCards = new Card[]{ ScriptableObject.CreateInstance<DoubleJump>()};// 25%
         twoStarsCards = new Card[]{ ScriptableObject.CreateInstance<SlingshotHelper>()}; // 50%
         oneStarsCards = new Card[]{ ScriptableObject.CreateInstance<SpeedUp>()}; // 25%
         cards = new List<Card>();
+        cardPanel.SetActive(false);
+        // gameObject.SetActive(false);
     }
 
     void Start()
     {
-        StartCoroutine(CardSelections());
+        
+        // cardPanel.SetActive(true);
+        // cardPanel.SetActive(false);
+        // StartCoroutine(CardSelections());
+        // cardPanel.SetActive(true);
+        // Debug.Log("Pick a card!!");
+        // getCards(0);
+        // getCards(1);
+        // getCards(2);
+        Invoke("StartCardPanel", 1f);
     }
 
-    IEnumerator CardSelections() {
-        
-        yield return new WaitForSeconds(1);
+    // IEnumerator CardSelections() {
+    //     yield return new WaitForSeconds(1);
+    //     cardPanel.SetActive(true);
+    //     Debug.Log("Pick a card!!");
+    //     getCards(0);
+    //     getCards(1);
+    //     getCards(2);
+
+    // }
+
+    void StartCardPanel() {
         cardPanel.SetActive(true);
         Debug.Log("Pick a card!!");
         getCards(0);
         getCards(1);
         getCards(2);
-
     }
 
     void getCards(int index) {
@@ -60,14 +78,18 @@ public class RandomCards : MonoBehaviour
 
     public void SelectFirstCard() {
         Debug.Log(cards[0].cardName);
+        Inventory.instance.Add(cards[0]);
+        
         cardPanel.SetActive(false);
     }
     public void SelectSecondCard() {
         Debug.Log(cards[1].cardName);
+        Inventory.instance.Add(cards[1]);
         cardPanel.SetActive(false);
     }
     public void SelectThirdCard() {
         Debug.Log(cards[2].cardName);
+        Inventory.instance.Add(cards[2]);
         cardPanel.SetActive(false);
     }
 

@@ -6,7 +6,7 @@ public class SpeedUp : Card
 {
     private void Awake() {
         cardName = "Running Speed + 20%";
-        time = 60f;
+        time = 3f;
         rank = 1;
     }
     public override void Activate()

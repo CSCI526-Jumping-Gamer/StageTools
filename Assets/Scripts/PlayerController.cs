@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour
     [Header("Card")]
     CardTimer cardTimer;
 
+    [Header("General")]
+    bool isUsingCard = false;
+
     // [SerializeField] float maxDistance = 10f;
 
     private void Awake() {
@@ -75,13 +78,18 @@ public class PlayerController : MonoBehaviour
             isHoldingRope = false;
         };
         playerControls.Player.UseCard.performed += ctx => {
-            Card card = Inventory.instance.GetFirstCard();
+            if (!isUsingCard) {
+                Card card = Inventory.instance.GetFirstCard();
+                isUsingCard = true;
 
-            if (card != null) {
-                card.Activate();
-                cardTimer.Activate(card);
+                if (card != null) {
+                    card.Activate();
+                    cardTimer.Activate(card);
+                }
             }
         };
+
+        
 
         if (instance != null) {
             Debug.LogWarning("More than one inventory;");
@@ -439,6 +447,10 @@ public class PlayerController : MonoBehaviour
     }
     public void SetIsAllowedDoubleJump(bool IsAllowed) {
         isAllowedToDoubleJump = IsAllowed;
+    }
+
+    public void SetIsUsingCard(bool isUsingCard) {
+        this.isUsingCard = isUsingCard;
     }
 
     // private void OnDrawGizmosSelected()

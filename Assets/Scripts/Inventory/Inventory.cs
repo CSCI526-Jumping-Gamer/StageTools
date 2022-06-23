@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
 
         instance = this;
 
-        Add(ScriptableObject.CreateInstance<SlingshotHelper>());
+        // Add(ScriptableObject.CreateInstance<DoubleJump>());
     }
 
     public void Add(Card card) {

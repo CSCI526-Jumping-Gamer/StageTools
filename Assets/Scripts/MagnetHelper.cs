@@ -1,25 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/* Deprecated */
 
-public class MagnetHelper : MonoBehaviour
-{
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+
+// public class MagnetHelper : MonoBehaviour
+// {
     
-    public bool HelperEnabled = false;
-    public bool HelperSwitch;
-    public Card1MagnetHelper helperController;
+//     public bool HelperEnabled = false;
+//     public bool HelperSwitch;
+//     public Card1MagnetHelper helperController;
 
-    public void Start() {
-        helperController = FindObjectOfType<Card1MagnetHelper>();
-    }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Player" && helperController.HelperEnabled) {
-            HelperSwitch = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other) {
-        if (other.gameObject.tag == "Player" && helperController.HelperEnabled) {
-            HelperSwitch = false;
-        }
-    }
-}
+//     public void Start() {
+//         helperController = FindObjectOfType<Card1MagnetHelper>();
+//     }
+//     private void OnTriggerEnter2D(Collider2D other) {
+//         if (other.gameObject.tag == "Player" && helperController.HelperEnabled) {
+//             HelperSwitch = true;
+//         }
+//     }
+//     private void OnTriggerExit2D(Collider2D other) {
+//         if (other.gameObject.tag == "Player" && helperController.HelperEnabled) {
+//             HelperSwitch = false;
+//         }
+//     }
+// }

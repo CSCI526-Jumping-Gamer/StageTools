@@ -5,7 +5,7 @@ using UnityEngine;
 public class Card2DoubleJump : MonoBehaviour
 {
     public PlayerCard cardController;
-    [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] PlayerController playerController;
     public bool cardEnabled = false;
     public int cardNumber = 2;
     public string cardName = "Double Jump";
@@ -27,12 +27,12 @@ public class Card2DoubleJump : MonoBehaviour
     }
     public void EnableCard(int i) {
         if (i == cardNumber) {
-            playerMovement.SetIsAllowedDoubleJump(true);
+            playerController.SetIsAllowedDoubleJump(true);
         }
     }
     public void DisableCard(int i) {
         if (i == cardNumber) {
-            playerMovement.SetIsAllowedDoubleJump(false);
+            playerController.SetIsAllowedDoubleJump(false);
         }
     }
     // string PutHelperName(int i) {

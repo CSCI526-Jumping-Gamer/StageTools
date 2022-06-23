@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
-    [SerializeField] float loadDelay = 1f;
+    // [SerializeField] float loadDelay = 1f;
     [SerializeField] ParticleSystem finishEffect;
     GameObject endScene;
-    PlayerMovement playerMovement;
+    PlayerController playerController;
     
 
     // Start is called before the first frame update
     private void Awake() {
         endScene = GameObject.FindWithTag("Result");
-        playerMovement = FindObjectOfType<PlayerMovement>();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     private void Start() {
@@ -26,7 +26,7 @@ public class FinishLine : MonoBehaviour
             finishEffect.Play();
             // Ian added
             endScene.SetActive(true); // activate end scene
-            playerMovement.DisablePlayerInput();
+            playerController.DisablePlayerInput();
             FindObjectOfType<StarColor>().setStarColor(); // set the star color 
             TimeControl.timerObj.TimerEnd(); // end the timer;
             TimeControl.timerObj.showTimerOnEndCanvas();

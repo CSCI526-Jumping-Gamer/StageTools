@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class EndButton : MonoBehaviour
+public class ScoreBoard : MonoBehaviour
 {
-    public void restartScene() {
+    public void RestartScene() {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
 
-    public void nextScene() {
+    public void NextScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

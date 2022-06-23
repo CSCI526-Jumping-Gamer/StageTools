@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Magnet : MonoBehaviour
 {
-    PlayerMovement playerMovement;
+    PlayerController playerController;
     BoxCollider2D boxCollider2D;
     [SerializeField] GameObject magneticFieldGameObject;
     MagneticField magneticField;
@@ -13,7 +13,7 @@ public class Magnet : MonoBehaviour
     public bool isCollided = false;
 
     private void Awake() {
-        playerMovement = FindObjectOfType<PlayerMovement>();
+        playerController = FindObjectOfType<PlayerController>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         magneticField = magneticFieldGameObject.GetComponent<MagneticField>();
     }
@@ -21,7 +21,7 @@ public class Magnet : MonoBehaviour
     private void FixedUpdate() {
         PhysicsMaterial2D material = new PhysicsMaterial2D();
 
-        if (magneticField.isTriggered && playerMovement.GetIsMagnetized()) {
+        if (magneticField.isTriggered && playerController.GetIsMagnetized()) {
             material.friction = 0.4f;
         } else {
             material.friction = 0f;
@@ -32,7 +32,7 @@ public class Magnet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Player") {
-            playerMovement.SetIsCollidedWithMagnet(true);
+            playerController.SetIsCollidedWithMagnet(true);
             // Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();
             Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();
             // otherRb2d.velocity = new Vector2(0f, 0f);
@@ -46,7 +46,7 @@ public class Magnet : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other) {
         if (other.gameObject.tag == "Player") { 
-            playerMovement.SetIsCollidedWithMagnet(false);
+            playerController.SetIsCollidedWithMagnet(false);
             isCollided = false;
         }
     }

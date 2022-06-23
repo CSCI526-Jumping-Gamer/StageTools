@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     Vector2 moveInput;
     Rigidbody2D rb2d;
     CircleCollider2D circleCollider2D;
@@ -14,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     bool isMagnetized = false;
     bool isHoldingRope = false;
     bool isJumpPressed = false;
-    bool canDoubleJump = false;
+    public bool canDoubleJump = false;
     float finalMoveSpeed = 10f;
     float finalJumpSpeed = 24f;
     Rope rope;
@@ -46,16 +47,18 @@ public class PlayerMovement : MonoBehaviour
     public bool isAllowedToFly = false;
     public int shieldCount = 0;
 
+    [Header("Card")]
+    CardTimer cardTimer;
+
     // [SerializeField] float maxDistance = 10f;
 
     private void Awake() {
-        // rb2d = GetComponent<Rigidbody2D>();
         rb2d = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
-        // boxCollider2d = GetComponent<BoxCollider2D>();
         boxCollider2D = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();
         playerControls = new PlayerControls();
         playerInput = GetComponent<PlayerInput>();
+        cardTimer = FindObjectOfType<CardTimer>();
         playerControls.Player.Magnetize.performed += ctx => {
             isMagnetized = true;
         };
@@ -72,8 +75,19 @@ public class PlayerMovement : MonoBehaviour
             isHoldingRope = false;
         };
         playerControls.Player.UseCard.performed += ctx => {
-            playerCard.StartCard();
+            // playerCard.StartCard();
+            // Card card = Inventory.instance.GetFirstCard();
+            // cardTimer.SetIsActivated(true);
+            // card.Activate();
+            cardTimer.Activate();
         };
+
+        if (instance != null) {
+            Debug.LogWarning("More than one inventory;");
+            return;
+        }
+
+        instance = this;
     }
     
     public void OnEnable() {
@@ -299,11 +313,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void JumpInTheAir() {
-        if (canDoubleJump) {
-            canDoubleJump = false;
-            rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
+        if (isAllowedToDoubleJump) {
+            if (canDoubleJump) {
+                canDoubleJump = false;
+                rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
+            }
         }
-        // Can't jump again for now
     }
 
     void Gravity() {

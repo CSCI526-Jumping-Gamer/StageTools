@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 public class Rope : MonoBehaviour
 {
     Transform trans;
-    PlayerMovement playerMovement;
+    PlayerController playerController;
     Rigidbody2D rb2d;
     HingeJoint2D hingeJoint2D;
 
     private void Awake() {
         trans = GetComponent<Transform>();
-        playerMovement = FindObjectOfType<PlayerMovement>();
+        playerController = FindObjectOfType<PlayerController>();
         rb2d = GetComponent<Rigidbody2D>();
         hingeJoint2D = GetComponent<HingeJoint2D>();
     }
@@ -36,8 +36,8 @@ public class Rope : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other) {
         if (other.tag == "Player") {
-            if (playerMovement.GetIsHoldingRope() && !Keyboard.current.spaceKey.isPressed) {
-                playerMovement.SetRope(this);
+            if (playerController.GetIsHoldingRope() && !Keyboard.current.spaceKey.isPressed) {
+                playerController.SetRope(this);
                 Rigidbody2D otherRb2d = other.GetComponent<Rigidbody2D>();
                 otherRb2d.position = transform.position;
             }
@@ -46,7 +46,7 @@ public class Rope : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Player") {
-            playerMovement.SetRope(null);
+            playerController.SetRope(null);
         }
     }
 }

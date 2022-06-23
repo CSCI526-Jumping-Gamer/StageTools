@@ -7,16 +7,15 @@ public class DeathDetector : MonoBehaviour
 {
     [SerializeField] float loadDelay = 0.5f;
     // [SerializeField] ParticleSystem crashEffect;
-    PlayerMovement playerMovement;
+    PlayerController playerController;
     // [SerializeField] AudioClip crashSFX;
     // Start is called before the first frame update
     private void Awake() {
-        playerMovement = FindObjectOfType<PlayerMovement>();
+        playerController = FindObjectOfType<PlayerController>();
     }
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
             // crashEffect.Play();
-            // playerMovement.OnDisable();
             // GetComponent<AudioSource>().PlayOneShot(crashSFX); 
             Invoke("ReloadScene", loadDelay);
         }

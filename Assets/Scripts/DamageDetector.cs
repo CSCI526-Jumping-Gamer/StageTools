@@ -7,24 +7,22 @@ public class DamageDetector : MonoBehaviour
 {
     [SerializeField] float loadDelay = 0.5f;
     // [SerializeField] ParticleSystem crashEffect;
-    PlayerMovement playerMovement;
+    PlayerController playerController;
     [SerializeField] GameObject player;
     
     // [SerializeField] AudioClip crashSFX;
     // Start is called before the first frame update
     private void Awake() {
-        // playerMovement = FindObjectOfType<PlayerMovement>();
-        playerMovement = player.GetComponent<PlayerMovement>();
+        playerController = player.GetComponent<PlayerController>();
     }
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
             // crashEffect.Play();
-            // playerMovement.OnDisable();
             // GetComponent<AudioSource>().PlayOneShot(crashSFX); 
-            int shieldCount = playerMovement.GetShieldCount();
+            int shieldCount = playerController.GetShieldCount();
 
             if (shieldCount > 0) {
-                playerMovement.SetShieldCount(shieldCount - 1);
+                playerController.SetShieldCount(shieldCount - 1);
             } else {
                 Invoke("ReloadScene", loadDelay);
             }

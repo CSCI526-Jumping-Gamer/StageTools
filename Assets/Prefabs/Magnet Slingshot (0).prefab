@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 967826025}
   - component: {fileID: 967826024}
   m_Layer: 0
-  m_Name: Magnet Helper
+  m_Name: Zero Force Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,9 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc5dfed665dc3041b3a2adcb72b67d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HelperEnabled: 0
-  HelperSwitch: 0
-  helperController: {fileID: 0}
+  isTriggered: 0
 --- !u!1 &5445113258954397580
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +245,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: isSlingShot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: magnetForce
       value: 200
       objectReference: {fileID: 0}
@@ -368,6 +370,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: SlingShot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: isSlingShot
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}

@@ -7,42 +7,43 @@ using UnityEngine.InputSystem;
 public class MagneticField : MonoBehaviour
 {
     Rigidbody2D otherRb2d;
-    PlayerMovement playerMovement;
+    PlayerController playerController;
     Rigidbody2D rb2d;
     [SerializeField] GameObject magneticLineGameObject;
     MagneticLine magneticLine;
     [SerializeField] GameObject magnetHelperGameObject;
-    MagnetHelper magnetHelper;
+    ZeroForceZone zeroForceZone;
 
     public bool isTriggered = false;
     public float baseDistanceForce = 10f;
     public float magnetForce = 30f;
-    [SerializeField] private bool MagnetAttractable;
-    [SerializeField] private bool SlingShot;
+    [SerializeField] private bool isMagnetAttractable;
+    [SerializeField] private bool isSlingShot;
 
     private void Awake() {
-        playerMovement = FindObjectOfType<PlayerMovement>();        
+        playerController = FindObjectOfType<PlayerController>();        
         rb2d = GetComponentInParent<Rigidbody2D>();
         magneticLine = magneticLineGameObject.GetComponent<MagneticLine>();
-        if (SlingShot) {
-            magnetHelper = magnetHelperGameObject.GetComponent<MagnetHelper>();
+        
+        if (isSlingShot) {
+            zeroForceZone = magnetHelperGameObject.GetComponent<ZeroForceZone>();
         }
     }
 
     private void Update() {
-        if (isTriggered && playerMovement.GetIsMagnetized()) {
+        if (isTriggered && playerController.GetIsMagnetized()) {
             magneticLine.DrawRope(otherRb2d);
         } else {
             magneticLine.DeleteRope();
         }
     }
     private void FixedUpdate() {
-        if (SlingShot) {
-            if (isTriggered && playerMovement.GetIsMagnetized() && !magnetHelper.HelperSwitch) {
+        if (isSlingShot) {
+            if (isTriggered && playerController.GetIsMagnetized() && !zeroForceZone.isTriggered) {
                 Attract(otherRb2d);
             }
         } else {
-            if (isTriggered && playerMovement.GetIsMagnetized()) {
+            if (isTriggered && playerController.GetIsMagnetized()) {
                 Attract(otherRb2d);
             }
         }
@@ -54,7 +55,7 @@ public class MagneticField : MonoBehaviour
             // Rigidbody2D otherRb2d = other.GetComponent<Rigidbody2D>();
             // otherRb2d.velocity = new Vector2(0f, 0f);
             this.otherRb2d = otherRb2d;
-            playerMovement.SetIsTriggeredWithMagnet(true);
+            playerController.SetIsTriggeredWithMagnet(true);
             isTriggered = true;
         }
     }
@@ -67,14 +68,14 @@ public class MagneticField : MonoBehaviour
         float distance = Vector2.Distance(transform.position, otherRb2d.transform.position);
         float distanceFactor = (baseDistanceForce / (distance * distance));
         otherRb2d.AddForce(distanceFactor * magnetForce * magnetDirection, ForceMode2D.Force);
-        if (MagnetAttractable) {
+        if (isMagnetAttractable) {
             rb2d.AddForce(distanceFactor * magnetForce * -magnetDirection, ForceMode2D.Force);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
-            playerMovement.SetIsTriggeredWithMagnet(false);
+            playerController.SetIsTriggeredWithMagnet(false);
             isTriggered = false;
         }
     }

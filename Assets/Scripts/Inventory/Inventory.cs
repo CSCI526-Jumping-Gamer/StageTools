@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Inventory : MonoBehaviour
+{
+    public static Inventory instance;
+    public List<Card> cards = new List<Card>();
+    
+    private void Awake() {
+        if (instance != null) {
+            Debug.LogWarning("More than one inventory;");
+            return;
+        }
+
+        instance = this;
+    }
+
+    public void Add(Card card) {
+        cards.Add(card);
+    }
+
+    public void Remove(Card card) {
+        cards.Remove(card);
+    }
+
+    public Card GetFirstCard() {
+        return cards[0];
+    }
+}

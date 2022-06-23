@@ -5,7 +5,7 @@ using UnityEngine;
 public class Card3SpeedUp : MonoBehaviour
 {
     public PlayerCard cardController;
-    [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] PlayerController playerController;
     public bool cardEnabled = false;
     public int cardNumber = 3;
     public string cardName = "Running Speed + 20%";
@@ -28,12 +28,12 @@ public class Card3SpeedUp : MonoBehaviour
     }
     public void EnableCard(int i) {
         if (i == cardNumber) {
-            playerMovement.moveSpeedMultiplier = moveSpeedMultiplier;
+            playerController.moveSpeedMultiplier = moveSpeedMultiplier;
         }
     }
     public void DisableCard(int i) {
         if (i == cardNumber) {
-            playerMovement.moveSpeedMultiplier = 1f;
+            playerController.moveSpeedMultiplier = 1f;
         }
     }
     // string PutHelperName(int i) {

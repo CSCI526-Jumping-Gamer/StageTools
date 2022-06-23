@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AcceleratingTrail : MonoBehaviour
 {
-    PlayerMovement playerMovement;
-
     [SerializeField] float baseSpeed = 14f;
     [SerializeField] float horizontalAccelerateSpeed = 4f;
     [SerializeField] float verticalAccelerateSpeed = 4f;
@@ -13,14 +11,12 @@ public class AcceleratingTrail : MonoBehaviour
     public bool isTriggered = false;
     
     private void Awake() {
-        playerMovement = FindObjectOfType<PlayerMovement>();
+        
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
             isTriggered = true;
-            // playerMovement.DisablePlayerInput();
-            // playerMovement.EnablePlayerInputWithDelay(0.1f);
             Accelerate(other);
         }
     }

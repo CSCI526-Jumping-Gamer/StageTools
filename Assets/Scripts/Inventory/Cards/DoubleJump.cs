@@ -6,7 +6,7 @@ public class DoubleJump : Card
 {
     private void Awake() {
         cardName = "Double Jump";
-        time = 3f;
+        time = 15f;
         rank = 2;
     }
     public override void Activate()

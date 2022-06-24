@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedUp : Card
+public class HighJump : Card
 {
     private void Awake() {
-        cardName = "Running Speed + 40%";
+        cardName = "Jumping Height + 40%";
         time = 40f;
         rank = 1;
     }
     public override void Activate()
     {
         base.Activate();
-        PlayerController.instance.moveSpeedMultiplier = 1.4f;
+        PlayerController.instance.jumpSpeedMultiplier = 1.4f;
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
-        PlayerController.instance.moveSpeedMultiplier = 1f;
+        PlayerController.instance.jumpSpeedMultiplier = 0f;
     }
 }

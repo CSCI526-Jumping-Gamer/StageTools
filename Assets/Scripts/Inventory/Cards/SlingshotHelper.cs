@@ -8,7 +8,7 @@ public class SlingshotHelper : Card
 
     private void Awake() {
         cardName = "Slingshot Helper";
-        time = 3f;
+        time = 15f;
         rank = 2;
     }
     public override void Activate()

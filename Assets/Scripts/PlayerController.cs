@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeedOnRope = 6f;
     [SerializeField] float swingSpeed = 10f;
     [SerializeField] float jumpSpeed = 24f;
-    [SerializeField] float climbSpeed = 8f;
-    [SerializeField] float normalGravityScale = 8f;
+    public float climbSpeed = 8f;
+    public float normalGravityScale = 8f;
     
     [Header("Speed Multiplier")]
     public float moveSpeedMultiplier = 1f;

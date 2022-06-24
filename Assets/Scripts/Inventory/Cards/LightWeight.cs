@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedUp : Card
+public class LightWeight : Card
 {
     private void Awake() {
-        cardName = "Running Speed + 40%";
+        cardName = "LightWeight (Gravity -25%)";
         time = 40f;
         rank = 1;
     }
     public override void Activate()
     {
         base.Activate();
-        PlayerController.instance.moveSpeedMultiplier = 1.4f;
+        PlayerController.instance.normalGravityScale = 6f;
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
-        PlayerController.instance.moveSpeedMultiplier = 1f;
+        PlayerController.instance.normalGravityScale = 8f;
     }
 }

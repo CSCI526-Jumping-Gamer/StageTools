@@ -2389,7 +2389,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1322325908283196373, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: magnetForce
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1563667834719300161, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: m_Name
@@ -2441,7 +2441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8631916253473924349, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: magnetForce
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
@@ -2859,7 +2859,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1322325908283196373, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: magnetForce
-      value: 300
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1563667834719300161, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: m_Name
@@ -2911,7 +2911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8631916253473924349, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: magnetForce
-      value: 300
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
@@ -5654,6 +5654,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2125283968}
     m_Modifications:
+    - target: {fileID: 1556759461107649884, guid: 95f507a15ccac9944ac3025fec1acbc4, type: 3}
+      propertyPath: RotateSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6853817492437618326, guid: 95f507a15ccac9944ac3025fec1acbc4, type: 3}
       propertyPath: m_Name
       value: Wheel (0)
@@ -7271,7 +7275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5477942466583315310, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.0136986
+      value: 1.0110345
       objectReference: {fileID: 0}
     - target: {fileID: 5477942466583315310, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_Lens.OrthographicSize

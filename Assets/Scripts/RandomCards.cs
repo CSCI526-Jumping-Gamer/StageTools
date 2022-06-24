@@ -62,7 +62,7 @@ public class RandomCards : MonoBehaviour
 
     // }
 
-    void StartCardPanel()
+    public void StartCardPanel()
     {
         wrapper.SetActive(true);
         Debug.Log("Pick a card!!");

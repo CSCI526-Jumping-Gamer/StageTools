@@ -8,10 +8,12 @@ public class RespawnPlayer : MonoBehaviour
     [SerializeField] Vector3 CheckPointPosition;
     PlayerController playerController;
     Collider2D PlayerCollider;
+    RandomCards randomCards;
     // Start is called before the first frame update
     void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
+        randomCards = FindObjectOfType<RandomCards>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -21,10 +23,11 @@ public class RespawnPlayer : MonoBehaviour
             PlayerCollider = other;
             playerController.OnDisable();
             Invoke("Respawning", loadDelay);
+            randomCards.StartCardPanel();
         }
     }
 
-    void Respawning()
+    public void Respawning()
     {
         Rigidbody2D otherRb2d = PlayerCollider.gameObject.GetComponent<Rigidbody2D>();
         otherRb2d.transform.position = CheckPointPosition;

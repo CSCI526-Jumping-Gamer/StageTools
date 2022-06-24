@@ -8,17 +8,17 @@ public class Projectile : MonoBehaviour
     private bool isActive;
     private float lifetime;
     private Rigidbody2D body;
-  //  private Animator anim;
+    //  private Animator anim;
     private BoxCollider2D boxCollider;
-    public PlayerMovement movement;
+    public PlayerController playerController;
 
     private void Awake()
     {
         hit = false;
         body = GetComponent<Rigidbody2D>();
-     //   anim = GetComponent<Animator>();
+        //   anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
-       // movement = GetComponent<PlayerMovement>();
+        // movement = GetComponent<PlayerMovement>();
     }
     private void Update()
     {
@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
         print(123);
         hit = true;
         boxCollider.enabled = false;
-    //    anim.SetTrigger("explode");
+        //    anim.SetTrigger("explode");
     }
     public void SetDirection(float _direction)
     {
@@ -55,11 +55,11 @@ public class Projectile : MonoBehaviour
         hit = false;
         boxCollider.enabled = true;
 
-  /*      float localScaleX = transform.localScale.x;
-        if (Mathf.Sign(localScaleX) != _direction)
-            localScaleX = -localScaleX;
+        /*      float localScaleX = transform.localScale.x;
+              if (Mathf.Sign(localScaleX) != _direction)
+                  localScaleX = -localScaleX;
 
-        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);*/
+              transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);*/
     }
     public void Deactivate()
     {

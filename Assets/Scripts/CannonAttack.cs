@@ -9,13 +9,13 @@ public class CannonAttack : MonoBehaviour
     [SerializeField] private GameObject[] fireballs;
 
     private Animator anim;
-    private PlayerMovement playerMovement;
+    private PlayerController playerController;
     private float cooldownTimer = Mathf.Infinity;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        playerMovement = GetComponent<PlayerMovement>();
+        playerController = GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -43,7 +43,7 @@ public class CannonAttack : MonoBehaviour
             {
                 return i;
             }
-                
+
         }
         return 0;
     }

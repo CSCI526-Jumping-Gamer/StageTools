@@ -6,7 +6,7 @@ using TMPro;
 public class RandomCards : MonoBehaviour
 {
     // Start is called before the first frame update
-    GameObject cardPanel;
+    [SerializeField] GameObject wrapper;
     [SerializeField] TextMeshProUGUI[] cardText;
     private Card[] threeStarsCards; // 25%
     private Card[] twoStarsCards; // 50%
@@ -17,13 +17,11 @@ public class RandomCards : MonoBehaviour
 
     void Awake()
     {
-        cardPanel = GameObject.FindWithTag("CardPanel");
         randCardNumber = new int[] { Random.Range(1, 100), Random.Range(1, 100), Random.Range(1, 100) };
         threeStarsCards = new Card[] { ScriptableObject.CreateInstance<DoubleJump>() };// 25%
         twoStarsCards = new Card[] { ScriptableObject.CreateInstance<SlingshotHelper>() }; // 50%
         oneStarsCards = new Card[] { ScriptableObject.CreateInstance<SpeedUp>() }; // 25%
         cards = new List<Card>();
-        cardPanel.SetActive(false);
         // gameObject.SetActive(false);
     }
 
@@ -54,7 +52,7 @@ public class RandomCards : MonoBehaviour
 
     void StartCardPanel()
     {
-        cardPanel.SetActive(true);
+        wrapper.SetActive(true);
         Debug.Log("Pick a card!!");
         getCards(0);
         getCards(1);
@@ -91,7 +89,7 @@ public class RandomCards : MonoBehaviour
         Debug.Log(cards[0].cardName);
         Inventory.instance.Add(cards[0]);
 
-        cardPanel.SetActive(false);
+        wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
     }
@@ -99,7 +97,7 @@ public class RandomCards : MonoBehaviour
     {
         Debug.Log(cards[1].cardName);
         Inventory.instance.Add(cards[1]);
-        cardPanel.SetActive(false);
+        wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
     }
@@ -107,7 +105,7 @@ public class RandomCards : MonoBehaviour
     {
         Debug.Log(cards[2].cardName);
         Inventory.instance.Add(cards[2]);
-        cardPanel.SetActive(false);
+        wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
     }

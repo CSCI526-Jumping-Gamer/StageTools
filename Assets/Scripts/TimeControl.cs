@@ -1,15 +1,15 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 public class TimeControl : MonoBehaviour
 {
     // Start is called before the first frame update
     public static TimeControl timerObj;
     public TextMeshProUGUI timeCount;
-    public TextMeshProUGUI timeSpendOnStage;
+    public TextMeshProUGUI timeSpentOnStage;
+
+    [SerializeField] GameObject wrapper;
 
     private TimeSpan timeSpan;
     private float timeElapsed;
@@ -17,13 +17,14 @@ public class TimeControl : MonoBehaviour
 
     private void Awake()
     {
+        wrapper.SetActive(true);
         timerObj = this;
     }
 
     private void Start()
     {
         timeCount.text = "Time: 00:00.00";
-        timeSpendOnStage.text = "00 sec";
+        timeSpentOnStage.text = "00 sec";
         isTimerOn = false;
         this.TimerBegin();
     }
@@ -44,7 +45,7 @@ public class TimeControl : MonoBehaviour
 
     public void showTimerOnEndCanvas()
     {
-        timeSpendOnStage.text = timeSpan.ToString("ss'.'ff") + " sec";
+        timeSpentOnStage.text = timeSpan.ToString("ss'.'ff") + " sec";
     }
 
     public void TimerEnd()

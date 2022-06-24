@@ -6,6 +6,13 @@ using UnityEngine.InputSystem;
 
 public class SettingPanel : MonoBehaviour
 {
+    [SerializeField] GameObject wrapper;
+    [SerializeField] GameObject button;
+
+    private void Awake() {
+        button.SetActive(true);
+    }
+
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
@@ -14,13 +21,13 @@ public class SettingPanel : MonoBehaviour
 
     public void PauseGame()
     {
-        this.gameObject.SetActive(true);
+        wrapper.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void ResumeGame()
     {
-        this.gameObject.SetActive(false);
+        wrapper.SetActive(false);
         Time.timeScale = 1f;
     }
 }

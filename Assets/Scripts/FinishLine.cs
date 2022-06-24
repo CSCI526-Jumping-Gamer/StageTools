@@ -7,21 +7,21 @@ public class FinishLine : MonoBehaviour
 {
     // [SerializeField] float loadDelay = 1f;
     [SerializeField] ParticleSystem finishEffect;
-    GameObject endScene;
+    GameObject scoreboard;
     PlayerController playerController;
 
 
     // Start is called before the first frame update
     private void Awake()
     {
-        endScene = GameObject.FindWithTag("ScoreBoard");
+        scoreboard = GameObject.FindWithTag("Scoreboard");
         playerController = FindObjectOfType<PlayerController>();
     }
 
-    private void Start()
-    {
-        endScene.SetActive(false);
-    }
+    // private void Start()
+    // {
+    //     scoreboard.SetActive(false);
+    // }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -29,7 +29,8 @@ public class FinishLine : MonoBehaviour
         {
             finishEffect.Play();
             // Ian added
-            endScene.SetActive(true); // activate end scene
+            scoreboard.transform.Find("Wrapper").gameObject.SetActive(true);
+            scoreboard.SetActive(true); // activate end scene
             playerController.DisablePlayerInput();
             FindObjectOfType<StarColor>().setStarColor(); // set the star color 
             TimeControl.timerObj.TimerEnd(); // end the timer;

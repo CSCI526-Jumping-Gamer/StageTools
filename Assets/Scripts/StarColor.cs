@@ -6,11 +6,6 @@ public class StarColor : MonoBehaviour
 {
     // Start is called before the first frame update
     // TimeControl timeControl;
-    private void Start()
-    {
-
-    }
-
     public GameObject[] stars;
     public void setStarColor()
     {

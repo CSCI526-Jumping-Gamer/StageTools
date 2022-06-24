@@ -10,6 +10,8 @@ public class CardTimer : MonoBehaviour
     bool isActivated = false;
     Card card;
 
+    [SerializeField] GameObject wrapper;
+
     public Slider slider;
     public Image background;
     public Image fill;
@@ -17,63 +19,41 @@ public class CardTimer : MonoBehaviour
     public TextMeshProUGUI cardNameText;
     public string cardName;
     public float remainingTime;
-
-    void Start() {
-        DisableCardTimer();
-    } 
-
+    
     public void Activate(Card card) {
         this.card = card;
-        EnbableCardTimer();
-        DisplayTime(remainingTime, cardName);
-        SetIsActivated(true);
+        SetupCardTimer();
+        wrapper.SetActive(true);
+        isActivated = true;
     }
 
     void Update() {
         if (isActivated) {
             if (remainingTime > 0f) {
-                UpdateTimer();
-                DisplayTime(remainingTime, cardName);
+                remainingTime -= Time.deltaTime;
+                DisplayTime();
             } else {
                 isActivated = false;
                 card.Deactivate();
-                DisableCardTimer();
+                wrapper.SetActive(false);
                 Inventory.instance.Remove(card);
                 PlayerController.instance.SetIsUsingCard(false);
             }
         }
     }
-    
-    public void EnbableCardTimer() {   
+
+    void SetupCardTimer() {
         remainingTime = card.time;
         cardName = card.cardName;
-        background.enabled = true;
-        fill.enabled = true;
-        remainingTimeText.enabled = true;
-        cardNameText.enabled = true;
         slider.maxValue = card.time;;
         slider.value = card.time;;
     }
-
-    void DisableCardTimer() {
-        background.enabled = false;
-        fill.enabled = false;
-        remainingTimeText.enabled = false;
-        cardNameText.enabled = false;
-    }
-    void UpdateTimer() {
-        remainingTime -= Time.deltaTime;
-    }
-
-    void DisplayTime(float t, string s) {
-        cardNameText.text = s;
-        slider.value = t;
-        string seconds = ((int)t).ToString();
-        string milliseconds = ((int) (t * 100f) % 100).ToString("00");
+    
+    void DisplayTime() {
+        cardNameText.text = cardName;
+        slider.value = remainingTime;
+        string seconds = ((int)remainingTime).ToString();
+        string milliseconds = ((int) (remainingTime * 100f) % 100).ToString("00");
         remainingTimeText.text = seconds + ":" + milliseconds;
-    }
-
-    public void SetIsActivated(bool isActivated) {
-        this.isActivated = isActivated;
     }
 }

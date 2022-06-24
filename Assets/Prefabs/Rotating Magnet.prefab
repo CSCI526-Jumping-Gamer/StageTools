@@ -67,8 +67,8 @@ MonoBehaviour:
   isTriggered: 0
   baseDistanceForce: 10
   magnetForce: 200
-  MagnetAttractable: 0
-  SlingShot: 0
+  isMagnetAttractable: 0
+  isSlingShot: 0
 --- !u!1 &5407882874600584913
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,11 +228,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5407882874600584913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e091942238b2db84694ff6b57f52426b, type: 3}
+  m_Script: {fileID: 11500000, guid: a37492867e4fa4173bef5c9d51518b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: -30
-  target: {fileID: 0}
+  RotateSpeed: 0
+  target: {fileID: 5407882874600584913}
 --- !u!1 &6095629898111454391
 GameObject:
   m_ObjectHideFlags: 0

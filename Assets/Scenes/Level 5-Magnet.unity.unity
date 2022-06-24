@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605728055}
     m_Modifications:
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.x
+      value: -116.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
       propertyPath: m_Name
       value: Circle Saw (6)
@@ -190,25 +198,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 987192604303578990, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
   m_PrefabInstance: {fileID: 197378}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &197380 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
-  m_PrefabInstance: {fileID: 197378}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &197381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -116, y: 11, z: 0}
 --- !u!1001 &13809633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -667,54 +656,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9030954393495926160, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
-      propertyPath: sceneNumber
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9030954393495926160, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
---- !u!1 &50900924 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
-  m_PrefabInstance: {fileID: 50900923}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &50900925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50900924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9242f226f05b88c488d0a2472419e32a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinations:
-  - {x: -104.664, y: 62.96, z: 0}
-  moveSpeed: 5
-  moveDelay: 1
-  automatic: 1
 --- !u!4 &50900930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 987192604303578990, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
   m_PrefabInstance: {fileID: 50900923}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &50900935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50900924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 0.5
-  CheckPointPosition: {x: -115, y: 66, z: 0}
 --- !u!1001 &61551207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -967,6 +915,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605728055}
     m_Modifications:
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.x
+      value: -116.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
       propertyPath: m_Name
       value: Circle Saw (7)
@@ -1027,25 +983,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 987192604303578990, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
   m_PrefabInstance: {fileID: 85072996}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &85072998 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
-  m_PrefabInstance: {fileID: 85072996}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &85072999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85072998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -116, y: 11, z: 0}
 --- !u!1001 &86236363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1368,6 +1305,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &102287769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 579715322332576936, guid: 0b2c3d466b7941742bb43d9b09d2a823, type: 3}
+  m_PrefabInstance: {fileID: 1483133573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &102287773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102287769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55fc025d855a144369cbf422300c9320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &103890028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1636,7 +1590,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1660,12 +1614,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130730875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -148.7, y: 13.080001, z: -10}
+  m_LocalPosition: {x: -109.1, y: 64.04, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &130730879
 MonoBehaviour:
@@ -1864,7 +1818,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7414091972377216327, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
   m_PrefabInstance: {fileID: 138439748}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &138439751
+--- !u!114 &138439756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1873,11 +1827,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 138439750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e091942238b2db84694ff6b57f52426b, type: 3}
+  m_Script: {fileID: 11500000, guid: a37492867e4fa4173bef5c9d51518b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RotateSpeed: -45
-  target: {fileID: 0}
+  target: {fileID: 138439750}
 --- !u!1001 &138652239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3000,6 +2954,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
   m_PrefabInstance: {fileID: 265678906}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &268109615 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+  m_PrefabInstance: {fileID: 1694770004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &272943913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3429,6 +3388,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605728055}
     m_Modifications:
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.x
+      value: -95.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     - target: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
       propertyPath: m_Name
       value: Circle Saw (5)
@@ -3484,25 +3451,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9030954393495926160, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
---- !u!1 &333475882 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
-  m_PrefabInstance: {fileID: 333475881}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &333475883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333475882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -88.5, y: 47, z: 0}
 --- !u!4 &333475884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 987192604303578990, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
@@ -4312,11 +4260,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
   m_PrefabInstance: {fileID: 417597732}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &420281032 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6354031141402101216, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
-  m_PrefabInstance: {fileID: 512796222}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &420931944
 PrefabInstance:
@@ -5401,7 +5344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5477942466583315305, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03999996
+      value: 0.040000916
       objectReference: {fileID: 0}
     - target: {fileID: 5477942466583315310, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
@@ -5409,15 +5352,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6354031141402101216, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6354031141402101216, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -148.7
+      value: -109.1
       objectReference: {fileID: 0}
     - target: {fileID: 6354031141402101216, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.13
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c40ea34a04bb565448edc0e0437205f1, type: 3}
@@ -6134,6 +6077,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605728055}
     m_Modifications:
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.x
+      value: -55.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.y
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
       propertyPath: m_Name
       value: Circle Saw (1)
@@ -6211,20 +6162,6 @@ MonoBehaviour:
   moveSpeed: 5
   moveDelay: 1
   automatic: 1
---- !u!114 &560225071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560225060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -55, y: 35, z: 0}
 --- !u!4 &560225075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 987192604303578990, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
@@ -6317,6 +6254,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605728055}
     m_Modifications:
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.x
+      value: -95.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     - target: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
       propertyPath: m_Name
       value: Circle Saw (3)
@@ -6394,20 +6339,6 @@ MonoBehaviour:
   moveSpeed: 5
   moveDelay: 2
   automatic: 1
---- !u!114 &570952776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570952765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -88.5, y: 47, z: 0}
 --- !u!4 &570952780 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 987192604303578990, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
@@ -7690,6 +7621,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605728055}
     m_Modifications:
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.x
+      value: -116.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
       propertyPath: m_Name
       value: Circle Saw (8)
@@ -7750,25 +7689,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 987192604303578990, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
   m_PrefabInstance: {fileID: 746149488}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &746149490 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
-  m_PrefabInstance: {fileID: 746149488}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &746149491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746149490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -116, y: 11, z: 0}
 --- !u!4 &747819480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
@@ -7988,27 +7908,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
   m_PrefabInstance: {fileID: 781478545}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &781478547 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3923477719005173657, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
-  m_PrefabInstance: {fileID: 781478545}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &781478548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781478547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa92bfdb88d5ea24ea73fc13675662a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinations: []
-  moveSpeed: 5
-  moveDelay: 2
-  automatic: 1
 --- !u!1001 &782912917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8098,20 +7997,6 @@ MonoBehaviour:
   moveSpeed: 5
   moveDelay: 1
   automatic: 1
---- !u!114 &782912925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782912919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 0.5
-  CheckPointPosition: {x: -115, y: 66, z: 0}
 --- !u!1001 &784030133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9233,27 +9118,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
   m_PrefabInstance: {fileID: 892498045}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &894294914 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3923477719005173657, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
-  m_PrefabInstance: {fileID: 450703284}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &894294917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 894294914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa92bfdb88d5ea24ea73fc13675662a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinations: []
-  moveSpeed: 5
-  moveDelay: 2
-  automatic: 1
 --- !u!1001 &900362138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11162,7 +11026,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7414091972377216324, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
   m_PrefabInstance: {fileID: 1106900735}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1106900741
+--- !u!114 &1106900746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11171,11 +11035,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 757356263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e091942238b2db84694ff6b57f52426b, type: 3}
+  m_Script: {fileID: 11500000, guid: a37492867e4fa4173bef5c9d51518b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RotateSpeed: 45
-  target: {fileID: 0}
+  target: {fileID: 757356263}
 --- !u!1 &1109380495
 GameObject:
   m_ObjectHideFlags: 0
@@ -12050,7 +11914,7 @@ Transform:
   - {fileID: 188059957}
   - {fileID: 1106900736}
   - {fileID: 138439749}
-  - {fileID: 1719543716}
+  - {fileID: 268109615}
   - {fileID: 1580003370}
   m_Father: {fileID: 1732304779}
   m_RootOrder: 0
@@ -13998,6 +13862,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605728055}
     m_Modifications:
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.x
+      value: -116.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
       propertyPath: m_Name
       value: Circle Saw (9)
@@ -14075,8 +13947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -116, y: 11, z: 0}
 --- !u!4 &1440807074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6368601700257645834, guid: 41f66fafa992b4146b5399ceb8041347, type: 3}
@@ -14663,7 +14533,9 @@ PrefabInstance:
       propertyPath: destinations.Array.data[0].y
       value: 34
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1057664237435043236, guid: 0b2c3d466b7941742bb43d9b09d2a823, type: 3}
+    - {fileID: 1151708487759530553, guid: 0b2c3d466b7941742bb43d9b09d2a823, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b2c3d466b7941742bb43d9b09d2a823, type: 3}
 --- !u!4 &1483133574 stripped
 Transform:
@@ -15012,8 +14884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -91, y: 63, z: 0}
 --- !u!4 &1541782042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
@@ -16522,6 +16392,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605728055}
     m_Modifications:
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.x
+      value: -55.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.y
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
       propertyPath: m_Name
       value: Circle Saw (2)
@@ -16611,8 +16489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -55, y: 35, z: 0}
 --- !u!4 &1652070494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 987192604303578990, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
@@ -16842,101 +16718,89 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1693019209
+--- !u!1001 &1694770004
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1231661154}
+    m_Modifications:
+    - target: {fileID: 3308049560733152145, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: RotateSpeed
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584913, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_Name
+      value: Rotating Magnet (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -89.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.921833
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.38758752
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 45.609
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+--- !u!1 &1696819698 stripped
 GameObject:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 579715322911803769, guid: 0b2c3d466b7941742bb43d9b09d2a823, type: 3}
+  m_PrefabInstance: {fileID: 1483133573}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1693019210}
-  - component: {fileID: 1693019213}
-  - component: {fileID: 1693019212}
-  - component: {fileID: 1693019211}
-  m_Layer: 0
-  m_Name: cm
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1693019210
-Transform:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693019209}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.0150678, y: -5.606177, z: 29.970993}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1898443590}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1693019211
+--- !u!114 &1696819702
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693019209}
+  m_GameObject: {fileID: 1696819698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 91277ab7a24b84cdebb604a6ac59e729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: -0.049999237, z: -10}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
-  m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
-  m_AngularDamping: 0
---- !u!114 &1693019212
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693019209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0
-  m_BiasY: 0
-  m_CenterOnActivate: 1
---- !u!114 &1693019213
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693019209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  destinations:
+  - {x: -130, y: 33, z: 0}
+  moveSpeed: 5
+  moveDelay: 2
+  automatic: 1
 --- !u!1001 &1699770080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17251,72 +17115,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
   m_PrefabInstance: {fileID: 900362138}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1719543715
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1231661154}
-    m_Modifications:
-    - target: {fileID: 3308049560733152145, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: RotateSpeed
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584913, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_Name
-      value: Rotating Magnet (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -91.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -10.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.921833
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.38758752
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 45.609
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
---- !u!4 &1719543716 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-  m_PrefabInstance: {fileID: 1719543715}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1732304778
 GameObject:
   m_ObjectHideFlags: 0
@@ -17351,7 +17149,7 @@ Transform:
   - {fileID: 1605728055}
   - {fileID: 1007734697}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1753714667 stripped
 GameObject:
@@ -17387,8 +17185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -55, y: 35, z: 0}
 --- !u!4 &1753714681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 987192604303578990, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
@@ -18748,77 +18544,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
   m_PrefabInstance: {fileID: 1888975781}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1898443588
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1898443590}
-  - component: {fileID: 1898443589}
-  m_Layer: 0
-  m_Name: CM vcam1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1898443589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1898443588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExcludedPropertiesInInspector:
-  - m_Script
-  m_LockStageInInspector: 
-  m_StreamingVersion: 20170927
-  m_Priority: 10
-  m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 420281032}
-  m_Lens:
-    FieldOfView: 60
-    OrthographicSize: 10
-    NearClipPlane: 0.3
-    FarClipPlane: 1000
-    Dutch: 0
-    ModeOverride: 0
-    LensShift: {x: 0, y: 0}
-    GateFit: 2
-    m_SensorSize: {x: 1.9721689, y: 1}
-  m_Transitions:
-    m_BlendHint: 0
-    m_InheritPosition: 0
-    m_OnCameraLive:
-      m_PersistentCalls:
-        m_Calls: []
-  m_LegacyBlendHint: 0
-  m_ComponentOwner: {fileID: 1693019210}
---- !u!4 &1898443590
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1898443588}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -148.7, y: 13.080001, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1693019210}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1900747147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19264,6 +18989,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605728055}
     m_Modifications:
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.x
+      value: -95.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.y
+      value: 47
+      objectReference: {fileID: 0}
     - target: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
       propertyPath: m_Name
       value: Circle Saw (4)
@@ -19341,20 +19074,6 @@ MonoBehaviour:
   moveSpeed: 5
   moveDelay: 2
   automatic: 1
---- !u!114 &1936657977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936657966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83d394d319d84e40bb55c7c48752180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadDelay: 0.2
-  CheckPointPosition: {x: -88.5, y: 47, z: 0}
 --- !u!4 &1936657981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 987192604303578990, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
@@ -21335,6 +21054,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1605728055}
     m_Modifications:
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.x
+      value: -55.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50900935, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
+      propertyPath: CheckPointPosition.y
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 987192604303578984, guid: d0885ad00c5c34548b48d23e2b37cc04, type: 3}
       propertyPath: m_Name
       value: Circle Saw

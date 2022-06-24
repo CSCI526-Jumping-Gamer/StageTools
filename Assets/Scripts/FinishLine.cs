@@ -9,20 +9,24 @@ public class FinishLine : MonoBehaviour
     [SerializeField] ParticleSystem finishEffect;
     GameObject endScene;
     PlayerController playerController;
-    
+
 
     // Start is called before the first frame update
-    private void Awake() {
-        endScene = GameObject.FindWithTag("Result");
+    private void Awake()
+    {
+        endScene = GameObject.FindWithTag("ScoreBoard");
         playerController = FindObjectOfType<PlayerController>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         endScene.SetActive(false);
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Player") {
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
             finishEffect.Play();
             // Ian added
             endScene.SetActive(true); // activate end scene
@@ -34,10 +38,12 @@ public class FinishLine : MonoBehaviour
         }
     }
 
-    void ReloadScene() {
+    void ReloadScene()
+    {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if (currentSceneIndex < SceneManager.sceneCountInBuildSettings - 1) {
+        if (currentSceneIndex < SceneManager.sceneCountInBuildSettings - 1)
+        {
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
     }

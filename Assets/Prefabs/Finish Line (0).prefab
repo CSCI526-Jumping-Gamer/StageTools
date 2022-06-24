@@ -116,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc382571c8740504a91fff2137ddf0dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadDelay: 1
   finishEffect: {fileID: 660051441}
 --- !u!198 &660051441
 ParticleSystem:

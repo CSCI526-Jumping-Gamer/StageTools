@@ -18,9 +18,21 @@ public class RandomCards : MonoBehaviour
     void Awake()
     {
         randCardNumber = new int[] { Random.Range(1, 100), Random.Range(1, 100), Random.Range(1, 100) };
-        threeStarsCards = new Card[] { ScriptableObject.CreateInstance<DoubleJump>() };// 25%
-        twoStarsCards = new Card[] { ScriptableObject.CreateInstance<SlingshotHelper>() }; // 50%
-        oneStarsCards = new Card[] { ScriptableObject.CreateInstance<SpeedUp>() }; // 25%
+        threeStarsCards = new Card[] {
+            ScriptableObject.CreateInstance<ZeroGravity>(),
+            ScriptableObject.CreateInstance<Invincible>() };// 25%
+        twoStarsCards = new Card[] {
+            ScriptableObject.CreateInstance<SlingshotHelper>(),
+            ScriptableObject.CreateInstance<DoubleJump>(),
+            ScriptableObject.CreateInstance<Flash>(),
+            ScriptableObject.CreateInstance<LunarGravity>(),
+            ScriptableObject.CreateInstance<ThreeTimesShield>() }; // 50%
+        oneStarsCards = new Card[] {
+            ScriptableObject.CreateInstance<SpeedUp>(), 
+            ScriptableObject.CreateInstance<HighJump>(), 
+            ScriptableObject.CreateInstance<SingleUseShield>(),
+            ScriptableObject.CreateInstance<LightWeight>(),
+            ScriptableObject.CreateInstance<RopeClimber>()}; // 25%
         cards = new List<Card>();
         // gameObject.SetActive(false);
     }

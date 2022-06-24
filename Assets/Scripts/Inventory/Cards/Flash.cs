@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedUp : Card
+public class Flash : Card
 {
     private void Awake() {
-        cardName = "Running Speed + 40%";
-        time = 40f;
-        rank = 1;
+        cardName = "Flash (Running Speed + 100%)";
+        time = 15f;
+        rank = 2;
     }
     public override void Activate()
     {
         base.Activate();
-        PlayerController.instance.moveSpeedMultiplier = 1.4f;
+        PlayerController.instance.moveSpeedMultiplier = 2f;
     }
 
     public override void Deactivate()

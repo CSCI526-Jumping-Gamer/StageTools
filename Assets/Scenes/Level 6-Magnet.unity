@@ -4313,13 +4313,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 457247872}
     m_Modifications:
-    - target: {fileID: -234253913679154700, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
+    - target: {fileID: 144948975928841339, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
       propertyPath: CheckPointPosition.x
-      value: -5.41
+      value: -3.58
       objectReference: {fileID: 0}
-    - target: {fileID: -234253913679154700, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
+    - target: {fileID: 144948975928841339, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
       propertyPath: CheckPointPosition.y
-      value: -4.07
+      value: -3.78
       objectReference: {fileID: 0}
     - target: {fileID: 6350646275246781518, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
       propertyPath: m_Name
@@ -4327,7 +4327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6350646275246781552, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6350646275246781552, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4369,7 +4369,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -234253913679154700, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
 --- !u!1 &1289141775
 GameObject:

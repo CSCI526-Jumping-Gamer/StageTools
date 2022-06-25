@@ -11,10 +11,10 @@ public class DeathDetector : MonoBehaviour
     // [SerializeField] AudioClip crashSFX;
     // Start is called before the first frame update
     [SerializeField] bool isLevel2;
-    RespawnPlayer respawnPlayer;
+    Teleporter teleporter;
     private void Awake() {
         playerController = FindObjectOfType<PlayerController>();
-        respawnPlayer = FindObjectOfType<RespawnPlayer>();
+        teleporter = FindObjectOfType<Teleporter>();
     }
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
@@ -28,7 +28,7 @@ public class DeathDetector : MonoBehaviour
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(currentSceneIndex);
         } else {
-            respawnPlayer.Respawning();
+            teleporter.Respawning();
         }
     }
 }

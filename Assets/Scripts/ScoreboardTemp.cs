@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class ScoreBoard : MonoBehaviour
+public class Scoreboard : MonoBehaviour
 {
         
     [SerializeField] GameObject wrapper;

@@ -490,7 +490,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.054489136, y: -0.96928525}
-  m_ConnectedAnchor: {x: 0.23855591, y: 0.040714502}
+  m_ConnectedAnchor: {x: 0.2721987, y: 0.040714502}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1324,7 +1324,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.054481506, y: -1.0019639}
-  m_ConnectedAnchor: {x: -0.24443795, y: 0.006036043}
+  m_ConnectedAnchor: {x: -0.2932727, y: 0.006036043}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1698,8 +1698,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 14.520443
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.95
+      value: 2.053
       objectReference: {fileID: 0}
     - target: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1831,7 +1835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7414091973967612937, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
       propertyPath: magnetForce
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7414091973967612937, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
       propertyPath: MagnetAttractable
@@ -1910,7 +1914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7414091973967612937, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
       propertyPath: magnetForce
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7414091973967612937, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
       propertyPath: MagnetAttractable

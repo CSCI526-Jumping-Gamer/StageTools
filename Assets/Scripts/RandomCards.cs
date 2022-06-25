@@ -5,117 +5,98 @@ using UnityEngine.UI;
 using TMPro;
 public class RandomCards : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Card[] threeStarCards; // 25%
+    Card[] twoStarCards; // 50%
+    Card[] oneStarCards; // 25%
+    List<Card> cards;
+    int cardsLength = 3;
+    int[] cardScores;
+
     [SerializeField] GameObject wrapper;
     [SerializeField] TextMeshProUGUI[] cardText;
-    private Card[] threeStarsCards; // 25%
-    private Card[] twoStarsCards; // 50%
-    private Card[] oneStarsCards; // 25%
-    private List<Card> cards;
-
-    int[] randCardNumber;
-
+    
     void Awake()
     {
-        randCardNumber = new int[] { Random.Range(1, 100), Random.Range(1, 100), Random.Range(1, 100) };
-        threeStarsCards = new Card[] {
-            ScriptableObject.CreateInstance<ZeroGravity>(),
-            ScriptableObject.CreateInstance<Invincible>() };// 25%
-        twoStarsCards = new Card[] {
+        cardScores = calculateCardScores();
+
+        oneStarCards = new Card[] {
+            ScriptableObject.CreateInstance<SpeedUp>(), 
+            ScriptableObject.CreateInstance<HighJump>(), 
+            ScriptableObject.CreateInstance<SingleUseShield>(),
+            ScriptableObject.CreateInstance<LightWeight>(),
+            ScriptableObject.CreateInstance<RopeClimber>() }; // 25%
+
+        twoStarCards = new Card[] {
             ScriptableObject.CreateInstance<SlingshotHelper>(),
             ScriptableObject.CreateInstance<DoubleJump>(),
             ScriptableObject.CreateInstance<Flash>(),
             ScriptableObject.CreateInstance<LunarGravity>(),
             ScriptableObject.CreateInstance<ThreeTimesShield>() }; // 50%
-        oneStarsCards = new Card[] {
-            ScriptableObject.CreateInstance<SpeedUp>(), 
-            ScriptableObject.CreateInstance<HighJump>(), 
-            ScriptableObject.CreateInstance<SingleUseShield>(),
-            ScriptableObject.CreateInstance<LightWeight>(),
-            ScriptableObject.CreateInstance<RopeClimber>()}; // 25%
+
+        threeStarCards = new Card[] {
+            ScriptableObject.CreateInstance<ZeroGravity>(),
+            ScriptableObject.CreateInstance<Invincible>() };// 25%
+        
         cards = new List<Card>();
-        // gameObject.SetActive(false);
     }
 
-    void Start()
-    {
-
-        // cardPanel.SetActive(true);
-        // cardPanel.SetActive(false);
-        // StartCoroutine(CardSelections());
-        // cardPanel.SetActive(true);
-        // Debug.Log("Pick a card!!");
-        // getCards(0);
-        // getCards(1);
-        // getCards(2);
+    void Start() {
         PlayerController.instance.DisablePlayerInput();
-        Invoke("StartCardPanel", 0.5f);
+        Invoke("StartCardPanel", 0.2f);
     }
 
-    // IEnumerator CardSelections() {
-    //     yield return new WaitForSeconds(1);
-    //     cardPanel.SetActive(true);
-    //     Debug.Log("Pick a card!!");
-    //     getCards(0);
-    //     getCards(1);
-    //     getCards(2);
+    int[] calculateCardScores() {
+        // return new int[] { 
+        //     Random.Range(1, 100), 
+        //     Random.Range(1, 100), 
+        //     Random.Range(1, 100) };
+        return new int[] { 
+            0,0,0 };
+    }
 
-    // }
-
-    public void StartCardPanel()
-    {
+    public void StartCardPanel() {
         wrapper.SetActive(true);
-        Debug.Log("Pick a card!!");
-        getCards(0);
-        getCards(1);
-        getCards(2);
+
+        for (int i = 0; i < cardsLength; i++) {
+            drawCard(i);
+        }
+
         Time.timeScale = 0f;
     }
 
-    void getCards(int index)
-    {
+    void drawCard(int index) {
         Card currCard = null;
-        if (randCardNumber[index] <= 25)
-        { // 3 star
-            currCard = threeStarsCards[Random.Range(0, threeStarsCards.Length - 1)];
-            cardText[index].text = currCard.cardName;
 
-        }
-        else if (randCardNumber[index] <= 75)
-        { // 2 star
-            currCard = twoStarsCards[Random.Range(0, twoStarsCards.Length - 1)];
+        if (cardScores[index] <= 25) { 
+            // 3 star
+            currCard = threeStarCards[Random.Range(0, threeStarCards.Length)];
             cardText[index].text = currCard.cardName;
+        } else if (cardScores[index] <= 75) { 
+            // 2 star
+            currCard = twoStarCards[Random.Range(0, twoStarCards.Length)];
+            cardText[index].text = currCard.cardName;
+        } else { 
+            // 1 star
+            currCard = oneStarCards[Random.Range(0, oneStarCards.Length)];
+            cardText[index].text = currCard.cardName;
+        }
 
-        }
-        else
-        { // 1 star
-            currCard = oneStarsCards[Random.Range(0, oneStarsCards.Length - 1)];
-            cardText[index].text = currCard.cardName;
-        }
         cards.Add(currCard);
-
     }
 
-    public void SelectFirstCard()
-    {
-        Debug.Log(cards[0].cardName);
+    public void SelectFirstCard(Button button) {
         Inventory.instance.Add(cards[0]);
-
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
     }
-    public void SelectSecondCard()
-    {
-        Debug.Log(cards[1].cardName);
+    public void SelectSecondCard() {
         Inventory.instance.Add(cards[1]);
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
-    }
-    public void SelectThirdCard()
-    {
-        Debug.Log(cards[2].cardName);
+    } 
+    public void SelectThirdCard() {
         Inventory.instance.Add(cards[2]);
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();

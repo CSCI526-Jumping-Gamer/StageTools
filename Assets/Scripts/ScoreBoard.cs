@@ -2,7 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ScoreBoard : MonoBehaviour
 {
+        
     [SerializeField] GameObject wrapper;
+    public int score;
 
     public void RestartScene() {
         Scene scene = SceneManager.GetActiveScene();

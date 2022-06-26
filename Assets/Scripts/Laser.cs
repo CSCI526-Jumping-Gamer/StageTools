@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Laser : MonoBehaviour
 {
     [SerializeField] private float defDistanceRay = 50;
@@ -16,7 +16,6 @@ public class Laser : MonoBehaviour
 
     private void Awake()
     {
-        //   print("awake");
         count = 0;
         invisible_time = 1;
         flag = false;
@@ -25,7 +24,6 @@ public class Laser : MonoBehaviour
 
     public void Update()
     {
-        //   print("laser " + laserFirePoint);
         if (flag)
         {
             count += Time.deltaTime;
@@ -35,34 +33,36 @@ public class Laser : MonoBehaviour
 
     void ShootLaser()
     {
-        if (Physics2D.Raycast(m_transform.position, transform.right))
+        if (Physics2D.Raycast(m_transform.position, transform.right) )
         {
-            
-            //print("laser hit: " + _hit.transform.ToString() + "boolean: " + _hit.transform.ToString() == "Player");
             RaycastHit2D _hit = Physics2D.Raycast(laserFirePoint.position, transform.right);
-            
-            if (_hit.transform.ToString() == "Player (UnityEngine.Transform)")
+            Debug.Log(_hit.transform.tag.ToString());
+            if (_hit.transform.tag.ToString() == "Player")
             {
-                if (count > invisible_time)
-                {
-             //       gameManager.EndGame(); 死亡的触发条件放在这里
-                } 
-                else
-                {
-                 //   shield.SetAct(false);
-                    flag = true;
-                }
-                
-         //       print("true");
+                Invoke("ReloadScene", 0);
             }
-         //   print("laser hit: " + "a" +  _hit.transform.ToString() + "a");
-            Draw2DRay(laserFirePoint.position, _hit.point);
+            if (_hit.transform.tag.ToString() == "Magnet")
+            {
+                float x = laserFirePoint.transform.right.x;
+                float y = laserFirePoint.transform.right.y;
+                Vector2 endPos = new Vector2(laserFirePoint.position.x + x * defDistanceRay, laserFirePoint.position.y + y * defDistanceRay);
+                Draw2DRay(laserFirePoint.position, endPos);
+            }
+            else
+            {
+                Draw2DRay(laserFirePoint.position, _hit.point);
+            }
         }
         else
         {
-            Draw2DRay(laserFirePoint.position, laserFirePoint.transform.right * defDistanceRay);
+            //      Draw2DRay(laserFirePoint.position, laserFirePoint.transform.right * defDistanceRay);
+            float x = laserFirePoint.transform.right.x;
+            float y = laserFirePoint.transform.right.y;
+
+            Vector2 endPos = new Vector2(laserFirePoint.position.x + x * defDistanceRay, laserFirePoint.position.y + y * defDistanceRay);
+            Draw2DRay(laserFirePoint.position, endPos);
+
         }
-        
     }
 
     void Draw2DRay(Vector2 startPos, Vector2 endPos)
@@ -71,4 +71,9 @@ public class Laser : MonoBehaviour
         m_lineRenderer.SetPosition(1, endPos);
     }
 
+    void ReloadScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
 }

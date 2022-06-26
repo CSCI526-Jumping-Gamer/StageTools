@@ -4,7 +4,7 @@ public class Scoreboard : MonoBehaviour
 {
         
     [SerializeField] GameObject wrapper;
-    public int score;
+    public static int score = 1;
 
     public void RestartScene() {
         Scene scene = SceneManager.GetActiveScene();

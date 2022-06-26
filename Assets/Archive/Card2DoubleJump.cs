@@ -27,12 +27,12 @@ public class Card2DoubleJump : MonoBehaviour
     }
     public void EnableCard(int i) {
         if (i == cardNumber) {
-            playerController.SetIsAllowedDoubleJump(true);
+            PlayerController.instance.isAllowedToMultipleJump = true;
         }
     }
     public void DisableCard(int i) {
         if (i == cardNumber) {
-            playerController.SetIsAllowedDoubleJump(false);
+            PlayerController.instance.isAllowedToMultipleJump = false;
         }
     }
     // string PutHelperName(int i) {

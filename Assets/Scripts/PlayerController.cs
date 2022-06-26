@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
+
     Vector2 moveInput;
     Rigidbody2D rb2d;
     CircleCollider2D circleCollider2D;
@@ -15,13 +16,11 @@ public class PlayerController : MonoBehaviour
     bool isMagnetized = false;
     bool isHoldingRope = false;
     bool isJumpPressed = false;
-    public bool canDoubleJump = false;
     float finalMoveSpeed = 10f;
     float finalJumpSpeed = 24f;
     Rope rope;
     PlayerControls playerControls;
     PlayerInput playerInput;
-    [SerializeField] PlayerCard playerCard;
 
     [Header("Base Speed")]
     [SerializeField] float moveSpeed = 10f;
@@ -43,15 +42,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerState playerState;
 
     [Header("Card Attribute")]
-    public bool isAllowedToDoubleJump = false;
+    public bool isAllowedToMultipleJump = false;
+    public int multipleJumpTimes = 0;
+    public int maxMultipleJumpTimes = 0;
     public bool isAllowedToFly = false;
     public int shieldCount = 0;
 
     [Header("Card")]
     CardTimer cardTimer;
-
-    [Header("General")]
-    bool isUsingCard = false;
+    public bool isUsingCard = false;
 
     // [SerializeField] float maxDistance = 10f;
 
@@ -292,13 +291,13 @@ public class PlayerController : MonoBehaviour
             isJumpPressed = false;
 
             if (playerState == PlayerState.OnTheGround) {
-                canDoubleJump = isAllowedToDoubleJump == false ? false : true;
+                multipleJumpTimes = isAllowedToMultipleJump == false ? 0 : maxMultipleJumpTimes;
                 JumpOnTheGround();
             } else if (playerState == PlayerState.OnTheMagnet) {
-                canDoubleJump = isAllowedToDoubleJump == false ? false : true;
+                multipleJumpTimes = isAllowedToMultipleJump == false ? 0 : maxMultipleJumpTimes;
                 JumpOnTheMagnet();
             } else if (playerState == PlayerState.OnTheRope) {
-                canDoubleJump = isAllowedToDoubleJump == false ? false : true;
+                multipleJumpTimes = isAllowedToMultipleJump == false ? 0 : maxMultipleJumpTimes;
                 JumpOnTheRope();
             } else {
                 JumpInTheAir();
@@ -322,9 +321,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void JumpInTheAir() {
-        if (isAllowedToDoubleJump) {
-            if (canDoubleJump) {
-                canDoubleJump = false;
+        if (isAllowedToMultipleJump) {
+            if (multipleJumpTimes > 0) {
+                multipleJumpTimes -= 1;
                 rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
             }
         }
@@ -436,21 +435,6 @@ public class PlayerController : MonoBehaviour
 
     public bool GetIsHoldingRope() {
         return isHoldingRope;
-    }
-
-    public int GetShieldCount() {
-        return shieldCount;
-    }
-
-    public void SetShieldCount(int count) {
-        shieldCount = count;
-    }
-    public void SetIsAllowedDoubleJump(bool IsAllowed) {
-        isAllowedToDoubleJump = IsAllowed;
-    }
-
-    public void SetIsUsingCard(bool isUsingCard) {
-        this.isUsingCard = isUsingCard;
     }
 
     // private void OnDrawGizmosSelected()

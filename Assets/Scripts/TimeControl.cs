@@ -5,7 +5,7 @@ using TMPro;
 public class TimeControl : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static TimeControl timerObj;
+    public static TimeControl instance;
     public TextMeshProUGUI timeCount;
     public TextMeshProUGUI timeSpentOnStage;
 
@@ -18,7 +18,7 @@ public class TimeControl : MonoBehaviour
     private void Awake()
     {
         wrapper.SetActive(true);
-        timerObj = this;
+        instance = this;
     }
 
     private void Start()

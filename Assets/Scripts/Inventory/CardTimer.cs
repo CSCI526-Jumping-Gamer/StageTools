@@ -17,8 +17,8 @@ public class CardTimer : MonoBehaviour
     public Image fill;
     public TextMeshProUGUI remainingTimeText;
     public TextMeshProUGUI cardNameText;
-    public string cardName;
-    public float remainingTime;
+    public string cardName = "empty";
+    public float remainingTime = 0f;
     
     public void Activate(Card card) {
         this.card = card;
@@ -37,7 +37,7 @@ public class CardTimer : MonoBehaviour
                 card.Deactivate();
                 wrapper.SetActive(false);
                 Inventory.instance.Remove(card);
-                PlayerController.instance.SetIsUsingCard(false);
+                PlayerController.instance.isUsingCard = false;
             }
         }
     }

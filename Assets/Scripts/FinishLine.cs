@@ -8,6 +8,7 @@ public class FinishLine : MonoBehaviour
     // [SerializeField] float loadDelay = 1f;
     [SerializeField] ParticleSystem finishEffect;
     GameObject scoreboard;
+    GameObject cardTimer;
     PlayerController playerController;
 
 
@@ -15,26 +16,21 @@ public class FinishLine : MonoBehaviour
     private void Awake()
     {
         scoreboard = GameObject.FindWithTag("Scoreboard");
+        cardTimer = GameObject.FindWithTag("CardTimer");
         playerController = FindObjectOfType<PlayerController>();
     }
-
-    // private void Start()
-    // {
-    //     scoreboard.SetActive(false);
-    // }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             finishEffect.Play();
-            // Ian added
             scoreboard.transform.Find("Wrapper").gameObject.SetActive(true);
-            scoreboard.SetActive(true); // activate end scene
+            cardTimer.transform.Find("Wrapper").gameObject.SetActive(false);
             playerController.DisablePlayerInput();
             FindObjectOfType<StarColor>().setStarColor(); // set the star color 
-            TimeControl.timerObj.TimerEnd(); // end the timer;
-            TimeControl.timerObj.showTimerOnEndCanvas();
+            TimeControl.instance.TimerEnd(); // end the timer;
+            TimeControl.instance.showTimerOnEndCanvas();
             //Invoke("ReloadScene", loadDelay);
         }
     }

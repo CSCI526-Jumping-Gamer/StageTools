@@ -21,11 +21,12 @@ public class PlayerController : MonoBehaviour
     Rope rope;
     PlayerControls playerControls;
     PlayerInput playerInput;
+    CardTimer cardTimer;
 
     [Header("Base Speed")]
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float moveSpeedOnRope = 6f;
-    [SerializeField] float swingSpeed = 10f;
+    [SerializeField] float swingSpeed = 20f;
     [SerializeField] float jumpSpeed = 24f;
     public float climbSpeed = 8f;
     public float normalGravityScale = 8f;
@@ -42,14 +43,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerState playerState;
 
     [Header("Card Attribute")]
+    public bool isAllowedToFly = false;
     public bool isAllowedToMultipleJump = false;
     public int multipleJumpTimes = 0;
     public int maxMultipleJumpTimes = 0;
-    public bool isAllowedToFly = false;
+    
     public int shieldCount = 0;
 
-    [Header("Card")]
-    CardTimer cardTimer;
+    [Header("Card Console")]
+    
     public bool isUsingCard = false;
 
     // [SerializeField] float maxDistance = 10f;

@@ -10,7 +10,7 @@ public class ZeroForceZone : MonoBehaviour
         Card card = Inventory.instance.GetFirstCard();
         SlingshotHelper slingshotHelper = null;
 
-        if (card.GetType() == typeof(SlingshotHelper)) {
+        if (card && card.GetType() == typeof(SlingshotHelper)) {
             slingshotHelper = (SlingshotHelper)card;
         }
 
@@ -19,15 +19,15 @@ public class ZeroForceZone : MonoBehaviour
         }
     }
     private void OnTriggerExit2D(Collider2D other) {
-        Card card = Inventory.instance.GetFirstCard();
-        SlingshotHelper slingshotHelper = null;
+        // Card card = Inventory.instance.GetFirstCard();
+        // SlingshotHelper slingshotHelper = null;
 
-        if (card.GetType() == typeof(SlingshotHelper)) {
-            slingshotHelper = (SlingshotHelper)card;
-        }
+        // if (card && card.GetType() == typeof(SlingshotHelper)) {
+        //     slingshotHelper = (SlingshotHelper)card;
+        // }
 
-        if (other.gameObject.tag == "Player" && slingshotHelper && slingshotHelper.isHelperEnabled) {
-            isTriggered = false;
-        }
+        // if (other.gameObject.tag == "Player" && slingshotHelper && slingshotHelper.isHelperEnabled) {
+        isTriggered = false;
+        // }
     }
 }

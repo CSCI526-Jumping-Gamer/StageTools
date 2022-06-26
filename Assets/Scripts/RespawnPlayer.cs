@@ -5,7 +5,7 @@ using UnityEngine;
 public class RespawnPlayer : MonoBehaviour
 {
     [SerializeField] float loadDelay = 0.2f;
-    [SerializeField] Vector3 CheckPointPosition;
+    // [SerializeField] Vector3 CheckPointPosition;
     PlayerController playerController;
     Collider2D PlayerCollider;
     // Teleporter teleporter;
@@ -32,7 +32,7 @@ public class RespawnPlayer : MonoBehaviour
     public void Respawning()
     {
         Rigidbody2D otherRb2d = PlayerCollider.gameObject.GetComponent<Rigidbody2D>();
-        otherRb2d.transform.position = CheckPointPosition;
+        otherRb2d.transform.position = playerController.GetCheckPointPosition();
         playerController.OnEnable();
     }
 }

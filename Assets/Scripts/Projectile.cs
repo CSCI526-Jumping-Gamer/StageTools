@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed;
@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
     {
         if (hit)
         {
-            print("hit");
+            
             Deactivate();
             //   return;
         }
@@ -41,8 +41,12 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(123);
+        
         hit = true;
+        if (collision.tag.ToString() == "Player")
+        {
+            Invoke("ReloadScene", 0);
+        }
         boxCollider.enabled = false;
         //    anim.SetTrigger("explode");
     }
@@ -61,9 +65,16 @@ public class Projectile : MonoBehaviour
 
               transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);*/
     }
+
     public void Deactivate()
     {
         isActive = false;
         gameObject.SetActive(false);
+    }
+
+    void ReloadScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }

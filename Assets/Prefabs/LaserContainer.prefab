@@ -131,11 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118efecc1a9f54e668d84ba3e52927c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defDistanceRay: 5
+  defDistanceRay: 50
   laserFirePoint: {fileID: 6368500064178823055}
   m_lineRenderer: {fileID: 6368500065718958873}
-  gameManager: {fileID: 0}
-  shield: {fileID: 0}
 --- !u!120 &6368500065718958873
 LineRenderer:
   m_ObjectHideFlags: 0

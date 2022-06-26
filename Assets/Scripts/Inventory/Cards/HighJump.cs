@@ -18,6 +18,6 @@ public class HighJump : Card
     public override void Deactivate()
     {
         base.Deactivate();
-        PlayerController.instance.jumpSpeedMultiplier = 0f;
+        PlayerController.instance.jumpSpeedMultiplier = 1f;
     }
 }

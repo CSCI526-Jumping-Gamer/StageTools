@@ -14,6 +14,7 @@ public class ObjectDetector : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Player") {
             other.transform.parent = null;
+			other.transform.localEulerAngles = new Vector3(0,0,0);
         }
     }
 }

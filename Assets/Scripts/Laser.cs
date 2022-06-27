@@ -41,17 +41,20 @@ public class Laser : MonoBehaviour
             {
                 Invoke("ReloadScene", 0);
             }
-            if (_hit.transform.tag.ToString() == "Magnet")
+            Physics2D.IgnoreLayerCollision(5,2,true);
+        /*    if (_hit.transform.tag.ToString() == "Magnet")
             {
+                
                 float x = laserFirePoint.transform.right.x;
                 float y = laserFirePoint.transform.right.y;
+                _hit = Physics2D.Raycast(laserFirePoint.position, transform.right);
                 Vector2 endPos = new Vector2(laserFirePoint.position.x + x * defDistanceRay, laserFirePoint.position.y + y * defDistanceRay);
-                Draw2DRay(laserFirePoint.position, endPos);
-            }
-            else
-            {
                 Draw2DRay(laserFirePoint.position, _hit.point);
-            }
+            }*/
+         //   else
+           // {
+             Draw2DRay(laserFirePoint.position, _hit.point);
+         //   }
         }
         else
         {

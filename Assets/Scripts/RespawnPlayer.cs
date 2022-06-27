@@ -6,6 +6,8 @@ public class RespawnPlayer : MonoBehaviour
 {
     [SerializeField] float loadDelay = 0.2f;
     [SerializeField] Vector3 CheckPointPosition;
+    CardTimer cardTimer;
+
     PlayerController playerController;
     Collider2D PlayerCollider;
     // Teleporter teleporter;
@@ -13,6 +15,7 @@ public class RespawnPlayer : MonoBehaviour
     void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
+        cardTimer = FindObjectOfType<CardTimer>();
         // teleporter = FindObjectOfType<Teleporter>();
     }
     // void Start() {
@@ -25,14 +28,21 @@ public class RespawnPlayer : MonoBehaviour
         {
             PlayerCollider = other;
             playerController.OnDisable();
-            Invoke("Respawning", loadDelay);
+            if (PlayerController.instance.shieldCount > 0) {
+                PlayerController.instance.shieldCount -= 1;
+                if (PlayerController.instance.shieldCount == 0) {
+                    cardTimer.Deactivate();
+                }
+            } else {
+                Invoke("Respawning", loadDelay);
+            }
         }
     }
 
     public void Respawning()
     {
         Rigidbody2D otherRb2d = PlayerCollider.gameObject.GetComponent<Rigidbody2D>();
-        otherRb2d.transform.position = CheckPointPosition;
+        otherRb2d.transform.position = playerController.GetCheckPointPosition();
         playerController.OnEnable();
     }
 }

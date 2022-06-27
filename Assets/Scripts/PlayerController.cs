@@ -53,11 +53,13 @@ public class PlayerController : MonoBehaviour
     [Header("Card Console")]
     
     public bool isUsingCard = false;
-
+	public Vector3 CheckPointPosition;
     // [SerializeField] float maxDistance = 10f;
 
     private void Awake() {
         rb2d = GetComponent<Rigidbody2D>();
+		CheckPointPosition = transform.position;
+		// Debug.Log(CheckPointPosition);
         circleCollider2D = GetComponent<CircleCollider2D>();
         boxCollider2D = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();
         playerControls = new PlayerControls();
@@ -445,4 +447,11 @@ public class PlayerController : MonoBehaviour
     //         Gizmos.DrawWireSphere(transform.position, maxDistance);
         
     // }
+	public Vector3 GetCheckPointPosition() {
+		return CheckPointPosition;
+	}
+	
+	public void UpdateCheckPointPosition(Vector3 NewPosition) {
+		CheckPointPosition = NewPosition;
+	}
 }

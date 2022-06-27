@@ -26,6 +26,10 @@ public class CardTimer : MonoBehaviour
         wrapper.SetActive(true);
         isActivated = true;
     }
+    public void Deactivate() {
+        wrapper.SetActive(false);
+        isActivated = false;
+    }
 
     void Update() {
         if (isActivated) {

@@ -19,6 +19,12 @@ public class SettingPanel : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void OpenLevels() {
+        wrapper.SetActive(true);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(7);
+    }
+
     public void PauseGame()
     {
         wrapper.SetActive(true);

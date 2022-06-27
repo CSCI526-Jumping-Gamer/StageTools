@@ -30,9 +30,11 @@ public class RespawnPlayer : MonoBehaviour
             playerController.OnDisable();
             if (PlayerController.instance.shieldCount > 0) {
                 PlayerController.instance.shieldCount -= 1;
-            } else if (PlayerController.instance.shieldCount == 0) {
-                cardTimer.Deactivate();
+                if (PlayerController.instance.shieldCount == 0) {
+                    cardTimer.Deactivate();
+                }
             } else {
+                Debug.Log("2");
                 Invoke("Respawning", loadDelay);
             }
         }
@@ -40,6 +42,7 @@ public class RespawnPlayer : MonoBehaviour
 
     public void Respawning()
     {
+        Debug.Log("3");
         Rigidbody2D otherRb2d = PlayerCollider.gameObject.GetComponent<Rigidbody2D>();
         otherRb2d.transform.position = playerController.GetCheckPointPosition();
         playerController.OnEnable();

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GameAnalyticsSDK;
 
 
 namespace Unity.Services.Analytics
@@ -46,7 +45,9 @@ namespace Unity.Services.Analytics
                 } else {
                     // analyticsEventHandler.RecordPlayerDeath(other.transform.position);
                     // gameAnalyticsEventHandler.RecordPlayerDied(other.transform.position);
-                    deltaDnaEventHandler.RecordPlayerDied(other.transform.position);
+                    string propName = gameObject.name;
+                    int propID = gameObject.GetInstanceID();
+                    deltaDnaEventHandler.RecordPlayerDied(other.transform.position, propName, propID);
                     Invoke("Respawning", loadDelay);
                 }
             }

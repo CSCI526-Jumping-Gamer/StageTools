@@ -10,6 +10,7 @@ public class FinishLine : MonoBehaviour
     GameObject scoreboard;
     GameObject cardTimer;
     PlayerController playerController;
+    DeltaDnaEventHandler deltaDnaEventHandler;
 
 
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class FinishLine : MonoBehaviour
         scoreboard = GameObject.FindWithTag("Scoreboard");
         cardTimer = GameObject.FindWithTag("CardTimer");
         playerController = FindObjectOfType<PlayerController>();
+        deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -29,7 +31,7 @@ public class FinishLine : MonoBehaviour
             cardTimer.transform.Find("Wrapper").gameObject.SetActive(false);
             playerController.DisablePlayerInput();
             FindObjectOfType<StarColor>().setStarColor(); // set the star color 
-            TimeControl.instance.TimerEnd(); // end the timer;
+            deltaDnaEventHandler.RecordLevelPassed();
             TimeControl.instance.showTimerOnEndCanvas();
             //Invoke("ReloadScene", loadDelay);
         }

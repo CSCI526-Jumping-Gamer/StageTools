@@ -19,12 +19,16 @@ public class MagneticField : MonoBehaviour
     public float magnetForce = 30f;
     [SerializeField] private bool isMagnetAttractable;
     [SerializeField] private bool isSlingShot;
+    [SerializeField] private bool isRailgun;
+    DeltaDnaEventHandler deltaDnaEventHandler;
+    bool magnetRecordHelper = true;
 
     private void Awake() {
         playerController = FindObjectOfType<PlayerController>();        
         rb2d = GetComponentInParent<Rigidbody2D>();
         magneticLine = magneticLineGameObject.GetComponent<MagneticLine>();
-        
+        deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
+
         if (isSlingShot) {
             zeroForceZone = magnetHelperGameObject.GetComponent<ZeroForceZone>();
         }
@@ -32,24 +36,45 @@ public class MagneticField : MonoBehaviour
 
     private void Update() {
         if (isTriggered && playerController.GetIsMagnetized()) {
+            if (magnetRecordHelper) {
+                string toolName, toolType;
+                int toolID;
+                if (isSlingShot) {
+                    toolID = transform.parent.parent.GetInstanceID();
+                    toolName = transform.parent.parent.name;
+                    toolType = "Slingshot";
+                } else if (isMagnetAttractable) {
+                    toolID = transform.parent.parent.GetInstanceID();
+                    toolName = transform.parent.parent.name;
+                    toolType = "Rope with Magnet";
+                } else if (isRailgun){
+                    toolID = transform.parent.parent.parent.GetInstanceID();
+                    toolName = transform.parent.parent.parent.name;
+                    toolType = "Railgun";
+                } else {
+                    toolName = transform.parent.name;
+                    toolType = "Magnet";
+                    toolID = transform.parent.GetInstanceID();
+                }
+                deltaDnaEventHandler.RecordtoolsUsage(toolName, toolType, toolID);
+                magnetRecordHelper = false;
+            }
             magneticLine.DrawRope(otherRb2d);
         } else {
+            magnetRecordHelper = true;
             magneticLine.DeleteRope();
         }
     }
     private void FixedUpdate() {
         if (isSlingShot) {
             if (isTriggered && playerController.GetIsMagnetized() && !zeroForceZone.isTriggered) {
-                // use slingshot
                 Attract(otherRb2d);
             }
         } else {
             if (isTriggered && playerController.GetIsMagnetized()) {
-                // use magnet
                 Attract(otherRb2d);
             }
         }
-
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {

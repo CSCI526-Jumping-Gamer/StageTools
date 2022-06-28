@@ -7,19 +7,26 @@ public class AcceleratingTrail : MonoBehaviour
     [SerializeField] float baseSpeed = 14f;
     [SerializeField] float horizontalAccelerateSpeed = 4f;
     [SerializeField] float verticalAccelerateSpeed = 4f;
+    DeltaDnaEventHandler deltaDnaEventHandler;
 
     public bool isTriggered = false;
+    bool boosterRecordHelper = true;
     
     private void Awake() {
-        
+        deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
     }
     
     private void OnTriggerStay2D(Collider2D other) {
         if (other.tag == "Player") {
             isTriggered = true;
             Accelerate(other);
-            Debug.Log("hello");
-            // analytics
+            if (boosterRecordHelper) {
+                string toolName = transform.parent.name;
+                int toolID = transform.parent.GetInstanceID();
+                deltaDnaEventHandler.RecordtoolsUsage(toolName, "Accelerator", toolID);
+                boosterRecordHelper = false;
+                // analytics
+            }
         }
     }
 
@@ -49,6 +56,7 @@ public class AcceleratingTrail : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Player") {
             isTriggered = false;
+            boosterRecordHelper = true;
         }
     }
 }

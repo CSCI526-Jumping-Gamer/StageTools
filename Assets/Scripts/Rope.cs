@@ -9,12 +9,15 @@ public class Rope : MonoBehaviour
     PlayerController playerController;
     Rigidbody2D rb2d;
     HingeJoint2D hingeJoint2D;
+    DeltaDnaEventHandler deltaDnaEventHandler;
+    bool ropeRecordHelper = true;
 
     private void Awake() {
         trans = GetComponent<Transform>();
         playerController = FindObjectOfType<PlayerController>();
         rb2d = GetComponent<Rigidbody2D>();
         hingeJoint2D = GetComponent<HingeJoint2D>();
+        deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
     }
 
     void Start()
@@ -41,12 +44,16 @@ public class Rope : MonoBehaviour
                 Rigidbody2D otherRb2d = other.GetComponent<Rigidbody2D>();
                 otherRb2d.position = transform.position;
             }
+            string toolName = transform.parent.name;
+            int toolID = transform.parent.GetInstanceID();
+            deltaDnaEventHandler.RecordtoolsUsage(toolName, "Rope", toolID);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Player") {
             playerController.SetRope(null);
+            ropeRecordHelper = true;
         }
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class DeltaDnaEventHandler : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    bool doubleMagnetCountHelper = true;
     void Start () {
         // Configure the SDK
         DDNA.Instance.SetLoggingLevel(DeltaDNA.Logger.Level.DEBUG);
@@ -45,26 +45,69 @@ public class DeltaDnaEventHandler : MonoBehaviour
         // Debug.LogWarning("DeltaDNA has started with a default configuration. To use your own config, edit the BasicExample script.");
     }
 
-    public void RecordPlayerDied(Vector3 position) {
+    public void RecordPlayerDied(Vector3 position, string propName, int propID) {
         Debug.Log("player died");
         string sceneName = SceneManager.GetActiveScene().name;
         GameEvent gameEvent = new GameEvent("playerDied")
             .AddParam("sceneName", sceneName)
             .AddParam("playerXPosition", position.x)
-            .AddParam("playerYPosition", position.y);
-
+            .AddParam("playerYPosition", position.y)
+            .AddParam("killerName", propName)
+            .AddParam("killerID", propID);
+        Debug.Log(propName);
         DDNA.Instance.RecordEvent(gameEvent);
         DDNA.Instance.Upload();
     }
 
     public void RecordCardChose(Card card) {
         Debug.Log("player chose card");
-
+        string sceneName = SceneManager.GetActiveScene().name;
         GameEvent gameEvent = new GameEvent("cardChose")
-            .AddParam("cardName", card.cardName);
-
-
+            .AddParam("sceneName", sceneName)
+            .AddParam("cardName", card.cardName)
+            .AddParam("cardRank", card.rank);
         DDNA.Instance.RecordEvent(gameEvent);
         DDNA.Instance.Upload();
+    }
+    public void RecordLevelPassed() {
+        Debug.Log("Passed Level");
+        string sceneName = SceneManager.GetActiveScene().name;
+        float timeElapsed = TimeControl.instance.getTimeElapsed();
+        GameEvent gameEvent = new GameEvent("passedLevel")
+            .AddParam("sceneName", sceneName)
+            .AddParam("totalTime", timeElapsed);
+        DDNA.Instance.RecordEvent(gameEvent);
+        DDNA.Instance.Upload();
+    }
+    public void RecordtoolsUsage(string toolName, string toolType, int toolID) {
+        Debug.Log("Using Tool");
+        string sceneName = SceneManager.GetActiveScene().name;
+        GameEvent gameEvent = new GameEvent("usingTool")
+            .AddParam("sceneName", sceneName)
+            .AddParam("toolName", toolName)
+            .AddParam("toolID", toolID)
+            .AddParam("toolType", toolType);
+
+        
+        if (toolType == "Slingshot" || toolType == "Railgun") {
+            if (doubleMagnetCountHelper) {
+                doubleMagnetCountHelper = false;
+            } else {
+                doubleMagnetCountHelper = true;
+                DDNA.Instance.RecordEvent(gameEvent);
+                DDNA.Instance.Upload();
+                Debug.Log(toolName);
+                Debug.Log(toolType);
+                Debug.Log(toolID);
+                
+            }
+        } else {
+            DDNA.Instance.RecordEvent(gameEvent);
+            DDNA.Instance.Upload();
+            Debug.Log(toolName);
+            Debug.Log(toolType);
+            Debug.Log(toolID);
+        }
+        
     }
 }

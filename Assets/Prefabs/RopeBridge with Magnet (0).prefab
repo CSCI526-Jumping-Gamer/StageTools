@@ -1841,6 +1841,10 @@ PrefabInstance:
       propertyPath: MagnetAttractable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7414091973967612937, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
+      propertyPath: isMagnetAttractable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
 --- !u!4 &3449016810574285890 stripped
@@ -1918,6 +1922,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7414091973967612937, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
       propertyPath: MagnetAttractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414091973967612937, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
+      propertyPath: isMagnetAttractable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

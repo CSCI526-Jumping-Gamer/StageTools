@@ -10,14 +10,14 @@ public class Laser : MonoBehaviour
  //   public GameManager gameManager;
  //   public Shield shield;
     private float count; // Invincible time
-    private float invisible_time;
+    // private float invisible_time;
     private bool flag;
     Transform m_transform;
 
     private void Awake()
     {
         count = 0;
-        invisible_time = 1;
+        // invisible_time = 1;
         flag = false;
         m_transform = GetComponent<Transform>();
     }

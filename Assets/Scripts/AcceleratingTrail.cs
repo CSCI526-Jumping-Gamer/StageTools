@@ -18,6 +18,8 @@ public class AcceleratingTrail : MonoBehaviour
         if (other.tag == "Player") {
             isTriggered = true;
             Accelerate(other);
+            Debug.Log("hello");
+            // analytics
         }
     }
 

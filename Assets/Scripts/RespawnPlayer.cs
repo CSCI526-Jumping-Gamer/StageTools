@@ -1,48 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameAnalyticsSDK;
 
-public class RespawnPlayer : MonoBehaviour
+
+namespace Unity.Services.Analytics
 {
-    [SerializeField] float loadDelay = 0.2f;
-    [SerializeField] Vector3 CheckPointPosition;
-    CardTimer cardTimer;
-
-    PlayerController playerController;
-    Collider2D PlayerCollider;
-    // Teleporter teleporter;
-    // Start is called before the first frame update
-    void Awake()
+    public class RespawnPlayer : MonoBehaviour
     {
-        playerController = FindObjectOfType<PlayerController>();
-        cardTimer = FindObjectOfType<CardTimer>();
-        // teleporter = FindObjectOfType<Teleporter>();
-    }
-    // void Start() {
-    //     CheckPointPosition = teleporter.CheckPointPosition;
-    // }
+        CardTimer cardTimer;
+        PlayerController playerController;
+        Collider2D playerCollider;
+        AnalyticsEventHandler analyticsEventHandler;
+        GameAnalyticsEventHandler gameAnalyticsEventHandler;
+        DeltaDnaEventHandler deltaDnaEventHandler;
+        // Teleporter teleporter;
+        [SerializeField] float loadDelay = 0.2f;
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player")
+        void Awake()
         {
-            PlayerCollider = other;
-            playerController.OnDisable();
-            if (PlayerController.instance.shieldCount > 0) {
-                PlayerController.instance.shieldCount -= 1;
-                if (PlayerController.instance.shieldCount == 0) {
-                    cardTimer.Deactivate();
+            playerController = FindObjectOfType<PlayerController>();
+            cardTimer = FindObjectOfType<CardTimer>();
+            deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
+            // analyticsEventHandler = FindObjectOfType<AnalyticsEventHandler>();
+            // gameAnalyticsEventHandler = FindObjectOfType<GameAnalyticsEventHandler>();
+            // GameAnalytics.Initialize();
+            // teleporter = FindObjectOfType<Teleporter>();
+        }
+
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.tag == "Player")
+            {
+                playerCollider = other;
+                playerController.DisablePlayerInput();
+
+                if (PlayerController.instance.shieldCount > 0) {
+                    // analyticsEventHandler.RecordShieldUsed(other.transform.position);
+                    PlayerController.instance.shieldCount -= 1;
+
+                    if (PlayerController.instance.shieldCount == 0) {
+                        cardTimer.Deactivate();
+                    }
+                } else {
+                    // analyticsEventHandler.RecordPlayerDeath(other.transform.position);
+                    // gameAnalyticsEventHandler.RecordPlayerDied(other.transform.position);
+                    deltaDnaEventHandler.RecordPlayerDied(other.transform.position);
+                    Invoke("Respawning", loadDelay);
                 }
-            } else {
-                Invoke("Respawning", loadDelay);
             }
         }
-    }
 
-    public void Respawning()
-    {
-        Rigidbody2D otherRb2d = PlayerCollider.gameObject.GetComponent<Rigidbody2D>();
-        otherRb2d.transform.position = playerController.GetCheckPointPosition();
-        playerController.OnEnable();
+        public void Respawning()
+        {
+            Rigidbody2D otherRb2d = playerCollider.gameObject.GetComponent<Rigidbody2D>();
+            otherRb2d.transform.position = playerController.GetCheckPointPosition();
+            playerController.EnablePlayerInput();
+        }
     }
 }

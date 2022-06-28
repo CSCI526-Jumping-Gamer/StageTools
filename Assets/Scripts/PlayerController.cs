@@ -51,8 +51,9 @@ public class PlayerController : MonoBehaviour
     public int shieldCount = 0;
 
     [Header("Card Console")]
-    
     public bool isUsingCard = false;
+
+    [Header("Check Point")]
 	public Vector3 CheckPointPosition;
     // [SerializeField] float maxDistance = 10f;
 

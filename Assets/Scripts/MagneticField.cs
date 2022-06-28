@@ -40,10 +40,12 @@ public class MagneticField : MonoBehaviour
     private void FixedUpdate() {
         if (isSlingShot) {
             if (isTriggered && playerController.GetIsMagnetized() && !zeroForceZone.isTriggered) {
+                // use slingshot
                 Attract(otherRb2d);
             }
         } else {
             if (isTriggered && playerController.GetIsMagnetized()) {
+                // use magnet
                 Attract(otherRb2d);
             }
         }

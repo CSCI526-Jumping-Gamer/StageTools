@@ -12,10 +12,15 @@ public class RandomCards : MonoBehaviour
     int cardsLength = 3;
     List<int> cardScores;
     int bias = 0;
+    DeltaDnaEventHandler deltaDnaEventHandler;
 
     [SerializeField] GameObject wrapper;
     [SerializeField] List<TextMeshProUGUI> cardText;
     
+    private void Awake() {
+        deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
+    }
+
     void Start() {
         InitializeCardPool();
         cardScores = calculateCardScores();
@@ -141,24 +146,29 @@ public class RandomCards : MonoBehaviour
     }
 
     public void SelectFirstCard() {
+        deltaDnaEventHandler.RecordCardChose(handCards[0]);
         Inventory.instance.Add(handCards[0]);
         handCards.Remove(handCards[0]);
         AddCardBacktoPool();
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
+        
     }
 
     public void SelectSecondCard() {
+        deltaDnaEventHandler.RecordCardChose(handCards[1]);
         Inventory.instance.Add(handCards[1]);
         handCards.Remove(handCards[1]);
         AddCardBacktoPool();
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
+        
     } 
 
     public void SelectThirdCard() {
+        deltaDnaEventHandler.RecordCardChose(handCards[2]);
         Inventory.instance.Add(handCards[2]);
         handCards.Remove(handCards[2]);
         AddCardBacktoPool();

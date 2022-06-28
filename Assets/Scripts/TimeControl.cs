@@ -45,7 +45,7 @@ public class TimeControl : MonoBehaviour
 
     public void showTimerOnEndCanvas()
     {
-        timeSpentOnStage.text = timeSpan.ToString("ss'.'ff") + " sec";
+        timeSpentOnStage.text = timeSpan.TotalSeconds + " sec";
     }
 
     public void TimerEnd()

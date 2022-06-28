@@ -79,13 +79,13 @@ public class DeltaDnaEventHandler : MonoBehaviour
         DDNA.Instance.RecordEvent(gameEvent);
         DDNA.Instance.Upload();
     }
-    public void RecordtoolsUsage(string toolName, string toolType, int toolID) {
+    public void RecordtoolsUsage(string toolName, string toolType, string toolKey) {
         Debug.Log("Using Tool");
         string sceneName = SceneManager.GetActiveScene().name;
         GameEvent gameEvent = new GameEvent("usingTool")
             .AddParam("sceneName", sceneName)
             .AddParam("toolName", toolName)
-            .AddParam("toolID", toolID)
+            .AddParam("toolKey", toolKey)
             .AddParam("toolType", toolType);
 
         
@@ -98,7 +98,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
                 DDNA.Instance.Upload();
                 Debug.Log(toolName);
                 Debug.Log(toolType);
-                Debug.Log(toolID);
+                Debug.Log(toolKey);
                 
             }
         } else {
@@ -106,7 +106,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
             DDNA.Instance.Upload();
             Debug.Log(toolName);
             Debug.Log(toolType);
-            Debug.Log(toolID);
+            Debug.Log(toolKey);
         }
         
     }

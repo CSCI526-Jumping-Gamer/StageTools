@@ -37,26 +37,25 @@ public class MagneticField : MonoBehaviour
     private void Update() {
         if (isTriggered && playerController.GetIsMagnetized()) {
             if (magnetRecordHelper) {
-                string toolName, toolType;
-                int toolID;
+                string toolName, toolType, toolKey;
                 if (isSlingShot) {
-                    toolID = transform.parent.parent.GetInstanceID();
                     toolName = transform.parent.parent.name;
                     toolType = "Slingshot";
+                    toolKey = toolType + transform.parent.parent.GetInstanceID();
                 } else if (isMagnetAttractable) {
-                    toolID = transform.parent.parent.GetInstanceID();
                     toolName = transform.parent.parent.name;
                     toolType = "Rope with Magnet";
+                    toolKey = toolType + transform.parent.parent.GetInstanceID();
                 } else if (isRailgun){
-                    toolID = transform.parent.parent.parent.GetInstanceID();
                     toolName = transform.parent.parent.parent.name;
                     toolType = "Railgun";
+                    toolKey = toolType + transform.parent.parent.parent.GetInstanceID();
                 } else {
                     toolName = transform.parent.name;
                     toolType = "Magnet";
-                    toolID = transform.parent.GetInstanceID();
+                    toolKey = toolType + transform.parent.GetInstanceID();
                 }
-                deltaDnaEventHandler.RecordtoolsUsage(toolName, toolType, toolID);
+                deltaDnaEventHandler.RecordtoolsUsage(toolName, toolType, toolKey);
                 magnetRecordHelper = false;
             }
             magneticLine.DrawRope(otherRb2d);

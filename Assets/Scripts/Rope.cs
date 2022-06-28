@@ -44,9 +44,12 @@ public class Rope : MonoBehaviour
                 Rigidbody2D otherRb2d = other.GetComponent<Rigidbody2D>();
                 otherRb2d.position = transform.position;
             }
-            string toolName = transform.parent.name;
-            int toolID = transform.parent.GetInstanceID();
-            deltaDnaEventHandler.RecordtoolsUsage(toolName, "Rope", toolID);
+            if (ropeRecordHelper) {
+                string toolName = transform.parent.name;
+                string toolKey = "Rope" + transform.parent.GetInstanceID();
+                deltaDnaEventHandler.RecordtoolsUsage(toolName, "Rope", toolKey);
+                ropeRecordHelper = false;
+            }
         }
     }
 

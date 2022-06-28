@@ -22,8 +22,8 @@ public class AcceleratingTrail : MonoBehaviour
             Accelerate(other);
             if (boosterRecordHelper) {
                 string toolName = transform.parent.name;
-                int toolID = transform.parent.GetInstanceID();
-                deltaDnaEventHandler.RecordtoolsUsage(toolName, "Accelerator", toolID);
+                string toolKey = "Accelerator" + transform.parent.GetInstanceID();
+                deltaDnaEventHandler.RecordtoolsUsage(toolName, "Accelerator", toolKey);
                 boosterRecordHelper = false;
                 // analytics
             }

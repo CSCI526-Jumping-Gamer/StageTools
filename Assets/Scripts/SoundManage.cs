@@ -8,7 +8,7 @@ public class SoundManage : MonoBehaviour
     void Awake()
     {
         if (!PlayerPrefs.HasKey("musicVolume")) {
-            PlayerPrefs.SetFloat("musicVolume", 1);
+            PlayerPrefs.SetFloat("musicVolume", 0.5f);
         } 
         
         Load();

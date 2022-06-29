@@ -22,7 +22,14 @@ public class SettingPanel : MonoBehaviour
     public void OpenLevels() {
         wrapper.SetActive(true);
         Time.timeScale = 1f;
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(8);
+    }
+
+    public void ReStartLevel() {
+        wrapper.SetActive(true);
+        
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
     }
 
     public void PauseGame()

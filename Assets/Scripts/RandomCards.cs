@@ -154,7 +154,10 @@ public class RandomCards : MonoBehaviour
     }
 
     public void SelectFirstCard() {
-        deltaDnaEventHandler.RecordCardChose(handCards[0]);
+        if (deltaDnaEventHandler) {
+            deltaDnaEventHandler.RecordCardChose(handCards[0]);
+        }
+        
         Inventory.instance.Add(handCards[0]);
         handCards.Remove(handCards[0]);
         AddCardBacktoPool();
@@ -165,7 +168,10 @@ public class RandomCards : MonoBehaviour
     }
 
     public void SelectSecondCard() {
-        deltaDnaEventHandler.RecordCardChose(handCards[1]);
+        if (deltaDnaEventHandler) {
+            deltaDnaEventHandler.RecordCardChose(handCards[1]);
+        }
+        
         Inventory.instance.Add(handCards[1]);
         handCards.Remove(handCards[1]);
         AddCardBacktoPool();
@@ -176,7 +182,10 @@ public class RandomCards : MonoBehaviour
     } 
 
     public void SelectThirdCard() {
-        deltaDnaEventHandler.RecordCardChose(handCards[2]);
+        if (deltaDnaEventHandler) {
+            deltaDnaEventHandler.RecordCardChose(handCards[2]);
+        }
+        
         Inventory.instance.Add(handCards[2]);
         handCards.Remove(handCards[2]);
         AddCardBacktoPool();

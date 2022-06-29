@@ -30,8 +30,12 @@ public class FinishLine : MonoBehaviour
             scoreboard.transform.Find("Wrapper").gameObject.SetActive(true);
             cardTimer.transform.Find("Wrapper").gameObject.SetActive(false);
             playerController.DisablePlayerInput();
-            FindObjectOfType<StarColor>().setStarColor(); // set the star color 
-            deltaDnaEventHandler.RecordLevelPassed();
+            FindObjectOfType<StarColor>().setStarColor(); // set the star color
+            
+            if (deltaDnaEventHandler) {
+                deltaDnaEventHandler.RecordLevelPassed();
+            }
+            
             TimeControl.instance.showTimerOnEndCanvas();
             //Invoke("ReloadScene", loadDelay);
         }

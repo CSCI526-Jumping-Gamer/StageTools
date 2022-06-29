@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: baseDistanceForce
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 1342310104478392832, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: zeroForceZoneGameObject
+      value: 
+      objectReference: {fileID: 7307774243881491611}
     - target: {fileID: 1342310104478392833, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_Radius
       value: 45
@@ -323,6 +327,10 @@ PrefabInstance:
       propertyPath: baseDistanceForce
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8589408598099346728, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: zeroForceZoneGameObject
+      value: 
+      objectReference: {fileID: 7307774243881491611}
     - target: {fileID: 8589408598099346729, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_Radius
       value: 45
@@ -344,5 +352,10 @@ PrefabInstance:
 --- !u!4 &3385159202570686838 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5445113258954397579, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+  m_PrefabInstance: {fileID: 7307774243740174077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7307774243881491611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 967826022, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
   m_PrefabInstance: {fileID: 7307774243740174077}
   m_PrefabAsset: {fileID: 0}

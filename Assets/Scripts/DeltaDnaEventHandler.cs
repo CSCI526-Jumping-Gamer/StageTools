@@ -60,7 +60,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
     }
 
     public void RecordCardChose(Card card) {
-        Debug.Log("player chose card");
+        Debug.Log("card chose");
         string sceneName = SceneManager.GetActiveScene().name;
         GameEvent gameEvent = new GameEvent("cardChose")
             .AddParam("sceneName", sceneName)
@@ -70,7 +70,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
         DDNA.Instance.Upload();
     }
     public void RecordLevelPassed() {
-        Debug.Log("Passed Level");
+        Debug.Log("level passed");
         string sceneName = SceneManager.GetActiveScene().name;
         float timeElapsed = TimeControl.instance.getTimeElapsed();
         GameEvent gameEvent = new GameEvent("passedLevel")
@@ -79,34 +79,35 @@ public class DeltaDnaEventHandler : MonoBehaviour
         DDNA.Instance.RecordEvent(gameEvent);
         DDNA.Instance.Upload();
     }
-    public void RecordtoolsUsage(string toolName, string toolType, string toolKey) {
-        Debug.Log("Using Tool");
+    public void RecordtoolUsage(UtilityTool tool) {
+        Debug.Log("tool Used");
         string sceneName = SceneManager.GetActiveScene().name;
-        GameEvent gameEvent = new GameEvent("usingTool")
+        GameEvent gameEvent = new GameEvent("toolUsed")
             .AddParam("sceneName", sceneName)
-            .AddParam("toolName", toolName)
-            .AddParam("toolKey", toolKey)
-            .AddParam("toolType", toolType);
+            .AddParam("toolName", tool.toolName)
+            .AddParam("toolKey", tool.id)
+            .AddParam("toolSpecificType", tool.specificType)
+            .AddParam("toolCategory", tool.category);
 
         
-        if (toolType == "Slingshot" || toolType == "Railgun") {
+        if (tool.specificType == "Slingshot" || tool.specificType == "Railgun") {
             if (doubleMagnetCountHelper) {
                 doubleMagnetCountHelper = false;
             } else {
                 doubleMagnetCountHelper = true;
                 DDNA.Instance.RecordEvent(gameEvent);
                 DDNA.Instance.Upload();
-                Debug.Log(toolName);
-                Debug.Log(toolType);
-                Debug.Log(toolKey);
+                // Debug.Log(toolName);
+                // Debug.Log(toolType);
+                // Debug.Log(toolKey);
                 
             }
         } else {
             DDNA.Instance.RecordEvent(gameEvent);
             DDNA.Instance.Upload();
-            Debug.Log(toolName);
-            Debug.Log(toolType);
-            Debug.Log(toolKey);
+            // Debug.Log(toolName);
+            // Debug.Log(toolType);
+            // Debug.Log(toolKey);
         }
         
     }

@@ -28,17 +28,7 @@ public class Rope : UtilityTool
         toolName = transform.name;
         category = "Rope";
         id = category + " (" + transform.GetInstanceID() + ")";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-
+        specificType = "Rope";
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -59,9 +49,12 @@ public class Rope : UtilityTool
         if (other.tag == "Player")
         {
             playerController.SetRope(null);
-            string toolName = transform.parent.name;
-            string toolKey = "Rope" + transform.parent.GetInstanceID();
-            deltaDnaEventHandler.RecordtoolsUsage(toolName, "Rope", toolKey);
+            // string toolName = transform.parent.name;
+            // string toolKey = "Rope" + transform.parent.GetInstanceID();
+
+            if (deltaDnaEventHandler) {
+                deltaDnaEventHandler.RecordtoolUsage(this);
+            }
         }
     }
 }

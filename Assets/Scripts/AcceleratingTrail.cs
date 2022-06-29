@@ -22,6 +22,7 @@ public class AcceleratingTrail : UtilityTool
         toolName = transform.name;
         category = "Accelerator";
         id = category + " (" + transform.GetInstanceID() + ")";
+        specificType = "Accelerator";
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -68,13 +69,12 @@ public class AcceleratingTrail : UtilityTool
         if (other.tag == "Player")
         {
             isTriggered = false;
-            string toolName = transform.name;
-
-            string toolKey = "Accelerator" + transform.GetInstanceID();
+            // string toolName = transform.name;
+            // string toolKey = "Accelerator" + transform.GetInstanceID();
 
             if (deltaDnaEventHandler)
             {
-                deltaDnaEventHandler.RecordtoolsUsage(toolName, "Accelerator", toolKey);
+                deltaDnaEventHandler.RecordtoolUsage(this);
             }
         }
     }

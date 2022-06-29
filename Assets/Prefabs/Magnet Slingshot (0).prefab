@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: magnetHelperGameObject
       value: 
       objectReference: {fileID: 967826022}
+    - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: zeroForceZoneGameObject
+      value: 
+      objectReference: {fileID: 967826022}
     - target: {fileID: 5737979248506894220, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -446,6 +450,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: magnetHelperGameObject
+      value: 
+      objectReference: {fileID: 967826022}
+    - target: {fileID: 4647406749550567725, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: zeroForceZoneGameObject
       value: 
       objectReference: {fileID: 967826022}
     - target: {fileID: 5737979248506894220, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}

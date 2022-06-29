@@ -22,20 +22,13 @@ public class Magnet : UtilityTool
 
     private void Start()
     {
-        if (specificType == "Magnet")
-        {
+        if (specificType == "Magnet") {
             toolName = transform.name;
-        }
-        else if (specificType == "Slingshot")
-        {
+        } else if (specificType == "Slingshot") {
             toolName = transform.parent.name;
-        }
-        else if (specificType == "Rope with Magnet")
-        {
+        } else if (specificType == "Rope with Magnet") {
             toolName = transform.parent.name;
-        }
-        else if (specificType == "Railgun")
-        {
+        } else if (specificType == "Railgun") {
             toolName = transform.parent.parent.name;
         }
 
@@ -47,12 +40,10 @@ public class Magnet : UtilityTool
     {
         PhysicsMaterial2D material = new PhysicsMaterial2D();
 
-        if (magneticField.isTriggered && playerController.GetIsMagnetized())
-        {
+        if (magneticField.isTriggered && playerController.GetIsMagnetized()) {
             material.friction = 0.4f;
         }
-        else
-        {
+        else {
             material.friction = 0f;
         }
 

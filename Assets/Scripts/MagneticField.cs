@@ -9,19 +9,21 @@ public class MagneticField : MonoBehaviour
     Rigidbody2D otherRb2d;
     PlayerController playerController;
     Rigidbody2D rb2d;
-    [SerializeField] GameObject magneticLineGameObject;
-    MagneticLine magneticLine;
-    [SerializeField] GameObject magnetHelperGameObject;
     ZeroForceZone zeroForceZone;
+    DeltaDnaEventHandler deltaDnaEventHandler;
+    MagneticLine magneticLine;
+    bool magnetRecordHelper = true;
 
+    [SerializeField] GameObject zeroForceZoneGameObject;
+    [SerializeField] GameObject magneticLineGameObject;
+    [SerializeField] bool isMagnetAttractable;
+    [SerializeField] bool isSlingShot;
+    [SerializeField] bool isRailgun;
+    
+    
     public bool isTriggered = false;
     public float baseDistanceForce = 10f;
     public float magnetForce = 30f;
-    [SerializeField] private bool isMagnetAttractable;
-    [SerializeField] private bool isSlingShot;
-    [SerializeField] private bool isRailgun;
-    DeltaDnaEventHandler deltaDnaEventHandler;
-    bool magnetRecordHelper = true;
 
     private void Awake()
     {
@@ -30,10 +32,9 @@ public class MagneticField : MonoBehaviour
         magneticLine = magneticLineGameObject.GetComponent<MagneticLine>();
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
 
-
         if (isSlingShot)
         {
-            zeroForceZone = magnetHelperGameObject.GetComponent<ZeroForceZone>();
+            zeroForceZone = zeroForceZoneGameObject.GetComponent<ZeroForceZone>();
         }
     }
 
@@ -44,35 +45,35 @@ public class MagneticField : MonoBehaviour
             if (magnetRecordHelper)
             {
                 Magnet magnet = transform.parent.GetComponent<Magnet>();
-                string toolName, toolType, toolKey;
-                if (isSlingShot)
-                {
-                    toolName = transform.parent.parent.name;
-                    toolType = "Slingshot";
-                    toolKey = toolType + transform.parent.parent.GetInstanceID();
-                }
-                else if (isMagnetAttractable)
-                {
-                    toolName = transform.parent.parent.name;
-                    toolType = "Rope with Magnet";
-                    toolKey = toolType + transform.parent.parent.GetInstanceID();
-                }
-                else if (isRailgun)
-                {
-                    toolName = transform.parent.parent.parent.name;
-                    toolType = "Railgun";
-                    toolKey = toolType + transform.parent.parent.parent.GetInstanceID();
-                }
-                else
-                {
-                    toolName = transform.parent.name;
-                    toolType = "Magnet";
-                    toolKey = toolType + transform.parent.GetInstanceID();
-                }
+                // string toolName, toolType, toolKey;
+                // if (isSlingShot)
+                // {
+                //     toolName = transform.parent.parent.name;
+                //     toolType = "Slingshot";
+                //     toolKey = toolType + transform.parent.parent.GetInstanceID();
+                // }
+                // else if (isMagnetAttractable)
+                // {
+                //     toolName = transform.parent.parent.name;
+                //     toolType = "Rope with Magnet";
+                //     toolKey = toolType + transform.parent.parent.GetInstanceID();
+                // }
+                // else if (isRailgun)
+                // {
+                //     toolName = transform.parent.parent.parent.name;
+                //     toolType = "Railgun";
+                //     toolKey = toolType + transform.parent.parent.parent.GetInstanceID();
+                // }
+                // else
+                // {
+                //     toolName = transform.parent.name;
+                //     toolType = "Magnet";
+                //     toolKey = toolType + transform.parent.GetInstanceID();
+                // }
 
                 if (deltaDnaEventHandler)
                 {
-                    deltaDnaEventHandler.RecordtoolsUsage(toolName, toolType, toolKey);
+                    deltaDnaEventHandler.RecordtoolUsage(magnet);
                 }
 
                 magnetRecordHelper = false;

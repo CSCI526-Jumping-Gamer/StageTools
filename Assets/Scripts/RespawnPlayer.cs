@@ -47,7 +47,11 @@ namespace Unity.Services.Analytics
                     // gameAnalyticsEventHandler.RecordPlayerDied(other.transform.position);
                     string propName = gameObject.name;
                     int propID = gameObject.GetInstanceID();
-                    deltaDnaEventHandler.RecordPlayerDied(other.transform.position, propName, propID);
+                    
+                    if (deltaDnaEventHandler) {
+                        deltaDnaEventHandler.RecordPlayerDied(other.transform.position, propName, propID);
+                    }
+                    
                     Invoke("Respawning", loadDelay);
                 }
             }

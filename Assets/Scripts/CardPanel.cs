@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class RandomCards : MonoBehaviour
+public class CardPanel : MonoBehaviour
 {
     List<Card> threeStarCards; // 25%
     public List<Card> twoStarCards; // 50%
@@ -90,6 +90,9 @@ public class RandomCards : MonoBehaviour
             Random.Range(1, 100) + bias, 
             Random.Range(1, 100) + bias, 
             Random.Range(1, 100) + bias };
+
+        // return new List<int> { 
+        //     1,1,1 };    
     }
 
     public void StartCardPanel() {
@@ -109,8 +112,7 @@ public class RandomCards : MonoBehaviour
 
         if (cardScores[index] <= 25) {
             // 1 star
-            // currCard = oneStarCards[Random.Range(0, oneStarCards.Count)];
-            currCard = oneStarCards[2];
+            currCard = oneStarCards[Random.Range(0, oneStarCards.Count)];
             oneStarCards.Remove(currCard);
         } else if (cardScores[index] <= 75) {
             // 2 star
@@ -124,7 +126,7 @@ public class RandomCards : MonoBehaviour
 
         cardText[index].text = currCard.cardName; 
         SetCardColor(currCard.rank, index);
-        Debug.Log("Card Rank: " + currCard.rank);
+        // Debug.Log("Card Rank: " + currCard.rank);
         handCards.Add(currCard);
     }
 

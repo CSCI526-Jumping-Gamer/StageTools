@@ -30,11 +30,15 @@ namespace Unity.Services.Analytics
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag == "Player")
-            {
+            if (tag == "DeathZone") {
+                if (PlayerController.instance.isUsingCard) {
+                    cardTimer.Deactivate();
+                }
+            } 
+            
+            if (other.tag == "Player") {
                 playerCollider = other;
                 
-
                 if (PlayerController.instance.shieldCount > 0) {
                     // analyticsEventHandler.RecordShieldUsed(other.transform.position);
                     PlayerController.instance.shieldCount -= 1;
@@ -60,8 +64,9 @@ namespace Unity.Services.Analytics
 
         public void Respawning()
         {
-            Rigidbody2D otherRb2d = playerCollider.gameObject.GetComponent<Rigidbody2D>();
-            otherRb2d.transform.position = playerController.GetCheckPointPosition();
+            // Rigidbody2D otherRb2d = playerCollider.gameObject.GetComponent<Rigidbody2D>();
+            // otherRb2d.transform.position = playerController.GetCheckPointPosition();
+            playerController.transform.position = playerController.GetCheckPointPosition();
             playerController.EnablePlayerInput();
         }
     }

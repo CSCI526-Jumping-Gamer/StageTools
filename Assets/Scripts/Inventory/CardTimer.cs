@@ -27,7 +27,10 @@ public class CardTimer : MonoBehaviour
         isActivated = true;
     }
     public void Deactivate() {
+        card.Deactivate();
         wrapper.SetActive(false);
+        Inventory.instance.Remove(card);
+        PlayerController.instance.isUsingCard = false;
         isActivated = false;
     }
 
@@ -37,11 +40,7 @@ public class CardTimer : MonoBehaviour
                 remainingTime -= Time.deltaTime;
                 DisplayTime();
             } else {
-                isActivated = false;
-                card.Deactivate();
-                wrapper.SetActive(false);
-                Inventory.instance.Remove(card);
-                PlayerController.instance.isUsingCard = false;
+                Deactivate();
             }
         }
     }

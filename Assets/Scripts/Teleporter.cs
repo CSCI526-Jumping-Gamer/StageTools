@@ -8,12 +8,12 @@ public class Teleporter : MonoBehaviour
     public Vector3 CheckPointPosition;
     PlayerController playerController;
     Collider2D PlayerCollider;
-    RandomCards randomCards;
+    CardPanel cardPanel;
     // Start is called before the first frame update
     void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
-        randomCards = FindObjectOfType<RandomCards>();
+        cardPanel = FindObjectOfType<CardPanel>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -23,14 +23,15 @@ public class Teleporter : MonoBehaviour
             PlayerCollider = other;
             playerController.OnDisable();
             Invoke("Respawning", loadDelay);
-            randomCards.StartCardPanel();
+            cardPanel.StartCardPanel();
         }
     }
 
     public void Respawning()
     {
-        Rigidbody2D otherRb2d = PlayerCollider.gameObject.GetComponent<Rigidbody2D>();
-        otherRb2d.transform.position = CheckPointPosition;
+        // Rigidbody2D otherRb2d = PlayerCollider.gameObject.GetComponent<Rigidbody2D>();
+        // playerController.transform.position = playerController.GetCheckPointPosition();
+        playerController.transform.position = CheckPointPosition;
         playerController.OnEnable();
     }
 }

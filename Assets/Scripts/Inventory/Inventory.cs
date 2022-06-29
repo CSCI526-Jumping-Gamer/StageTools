@@ -22,8 +22,9 @@ public class Inventory : MonoBehaviour
         cards.Add(card);
     }
 
-    public void Remove(Card card) {
+    public Card Remove(Card card) {
         cards.Remove(card);
+        return card;
     }
 
     public Card GetFirstCard() {

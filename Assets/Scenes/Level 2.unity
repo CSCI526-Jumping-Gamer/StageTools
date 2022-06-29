@@ -7483,14 +7483,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1402751996, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871983018, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-      propertyPath: m_Name
-      value: Magnet Instruction
-      objectReference: {fileID: 0}
     - target: {fileID: 6302899436258480518, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_Pivot.x
       value: 0

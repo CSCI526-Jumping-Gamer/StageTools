@@ -11,9 +11,9 @@ public class RandomCards : MonoBehaviour
     List<Card> handCards;
     int cardsLength = 3;
     List<int> cardScores;
-    
     int bias = 0;
     DeltaDnaEventHandler deltaDnaEventHandler;
+    [SerializeField] bool cardEnabled = true;
 
     [SerializeField] GameObject wrapper;
     [SerializeField] List<TextMeshProUGUI> cardText;
@@ -24,10 +24,12 @@ public class RandomCards : MonoBehaviour
     }
 
     void Start() {
-        InitializeCardPool();
-        cardScores = calculateCardScores();
-        PlayerController.instance.DisablePlayerInput();
-        Invoke("StartCardPanel", 0.2f);
+        if (cardEnabled) {
+            InitializeCardPool();
+            cardScores = calculateCardScores();
+            PlayerController.instance.DisablePlayerInput();
+            Invoke("StartCardPanel", 0.2f);
+        }
     }
 
     void InitializeCardPool() {
@@ -120,15 +122,11 @@ public class RandomCards : MonoBehaviour
             threeStarCards.Remove(currCard);
         }
 
-        cardText[index].text = currCard.cardName;
+        cardText[index].text = currCard.cardName; 
         SetCardColor(currCard.rank, index);
         Debug.Log("Card Rank: " + currCard.rank);
         handCards.Add(currCard);
-        
-        
     }
-
-
 
     void RemoveCardFromPool(Card card) {
         if (card.rank == 1) {
@@ -158,7 +156,6 @@ public class RandomCards : MonoBehaviour
         if (deltaDnaEventHandler) {
             deltaDnaEventHandler.RecordCardChose(handCards[0]);
         }
-        
         Inventory.instance.Add(handCards[0]);
         handCards.Remove(handCards[0]);
         AddCardBacktoPool();
@@ -172,7 +169,6 @@ public class RandomCards : MonoBehaviour
         if (deltaDnaEventHandler) {
             deltaDnaEventHandler.RecordCardChose(handCards[1]);
         }
-        
         Inventory.instance.Add(handCards[1]);
         handCards.Remove(handCards[1]);
         AddCardBacktoPool();
@@ -186,7 +182,6 @@ public class RandomCards : MonoBehaviour
         if (deltaDnaEventHandler) {
             deltaDnaEventHandler.RecordCardChose(handCards[2]);
         }
-        
         Inventory.instance.Add(handCards[2]);
         handCards.Remove(handCards[2]);
         AddCardBacktoPool();
@@ -194,8 +189,7 @@ public class RandomCards : MonoBehaviour
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
     }
-
-    private void TurnOrange(Button button) {
+        private void TurnOrange(Button button) {
         ColorBlock colors = button.colors;
         colors.normalColor = new Color32(255, 210, 2, 200);
         colors.highlightedColor = new Color32(255, 210, 2, 255);
@@ -203,8 +197,6 @@ public class RandomCards : MonoBehaviour
         colors.selectedColor = new Color32(241, 162, 22, 255);
         button.colors = colors;
     }
-     
-     
     private void TurnBlue(Button button) {
         ColorBlock colors = button.colors;
         colors.normalColor = new Color32(33, 101, 255, 200);
@@ -232,5 +224,4 @@ public class RandomCards : MonoBehaviour
             TurnWhite(buttons[index]);
         }
     }
-
 }

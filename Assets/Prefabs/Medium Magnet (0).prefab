@@ -126,6 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a45fbebf4529c44879c49324754e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
+  toolName: 
+  category: 
+  specificType: 
   magneticFieldGameObject: {fileID: 7414091973967612941}
   isCollided: 0
 --- !u!50 &7414091972377216323
@@ -160,7 +164,7 @@ GameObject:
   - component: {fileID: 7414091973967612938}
   - component: {fileID: 7414091973967612936}
   - component: {fileID: 7414091973967612937}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Magnetic Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,11 +215,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea35c2234b6f3cb478e52d98c2fcc100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zeroForceZoneGameObject: {fileID: 0}
   magneticLineGameObject: {fileID: 8750646447760604961}
+  isMagnetAttractable: 0
+  isSlingShot: 0
+  isRailgun: 0
   isTriggered: 0
   baseDistanceForce: 10
   magnetForce: 50
-  MagnetAttractable: 0
 --- !u!1 &8750646447760604961
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +234,7 @@ GameObject:
   - component: {fileID: 517595524861487541}
   - component: {fileID: 5326176840407100278}
   - component: {fileID: 2088756846101683475}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Magnetic Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}

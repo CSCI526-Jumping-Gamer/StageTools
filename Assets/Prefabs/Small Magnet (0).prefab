@@ -79,5 +79,13 @@ PrefabInstance:
       propertyPath: magnetForce
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 7414091973967612941, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750646447760604961, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}

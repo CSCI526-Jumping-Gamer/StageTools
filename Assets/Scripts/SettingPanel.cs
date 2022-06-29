@@ -27,7 +27,7 @@ public class SettingPanel : MonoBehaviour
 
     public void ReStartLevel() {
         wrapper.SetActive(true);
-        
+        Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(scene.name);
     }

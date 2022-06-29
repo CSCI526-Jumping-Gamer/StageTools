@@ -11,11 +11,13 @@ public class RandomCards : MonoBehaviour
     List<Card> handCards;
     int cardsLength = 3;
     List<int> cardScores;
+    
     int bias = 0;
     DeltaDnaEventHandler deltaDnaEventHandler;
 
     [SerializeField] GameObject wrapper;
     [SerializeField] List<TextMeshProUGUI> cardText;
+    [SerializeField] List<Button> buttons;
     
     private void Awake() {
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
@@ -118,8 +120,14 @@ public class RandomCards : MonoBehaviour
         }
 
         cardText[index].text = currCard.cardName;
+        SetCardColor(currCard.rank, index);
+        Debug.Log("Card Rank: " + currCard.rank);
         handCards.Add(currCard);
+        
+        
     }
+
+
 
     void RemoveCardFromPool(Card card) {
         if (card.rank == 1) {
@@ -175,6 +183,44 @@ public class RandomCards : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
+    }
+
+    private void TurnOrange(Button button) {
+        ColorBlock colors = button.colors;
+        colors.normalColor = new Color32(255, 210, 2, 200);
+        colors.highlightedColor = new Color32(255, 210, 2, 255);
+        colors.pressedColor = new Color32(241, 162, 22, 255);
+        colors.selectedColor = new Color32(241, 162, 22, 255);
+        button.colors = colors;
+    }
+     
+     
+    private void TurnBlue(Button button) {
+        ColorBlock colors = button.colors;
+        colors.normalColor = new Color32(33, 101, 255, 200);
+        colors.highlightedColor = new Color32(33, 101, 255, 230);
+        colors.pressedColor = new Color32(18, 49, 246, 200);
+        colors.selectedColor = new Color32(18, 49, 246, 200);
+        button.colors = colors;
+    }
+
+    private void TurnWhite(Button button) {
+        ColorBlock colors = button.colors;
+        colors.normalColor = Color.white;
+        colors.highlightedColor = new Color32(245, 245, 245, 255);
+        colors.pressedColor = new Color32(200, 200, 200, 255);
+        colors.selectedColor = new Color32(200, 200, 200, 255);
+        button.colors = colors;
+    }
+
+    private void SetCardColor(int rank, int index) {
+        if (rank == 3) {
+            TurnOrange(buttons[index]);
+        } else if (rank == 2) {
+            TurnBlue(buttons[index]);
+        } else if (rank == 1) {
+            TurnWhite(buttons[index]);
+        }
     }
 
 }

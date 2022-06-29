@@ -33,7 +33,7 @@ public class FinishLine : MonoBehaviour
             FindObjectOfType<StarColor>().setStarColor(); // set the star color
             
             if (deltaDnaEventHandler) {
-                deltaDnaEventHandler.RecordLevelPassed();
+                deltaDnaEventHandler.RecordLevelCompleted();
             }
             
             TimeControl.instance.showTimerOnEndCanvas();

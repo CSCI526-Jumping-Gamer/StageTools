@@ -33,7 +33,7 @@ namespace Unity.Services.Analytics
             if (other.tag == "Player")
             {
                 playerCollider = other;
-                playerController.DisablePlayerInput();
+                
 
                 if (PlayerController.instance.shieldCount > 0) {
                     // analyticsEventHandler.RecordShieldUsed(other.transform.position);
@@ -47,7 +47,8 @@ namespace Unity.Services.Analytics
                     // gameAnalyticsEventHandler.RecordPlayerDied(other.transform.position);
                     string propName = gameObject.name;
                     int propID = gameObject.GetInstanceID();
-                    
+                    playerController.DisablePlayerInput();
+
                     if (deltaDnaEventHandler) {
                         deltaDnaEventHandler.RecordPlayerDied(other.transform.position, propName, propID);
                     }

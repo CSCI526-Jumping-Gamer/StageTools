@@ -107,7 +107,8 @@ public class RandomCards : MonoBehaviour
 
         if (cardScores[index] <= 25) {
             // 1 star
-            currCard = oneStarCards[Random.Range(0, oneStarCards.Count)];
+            // currCard = oneStarCards[Random.Range(0, oneStarCards.Count)];
+            currCard = oneStarCards[2];
             oneStarCards.Remove(currCard);
         } else if (cardScores[index] <= 75) {
             // 2 star

@@ -69,11 +69,11 @@ public class DeltaDnaEventHandler : MonoBehaviour
         DDNA.Instance.RecordEvent(gameEvent);
         DDNA.Instance.Upload();
     }
-    public void RecordLevelPassed() {
-        Debug.Log("level passed");
+    public void RecordLevelCompleted() {
+        Debug.Log("level completed");
         string sceneName = SceneManager.GetActiveScene().name;
         float timeElapsed = TimeControl.instance.getTimeElapsed();
-        GameEvent gameEvent = new GameEvent("passedLevel")
+        GameEvent gameEvent = new GameEvent("levelCompleted")
             .AddParam("sceneName", sceneName)
             .AddParam("totalTime", timeElapsed);
         DDNA.Instance.RecordEvent(gameEvent);

@@ -3433,6 +3433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeltaDNA Event Handler
       objectReference: {fileID: 0}
+    - target: {fileID: 3168690465305763875, guid: d2c7510b679759d459c2a5cfc603a102, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3168690465305763877, guid: d2c7510b679759d459c2a5cfc603a102, type: 3}
       propertyPath: m_RootOrder
       value: 18

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Invincible : Card
 {
@@ -12,7 +13,7 @@ public class Invincible : Card
     public override void Activate()
     {
         base.Activate();
-        PlayerController.instance.shieldCount = 999;
+        PlayerController.instance.shieldCount = Int32.MaxValue;
     }
 
     public override void Deactivate()

@@ -23,60 +23,89 @@ public class MagneticField : MonoBehaviour
     DeltaDnaEventHandler deltaDnaEventHandler;
     bool magnetRecordHelper = true;
 
-    private void Awake() {
-        playerController = FindObjectOfType<PlayerController>();        
+    private void Awake()
+    {
+        playerController = FindObjectOfType<PlayerController>();
         rb2d = GetComponentInParent<Rigidbody2D>();
         magneticLine = magneticLineGameObject.GetComponent<MagneticLine>();
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
 
-        if (isSlingShot) {
+
+        if (isSlingShot)
+        {
             zeroForceZone = magnetHelperGameObject.GetComponent<ZeroForceZone>();
         }
     }
 
-    private void Update() {
-        if (isTriggered && playerController.GetIsMagnetized()) {
-            if (magnetRecordHelper) {
+    private void Update()
+    {
+        if (isTriggered && playerController.GetIsMagnetized())
+        {
+            if (magnetRecordHelper)
+            {
+                Magnet magnet = transform.parent.GetComponent<Magnet>();
                 string toolName, toolType, toolKey;
-                if (isSlingShot) {
+                if (isSlingShot)
+                {
                     toolName = transform.parent.parent.name;
                     toolType = "Slingshot";
                     toolKey = toolType + transform.parent.parent.GetInstanceID();
-                } else if (isMagnetAttractable) {
+                }
+                else if (isMagnetAttractable)
+                {
                     toolName = transform.parent.parent.name;
                     toolType = "Rope with Magnet";
                     toolKey = toolType + transform.parent.parent.GetInstanceID();
-                } else if (isRailgun){
+                }
+                else if (isRailgun)
+                {
                     toolName = transform.parent.parent.parent.name;
                     toolType = "Railgun";
                     toolKey = toolType + transform.parent.parent.parent.GetInstanceID();
-                } else {
+                }
+                else
+                {
                     toolName = transform.parent.name;
                     toolType = "Magnet";
                     toolKey = toolType + transform.parent.GetInstanceID();
                 }
-                deltaDnaEventHandler.RecordtoolsUsage(toolName, toolType, toolKey);
+
+                if (deltaDnaEventHandler)
+                {
+                    deltaDnaEventHandler.RecordtoolsUsage(toolName, toolType, toolKey);
+                }
+
                 magnetRecordHelper = false;
             }
             magneticLine.DrawRope(otherRb2d);
-        } else {
+        }
+        else
+        {
             magnetRecordHelper = true;
             magneticLine.DeleteRope();
         }
     }
-    private void FixedUpdate() {
-        if (isSlingShot) {
-            if (isTriggered && playerController.GetIsMagnetized() && !zeroForceZone.isTriggered) {
+    private void FixedUpdate()
+    {
+        if (isSlingShot)
+        {
+            if (isTriggered && playerController.GetIsMagnetized() && !zeroForceZone.isTriggered)
+            {
                 Attract(otherRb2d);
             }
-        } else {
-            if (isTriggered && playerController.GetIsMagnetized()) {
+        }
+        else
+        {
+            if (isTriggered && playerController.GetIsMagnetized())
+            {
                 Attract(otherRb2d);
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Player") {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
             Rigidbody2D otherRb2d = other.gameObject.GetComponent<Rigidbody2D>();
             // Rigidbody2D otherRb2d = other.GetComponent<Rigidbody2D>();
             // otherRb2d.velocity = new Vector2(0f, 0f);
@@ -86,7 +115,8 @@ public class MagneticField : MonoBehaviour
         }
     }
 
-    void Attract(Rigidbody2D otherRb2d) {
+    void Attract(Rigidbody2D otherRb2d)
+    {
         Vector2 magnetDirection = (transform.position - otherRb2d.transform.position).normalized;
         // float magnetYDirection = Mathf.Abs(magnetDirection.y) - 0.02f > Mathf.Epsilon ? magnetDirection.y : 0f;
         // magnetDirection = new Vector2(magnetDirection.x, magnetYDirection);
@@ -94,13 +124,16 @@ public class MagneticField : MonoBehaviour
         float distance = Vector2.Distance(transform.position, otherRb2d.transform.position);
         float distanceFactor = (baseDistanceForce / (distance * distance));
         otherRb2d.AddForce(distanceFactor * magnetForce * magnetDirection, ForceMode2D.Force);
-        if (isMagnetAttractable) {
+        if (isMagnetAttractable)
+        {
             rb2d.AddForce(distanceFactor * magnetForce * -magnetDirection, ForceMode2D.Force);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
-        if (other.gameObject.tag == "Player") {
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
             playerController.SetIsTriggeredWithMagnet(false);
             isTriggered = false;
         }

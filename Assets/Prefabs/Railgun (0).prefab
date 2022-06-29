@@ -187,6 +187,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1342310106060991307, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: specificType
+      value: Railgun
+      objectReference: {fileID: 0}
     - target: {fileID: 1655440795135418516, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7660445
@@ -330,6 +334,10 @@ PrefabInstance:
     - target: {fileID: 8589408599729589345, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589408599729589347, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: specificType
+      value: Railgun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}

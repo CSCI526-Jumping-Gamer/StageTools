@@ -126,6 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a45fbebf4529c44879c49324754e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
+  toolName: 
+  category: 
+  specificType: Magnet
   magneticFieldGameObject: {fileID: 7414091973967612941}
   isCollided: 0
 --- !u!50 &7414091972377216323
@@ -212,10 +216,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magneticLineGameObject: {fileID: 8750646447760604961}
+  magnetHelperGameObject: {fileID: 0}
   isTriggered: 0
   baseDistanceForce: 10
   magnetForce: 200
-  MagnetAttractable: 0
+  isMagnetAttractable: 0
+  isSlingShot: 0
+  isRailgun: 0
 --- !u!1 &8750646447760604961
 GameObject:
   m_ObjectHideFlags: 0

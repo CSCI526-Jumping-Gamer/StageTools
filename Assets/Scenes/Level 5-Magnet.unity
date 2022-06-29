@@ -5050,8 +5050,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathDetector
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6368601700257645833, guid: 41f66fafa992b4146b5399ceb8041347, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 41f66fafa992b4146b5399ceb8041347, type: 3}
+--- !u!1 &498827927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6368601700257645878, guid: 41f66fafa992b4146b5399ceb8041347, type: 3}
+  m_PrefabInstance: {fileID: 498827926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &508350557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13977,6 +13983,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6368601700257645834, guid: 41f66fafa992b4146b5399ceb8041347, type: 3}
   m_PrefabInstance: {fileID: 498827926}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1440807075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498827927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7cd0cd4a32f4da580802c7b0d03099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadDelay: 0.2
 --- !u!1 &1449373011
 GameObject:
   m_ObjectHideFlags: 0
@@ -21188,7 +21207,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.4710145, y: 1}
+    m_SensorSize: {x: 0.49322033, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

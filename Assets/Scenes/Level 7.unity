@@ -2727,7 +2727,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.068306, y: 1}
+    m_SensorSize: {x: 1.5, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4985,10 +4985,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373249984}
     m_Modifications:
-    - target: {fileID: 3308049560733152145, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: RotateSpeed
-      value: 45
-      objectReference: {fileID: 0}
     - target: {fileID: 5407882874600584913, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
       propertyPath: m_Name
       value: Rotating Magnet
@@ -4996,14 +4992,6 @@ PrefabInstance:
     - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.4999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.4999998
       objectReference: {fileID: 0}
     - target: {fileID: 5407882874600584914, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
       propertyPath: m_LocalPosition.x

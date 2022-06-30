@@ -201,7 +201,7 @@ MonoBehaviour:
   id: 
   toolName: 
   category: 
-  specificType: 
+  specificType: Rotating Magnet
   magneticFieldGameObject: {fileID: 5407882872974016411}
   isCollided: 0
 --- !u!50 &5407882874600584917
@@ -448,3 +448,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magnetGameObject: {fileID: 5407882874600584913}
+  isManualChangeScale: 0

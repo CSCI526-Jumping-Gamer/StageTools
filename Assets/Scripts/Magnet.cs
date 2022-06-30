@@ -22,14 +22,14 @@ public class Magnet : UtilityTool
 
     private void Start()
     {
-        if (specificType == "Magnet") {
-            toolName = transform.name;
-        } else if (specificType == "Slingshot") {
+        if (specificType == "Slingshot") {
             toolName = transform.parent.name;
         } else if (specificType == "Rope with Magnet") {
             toolName = transform.parent.name;
         } else if (specificType == "Railgun") {
             toolName = transform.parent.parent.name;
+        } else {
+            toolName = transform.name;
         }
 
         category = "Magnet";

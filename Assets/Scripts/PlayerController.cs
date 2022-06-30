@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
             playerState = PlayerState.OnTheGround;
         } else if (isCollidedWithMagnet) { // TODO: change to iscollided
             if (isMagnetized || isChildOfMagnet) {
-                Debug.Log(isChildOfMagnet);
+                // Debug.Log(isChildOfMagnet);
                 playerState = PlayerState.OnTheMagnet;
             } else if (boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Magnet"))) {
                 playerState = PlayerState.OnTheGround;

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D boxCollider2D;
     bool isTriggeredWithMagnet = false;
     bool isCollidedWithMagnet = false;
+    bool isChildOfMagnet = false;
     bool isMagnetized = false;
     bool isHoldingRope = false;
     bool isJumpPressed = false;
@@ -163,7 +164,8 @@ public class PlayerController : MonoBehaviour
         } else if (boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             playerState = PlayerState.OnTheGround;
         } else if (isCollidedWithMagnet) { // TODO: change to iscollided
-            if (isMagnetized) {
+            if (isMagnetized || isChildOfMagnet) {
+                Debug.Log(isChildOfMagnet);
                 playerState = PlayerState.OnTheMagnet;
             } else if (boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Magnet"))) {
                 playerState = PlayerState.OnTheGround;
@@ -315,9 +317,11 @@ public class PlayerController : MonoBehaviour
     }
 
     void JumpOnTheMagnet() {
-        if (isMagnetized) {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
-        }
+        rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
+        //if (isMagnetized || isChildOfMagnet) {
+        //    rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
+        //}
+
     }
 
     void JumpOnTheRope() {
@@ -432,6 +436,14 @@ public class PlayerController : MonoBehaviour
 
     public bool GetIsCollidedWithMagnet() {
         return isCollidedWithMagnet;
+    }
+
+    public void SetIsChildOfMagnet(bool isChild) { 
+        isChildOfMagnet = isChild; 
+    }
+
+    public bool GetIsChildOfMagnet() { 
+        return isChildOfMagnet; 
     }
 
     public bool GetIsMagnetized() {

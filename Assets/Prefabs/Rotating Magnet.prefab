@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 5407882874600584919}
   - component: {fileID: 5407882874600584916}
   - component: {fileID: 5407882874600584917}
-  - component: {fileID: 3308049560733152145}
+  - component: {fileID: 1185352763}
   m_Layer: 7
   m_Name: Rotating Magnet
   m_TagString: Untagged
@@ -98,9 +98,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5407882874600584913}
-  m_LocalRotation: {x: -0, y: -0, z: 0.38758752, w: 0.921833}
+  m_LocalRotation: {x: 0, y: 0, z: 0.387588, w: 0.92183274}
   m_LocalPosition: {x: -85.33, y: -7.829998, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 2.4999998, y: 2.4999998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5407882872974016412}
@@ -225,7 +225,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3308049560733152145
+--- !u!114 &1185352763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,11 +234,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5407882874600584913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37492867e4fa4173bef5c9d51518b2c, type: 3}
+  m_Script: {fileID: 11500000, guid: cbcbfa9657f9b432a8b08798d5c17bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 0
-  target: {fileID: 5407882874600584913}
+  startAngle: 0
+  endAngle: 90
+  duration: 2
+  isFullRotate: 1
+  selfRotateSpeed: 40
 --- !u!1 &5957492389753231970
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2124801379575796096}
   - component: {fileID: 8320296720930886905}
-  - component: {fileID: 2813443165844717020}
+  - component: {fileID: 664480952}
   m_Layer: 0
   m_Name: Object Detector
   m_TagString: Untagged
@@ -288,7 +291,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!114 &2813443165844717020
+--- !u!114 &664480952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,7 +300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5957492389753231970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3652a67602b3dc24192625213f1260e2, type: 3}
+  m_Script: {fileID: 11500000, guid: e4caa1c567ec2a74cb0d09adce5a7b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6095629898111454391

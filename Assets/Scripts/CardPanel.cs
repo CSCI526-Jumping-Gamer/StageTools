@@ -18,6 +18,7 @@ public class CardPanel : MonoBehaviour
     [SerializeField] GameObject wrapper;
     [SerializeField] List<TextMeshProUGUI> cardText;
     [SerializeField] List<Button> buttons;
+    [SerializeField] GameObject prefab;
     
     private void Awake() {
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
@@ -29,6 +30,7 @@ public class CardPanel : MonoBehaviour
             cardScores = calculateCardScores();
             PlayerController.instance.DisablePlayerInput();
             Invoke("StartCardPanel", 0.2f);
+            
         }
     }
 
@@ -40,9 +42,9 @@ public class CardPanel : MonoBehaviour
 
     void InitializeOneStarCards() {
         oneStarCards = new List<Card> {
-            ScriptableObject.CreateInstance<SpeedUp>(), 
-            ScriptableObject.CreateInstance<HighJump>(), 
-            ScriptableObject.CreateInstance<SingleUseShield>(),
+            // ScriptableObject.CreateInstance<SpeedUp>(), 
+            // ScriptableObject.CreateInstance<HighJump>(), 
+            // ScriptableObject.CreateInstance<SingleUseShield>(),
             ScriptableObject.CreateInstance<LightWeight>(),
             ScriptableObject.CreateInstance<RopeClimber>() }; // 25%
     }
@@ -64,17 +66,33 @@ public class CardPanel : MonoBehaviour
     }
 
     void CheckCardPoolValidility() {
-        if (oneStarCards.Count < 3) {
+        if (oneStarCards.Count == 0) {
             InitializeOneStarCards();
         }
 
-        if (twoStarCards.Count < 3) {
+        if (twoStarCards.Count == 0) {
             InitializeTwoStarCards();
         }
 
-        if (threeStarCards.Count < 3) {
+        if (threeStarCards.Count == 0) {
             InitializeThreeStarCards();
         }
+    }
+
+    bool isCardPoolValid() {
+        if (oneStarCards.Count == 0) {
+            return false;
+        }
+
+        if (twoStarCards.Count == 0) {
+            return false;
+        }
+
+        if (threeStarCards.Count == 0) {
+            return false;
+        }
+
+        return true;
     }
 
     List<int> calculateCardScores() {
@@ -92,7 +110,7 @@ public class CardPanel : MonoBehaviour
             Random.Range(1, 100) + bias };
 
         // return new List<int> { 
-        //     1,1,1 };    
+        //     1, 26, 80 };    
     }
 
     public void StartCardPanel() {
@@ -101,14 +119,18 @@ public class CardPanel : MonoBehaviour
         CheckCardPoolValidility();
 
         for (int i = 0; i < cardsLength; i++) {
-            drawCard(i);
+            DrawCard(i);
         }
-
+    
         Time.timeScale = 0f;
     }
 
-    void drawCard(int index) {
+    void DrawCard(int index) {
         Card currCard = null;
+
+        if (!isCardPoolValid()) {
+            return;
+        }
 
         if (cardScores[index] <= 25) {
             // 1 star
@@ -124,10 +146,31 @@ public class CardPanel : MonoBehaviour
             threeStarCards.Remove(currCard);
         }
 
-        cardText[index].text = currCard.cardName; 
-        SetCardColor(currCard.rank, index);
+        CreateCard(currCard, index);
+        // cardText[index].text = currCard.cardName; 
+        // SetCardColor(currCard.rank, index);
         // Debug.Log("Card Rank: " + currCard.rank);
         handCards.Add(currCard);
+    }
+
+    void CreateCard(Card card, int index) {
+        Transform parentTransform = transform.GetChild(0).GetChild(0);
+        GameObject gameObject = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
+        gameObject.name = "Card " + index;
+        TextMeshProUGUI textMeshProUGUI = gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        textMeshProUGUI.text = card.cardName;
+        Button button = gameObject.GetComponent<Button>();
+
+        if (index == 0) {
+            button.onClick.AddListener(SelectFirstCard);
+        } else if (index == 1) {
+            button.onClick.AddListener(SelectSecondCard);
+        } else {
+            button.onClick.AddListener(SelectThirdCard);
+        }
+
+        SetCardColor(card.rank, button);
+        // gameObject.transform.SetParent();
     }
 
     void RemoveCardFromPool(Card card) {
@@ -194,15 +237,15 @@ public class CardPanel : MonoBehaviour
         private void TurnOrange(Button button) {
         ColorBlock colors = button.colors;
         colors.normalColor = new Color32(255, 210, 2, 200);
-        colors.highlightedColor = new Color32(255, 210, 2, 255);
-        colors.pressedColor = new Color32(241, 162, 22, 255);
-        colors.selectedColor = new Color32(241, 162, 22, 255);
+        colors.highlightedColor = new Color32(226, 186, 0, 200);
+        colors.pressedColor = new Color32(195, 160, 0, 200);
+        colors.selectedColor = new Color32(195, 160, 0, 200);
         button.colors = colors;
     }
     private void TurnBlue(Button button) {
         ColorBlock colors = button.colors;
         colors.normalColor = new Color32(33, 101, 255, 200);
-        colors.highlightedColor = new Color32(33, 101, 255, 230);
+        colors.highlightedColor = new Color32(20, 83, 226, 200);
         colors.pressedColor = new Color32(18, 49, 246, 200);
         colors.selectedColor = new Color32(18, 49, 246, 200);
         button.colors = colors;
@@ -211,19 +254,29 @@ public class CardPanel : MonoBehaviour
     private void TurnWhite(Button button) {
         ColorBlock colors = button.colors;
         colors.normalColor = Color.white;
-        colors.highlightedColor = new Color32(245, 245, 245, 255);
+        colors.highlightedColor = new Color32(221, 221, 221, 255);
         colors.pressedColor = new Color32(200, 200, 200, 255);
         colors.selectedColor = new Color32(200, 200, 200, 255);
         button.colors = colors;
     }
 
-    private void SetCardColor(int rank, int index) {
+    private void SetCardColor(int rank, Button button) {
         if (rank == 3) {
-            TurnOrange(buttons[index]);
+            TurnOrange(button);
         } else if (rank == 2) {
-            TurnBlue(buttons[index]);
+            TurnBlue(button);
         } else if (rank == 1) {
-            TurnWhite(buttons[index]);
+            TurnWhite(button);
         }
     }
 }
+
+// GameObject gameObject = new GameObject("Card " + index);
+// gameObject.AddComponent<RectTransform>();
+// gameObject.AddComponent<Image>();
+// gameObject.AddComponent<Button>();
+// RectTransform rt = gameObject.GetComponent<RectTransform>();
+// rt.sizeDelta = new Vector2(200, 300);
+// rt.localScale = new Vector3(1, 1, 1);
+// gameObject.transform.localScale = new Vector3(1, 1, 1);
+// gameObject.transform.SetParent(transform.GetChild(0).GetChild(0));

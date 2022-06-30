@@ -3073,26 +3073,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3253175576666191899, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-      propertyPath: cardEnabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253175576666191899, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-      propertyPath: buttons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253175576666191899, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-      propertyPath: buttons.Array.data[0]
-      value: 
-      objectReference: {fileID: 7308460138095571737}
-    - target: {fileID: 3253175576666191899, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-      propertyPath: buttons.Array.data[1]
-      value: 
-      objectReference: {fileID: 7308460138095571736}
-    - target: {fileID: 3253175576666191899, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-      propertyPath: buttons.Array.data[2]
-      value: 
-      objectReference: {fileID: 7308460138095571735}
     - target: {fileID: 6302899436258480518, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3181,50 +3161,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screen Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6900310763381179358, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0.9716981
-      objectReference: {fileID: 0}
-    - target: {fileID: 6900310763381179358, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0.36846858
-      objectReference: {fileID: 0}
-    - target: {fileID: 6900310763381179358, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 0.18792273
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
---- !u!114 &7308460138095571735 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6900310761489683964, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-  m_PrefabInstance: {fileID: 7308460138095571734}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7308460138095571736 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6900310763122727888, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-  m_PrefabInstance: {fileID: 7308460138095571734}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7308460138095571737 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6900310763381179358, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
-  m_PrefabInstance: {fileID: 7308460138095571734}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

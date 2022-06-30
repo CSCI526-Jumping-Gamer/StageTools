@@ -3429,6 +3429,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8631916252929945013, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8631916253473924349, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: magnetForce
       value: 200
@@ -4968,12 +4972,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6368601700257645834, guid: 41f66fafa992b4146b5399ceb8041347, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 435.94687
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368601700257645834, guid: 41f66fafa992b4146b5399ceb8041347, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -6.442789
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368601700257645834, guid: 41f66fafa992b4146b5399ceb8041347, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.510197
+      value: 37.3698
       objectReference: {fileID: 0}
     - target: {fileID: 6368601700257645834, guid: 41f66fafa992b4146b5399ceb8041347, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -31.1
+      value: -32.1494
       objectReference: {fileID: 0}
     - target: {fileID: 6368601700257645834, guid: 41f66fafa992b4146b5399ceb8041347, type: 3}
       propertyPath: m_LocalPosition.z

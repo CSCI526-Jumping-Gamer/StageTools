@@ -24,19 +24,20 @@ public class CardPanel : MonoBehaviour
     private void Awake() {
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
         cardPool = FindObjectOfType<CardPool>();
-        Debug.Log(cardPool.oneStarCards.Count);
+        // Debug.Log(cardPool.oneStarCards.Count);
     }
 
     void Start() {
         if (cardEnabled) {
             InitializeCardPool();
-            cardScores = calculateCardScores();
+            // cardScores = calculateCardScores();
             PlayerController.instance.DisablePlayerInput();
             Invoke("StartCardPanel", 0.2f);
         }
     }
 
-    void InitializeCardPool() {
+    public void InitializeCardPool() {
+        cardScores = calculateCardScores();
         InitializeOneStarCards();
         InitializeTwoStarCards();
         InitializeThreeStarCards();
@@ -141,7 +142,6 @@ public class CardPanel : MonoBehaviour
             if (oneStarCards.Count == 0) {
                 return;
             }
-           
             currCard = oneStarCards[Random.Range(0, oneStarCards.Count)];
             oneStarCards.Remove(currCard);
         } else if (cardScores[index] <= 75) {
@@ -173,8 +173,12 @@ public class CardPanel : MonoBehaviour
         Transform parentTransform = transform.GetChild(0).GetChild(0);
         GameObject gameObject = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
         gameObject.name = "Card " + index;
+        // Component[] textMeshProUGUI;
+        // textMeshProUGUI = gameObject.transform.GetChild(0).GetComponents(typeof(TextMeshProUGUI));
         TextMeshProUGUI textMeshProUGUI = gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI timerMeshProUGUI = gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         textMeshProUGUI.text = card.cardName;
+        timerMeshProUGUI.text = card.time + " sec";
         Button button = gameObject.GetComponent<Button>();
 
         if (index == 0) {

@@ -1396,18 +1396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8892a73d0ee64ebcb26a6a8e3a5a51c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardScores: 
   cardEnabled: 1
   wrapper: {fileID: 6900310763031307415}
-  cardText:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  buttons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   prefab: {fileID: 7940135139979576084, guid: f229863e46f5ba149a406f6c75708724, type: 3}
-  cardPool: {fileID: 0}
 --- !u!1 &3470596815234243695
 GameObject:
   m_ObjectHideFlags: 0

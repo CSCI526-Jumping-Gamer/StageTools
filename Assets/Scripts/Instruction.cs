@@ -9,5 +9,6 @@ public class Instruction : MonoBehaviour
     public void CloseWrapper() {
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
+        Time.timeScale = 1f;
     }
 }

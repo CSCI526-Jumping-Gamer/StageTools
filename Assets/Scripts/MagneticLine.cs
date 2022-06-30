@@ -8,6 +8,7 @@ public class MagneticLine : MonoBehaviour
     Rigidbody2D rb2d;
     Magnet magnet;
     [SerializeField] GameObject magnetGameObject;
+    [SerializeField] bool isManualChangeScale;
 
     
     private void Awake() {
@@ -15,8 +16,9 @@ public class MagneticLine : MonoBehaviour
         rb2d = magnetGameObject.GetComponent<Rigidbody2D>();
         lineRenderer.enabled = false;
     }
+
     private void Update() {
-        if (rb2d.transform.localScale != new Vector3(1, 1, 1)) {
+        if (rb2d.transform.localScale != new Vector3(1, 1, 1) && !isManualChangeScale) {
             transform.localScale = new Vector3(1 / rb2d.transform.localScale.x, 1 / rb2d.transform.localScale.y, 1 / rb2d.transform.localScale.z);
         }
         if (rb2d.transform.localRotation != new Quaternion(0, 0, 0, 0)) {
@@ -26,6 +28,7 @@ public class MagneticLine : MonoBehaviour
 
     public void DrawRope(Rigidbody2D otherRb2d)
     {
+        
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, new Vector3(0f, 0f, 0f));
         lineRenderer.SetPosition(1, otherRb2d.transform.position - transform.position);

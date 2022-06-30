@@ -3,25 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
+
 public class CardPanel : MonoBehaviour
 {
-    List<Card> threeStarCards; // 25%
-    public List<Card> twoStarCards; // 50%
     List<Card> oneStarCards; // 25%
+    List<Card> twoStarCards; // 50%
+    List<Card> threeStarCards; // 25%
     List<Card> handCards;
     int cardsLength = 3;
     List<int> cardScores;
     int bias = 0;
     DeltaDnaEventHandler deltaDnaEventHandler;
     [SerializeField] bool cardEnabled = true;
-
     [SerializeField] GameObject wrapper;
     [SerializeField] List<TextMeshProUGUI> cardText;
     [SerializeField] List<Button> buttons;
     [SerializeField] GameObject prefab;
+    CardPool cardPool;
     
     private void Awake() {
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
+        cardPool = FindObjectOfType<CardPool>();
+        Debug.Log(cardPool.oneStarCards.Count);
     }
 
     void Start() {
@@ -30,7 +34,6 @@ public class CardPanel : MonoBehaviour
             cardScores = calculateCardScores();
             PlayerController.instance.DisablePlayerInput();
             Invoke("StartCardPanel", 0.2f);
-            
         }
     }
 
@@ -41,28 +44,34 @@ public class CardPanel : MonoBehaviour
     }
 
     void InitializeOneStarCards() {
-        oneStarCards = new List<Card> {
-            // ScriptableObject.CreateInstance<SpeedUp>(), 
-            // ScriptableObject.CreateInstance<HighJump>(), 
-            // ScriptableObject.CreateInstance<SingleUseShield>(),
-            ScriptableObject.CreateInstance<LightWeight>(),
-            ScriptableObject.CreateInstance<RopeClimber>() }; // 25%
+        oneStarCards = new List<Card>(cardPool.oneStarCards);
+
+        // oneStarCards = new List<Card> {
+        //     ScriptableObject.CreateInstance<SpeedUp>(), 
+        //     ScriptableObject.CreateInstance<HighJump>(), 
+        //     ScriptableObject.CreateInstance<SingleUseShield>(),
+        //     ScriptableObject.CreateInstance<LightWeight>(),
+        //     ScriptableObject.CreateInstance<RopeClimber>() }; // 25%
     }
 
     void InitializeTwoStarCards() {
-        twoStarCards = new List<Card> {
-            ScriptableObject.CreateInstance<SlingshotHelper>(),
-            ScriptableObject.CreateInstance<DoubleJump>(),
-            ScriptableObject.CreateInstance<Flash>(),
-            ScriptableObject.CreateInstance<LunarGravity>(),
-            ScriptableObject.CreateInstance<ThreeTimesShield>() }; // 50%
+        twoStarCards = new List<Card>(cardPool.twoStarCards);
+        
+        // twoStarCards = new List<Card> {
+        //     ScriptableObject.CreateInstance<SlingshotHelper>(),
+        //     ScriptableObject.CreateInstance<DoubleJump>(),
+        //     ScriptableObject.CreateInstance<Flash>(),
+        //     ScriptableObject.CreateInstance<LunarGravity>(),
+        //     ScriptableObject.CreateInstance<ThreeTimesShield>() }; // 50%
     }
 
     void InitializeThreeStarCards() {
-        threeStarCards = new List<Card> {
-            ScriptableObject.CreateInstance<ZeroGravity>(),
-            ScriptableObject.CreateInstance<Invincible>(),
-            ScriptableObject.CreateInstance<TripleJump>() };// 25%
+        threeStarCards = new List<Card>(cardPool.threeStarCards);
+
+        // threeStarCards = new List<Card> {
+        //     ScriptableObject.CreateInstance<ZeroGravity>(),
+        //     ScriptableObject.CreateInstance<Invincible>(),
+        //     ScriptableObject.CreateInstance<TripleJump>() };// 25%
     }
 
     void CheckCardPoolValidility() {
@@ -110,11 +119,12 @@ public class CardPanel : MonoBehaviour
             Random.Range(1, 100) + bias };
 
         // return new List<int> { 
-        //     1, 26, 80 };    
+        //     1, 1, 1 };    
     }
 
     public void StartCardPanel() {
         wrapper.SetActive(true);
+        transform.GetChild(0).GetChild(0).DetachChildren();
         handCards = new List<Card>();
         CheckCardPoolValidility();
 
@@ -201,6 +211,7 @@ public class CardPanel : MonoBehaviour
         if (deltaDnaEventHandler) {
             deltaDnaEventHandler.RecordCardChose(handCards[0]);
         }
+
         Inventory.instance.Add(handCards[0]);
         handCards.Remove(handCards[0]);
         AddCardBacktoPool();
@@ -214,6 +225,7 @@ public class CardPanel : MonoBehaviour
         if (deltaDnaEventHandler) {
             deltaDnaEventHandler.RecordCardChose(handCards[1]);
         }
+
         Inventory.instance.Add(handCards[1]);
         handCards.Remove(handCards[1]);
         AddCardBacktoPool();
@@ -227,6 +239,7 @@ public class CardPanel : MonoBehaviour
         if (deltaDnaEventHandler) {
             deltaDnaEventHandler.RecordCardChose(handCards[2]);
         }
+
         Inventory.instance.Add(handCards[2]);
         handCards.Remove(handCards[2]);
         AddCardBacktoPool();

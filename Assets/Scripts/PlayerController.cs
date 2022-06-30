@@ -90,6 +90,8 @@ public class PlayerController : MonoBehaviour
                 if (card != null) {
                     card.Activate();
                     cardTimer.Activate(card);
+                } else {
+                    isUsingCard = false;
                 }
             }
         };

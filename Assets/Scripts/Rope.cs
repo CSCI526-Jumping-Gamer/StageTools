@@ -35,7 +35,6 @@ public class Rope : UtilityTool
     {
         if (other.tag == "Player")
         {
-            Debug.Log("hello");
             if (playerController.GetIsHoldingRope() && !Keyboard.current.spaceKey.isPressed)
             {
                 playerController.SetRope(this);

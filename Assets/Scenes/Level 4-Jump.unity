@@ -8840,7 +8840,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.0806011, y: 1}
+    m_SensorSize: {x: 1.068306, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12016,6 +12016,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7497821442425138037, guid: 5f4340d8ed287c445bdab8d5278c0cd7, type: 3}
   m_PrefabInstance: {fileID: 998020154}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1716166818
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1769935404}
+    m_Modifications:
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100360462582535973, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+      propertyPath: m_Name
+      value: BulletTime
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+--- !u!114 &1716166819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7689818779934855052, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+  m_PrefabInstance: {fileID: 1716166818}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc5c468ee731af46b893caae59704a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1716166820 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4100360462582535970, guid: 24e95629a8b8bd54d8d35d24e34e2c6d, type: 3}
+  m_PrefabInstance: {fileID: 1716166818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1724173100
 GameObject:
   m_ObjectHideFlags: 0
@@ -12327,6 +12400,7 @@ MonoBehaviour:
   twoStarCards:
   - {fileID: 1439169876}
   - {fileID: 1714187493}
+  - {fileID: 1716166819}
   threeStarCards:
   - {fileID: 2001985127}
   - {fileID: 1167108035}
@@ -12351,6 +12425,7 @@ Transform:
   - {fileID: 1009909049}
   - {fileID: 2001985128}
   - {fileID: 1167108036}
+  - {fileID: 1716166820}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -37,7 +37,7 @@ public class CardPanel : MonoBehaviour
     }
 
     public void InitializeCardPool() {
-        cardScores = calculateCardScores();
+        // cardScores = CalculateCardScores();
         InitializeOneStarCards();
         InitializeTwoStarCards();
         InitializeThreeStarCards();
@@ -104,9 +104,9 @@ public class CardPanel : MonoBehaviour
         return true;
     }
 
-    List<int> calculateCardScores() {
+    List<int> CalculateCardScores() {
         if (Scoreboard.score == 3) {
-            bias = 50;
+            bias = 35;
         } else if (Scoreboard.score == 2) {
             bias = 20;
         } else {
@@ -126,6 +126,7 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(true);
         transform.GetChild(0).GetChild(0).DetachChildren();
         handCards = new List<Card>();
+        cardScores = CalculateCardScores();
         CheckCardPoolValidility();
 
         for (int i = 0; i < cardsLength; i++) {

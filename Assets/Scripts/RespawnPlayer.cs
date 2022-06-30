@@ -49,12 +49,12 @@ namespace Unity.Services.Analytics
                 } else {
                     // analyticsEventHandler.RecordPlayerDeath(other.transform.position);
                     // gameAnalyticsEventHandler.RecordPlayerDied(other.transform.position);
-                    string propName = gameObject.name;
-                    int propID = gameObject.GetInstanceID();
+                    string trapName = gameObject.name;
+                    int trapId = gameObject.GetInstanceID();
                     playerController.DisablePlayerInput();
 
                     if (deltaDnaEventHandler) {
-                        deltaDnaEventHandler.RecordPlayerDied(other.transform.position, propName, propID);
+                        deltaDnaEventHandler.RecordPlayerDied(other.transform.position, trapName, trapId);
                     }
                     
                     Invoke("Respawning", loadDelay);

@@ -42,21 +42,26 @@ public class DeltaDnaEventHandler : MonoBehaviour
             DDNA.Instance.StartSDK();
         });
         
+        InvokeRepeating("Upload", 2f, 2f);
         // Debug.LogWarning("DeltaDNA has started with a default configuration. To use your own config, edit the BasicExample script.");
     }
 
-    public void RecordPlayerDied(Vector3 position, string propName, int propID) {
+    public void Upload() {
+        DDNA.Instance.Upload();
+    }
+
+    public void RecordPlayerDied(Vector3 position, string trapName, int trapId) {
         Debug.Log("player died");
         string sceneName = SceneManager.GetActiveScene().name;
         GameEvent gameEvent = new GameEvent("playerDied")
             .AddParam("sceneName", sceneName)
             .AddParam("playerXPosition", position.x)
             .AddParam("playerYPosition", position.y)
-            .AddParam("killerName", propName)
-            .AddParam("killerID", propID);
-        Debug.Log(propName);
+            .AddParam("trapName", trapName)
+            .AddParam("trapID", trapId);
+        Debug.Log(trapName);
         DDNA.Instance.RecordEvent(gameEvent);
-        DDNA.Instance.Upload();
+        // DDNA.Instance.Upload();
     }
 
     public void RecordCardChose(Card card) {
@@ -67,7 +72,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
             .AddParam("cardName", card.cardName)
             .AddParam("cardRank", card.rank);
         DDNA.Instance.RecordEvent(gameEvent);
-        DDNA.Instance.Upload();
+        // DDNA.Instance.Upload();
     }
     public void RecordLevelCompleted() {
         Debug.Log("level completed");
@@ -77,7 +82,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
             .AddParam("sceneName", sceneName)
             .AddParam("totalTime", timeElapsed);
         DDNA.Instance.RecordEvent(gameEvent);
-        DDNA.Instance.Upload();
+        // DDNA.Instance.Upload();
     }
     public void RecordtoolUsage(UtilityTool tool) {
         Debug.Log("tool Used");
@@ -85,7 +90,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
         GameEvent gameEvent = new GameEvent("toolUsed")
             .AddParam("sceneName", sceneName)
             .AddParam("toolName", tool.toolName)
-            .AddParam("toolKey", tool.id)
+            .AddParam("toolID", tool.id)
             .AddParam("toolSpecificType", tool.specificType)
             .AddParam("toolCategory", tool.category);
 
@@ -96,7 +101,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
             } else {
                 doubleMagnetCountHelper = true;
                 DDNA.Instance.RecordEvent(gameEvent);
-                DDNA.Instance.Upload();
+                // DDNA.Instance.Upload();
                 // Debug.Log(toolName);
                 // Debug.Log(toolType);
                 // Debug.Log(toolKey);
@@ -104,7 +109,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
             }
         } else {
             DDNA.Instance.RecordEvent(gameEvent);
-            DDNA.Instance.Upload();
+            // DDNA.Instance.Upload();
             // Debug.Log(toolName);
             // Debug.Log(toolType);
             // Debug.Log(toolKey);

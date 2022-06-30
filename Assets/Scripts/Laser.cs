@@ -21,6 +21,7 @@ public class Laser : MonoBehaviour
     Transform m_transform;
     RaycastHit2D _hit;
     Rigidbody2D otherRb2d;
+    bool alreadyDead = false;
 
 
     private void Awake()
@@ -52,29 +53,34 @@ public class Laser : MonoBehaviour
             _hit = Physics2D.Raycast(laserFirePoint.position, transform.right);
             if (_hit.transform.tag.ToString() == "Player")
             {
-                otherRb2d = _hit.collider.gameObject.GetComponent<Rigidbody2D>();
+                if (!alreadyDead) {
+                    otherRb2d = _hit.collider.gameObject.GetComponent<Rigidbody2D>();
 
-                if (PlayerController.instance.shieldCount > 0)
-                {
-                    // analyticsEventHandler.RecordShieldUsed(other.transform.position);
-                    PlayerController.instance.shieldCount -= 1;
-                    if (PlayerController.instance.shieldCount == 0)
+                    if (PlayerController.instance.shieldCount > 0)
                     {
-                        cardTimer.Deactivate();
+                        // analyticsEventHandler.RecordShieldUsed(other.transform.position);
+                        PlayerController.instance.shieldCount -= 1;
+                        if (PlayerController.instance.shieldCount == 0)
+                        {
+                            cardTimer.Deactivate();
+                        }
+                    }
+                    else
+                    {
+                        // analyticsEventHandler.RecordPlayerDeath(other.transform.position);
+                        // gameAnalyticsEventHandler.RecordPlayerDied(other.transform.position);
+                        playerController.DisablePlayerInput();
+                        string trapName = gameObject.name;
+                        int trapId = gameObject.GetInstanceID();
+                        // Debug.Log(propName + '/' + propID);
+                        if (deltaDnaEventHandler) {
+                            deltaDnaEventHandler.RecordPlayerDied(otherRb2d.transform.position, trapName, trapId);
+                        }
+                        
+                        alreadyDead = true;
+                        Invoke("Respawning", loadDelay);
                     }
                 }
-                else
-                {
-                    // analyticsEventHandler.RecordPlayerDeath(other.transform.position);
-                    // gameAnalyticsEventHandler.RecordPlayerDied(other.transform.position);
-                    playerController.DisablePlayerInput();
-                    string propName = gameObject.name;
-                    int propID = gameObject.GetInstanceID();
-                    // Debug.Log(propName + '/' + propID);
-                    // deltaDnaEventHandler.RecordPlayerDied(otherRb2d.transform.position, propName, propID);
-                    Invoke("Respawning", loadDelay);
-                }
-
             }
             // Physics2D.IgnoreLayerCollision(5,2,true);
             Draw2DRay(laserFirePoint.position, _hit.point);
@@ -104,6 +110,8 @@ public class Laser : MonoBehaviour
     void Respawning()
     {
         // Debug.Log(playerController);
+        // Debug.Log("hello");
+        alreadyDead = false;
         otherRb2d.transform.position = playerController.GetCheckPointPosition();
         playerController.EnablePlayerInput();
     }

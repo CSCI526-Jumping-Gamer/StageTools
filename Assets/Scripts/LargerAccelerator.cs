@@ -25,7 +25,7 @@ public class LargerAccelerator : MonoBehaviour
             isTriggered = true;
             // playerMovement.DisablePlayerInput();
             // playerMovement.EnablePlayerInputWithDelay(0.1f);
-            Debug.Log("large");
+            // Debug.Log("large");
             Accelerate(other);
         }
     }

@@ -10,7 +10,7 @@ public class LevelSelector : MonoBehaviour
 
     private void Start() {
        if (levelText = gameObject.GetComponentInChildren<TextMeshProUGUI>()) {
-            Debug.Log(levelText.text);
+            // Debug.Log(levelText.text);
             levelText.text = "Level " + level.ToString();
        }
        

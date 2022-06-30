@@ -12,15 +12,14 @@ public class CardPanel : MonoBehaviour
     List<Card> threeStarCards; // 25%
     List<Card> handCards;
     int cardsLength = 3;
-    List<int> cardScores;
+    CardPool cardPool;
     int bias = 0;
     DeltaDnaEventHandler deltaDnaEventHandler;
+    [SerializeField] List<int> cardScores;
     [SerializeField] bool cardEnabled = true;
     [SerializeField] GameObject wrapper;
-    [SerializeField] List<TextMeshProUGUI> cardText;
-    [SerializeField] List<Button> buttons;
     [SerializeField] GameObject prefab;
-    CardPool cardPool;
+    
     
     private void Awake() {
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
@@ -137,21 +136,28 @@ public class CardPanel : MonoBehaviour
 
     void DrawCard(int index) {
         Card currCard = null;
-
-        if (!isCardPoolValid()) {
-            return;
-        }
-
         if (cardScores[index] <= 25) {
             // 1 star
+            if (oneStarCards.Count == 0) {
+                return;
+            }
+           
             currCard = oneStarCards[Random.Range(0, oneStarCards.Count)];
             oneStarCards.Remove(currCard);
         } else if (cardScores[index] <= 75) {
             // 2 star
+            if (twoStarCards.Count == 0) {
+                return;
+            }
+
             currCard = twoStarCards[Random.Range(0, twoStarCards.Count)];
             twoStarCards.Remove(currCard);
         } else { 
             // 3 star
+            if (threeStarCards.Count == 0) {
+                return;
+            }
+
             currCard = threeStarCards[Random.Range(0, threeStarCards.Count)];
             threeStarCards.Remove(currCard);
         }

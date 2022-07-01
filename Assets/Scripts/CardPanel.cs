@@ -28,9 +28,10 @@ public class CardPanel : MonoBehaviour
     }
 
     void Start() {
+        InitializeCardPool();
+        cardScores = CalculateCardScores();
+
         if (cardEnabled) {
-            InitializeCardPool();
-            // cardScores = calculateCardScores();
             PlayerController.instance.DisablePlayerInput();
             Invoke("StartCardPanel", 0.2f);
         }
@@ -45,7 +46,6 @@ public class CardPanel : MonoBehaviour
 
     void InitializeOneStarCards() {
         oneStarCards = new List<Card>(cardPool.oneStarCards);
-
         // oneStarCards = new List<Card> {
         //     ScriptableObject.CreateInstance<SpeedUp>(), 
         //     ScriptableObject.CreateInstance<HighJump>(), 
@@ -126,7 +126,6 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(true);
         transform.GetChild(0).GetChild(0).DetachChildren();
         handCards = new List<Card>();
-        cardScores = CalculateCardScores();
         CheckCardPoolValidility();
 
         for (int i = 0; i < cardsLength; i++) {

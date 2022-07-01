@@ -82,7 +82,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
             .AddParam("sceneName", sceneName)
             .AddParam("totalTime", timeElapsed);
         DDNA.Instance.RecordEvent(gameEvent);
-        // DDNA.Instance.Upload();
+        DDNA.Instance.Upload();
     }
     public void RecordtoolUsage(UtilityTool tool) {
         Debug.Log("tool Used");

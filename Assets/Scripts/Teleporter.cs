@@ -22,7 +22,7 @@ public class Teleporter : MonoBehaviour
         {
             PlayerCollider = other;
             playerController.OnDisable();
-            cardPanel.InitializeCardPool();
+            // cardPanel.InitializeCardPool();
             cardPanel.StartCardPanel();
             Invoke("Respawning", loadDelay);
         }

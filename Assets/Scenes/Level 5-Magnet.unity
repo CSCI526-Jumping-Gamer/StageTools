@@ -10898,7 +10898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3168690465305763875, guid: d2c7510b679759d459c2a5cfc603a102, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3168690465305763877, guid: d2c7510b679759d459c2a5cfc603a102, type: 3}
       propertyPath: m_RootOrder
@@ -11131,7 +11131,6 @@ MonoBehaviour:
   threeStarCards:
   - {fileID: 1069488364}
   - {fileID: 1038085858}
-  - {fileID: 1179855900}
   - {fileID: 1268877128}
 --- !u!4 &1047920478
 Transform:
@@ -12420,17 +12419,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2006e936a5ef90c4b94d202977b148fe, type: 3}
---- !u!114 &1179855900 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5397689060030818298, guid: 2006e936a5ef90c4b94d202977b148fe, type: 3}
-  m_PrefabInstance: {fileID: 1179855899}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90546c384c354694e80ece533b62fc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1179855901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7264073867925696665, guid: 2006e936a5ef90c4b94d202977b148fe, type: 3}

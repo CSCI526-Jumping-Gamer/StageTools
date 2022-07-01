@@ -62,7 +62,7 @@ namespace Unity.Services.Analytics
             }
         }
 
-        public void Respawning()
+        public void Respawn()
         {
             // Rigidbody2D otherRb2d = playerCollider.gameObject.GetComponent<Rigidbody2D>();
             // otherRb2d.transform.position = playerController.GetCheckPointPosition();

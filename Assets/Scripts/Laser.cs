@@ -6,35 +6,27 @@ using UnityEngine.SceneManagement;
 public class Laser : MonoBehaviour
 {
     CardTimer cardTimer;
-    public PlayerController playerController;
-    [SerializeField] private float defDistanceRay = 50;
-    [SerializeField] float loadDelay = 0.2f;
+    PlayerController playerController;
     DeltaDnaEventHandler deltaDnaEventHandler;
+    float count; // Invincible time
+    bool flag;
+    Transform m_transform;
+    bool isDead = false;
+
+    [SerializeField] float defDistanceRay = 50;
+    [SerializeField] float loadDelay = 0.2f;
 
     public Transform laserFirePoint;
     public LineRenderer m_lineRenderer;
-    //   public GameManager gameManager;
-    //   public Shield shield;
-    private float count; // Invincible time
-    // private float invisible_time;
-    private bool flag;
-    Transform m_transform;
-    RaycastHit2D _hit;
-    Rigidbody2D otherRb2d;
-    bool alreadyDead = false;
-
-
+    
     private void Awake()
     {
         cardTimer = FindObjectOfType<CardTimer>();
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
-
         playerController = FindObjectOfType<PlayerController>();
         count = 0;
-        // invisible_time = 1;
         flag = false;
         m_transform = GetComponent<Transform>();
-
     }
 
     public void Update()
@@ -50,12 +42,11 @@ public class Laser : MonoBehaviour
     {
         if (Physics2D.Raycast(m_transform.position, transform.right))
         {
-            _hit = Physics2D.Raycast(laserFirePoint.position, transform.right);
-            if (_hit.transform.tag.ToString() == "Player")
+            RaycastHit2D _hit = Physics2D.Raycast(laserFirePoint.position, transform.right);
+            // Debug.Log(_hit.transform.tag);
+            if (_hit.collider.transform.tag == "Player")
             {
-                if (!alreadyDead) {
-                    otherRb2d = _hit.collider.gameObject.GetComponent<Rigidbody2D>();
-
+                if (!isDead) {
                     if (PlayerController.instance.shieldCount > 0)
                     {
                         // analyticsEventHandler.RecordShieldUsed(other.transform.position);
@@ -72,12 +63,12 @@ public class Laser : MonoBehaviour
                         playerController.DisablePlayerInput();
                         string trapName = gameObject.name;
                         int trapId = gameObject.GetInstanceID();
-                        // Debug.Log(propName + '/' + propID);
+
                         if (deltaDnaEventHandler) {
-                            deltaDnaEventHandler.RecordPlayerDied(otherRb2d.transform.position, trapName, trapId);
+                            deltaDnaEventHandler.RecordPlayerDied(playerController.transform.position, trapName, trapId);
                         }
                         
-                        alreadyDead = true;
+                        isDead = true;
                         Invoke("Respawning", loadDelay);
                     }
                 }
@@ -101,18 +92,11 @@ public class Laser : MonoBehaviour
         m_lineRenderer.SetPosition(1, endPos);
     }
 
-    // void ReloadScene()
-    // {
-    //     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    //     SceneManager.LoadScene(currentSceneIndex);
-    // }
-
-    void Respawning()
+    void Respawn()
     {
-        // Debug.Log(playerController);
-        // Debug.Log("hello");
-        alreadyDead = false;
-        otherRb2d.transform.position = playerController.GetCheckPointPosition();
+        isDead = false;
+        // otherRb2d.transform.position = playerController.GetCheckPointPosition();
+        playerController.transform.position = playerController.GetCheckPointPosition();
         playerController.EnablePlayerInput();
     }
 }

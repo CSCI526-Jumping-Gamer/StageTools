@@ -119,7 +119,7 @@ public class CardPanel : MonoBehaviour
             Random.Range(1, 100) + bias };
 
         // return new List<int> { 
-        //     1, 1, 1 };    
+        //     100, 100, 100 };    
     }
 
     public void StartCardPanel() {

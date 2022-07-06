@@ -14,7 +14,10 @@ public class Scoreboard : MonoBehaviour
     public void NextScene() {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextSceneIndex);
-        PlayerPrefs.SetInt("levelAt", nextSceneIndex);
+        if (nextSceneIndex > PlayerPrefs.GetInt("levelAt")) {
+            PlayerPrefs.SetInt("levelAt", nextSceneIndex);
+        }
+        
 
     }
 }

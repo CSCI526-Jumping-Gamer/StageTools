@@ -30,34 +30,42 @@ namespace Unity.Services.Analytics
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (tag == "DeathZone") {
-                if (PlayerController.instance.isUsingCard) {
+            if (tag == "DeathZone")
+            {
+                if (PlayerController.instance.isUsingCard)
+                {
                     cardTimer.Deactivate();
                 }
-            } 
-            
-            if (other.tag == "Player") {
+            }
+
+            if (other.tag == "Player")
+            {
                 playerCollider = other;
-                
-                if (PlayerController.instance.shieldCount > 0) {
+
+                if (PlayerController.instance.shieldCount > 0)
+                {
                     // analyticsEventHandler.RecordShieldUsed(other.transform.position);
                     PlayerController.instance.shieldCount -= 1;
 
-                    if (PlayerController.instance.shieldCount == 0) {
+                    if (PlayerController.instance.shieldCount == 0)
+                    {
                         cardTimer.Deactivate();
                     }
-                } else {
+                }
+                else
+                {
                     // analyticsEventHandler.RecordPlayerDeath(other.transform.position);
                     // gameAnalyticsEventHandler.RecordPlayerDied(other.transform.position);
                     string trapName = gameObject.name;
                     int trapId = gameObject.GetInstanceID();
                     playerController.DisablePlayerInput();
 
-                    if (deltaDnaEventHandler) {
+                    if (deltaDnaEventHandler)
+                    {
                         deltaDnaEventHandler.RecordPlayerDied(other.transform.position, trapName, trapId);
                     }
-                    
-                    Invoke("Respawning", loadDelay);
+
+                    Invoke("Respawn", loadDelay);
                 }
             }
         }

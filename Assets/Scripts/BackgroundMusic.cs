@@ -7,13 +7,16 @@ public class BackgroundMusic : MonoBehaviour
     private static BackgroundMusic bgm;
     void Awake()
     {
-        if (bgm == null) {
+        if (bgm == null)
+        {
             bgm = this;
             DontDestroyOnLoad(bgm);
-        } else {
+        }
+        else
+        {
             Destroy(gameObject);
         }
     }
 
-    
+
 }

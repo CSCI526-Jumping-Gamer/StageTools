@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defDistanceRay: 50
+  loadDelay: 0.2
   laserFirePoint: {fileID: 6368500064178823055}
   m_lineRenderer: {fileID: 6368500065718958873}
 --- !u!120 &6368500065718958873

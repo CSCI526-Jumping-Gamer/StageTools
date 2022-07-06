@@ -19,142 +19,172 @@ public class CardPanel : MonoBehaviour
     [SerializeField] bool cardEnabled = true;
     [SerializeField] GameObject wrapper;
     [SerializeField] GameObject prefab;
-    
-    
-    private void Awake() {
+
+
+    private void Awake()
+    {
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
         cardPool = FindObjectOfType<CardPool>();
         // Debug.Log(cardPool.oneStarCards.Count);
     }
 
-    void Start() {
+    void Start()
+    {
         InitializeCardPool();
-        cardScores = CalculateCardScores();
 
-        if (cardEnabled) {
+
+        if (cardEnabled)
+        {
             PlayerController.instance.DisablePlayerInput();
             Invoke("StartCardPanel", 0.2f);
         }
     }
 
-    public void InitializeCardPool() {
-        // cardScores = CalculateCardScores();
+    public void InitializeCardPool()
+    {
         InitializeOneStarCards();
         InitializeTwoStarCards();
         InitializeThreeStarCards();
     }
 
-    void InitializeOneStarCards() {
+    void InitializeOneStarCards()
+    {
         oneStarCards = new List<Card>(cardPool.oneStarCards);
-        // oneStarCards = new List<Card> {
-        //     ScriptableObject.CreateInstance<SpeedUp>(), 
-        //     ScriptableObject.CreateInstance<HighJump>(), 
-        //     ScriptableObject.CreateInstance<SingleUseShield>(),
-        //     ScriptableObject.CreateInstance<LightWeight>(),
-        //     ScriptableObject.CreateInstance<RopeClimber>() }; // 25%
     }
 
-    void InitializeTwoStarCards() {
+    void InitializeTwoStarCards()
+    {
         twoStarCards = new List<Card>(cardPool.twoStarCards);
-        
-        // twoStarCards = new List<Card> {
-        //     ScriptableObject.CreateInstance<SlingshotHelper>(),
-        //     ScriptableObject.CreateInstance<DoubleJump>(),
-        //     ScriptableObject.CreateInstance<Flash>(),
-        //     ScriptableObject.CreateInstance<LunarGravity>(),
-        //     ScriptableObject.CreateInstance<ThreeTimesShield>() }; // 50%
     }
 
-    void InitializeThreeStarCards() {
+    void InitializeThreeStarCards()
+    {
         threeStarCards = new List<Card>(cardPool.threeStarCards);
-
-        // threeStarCards = new List<Card> {
-        //     ScriptableObject.CreateInstance<ZeroGravity>(),
-        //     ScriptableObject.CreateInstance<Invincible>(),
-        //     ScriptableObject.CreateInstance<TripleJump>() };// 25%
     }
 
-    void CheckCardPoolValidility() {
-        if (oneStarCards.Count == 0) {
+    void CheckCardPoolValidility()
+    {
+        if (oneStarCards.Count == 0)
+        {
             InitializeOneStarCards();
         }
 
-        if (twoStarCards.Count == 0) {
+        if (twoStarCards.Count == 0)
+        {
             InitializeTwoStarCards();
         }
 
-        if (threeStarCards.Count == 0) {
+        if (threeStarCards.Count == 0)
+        {
             InitializeThreeStarCards();
         }
     }
 
-    bool isCardPoolValid() {
-        if (oneStarCards.Count == 0) {
+    bool isCardPoolValid()
+    {
+        if (oneStarCards.Count == 0)
+        {
             return false;
         }
 
-        if (twoStarCards.Count == 0) {
+        if (twoStarCards.Count == 0)
+        {
             return false;
         }
 
-        if (threeStarCards.Count == 0) {
+        if (threeStarCards.Count == 0)
+        {
             return false;
         }
 
         return true;
     }
 
-    List<int> CalculateCardScores() {
-        if (Scoreboard.score == 3) {
-            bias = 35;
-        } else if (Scoreboard.score == 2) {
-            bias = 20;
-        } else {
-            bias = 0;
+    List<int> CalculateCardScores()
+    {
+        List<int> result = new List<int>();
+
+        if (Scoreboard.score == 3)
+        {
+            if (threeStarCards.Count > 0)
+            {
+                result.Add(100);
+            }
+        }
+        else if (Scoreboard.score == 2)
+        {
+            if (twoStarCards.Count > 0)
+            {
+                result.Add(50);
+            }
+        }
+        else
+        {
+            if (oneStarCards.Count > 0)
+            {
+                result.Add(0);
+            }
         }
 
-        return new List<int> { 
-            Random.Range(1, 100) + bias, 
-            Random.Range(1, 100) + bias, 
-            Random.Range(1, 100) + bias };
+        int count = result.Count;
+
+        for (int i = 0; i < cardsLength - count; i++)
+        {
+            result.Add(Random.Range(1, 100));
+        }
+
+        return result;
 
         // return new List<int> { 
         //     100, 100, 100 };    
     }
 
-    public void StartCardPanel() {
+    public void StartCardPanel()
+    {
         wrapper.SetActive(true);
         transform.GetChild(0).GetChild(0).DetachChildren();
         handCards = new List<Card>();
+        cardScores = CalculateCardScores();
+
         CheckCardPoolValidility();
 
-        for (int i = 0; i < cardsLength; i++) {
+        for (int i = 0; i < cardsLength; i++)
+        {
             DrawCard(i);
         }
-    
+
         Time.timeScale = 0f;
     }
 
-    void DrawCard(int index) {
+    void DrawCard(int index)
+    {
         Card currCard = null;
-        if (cardScores[index] <= 25) {
+        if (cardScores[index] <= 25)
+        {
             // 1 star
-            if (oneStarCards.Count == 0) {
+            if (oneStarCards.Count == 0)
+            {
                 return;
             }
             currCard = oneStarCards[Random.Range(0, oneStarCards.Count)];
             oneStarCards.Remove(currCard);
-        } else if (cardScores[index] <= 75) {
+        }
+        else if (cardScores[index] <= 75)
+        {
             // 2 star
-            if (twoStarCards.Count == 0) {
+            if (twoStarCards.Count == 0)
+            {
                 return;
             }
 
             currCard = twoStarCards[Random.Range(0, twoStarCards.Count)];
             twoStarCards.Remove(currCard);
-        } else { 
+        }
+        else
+        {
             // 3 star
-            if (threeStarCards.Count == 0) {
+            if (threeStarCards.Count == 0)
+            {
                 return;
             }
 
@@ -169,7 +199,8 @@ public class CardPanel : MonoBehaviour
         handCards.Add(currCard);
     }
 
-    void CreateCard(Card card, int index) {
+    void CreateCard(Card card, int index)
+    {
         Transform parentTransform = transform.GetChild(0).GetChild(0);
         GameObject gameObject = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
         gameObject.name = "Card " + index;
@@ -181,11 +212,16 @@ public class CardPanel : MonoBehaviour
         timerMeshProUGUI.text = card.time + " sec";
         Button button = gameObject.GetComponent<Button>();
 
-        if (index == 0) {
+        if (index == 0)
+        {
             button.onClick.AddListener(SelectFirstCard);
-        } else if (index == 1) {
+        }
+        else if (index == 1)
+        {
             button.onClick.AddListener(SelectSecondCard);
-        } else {
+        }
+        else
+        {
             button.onClick.AddListener(SelectThirdCard);
         }
 
@@ -193,32 +229,47 @@ public class CardPanel : MonoBehaviour
         // gameObject.transform.SetParent();
     }
 
-    void RemoveCardFromPool(Card card) {
-        if (card.rank == 1) {
+    void RemoveCardFromPool(Card card)
+    {
+        if (card.rank == 1)
+        {
             oneStarCards.Remove(card);
-        } else if (card.rank == 2) {
+        }
+        else if (card.rank == 2)
+        {
             twoStarCards.Remove(card);
-        } else {
+        }
+        else
+        {
             threeStarCards.Remove(card);
         }
     }
 
-    void AddCardBacktoPool() {
-        for (int i = 0; i < handCards.Count; i++) {
+    void AddCardBacktoPool()
+    {
+        for (int i = 0; i < handCards.Count; i++)
+        {
             int rank = handCards[i].rank;
 
-            if (rank == 1) {
+            if (rank == 1)
+            {
                 oneStarCards.Add(handCards[i]);
-            } else if (rank == 2) {
+            }
+            else if (rank == 2)
+            {
                 twoStarCards.Add(handCards[i]);
-            } else {
+            }
+            else
+            {
                 threeStarCards.Add(handCards[i]);
             }
         }
     }
 
-    public void SelectFirstCard() {
-        if (deltaDnaEventHandler) {
+    public void SelectFirstCard()
+    {
+        if (deltaDnaEventHandler)
+        {
             deltaDnaEventHandler.RecordCardChose(handCards[0]);
         }
 
@@ -228,11 +279,13 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
-        
+
     }
 
-    public void SelectSecondCard() {
-        if (deltaDnaEventHandler) {
+    public void SelectSecondCard()
+    {
+        if (deltaDnaEventHandler)
+        {
             deltaDnaEventHandler.RecordCardChose(handCards[1]);
         }
 
@@ -242,11 +295,13 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
-        
-    } 
 
-    public void SelectThirdCard() {
-        if (deltaDnaEventHandler) {
+    }
+
+    public void SelectThirdCard()
+    {
+        if (deltaDnaEventHandler)
+        {
             deltaDnaEventHandler.RecordCardChose(handCards[2]);
         }
 
@@ -257,7 +312,8 @@ public class CardPanel : MonoBehaviour
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
     }
-        private void TurnOrange(Button button) {
+    private void TurnOrange(Button button)
+    {
         ColorBlock colors = button.colors;
         colors.normalColor = new Color32(255, 210, 2, 200);
         colors.highlightedColor = new Color32(226, 186, 0, 200);
@@ -265,7 +321,8 @@ public class CardPanel : MonoBehaviour
         colors.selectedColor = new Color32(195, 160, 0, 200);
         button.colors = colors;
     }
-    private void TurnBlue(Button button) {
+    private void TurnBlue(Button button)
+    {
         ColorBlock colors = button.colors;
         colors.normalColor = new Color32(33, 101, 255, 200);
         colors.highlightedColor = new Color32(20, 83, 226, 200);
@@ -274,7 +331,8 @@ public class CardPanel : MonoBehaviour
         button.colors = colors;
     }
 
-    private void TurnWhite(Button button) {
+    private void TurnWhite(Button button)
+    {
         ColorBlock colors = button.colors;
         colors.normalColor = Color.white;
         colors.highlightedColor = new Color32(221, 221, 221, 255);
@@ -283,12 +341,18 @@ public class CardPanel : MonoBehaviour
         button.colors = colors;
     }
 
-    private void SetCardColor(int rank, Button button) {
-        if (rank == 3) {
+    private void SetCardColor(int rank, Button button)
+    {
+        if (rank == 3)
+        {
             TurnOrange(button);
-        } else if (rank == 2) {
+        }
+        else if (rank == 2)
+        {
             TurnBlue(button);
-        } else if (rank == 1) {
+        }
+        else if (rank == 1)
+        {
             TurnWhite(button);
         }
     }

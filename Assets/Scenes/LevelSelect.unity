@@ -780,6 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbe109ce7d9f48869306bbe8e4a2555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelButton: []
 --- !u!1 &1165252135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,6 +1632,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2000266637, guid: bf3cb0ee5d7f6416baa06d93efd469ab, type: 3}
       propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485559029058129044, guid: bf3cb0ee5d7f6416baa06d93efd469ab, type: 3}
+      propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4485559029058129046, guid: bf3cb0ee5d7f6416baa06d93efd469ab, type: 3}

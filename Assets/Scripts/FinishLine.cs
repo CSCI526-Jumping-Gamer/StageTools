@@ -32,6 +32,7 @@ public class FinishLine : MonoBehaviour
             playerController.DisablePlayerInput();
             FindObjectOfType<StarColor>().setStarColor(); // set the star color
             
+            
             if (deltaDnaEventHandler) {
                 deltaDnaEventHandler.RecordLevelCompleted();
             }

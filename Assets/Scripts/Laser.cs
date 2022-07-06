@@ -18,7 +18,7 @@ public class Laser : MonoBehaviour
 
     public Transform laserFirePoint;
     public LineRenderer m_lineRenderer;
-    
+
     private void Awake()
     {
         cardTimer = FindObjectOfType<CardTimer>();
@@ -46,7 +46,8 @@ public class Laser : MonoBehaviour
             // Debug.Log(_hit.transform.tag);
             if (_hit.collider.transform.tag == "Player")
             {
-                if (!isDead) {
+                if (!isDead)
+                {
                     if (PlayerController.instance.shieldCount > 0)
                     {
                         // analyticsEventHandler.RecordShieldUsed(other.transform.position);
@@ -64,12 +65,13 @@ public class Laser : MonoBehaviour
                         string trapName = gameObject.name;
                         int trapId = gameObject.GetInstanceID();
 
-                        if (deltaDnaEventHandler) {
+                        if (deltaDnaEventHandler)
+                        {
                             deltaDnaEventHandler.RecordPlayerDied(playerController.transform.position, trapName, trapId);
                         }
-                        
+
                         isDead = true;
-                        Invoke("Respawning", loadDelay);
+                        Invoke("Respawn", loadDelay);
                     }
                 }
             }

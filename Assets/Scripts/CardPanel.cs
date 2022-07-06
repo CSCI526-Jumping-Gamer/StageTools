@@ -13,7 +13,6 @@ public class CardPanel : MonoBehaviour
     List<Card> handCards;
     int cardsLength = 3;
     CardPool cardPool;
-    int bias = 0;
     DeltaDnaEventHandler deltaDnaEventHandler;
     [SerializeField] List<int> cardScores;
     [SerializeField] bool cardEnabled = true;
@@ -30,21 +29,11 @@ public class CardPanel : MonoBehaviour
 
     void Start()
     {
-        InitializeCardPool();
-
-
         if (cardEnabled)
         {
             PlayerController.instance.DisablePlayerInput();
             Invoke("StartCardPanel", 0.2f);
         }
-    }
-
-    public void InitializeCardPool()
-    {
-        InitializeOneStarCards();
-        InitializeTwoStarCards();
-        InitializeThreeStarCards();
     }
 
     void InitializeOneStarCards()
@@ -62,48 +51,34 @@ public class CardPanel : MonoBehaviour
         threeStarCards = new List<Card>(cardPool.threeStarCards);
     }
 
-    void CheckCardPoolValidility()
+    void InitializeCardPool()
     {
-        if (oneStarCards.Count == 0)
+        if (oneStarCards == null || oneStarCards.Count == 0)
         {
             InitializeOneStarCards();
         }
 
-        if (twoStarCards.Count == 0)
+        if (twoStarCards == null || twoStarCards.Count == 0)
         {
             InitializeTwoStarCards();
         }
 
-        if (threeStarCards.Count == 0)
+        if (threeStarCards == null || threeStarCards.Count == 0)
         {
             InitializeThreeStarCards();
         }
     }
 
-    bool isCardPoolValid()
-    {
-        if (oneStarCards.Count == 0)
-        {
-            return false;
-        }
-
-        if (twoStarCards.Count == 0)
-        {
-            return false;
-        }
-
-        if (threeStarCards.Count == 0)
-        {
-            return false;
-        }
-
-        return true;
-    }
-
     List<int> CalculateCardScores()
     {
         List<int> result = new List<int>();
+        GetFirstCardScore(result);
+        GetRemainingCardScores(result);
+        return result;
+    }
 
+    public void GetFirstCardScore(List<int> result)
+    {
         if (Scoreboard.score == 3)
         {
             if (threeStarCards.Count > 0)
@@ -122,21 +97,57 @@ public class CardPanel : MonoBehaviour
         {
             if (oneStarCards.Count > 0)
             {
-                result.Add(0);
+                result.Add(1);
             }
         }
+    }
 
+    public void GetRemainingCardScores(List<int> result)
+    {
         int count = result.Count;
 
         for (int i = 0; i < cardsLength - count; i++)
         {
-            result.Add(Random.Range(1, 100));
+            if (oneStarCards.Count == 0 && twoStarCards.Count == 0 && threeStarCards.Count == 0)
+            {
+                return;
+            }
+            else if (oneStarCards.Count == 0 && twoStarCards.Count == 0)
+            {
+                result.Add(100);
+            }
+            else if (oneStarCards.Count == 0 && threeStarCards.Count == 0)
+            {
+                result.Add(50);
+            }
+            else if (twoStarCards.Count == 0 && threeStarCards.Count == 0)
+            {
+                result.Add(1);
+            }
+            else if (oneStarCards.Count == 0)
+            {
+                result.Add(Random.Range(26, 101));
+            }
+            else if (twoStarCards.Count == 0)
+            {
+                int r1 = Random.Range(1, 26);
+                int r2 = Random.Range(75, 101);
+                int decision = Random.Range(0, 2);
+
+                if (decision == 0)
+                {
+                    result.Add(r1);
+                }
+                else
+                {
+                    result.Add(r2);
+                }
+            }
+            else
+            {
+                result.Add(Random.Range(1, 76));
+            }
         }
-
-        return result;
-
-        // return new List<int> { 
-        //     100, 100, 100 };    
     }
 
     public void StartCardPanel()
@@ -144,9 +155,8 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(true);
         transform.GetChild(0).GetChild(0).DetachChildren();
         handCards = new List<Card>();
+        InitializeCardPool();
         cardScores = CalculateCardScores();
-
-        CheckCardPoolValidility();
 
         for (int i = 0; i < cardsLength; i++)
         {
@@ -166,6 +176,7 @@ public class CardPanel : MonoBehaviour
             {
                 return;
             }
+
             currCard = oneStarCards[Random.Range(0, oneStarCards.Count)];
             oneStarCards.Remove(currCard);
         }
@@ -279,7 +290,6 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
-
     }
 
     public void SelectSecondCard()
@@ -295,7 +305,6 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
-
     }
 
     public void SelectThirdCard()

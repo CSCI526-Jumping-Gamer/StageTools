@@ -15,6 +15,8 @@ TagManager:
   - Laser
   - Cannoe
   - Ground
+  - platform
+  - ground
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Magnet
   - Rope
   - Player
-  - 
+  - Background
   - 
   - 
   - 

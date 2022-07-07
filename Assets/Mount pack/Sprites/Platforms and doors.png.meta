@@ -565,7 +565,7 @@ TextureImporter:
         width: 29
         height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -586,7 +586,7 @@ TextureImporter:
         width: 29
         height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -594,6 +594,48 @@ TextureImporter:
       bones: []
       spriteID: 68db1b2c9ec075b43a3f61b0b08c6194
       internalID: -2135073293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Platforms and doors_21
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 834
+        width: 140
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de6face52381eff4ca784f50ab5bd0f9
+      internalID: -337697779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Platforms and doors_22
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 834
+        width: 140
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a5d6f2983806a4ea5f620176093263
+      internalID: 1913691551
       vertices: []
       indices: 
       edges: []
@@ -615,7 +657,9 @@ TextureImporter:
       Platforms and doors_6: -759300111086782578
       Platforms and doors_3: 2956365997262036911
       Platforms and doors_11: -5876211988267867528
+      Platforms and doors_22: 1913691551
       Platforms and doors_4: -8702527862032482912
+      Platforms and doors_21: -337697779
       Platforms and doors_13: -5456881616045045953
       Platforms and doors_17: 1416831619
       Platforms and doors_14: 932898283

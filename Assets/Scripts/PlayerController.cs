@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 		// Debug.Log(CheckPointPosition);
         circleCollider2D = GetComponent<CircleCollider2D>();
         boxCollider2D = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();
-        playerControls = new PlayerControls();
+        playerControls = InputManager.inputActions;
         playerInput = GetComponent<PlayerInput>();
         cardTimer = FindObjectOfType<CardTimer>();
         playerControls.Player.Magnetize.performed += ctx => {

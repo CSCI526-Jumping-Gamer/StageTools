@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class SettingPanel : MonoBehaviour
 {
     [SerializeField] GameObject wrapper;
+    [SerializeField] GameObject rebindingWrapper;
     [SerializeField] GameObject button;
 
     private void Awake() {
@@ -17,6 +18,16 @@ public class SettingPanel : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+    }
+    public void ReBindKey()
+    {
+        wrapper.SetActive(false);
+        rebindingWrapper.SetActive(true);
+    }
+    public void ReturnToSetting()
+    {
+        wrapper.SetActive(true);
+        rebindingWrapper.SetActive(false);
     }
 
     public void OpenLevels() {

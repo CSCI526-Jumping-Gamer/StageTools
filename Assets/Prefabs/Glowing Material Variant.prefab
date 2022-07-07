@@ -37,11 +37,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 755201348739841412, guid: b640ff7aaa9c40549b2679b0a6d94dba, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.2297
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 755201348739841412, guid: b640ff7aaa9c40549b2679b0a6d94dba, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0.2305
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 755201348739841412, guid: b640ff7aaa9c40549b2679b0a6d94dba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 755201348739841530, guid: b640ff7aaa9c40549b2679b0a6d94dba, type: 3}
       propertyPath: m_Name
-      value: Glowing Material
+      value: Glowing Material Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b640ff7aaa9c40549b2679b0a6d94dba, type: 3}

@@ -221,6 +221,9 @@ public class CardPanel : MonoBehaviour
         TextMeshProUGUI timerMeshProUGUI = gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         textMeshProUGUI.text = card.cardName;
         timerMeshProUGUI.text = card.time + " sec";
+        string imageRoute = card.name;
+        Sprite cardImage = Resources.Load<Sprite>(imageRoute);
+        gameObject.transform.GetChild(2).GetComponent<Image>().sprite = cardImage;
         Button button = gameObject.GetComponent<Button>();
 
         if (index == 0)

@@ -13,6 +13,7 @@ public class CardPanel : MonoBehaviour
     List<Card> handCards;
     int cardsLength = 3;
     CardPool cardPool;
+    CardInventoryUI cardInventoryUI;
     DeltaDnaEventHandler deltaDnaEventHandler;
     [SerializeField] List<int> cardScores;
     [SerializeField] bool cardEnabled = true;
@@ -24,6 +25,7 @@ public class CardPanel : MonoBehaviour
     {
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
         cardPool = FindObjectOfType<CardPool>();
+        cardInventoryUI = FindObjectOfType<CardInventoryUI>();
         // Debug.Log(cardPool.oneStarCards.Count);
     }
 
@@ -221,6 +223,9 @@ public class CardPanel : MonoBehaviour
         TextMeshProUGUI timerMeshProUGUI = gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         textMeshProUGUI.text = card.cardName;
         timerMeshProUGUI.text = card.time + " sec";
+        string imageRoute = card.name;
+        Sprite cardImage = Resources.Load<Sprite>(imageRoute);
+        gameObject.transform.GetChild(2).GetComponent<Image>().sprite = cardImage;
         Button button = gameObject.GetComponent<Button>();
 
         if (index == 0)
@@ -290,6 +295,7 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
+        cardInventoryUI.OpenCardUI();
     }
 
     public void SelectSecondCard()
@@ -305,6 +311,7 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
+        cardInventoryUI.OpenCardUI();
     }
 
     public void SelectThirdCard()
@@ -320,6 +327,7 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
+        cardInventoryUI.OpenCardUI();
     }
     private void TurnOrange(Button button)
     {

@@ -11,6 +11,7 @@ public class FinishLine : MonoBehaviour
     GameObject cardTimer;
     PlayerController playerController;
     DeltaDnaEventHandler deltaDnaEventHandler;
+    CardInventoryUI cardInventoryUI;
 
 
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class FinishLine : MonoBehaviour
         cardTimer = GameObject.FindWithTag("CardTimer");
         playerController = FindObjectOfType<PlayerController>();
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
+        cardInventoryUI = FindObjectOfType<CardInventoryUI>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -27,6 +29,7 @@ public class FinishLine : MonoBehaviour
         if (other.tag == "Player")
         {
             finishEffect.Play();
+            cardInventoryUI.CloseCardUI();
             scoreboard.transform.Find("Wrapper").gameObject.SetActive(true);
             cardTimer.transform.Find("Wrapper").gameObject.SetActive(false);
             playerController.DisablePlayerInput();

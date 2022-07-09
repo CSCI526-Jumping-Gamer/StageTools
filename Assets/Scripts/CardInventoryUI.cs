@@ -15,9 +15,7 @@ public class CardInventoryUI : MonoBehaviour
             if (cardsUILength != 0) {
                 OpenCardUI();
             }
-            if (cardsUILength <= 3) {
-                DrawNewCardUI();
-            }
+            DrawNewCardUI();
         } else if (cardsUILength > Inventory.instance.cards.Count) {
             cardsUILength = Inventory.instance.cards.Count;
             DestroyFirstCardUI();

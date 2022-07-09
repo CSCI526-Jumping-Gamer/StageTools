@@ -105,7 +105,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 19
   m_Sprite: {fileID: -5876211988267867528, guid: f3bde8f0447607a40b3cce78567971df, type: 3}
   m_Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   m_FlipX: 0
@@ -622,7 +622,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 20
   m_Sprite: {fileID: -6933367722443697105, guid: f3bde8f0447607a40b3cce78567971df, type: 3}
   m_Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   m_FlipX: 0
@@ -704,6 +704,10 @@ PrefabInstance:
     - target: {fileID: 2624554938304567126, guid: 9ee0c43f8abbc0748b45d67442e15850, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624554938304567126, guid: 9ee0c43f8abbc0748b45d67442e15850, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3182086698779532202, guid: 9ee0c43f8abbc0748b45d67442e15850, type: 3}
       propertyPath: m_Name
@@ -795,6 +799,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2624554938304567126, guid: 9ee0c43f8abbc0748b45d67442e15850, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3182086698779532202, guid: 9ee0c43f8abbc0748b45d67442e15850, type: 3}
       propertyPath: m_Name
       value: Metallic Platform (1)
@@ -884,6 +892,10 @@ PrefabInstance:
     - target: {fileID: 2624554938304567126, guid: 9ee0c43f8abbc0748b45d67442e15850, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624554938304567126, guid: 9ee0c43f8abbc0748b45d67442e15850, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3182086698779532202, guid: 9ee0c43f8abbc0748b45d67442e15850, type: 3}
       propertyPath: m_Name

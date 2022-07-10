@@ -27,7 +27,7 @@ public class AcceleratingTrail : UtilityTool
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if ((other.tag == "Player") || (other.tag == "Rope"))
         {
             isTriggered = true;
             Accelerate(other);
@@ -66,7 +66,7 @@ public class AcceleratingTrail : UtilityTool
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if ((other.tag == "Player") || (other.tag == "Rope"))
         {
             isTriggered = false;
             // string toolName = transform.name;

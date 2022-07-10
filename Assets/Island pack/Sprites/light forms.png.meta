@@ -109,7 +109,7 @@ TextureImporter:
         width: 460
         height: 491
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,7 +130,7 @@ TextureImporter:
         width: 385
         height: 385
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,7 +151,7 @@ TextureImporter:
         width: 1024
         height: 494
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,6 +159,27 @@ TextureImporter:
       bones: []
       spriteID: fa2cb9e2d30240890800000000000000
       internalID: -7492828432890608977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: light forms_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 86
+        width: 1024
+        height: 424
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 481, y: 0, z: 537, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b5344b5df47c2d4e876bc9e90eb55f6
+      internalID: 624471487
       vertices: []
       indices: 
       edges: []
@@ -174,6 +195,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      light forms_3: 624471487
       light forms_0: 5616506736669098184
       light forms_1: -8938462230018868912
       light forms_2: -7492828432890608977

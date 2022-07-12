@@ -11,15 +11,14 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] bool isLockLevels = false;
     private void Start()
     {
-
+        InitLevels();
+        SetLevelsRank();
     }
     private void Update() {
         if (isLockLevels) {
             PlayerPrefs.SetInt("levelAt", 2);
             ResetLevelColor();
         }
-        InitLevels();
-        SetLevelsRank();
     }
 
     public void BackToMainMenu()

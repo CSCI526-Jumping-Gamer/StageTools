@@ -664,6 +664,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Platforms and doors_24
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 288
+        width: 175
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bc891211ec2c5548b8834cec855ce7d
+      internalID: -1751007088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -682,6 +703,7 @@ TextureImporter:
       Platforms and doors_3: 2956365997262036911
       Platforms and doors_11: -5876211988267867528
       Platforms and doors_22: 1913691551
+      Platforms and doors_24: -1751007088
       Platforms and doors_4: -8702527862032482912
       Platforms and doors_21: -337697779
       Platforms and doors_13: -5456881616045045953

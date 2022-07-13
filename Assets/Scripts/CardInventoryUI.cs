@@ -20,8 +20,6 @@ public class CardInventoryUI : MonoBehaviour
     
     void Update() {
         CheckCardExisting();
-        UpdateKeyBinding(0);
-        UpdateKeyBinding(1);
     }
     void CheckCardExisting() {
         if (!setFirstCard && Inventory.instance.cards.ContainsKey(0)) {
@@ -75,6 +73,8 @@ public class CardInventoryUI : MonoBehaviour
     }
     public void OpenCardUI() {
         wrapper.SetActive(true);
+        UpdateKeyBinding(0);
+        UpdateKeyBinding(1);
     }
     public void CloseCardUI() {
         wrapper.SetActive(false);

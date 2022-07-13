@@ -5,7 +5,8 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
-    public List<Card> cards = new List<Card>();
+    // public List<Card> cards = new List<Card>();
+    public Dictionary<int, Card> cards = new Dictionary<int, Card>();
     
     private void Awake() {
         if (instance != null) {
@@ -14,24 +15,44 @@ public class Inventory : MonoBehaviour
         }
 
         instance = this;
-
-        // Add(ScriptableObject.CreateInstance<DoubleJump>());
     }
 
     public void Add(Card card) {
-        cards.Add(card);
-    }
-
-    public Card Remove(Card card) {
-        cards.Remove(card);
-        return card;
-    }
-
-    public Card GetFirstCard() {
-        if (cards.Count > 0) {
-            return cards[0];
+        if (!cards.ContainsKey(0)) {
+            cards.Add(0, card);
+        } else if (cards.ContainsKey(0) && !cards.ContainsKey(1)) {
+            cards.Add(1, card);
         }
-        
+    }
+
+    public void Remove(int i) {
+        // int temp = -1;
+        // foreach (KeyValuePair<int, Card> x in cards) {
+        //     if (x.Value == card) {
+        //         temp = x.Key;
+        //         break;
+        //     } 
+        // }
+        // if (temp != -1) {
+        //     cards.Remove(temp);
+        // }
+        cards.Remove(i);
+    }
+
+    public Card GetCard(int i) {
+        Card card = null;
+        if (cards.TryGetValue(i, out card)) {
+            Remove(i);
+            return card;
+        }
+        return null;
+    }
+    public Card SearchHelper() {
+        foreach (KeyValuePair<int, Card> x in cards) {
+            if (x.Value.GetType() == typeof(SlingshotHelper)) {
+                return x.Value;
+            } 
+        }
         return null;
     }
 }

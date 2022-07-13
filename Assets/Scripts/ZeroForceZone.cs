@@ -7,11 +7,11 @@ public class ZeroForceZone : MonoBehaviour
     public bool isTriggered;
     
     private void OnTriggerEnter2D(Collider2D other) {
-        Card card = Inventory.instance.GetFirstCard();
+        Card cardHelper = Inventory.instance.SearchHelper();
         SlingshotHelper slingshotHelper = null;
 
-        if (card && card.GetType() == typeof(SlingshotHelper)) {
-            slingshotHelper = (SlingshotHelper)card;
+        if (cardHelper) {
+            slingshotHelper = (SlingshotHelper)cardHelper;
         }
 
         if (other.gameObject.tag == "Player" && slingshotHelper && slingshotHelper.isHelperEnabled) {

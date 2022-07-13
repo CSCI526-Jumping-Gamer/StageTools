@@ -60,9 +60,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UseCard",
+                    "name": "UseFirstCard",
                     "type": "Button",
                     "id": "0f4dcc51-d53c-43b4-a082-09c0bd76c1b8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseSecondCard",
+                    "type": "Button",
+                    "id": "9df6df75-1b7b-43ce-9c48-dd803f048a4f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -337,11 +346,22 @@
                 {
                     "name": "",
                     "id": "ff01de50-000d-4990-a389-62f77223d088",
-                    "path": "<Keyboard>/n",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "UseCard",
+                    "action": "UseFirstCard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81c87e2b-7194-48c6-b000-989415e8588c",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "UseSecondCard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

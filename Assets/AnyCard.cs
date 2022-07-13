@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnyCard : MonoBehaviour
 {
     [SerializeField] Card card;
+    bool CardTriggered;
 
     void Start()
     {
@@ -19,8 +20,11 @@ public class AnyCard : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Inventory.instance.Add(card);
-        Invoke("DestroyWithLatency", 0.2f);
+        if (!CardTriggered && Inventory.instance.cards.Count <= 1) {
+            Inventory.instance.Add(card);
+            CardTriggered = true;
+            Invoke("DestroyWithLatency", 0.2f);
+        }
     }
 
     void DestroyWithLatency()

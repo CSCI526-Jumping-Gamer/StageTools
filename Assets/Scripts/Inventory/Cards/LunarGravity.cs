@@ -5,7 +5,8 @@ using UnityEngine;
 public class LunarGravity : Card
 {
     private void Awake() {
-        cardName = "LunarGravity (Gravity -50%)";
+        cardName = "LunarGravity";
+        cardDetail = "Gravity -50%";
         time = 20f;
         rank = 2;
     }

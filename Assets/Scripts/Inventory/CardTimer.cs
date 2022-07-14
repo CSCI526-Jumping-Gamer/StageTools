@@ -31,7 +31,7 @@ public class CardTimer : MonoBehaviour
     public void Deactivate() {
         card.Deactivate();
         wrapper.SetActive(false);
-        Inventory.instance.Remove(cardKey);
+        // Inventory.instance.Remove(cardKey);
         PlayerController.instance.isUsingCard = false;
         isActivated = false;
     }

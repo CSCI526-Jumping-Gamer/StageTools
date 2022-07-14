@@ -6,6 +6,7 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public string cardName;
+    public string cardDetail;
     public float time;
     public int rank;
 

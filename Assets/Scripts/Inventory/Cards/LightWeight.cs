@@ -5,7 +5,8 @@ using UnityEngine;
 public class LightWeight : Card
 {
     private void Awake() {
-        cardName = "LightWeight (Gravity -25%)";
+        cardName = "LightWeight";
+        cardDetail = "Gravity -25%";
         time = 40f;
         rank = 1;
     }

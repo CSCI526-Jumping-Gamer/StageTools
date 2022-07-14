@@ -46,7 +46,7 @@ public class CardInventoryUI : MonoBehaviour
         CreateCardUI(Inventory.instance.cards[i], i);
     }
     void UpdateKeyBinding(int i) {
-        GameObject gameObject = transform.GetChild(0).GetChild(0).GetChild(i).GetChild(0).gameObject;
+        GameObject gameObject = transform.GetChild(0).GetChild(0).GetChild(i).GetChild(0).GetChild(0).gameObject;
         if (inputActionReference[i].action != null && Inventory.instance.cards.ContainsKey(i)){
             TextMeshProUGUI textMeshProUGUI = gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
             var actionName = inputActionReference[i].action.name;
@@ -61,9 +61,13 @@ public class CardInventoryUI : MonoBehaviour
     {
         GameObject gameObject = transform.GetChild(0).GetChild(0).GetChild(i).GetChild(0).gameObject;
         gameObject.SetActive(true);
+        TextMeshProUGUI textMeshProUGUI = gameObject.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        // TextMeshProUGUI timerMeshProUGUI = gameObject.transform.GetChild(2).GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        textMeshProUGUI.text = card.cardName + "  " + card.time + "s";
+        // timerMeshProUGUI.text = card.time + "s";
         string imageRoute = card.name;
         Sprite cardImage = Resources.Load<Sprite>(imageRoute);
-        gameObject.transform.GetChild(0).GetComponent<Image>().sprite = cardImage;
+        gameObject.transform.GetChild(1).GetComponent<Image>().sprite = cardImage;
     }
     void CloseCardUI(int i) {
         transform.GetChild(0).GetChild(0).GetChild(i).GetChild(0).gameObject.SetActive(false);

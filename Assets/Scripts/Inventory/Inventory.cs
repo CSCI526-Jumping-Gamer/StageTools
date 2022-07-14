@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public Card activatingCard;
     public static Inventory instance;
     // public List<Card> cards = new List<Card>();
     public Dictionary<int, Card> cards = new Dictionary<int, Card>();
-    
-    private void Awake() {
-        if (instance != null) {
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
             Debug.LogWarning("More than one inventory;");
             return;
         }
@@ -17,15 +20,20 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
-    public void Add(Card card) {
-        if (!cards.ContainsKey(0)) {
+    public void Add(Card card)
+    {
+        if (!cards.ContainsKey(0))
+        {
             cards.Add(0, card);
-        } else if (cards.ContainsKey(0) && !cards.ContainsKey(1)) {
+        }
+        else if (cards.ContainsKey(0) && !cards.ContainsKey(1))
+        {
             cards.Add(1, card);
         }
     }
 
-    public void Remove(int i) {
+    public void Remove(int i)
+    {
         // int temp = -1;
         // foreach (KeyValuePair<int, Card> x in cards) {
         //     if (x.Value == card) {
@@ -39,19 +47,25 @@ public class Inventory : MonoBehaviour
         cards.Remove(i);
     }
 
-    public Card GetCard(int i) {
+    public Card GetCard(int i)
+    {
         Card card = null;
-        if (cards.TryGetValue(i, out card)) {
+        if (cards.TryGetValue(i, out card))
+        {
+            activatingCard = card;
             Remove(i);
             return card;
         }
         return null;
     }
-    public Card SearchHelper() {
-        foreach (KeyValuePair<int, Card> x in cards) {
-            if (x.Value.GetType() == typeof(SlingshotHelper)) {
+    public Card SearchHelper()
+    {
+        foreach (KeyValuePair<int, Card> x in cards)
+        {
+            if (x.Value.GetType() == typeof(SlingshotHelper))
+            {
                 return x.Value;
-            } 
+            }
         }
         return null;
     }

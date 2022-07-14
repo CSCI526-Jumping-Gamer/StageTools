@@ -5,20 +5,25 @@ using UnityEngine;
 public class ZeroForceZone : MonoBehaviour
 {
     public bool isTriggered;
-    
-    private void OnTriggerEnter2D(Collider2D other) {
-        Card cardHelper = Inventory.instance.SearchHelper();
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Card card = Inventory.instance.activatingCard;
+        // Card cardHelper = Inventory.instance.SearchHelper();
         SlingshotHelper slingshotHelper = null;
 
-        if (cardHelper) {
-            slingshotHelper = (SlingshotHelper)cardHelper;
+        if (card)
+        {
+            slingshotHelper = (SlingshotHelper)card;
         }
 
-        if (other.gameObject.tag == "Player" && slingshotHelper && slingshotHelper.isHelperEnabled) {
+        if (other.gameObject.tag == "Player" && slingshotHelper && slingshotHelper.isHelperEnabled)
+        {
             isTriggered = true;
         }
     }
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerExit2D(Collider2D other)
+    {
         // Card card = Inventory.instance.GetFirstCard();
         // SlingshotHelper slingshotHelper = null;
 

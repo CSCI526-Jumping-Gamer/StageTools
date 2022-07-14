@@ -38,7 +38,7 @@ public class PVCManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
             isTriggered = true;
-            Debug.Log("Zoom In");
+            // Debug.Log("Zoom In");
             // virtualCamera.m_Lens.OrthographicSize -= distance;
             
         }
@@ -48,7 +48,7 @@ public class PVCManager : MonoBehaviour
         if (other.tag == "Player") {
             isTriggered = false;
             // virtualCamera.m_Lens.OrthographicSize += distance;
-            Debug.Log("Zoom Out");
+            // Debug.Log("Zoom Out");
         }
     }
     

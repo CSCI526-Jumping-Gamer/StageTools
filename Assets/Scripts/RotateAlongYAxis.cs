@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateAlongZAxis : MonoBehaviour
+public class RotateAlongYAxis : MonoBehaviour
 {
     private float angle;
     [SerializeField] float rotationSpeed = 50f;

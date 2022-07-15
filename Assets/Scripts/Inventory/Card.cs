@@ -7,6 +7,7 @@ public class Card : MonoBehaviour
 {
     public string cardName;
     public string cardDetail;
+    public string cardType;
     public float time;
     public int rank;
 

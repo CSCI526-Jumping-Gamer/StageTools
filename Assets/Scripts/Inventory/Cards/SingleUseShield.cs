@@ -5,7 +5,9 @@ using UnityEngine;
 public class SingleUseShield : Card
 {
     private void Awake() {
-        cardName = "Single Use Shield";
+        cardName = "SINGLE USE SHIELD";
+        cardType = "Shield";
+        cardDetail = "Made of paper";
         time = 120f;
         rank = 1;
     }

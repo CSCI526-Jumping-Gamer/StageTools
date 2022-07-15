@@ -5,8 +5,9 @@ using UnityEngine;
 public class RopeClimber : Card
 {
     private void Awake() {
-        cardName = "RopeClimber";
+        cardName = "ROPE CLIMBER";
         cardDetail = " Climbing Speed + 100%";
+        cardType = "Other";
         time = 60f;
         rank = 1;
     }

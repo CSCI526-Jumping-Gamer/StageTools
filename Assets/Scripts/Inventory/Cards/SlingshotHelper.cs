@@ -7,7 +7,9 @@ public class SlingshotHelper : Card
     public bool isHelperEnabled = false;
 
     private void Awake() {
-        cardName = "Slingshot Helper";
+        cardName = "SLINGSHOT HELPER";
+        cardType = "Other";
+        cardDetail = " On Slingshot it help you automatically release magnetic at the best time";
         time = 15f;
         rank = 2;
     }

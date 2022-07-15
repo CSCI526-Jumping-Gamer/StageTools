@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThreeTimesShield : Card
+public class TripleShield : Card
 {
     private void Awake() {
-        cardName = "Three-Times Shield";
+        cardName = "TRIPLE SHIELD";
+        cardType = "Shield";
+        cardDetail = "Plastic product";
         time = 30f;
         rank = 2;
     }

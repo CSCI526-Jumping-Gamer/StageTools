@@ -5,7 +5,9 @@ using UnityEngine;
 public class DoubleJump : Card
 {
     private void Awake() {
-        cardName = "Double Jump";
+        cardName = "DOUBLE JUMP";
+        cardType = "Jump";
+        cardDetail = "Jump twice in a row.";
         time = 15f;
         rank = 2;
     }

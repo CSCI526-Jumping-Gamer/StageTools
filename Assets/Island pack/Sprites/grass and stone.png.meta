@@ -308,7 +308,7 @@ TextureImporter:
         - {x: 168.5, y: -79}
         - {x: 256.5, y: -79}
         - {x: 259.5, y: -73}
-        - {x: 259.5, y: -10}
+        - {x: 256.5, y: -13}
       physicsShape: []
       tessellationDetail: 0
       bones: []
@@ -493,7 +493,7 @@ TextureImporter:
         width: 640
         height: 152
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 96, y: 0, z: 100, w: 0}
       outline: []
       physicsShape: []
@@ -501,6 +501,27 @@ TextureImporter:
       bones: []
       spriteID: f398e7d1d0986a84da7ab210dfc7faf9
       internalID: 455617522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass and stone_4
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 475
+        width: 449
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205ccd9023cfca84d84d121642349161
+      internalID: -1003410587
       vertices: []
       indices: 
       edges: []
@@ -528,6 +549,7 @@ TextureImporter:
       grass and stone_11: 21300018
       grass and stone_14: 21300022
       grass and stone_0: 21300000
+      grass and stone_4: -1003410587
       grass and stone_5: 21300006
       grass and stone_3: 21300004
       grass and stone_6: 21300008

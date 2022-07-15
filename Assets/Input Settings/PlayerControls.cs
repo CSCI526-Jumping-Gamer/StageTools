@@ -82,9 +82,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""UseCard"",
+                    ""name"": ""UseFirstCard"",
                     ""type"": ""Button"",
                     ""id"": ""0f4dcc51-d53c-43b4-a082-09c0bd76c1b8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseSecondCard"",
+                    ""type"": ""Button"",
+                    ""id"": ""9df6df75-1b7b-43ce-9c48-dd803f048a4f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -359,11 +368,22 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ff01de50-000d-4990-a389-62f77223d088"",
-                    ""path"": ""<Keyboard>/n"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""UseCard"",
+                    ""action"": ""UseFirstCard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""81c87e2b-7194-48c6-b000-989415e8588c"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UseSecondCard"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -957,7 +977,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Magnetize = m_Player.FindAction("Magnetize", throwIfNotFound: true);
         m_Player_HoldRope = m_Player.FindAction("HoldRope", throwIfNotFound: true);
-        m_Player_UseCard = m_Player.FindAction("UseCard", throwIfNotFound: true);
+        m_Player_UseFirstCard = m_Player.FindAction("UseFirstCard", throwIfNotFound: true);
+        m_Player_UseSecondCard = m_Player.FindAction("UseSecondCard", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1035,7 +1056,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Magnetize;
     private readonly InputAction m_Player_HoldRope;
-    private readonly InputAction m_Player_UseCard;
+    private readonly InputAction m_Player_UseFirstCard;
+    private readonly InputAction m_Player_UseSecondCard;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -1046,7 +1068,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Magnetize => m_Wrapper.m_Player_Magnetize;
         public InputAction @HoldRope => m_Wrapper.m_Player_HoldRope;
-        public InputAction @UseCard => m_Wrapper.m_Player_UseCard;
+        public InputAction @UseFirstCard => m_Wrapper.m_Player_UseFirstCard;
+        public InputAction @UseSecondCard => m_Wrapper.m_Player_UseSecondCard;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1074,9 +1097,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @HoldRope.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHoldRope;
                 @HoldRope.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHoldRope;
                 @HoldRope.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHoldRope;
-                @UseCard.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseCard;
-                @UseCard.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseCard;
-                @UseCard.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseCard;
+                @UseFirstCard.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseFirstCard;
+                @UseFirstCard.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseFirstCard;
+                @UseFirstCard.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseFirstCard;
+                @UseSecondCard.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseSecondCard;
+                @UseSecondCard.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseSecondCard;
+                @UseSecondCard.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseSecondCard;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1099,9 +1125,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @HoldRope.started += instance.OnHoldRope;
                 @HoldRope.performed += instance.OnHoldRope;
                 @HoldRope.canceled += instance.OnHoldRope;
-                @UseCard.started += instance.OnUseCard;
-                @UseCard.performed += instance.OnUseCard;
-                @UseCard.canceled += instance.OnUseCard;
+                @UseFirstCard.started += instance.OnUseFirstCard;
+                @UseFirstCard.performed += instance.OnUseFirstCard;
+                @UseFirstCard.canceled += instance.OnUseFirstCard;
+                @UseSecondCard.started += instance.OnUseSecondCard;
+                @UseSecondCard.performed += instance.OnUseSecondCard;
+                @UseSecondCard.canceled += instance.OnUseSecondCard;
             }
         }
     }
@@ -1264,7 +1293,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMagnetize(InputAction.CallbackContext context);
         void OnHoldRope(InputAction.CallbackContext context);
-        void OnUseCard(InputAction.CallbackContext context);
+        void OnUseFirstCard(InputAction.CallbackContext context);
+        void OnUseSecondCard(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

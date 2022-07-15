@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5445113258954397579}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Magnet Slingshot (0)
   m_TagString: Magnet
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1751007088, guid: f3bde8f0447607a40b3cce78567971df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -265,6 +265,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3197878481104733980, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286496, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -319,11 +323,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286499, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286499, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_TagString
       value: Magnet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647406748989286500, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286502, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: specificType
@@ -471,11 +479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7365890679578474590, guid: 7b31a84335f59ce4bb0dcf7782b91672, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7424010999550564555, guid: 7b31a84335f59ce4bb0dcf7782b91672, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b31a84335f59ce4bb0dcf7782b91672, type: 3}
@@ -498,6 +506,10 @@ PrefabInstance:
     - target: {fileID: 2428597905665262737, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_LocalScale.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197878481104733980, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286496, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_RootOrder
@@ -553,11 +565,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286499, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286499, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_TagString
       value: Magnet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647406748989286500, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4647406748989286501, guid: 742a5dc075c5a62418d4208c2dc83a86, type: 3}
       propertyPath: m_Enabled

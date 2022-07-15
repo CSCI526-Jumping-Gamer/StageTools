@@ -484,6 +484,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: grass and stone_1
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 408
+        width: 640
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 96, y: 0, z: 100, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f398e7d1d0986a84da7ab210dfc7faf9
+      internalID: 455617522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -498,6 +519,7 @@ TextureImporter:
       grass and stone_8: 21300012
       grass and stone_10: 21300016
       grass and stone_15: 21300024
+      grass and stone_1: 455617522
       grass and stone_9: 21300014
       grass and stone_2: 21300002
       grass and stone_7: 21300010

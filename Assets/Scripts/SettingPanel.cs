@@ -9,6 +9,7 @@ public class SettingPanel : MonoBehaviour
     [SerializeField] GameObject wrapper;
     [SerializeField] GameObject rebindingWrapper;
     [SerializeField] GameObject button;
+    [SerializeField] CardInventoryUI cardInventoryUI;
 
     private void Awake() {
         button.SetActive(true);
@@ -46,12 +47,14 @@ public class SettingPanel : MonoBehaviour
     public void PauseGame()
     {
         wrapper.SetActive(true);
+        cardInventoryUI.ActiveCardUI = false;
         Time.timeScale = 0f;
     }
 
     public void ResumeGame()
     {
         wrapper.SetActive(false);
+        cardInventoryUI.ActiveCardUI = true;
         Time.timeScale = 1f;
     }
 }

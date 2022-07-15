@@ -5,25 +5,34 @@ using UnityEngine;
 public class Teleporter : MonoBehaviour
 {
     [SerializeField] float loadDelay = 0.2f;
-    public Vector3 CheckPointPosition;
-    PlayerController playerController;
+    [SerializeField] Vector3 CheckPointPosition;
+    [SerializeField] PlayerController playerController;
+    [SerializeField] bool ActivateCard = false;
     Collider2D PlayerCollider;
     CardPanel cardPanel;
     // Start is called before the first frame update
     void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
-        cardPanel = FindObjectOfType<CardPanel>();
+        if (ActivateCard)
+            {
+                cardPanel = FindObjectOfType<CardPanel>();
+            }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.tag);
         if (other.tag == "Player")
         {
             PlayerCollider = other;
             playerController.OnDisable();
+            if (ActivateCard)
+            {
+                cardPanel.StartCardPanel();
+            }
             // cardPanel.InitializeCardPool();
-            cardPanel.StartCardPanel();
+            // cardPanel.StartCardPanel();
             Invoke("Respawning", loadDelay);
         }
     }

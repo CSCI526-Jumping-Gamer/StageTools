@@ -19,7 +19,7 @@ public class ActivateChild : MonoBehaviour
     // }
 
     private void OnTriggerStay2D(Collider2D other) {
-        Debug.Log(other.tag);
+        // Debug.Log(other.tag);
         if ((other.tag == "Player") || (other.tag == "Feet")) { 
             transform.GetChild(0).gameObject.SetActive(true);
             isTriggered = true;

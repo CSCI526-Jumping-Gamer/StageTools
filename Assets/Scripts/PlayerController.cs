@@ -82,14 +82,37 @@ public class PlayerController : MonoBehaviour
         playerControls.Player.HoldRope.canceled += ctx => {
             isHoldingRope = false;
         };
-        playerControls.Player.UseCard.performed += ctx => {
+        // playerControls.Player.UseCard.performed += ctx => {
+        //     if (!isUsingCard) {
+        //         Card card = Inventory.instance.GetFirstCard();
+        //         isUsingCard = true;
+        //         if (card != null) {
+        //             card.Activate();
+        //             cardTimer.Activate(card);
+        //         } else {
+        //             isUsingCard = false;
+        //         }
+        //     }
+        // };
+        playerControls.Player.UseFirstCard.performed += ctx => {
             if (!isUsingCard) {
-                Card card = Inventory.instance.GetFirstCard();
+                Card card = Inventory.instance.GetCard(0);
                 isUsingCard = true;
-
                 if (card != null) {
                     card.Activate();
-                    cardTimer.Activate(card);
+                    cardTimer.Activate(card, 0);
+                } else {
+                    isUsingCard = false;
+                }
+            }
+        };
+        playerControls.Player.UseSecondCard.performed += ctx => {
+            if (!isUsingCard) {
+                Card card = Inventory.instance.GetCard(1);
+                isUsingCard = true;
+                if (card != null) {
+                    card.Activate();
+                    cardTimer.Activate(card, 1);
                 } else {
                     isUsingCard = false;
                 }

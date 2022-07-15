@@ -19,17 +19,19 @@ public class CardTimer : MonoBehaviour
     public TextMeshProUGUI cardNameText;
     public string cardName = "empty";
     public float remainingTime = 0f;
+    int cardKey;
     
-    public void Activate(Card card) {
+    public void Activate(Card card, int i) {
         this.card = card;
         SetupCardTimer();
         wrapper.SetActive(true);
         isActivated = true;
+        cardKey = i;
     }
     public void Deactivate() {
         card.Deactivate();
         wrapper.SetActive(false);
-        Inventory.instance.Remove(card);
+        // Inventory.instance.Remove(cardKey);
         PlayerController.instance.isUsingCard = false;
         isActivated = false;
     }

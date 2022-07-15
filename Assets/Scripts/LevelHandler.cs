@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+
 public class LevelHandler : MonoBehaviour
 {
     [SerializeField] GameObject[] levelsButton;
@@ -26,7 +27,7 @@ public class LevelHandler : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-   
+    
     
 
     private void InitLevels() {
@@ -67,10 +68,11 @@ public class LevelHandler : MonoBehaviour
                 SetImageColor(new Color32(184, 134, 11, 255), i);
             } else {
                 // original color
-                SetImageColor(new Color32(150, 186, 243, 255), i);
+                SetImageColor(new Color32(255, 255, 255, 255), i);
             }
         }
     }
+
 
     public void OpenScene(int level) {
         SceneManager.LoadScene(level);

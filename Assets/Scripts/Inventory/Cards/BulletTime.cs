@@ -5,7 +5,9 @@ using UnityEngine;
 public class BulletTime : Card
 {
     private void Awake() {
-        cardName = "Bullet Time";
+        cardName = "BULLET TIME";
+        cardType = "Other";
+        cardDetail = "Time flow will be slowed down to 1/2.";
         time = 5f;
         rank = 2;
     }

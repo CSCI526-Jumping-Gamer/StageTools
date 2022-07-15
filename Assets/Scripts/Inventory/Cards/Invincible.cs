@@ -6,7 +6,9 @@ using System;
 public class Invincible : Card
 {
     private void Awake() {
-        cardName = "Invincible";
+        cardName = "INVINCIBLE";
+        cardType = "Shield";
+        cardDetail = "Nothing can beat you.";
         time = 5f;
         rank = 3;
     }

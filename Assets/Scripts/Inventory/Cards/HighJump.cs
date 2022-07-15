@@ -5,7 +5,8 @@ using UnityEngine;
 public class HighJump : Card
 {
     private void Awake() {
-        cardName = "High Jump";
+        cardName = "HIGH JUMP";
+        cardType = "Jump";
         cardDetail = "Jumping Height + 40%";
         time = 40f;
         rank = 1;

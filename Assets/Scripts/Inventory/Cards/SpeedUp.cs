@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpeedUp : Card
 {
     private void Awake() {
-        cardName = "SpeedUp";
+        cardName = "SPEED UP";
+        cardType = "Speed";
         cardDetail = "Running Speed + 40%";
         time = 40f;
         rank = 1;

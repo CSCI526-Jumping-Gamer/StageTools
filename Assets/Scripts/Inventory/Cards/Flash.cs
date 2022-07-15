@@ -5,7 +5,8 @@ using UnityEngine;
 public class Flash : Card
 {
     private void Awake() {
-        cardName = "Flash";
+        cardName = "FLASH";
+        cardType = "Speed";
         cardDetail = "Running Speed + 100%";
         time = 15f;
         rank = 2;

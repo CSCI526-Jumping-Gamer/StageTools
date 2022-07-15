@@ -5,7 +5,9 @@ using UnityEngine;
 public class ZeroGravity : Card
 {
     private void Awake() {
-        cardName = "Zero Gravity";
+        cardName = "ZERO GRAVITY";
+        cardDetail = "Move completely gravity-free with WASD.";
+        cardType = "Gravity";
         time = 5f;
         rank = 3;
     }

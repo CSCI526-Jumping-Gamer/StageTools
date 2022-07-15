@@ -18,8 +18,9 @@ public class CardPanel : MonoBehaviour
     [SerializeField] List<int> cardScores;
     [SerializeField] bool cardEnabled = true;
     [SerializeField] GameObject wrapper;
-    [SerializeField] GameObject prefab;
-
+    [SerializeField] GameObject goldPrefab;
+    [SerializeField] GameObject silverPrefab;
+    [SerializeField] GameObject bronzePrefab;
 
     private void Awake()
     {
@@ -211,22 +212,36 @@ public class CardPanel : MonoBehaviour
         // Debug.Log("Card Rank: " + currCard.rank);
         handCards.Add(currCard);
     }
-
+    
     void CreateCard(Card card, int index)
     {
         Transform parentTransform = transform.GetChild(0).GetChild(0);
-        GameObject gameObject = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
-        gameObject.name = "Card " + index;
+        GameObject cardObject = null;
+        if (card.rank == 3) {
+            cardObject = Instantiate(goldPrefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
+        } else if (card.rank == 2) {
+            cardObject = Instantiate(silverPrefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
+        } else if (card.rank == 1) {
+            cardObject = Instantiate(bronzePrefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
+        } 
+        // cardObject.name = "Card " + index;
         // Component[] textMeshProUGUI;
-        // textMeshProUGUI = gameObject.transform.GetChild(0).GetComponents(typeof(TextMeshProUGUI));
-        TextMeshProUGUI textMeshProUGUI = gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI timerMeshProUGUI = gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        textMeshProUGUI.text = card.cardName;
-        timerMeshProUGUI.text = card.time + " sec";
-        string imageRoute = card.name;
-        Sprite cardImage = Resources.Load<Sprite>(imageRoute);
-        gameObject.transform.GetChild(2).GetComponent<Image>().sprite = cardImage;
-        Button button = gameObject.GetComponent<Button>();
+        // textMeshProUGUI = cardObject.transform.GetChild(0).GetComponents(typeof(TextMeshProUGUI));
+        Debug.Log(cardObject);
+        TextMeshProUGUI timeMeshProUGUI = cardObject.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI nameMeshProUGUI = cardObject.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI detailMeshProUGUI = cardObject.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>();
+        nameMeshProUGUI.text = card.cardName;
+        timeMeshProUGUI.text = card.time + "s";
+        detailMeshProUGUI.text = card.cardDetail;
+        string iconImageRoute = card.name;
+        Sprite cardImage = Resources.Load<Sprite>(iconImageRoute);
+        cardObject.transform.GetChild(0).GetComponent<Image>().sprite = cardImage;
+        string signImageRoute = card.cardType;
+        Sprite cardSign = Resources.Load<Sprite>("CardType/" + signImageRoute);
+        cardObject.transform.GetChild(4).GetChild(1).GetComponent<Image>().sprite = cardSign;
+
+        Button button = cardObject.GetComponent<Button>();
 
         if (index == 0)
         {

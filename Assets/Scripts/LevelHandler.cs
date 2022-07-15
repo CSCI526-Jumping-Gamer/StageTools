@@ -10,6 +10,8 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] GameObject[] levelsButton;
     [SerializeField] TextMeshProUGUI[] levelsText;
     [SerializeField] bool isLockLevels = false;
+
+    private static string[] ROMAN_NUMBER = new string[] { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
     private void Start()
     {
         InitLevels();
@@ -47,7 +49,7 @@ public class LevelHandler : MonoBehaviour
         }
 
         for (int i = 0; i < levelsText.Length; i++) {
-            levelsText[i].text = "Level " + (i + 1).ToString();
+            levelsText[i].text = "LEVEL " + ROMAN_NUMBER[i + 1].ToString();
         }
         
     }

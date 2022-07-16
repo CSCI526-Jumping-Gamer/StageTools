@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 38f2683112abb3c419493368dc91fe1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8493dac4a9dbf414f8de288f2470d890, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -238,6 +238,7 @@ MonoBehaviour:
   loadDelay: 0.2
   CheckPointPosition: {x: 0, y: 0, z: 0}
   playerController: {fileID: 0}
+  ActivateCard: 0
 --- !u!198 &660051441
 ParticleSystem:
   m_ObjectHideFlags: 0

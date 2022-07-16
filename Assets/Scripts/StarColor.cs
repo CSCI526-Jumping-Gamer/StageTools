@@ -19,15 +19,18 @@ public class StarColor : MonoBehaviour
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         if (time <= threeStarTime) {
             stars[0].SetActive(true);
+            stars[1].SetActive(true);
+            stars[2].SetActive(true);
             SetLevelScore("Level " + currentScene, 3);
             Scoreboard.score = 3;
         } else if (time <= twoStarTime) {
+            stars[0].SetActive(true);
             stars[1].SetActive(true);
             SetLevelScore("Level " + currentScene, 2);
             Scoreboard.score = 2;
             
         } else {
-            stars[2].SetActive(true);
+            stars[0].SetActive(true);
             SetLevelScore("Level " + currentScene, 1);
             Scoreboard.score = 1;
         }

@@ -11,7 +11,8 @@ public class SettingPanel : MonoBehaviour
     [SerializeField] GameObject button;
     [SerializeField] CardInventoryUI cardInventoryUI;
 
-    private void Awake() {
+    private void Awake()
+    {
         button.SetActive(true);
     }
 
@@ -31,16 +32,18 @@ public class SettingPanel : MonoBehaviour
         rebindingWrapper.SetActive(false);
     }
 
-    public void OpenLevels() {
+    public void OpenLevels()
+    {
         wrapper.SetActive(true);
         Time.timeScale = 1f;
         SceneManager.LoadScene(8);
     }
 
-    public void ReStartLevel() {
+    public void ReStartLevel()
+    {
         wrapper.SetActive(true);
         Time.timeScale = 1f;
-        Scene scene = SceneManager.GetActiveScene(); 
+        Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
 

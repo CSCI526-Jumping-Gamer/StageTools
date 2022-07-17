@@ -25,7 +25,6 @@ public class CardTimer : MonoBehaviour
     {
         this.card = card;
         SetupCardTimer();
-        // Debug.Log(wrapper);
         wrapper.SetActive(true);
         isActivated = true;
         cardKey = i;

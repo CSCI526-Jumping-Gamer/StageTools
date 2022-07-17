@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpSpeed = 24f;
     public float climbSpeed = 8f;
     public float normalGravityScale = 8f;
-    
+
     [Header("Speed Multiplier")]
     public float moveSpeedMultiplier = 1f;
     public float jumpSpeedMultiplier = 1f;
@@ -48,38 +48,67 @@ public class PlayerController : MonoBehaviour
     public bool isAllowedToMultipleJump = false;
     public int multipleJumpTimes = 0;
     public int maxMultipleJumpTimes = 0;
-    
+
     public int shieldCount = 0;
 
     [Header("Card Console")]
     public bool isUsingCard = false;
 
     [Header("Check Point")]
-	public Vector3 CheckPointPosition;
+    public Vector3 CheckPointPosition;
     // [SerializeField] float maxDistance = 10f;
 
-    private void Awake() {
+    private void OnDestroy()
+    {
+        playerControls.Player.UseFirstCard.performed -= UseFirstCard;
+        Debug.Log("destroy");
+    }
+
+    void UseFirstCard(InputAction.CallbackContext ctx)
+    {
+        if (!isUsingCard)
+        {
+            Card card = Inventory.instance.GetCard(0);
+            isUsingCard = true;
+            if (card != null)
+            {
+                card.Activate();
+                cardTimer.Activate(card, 0);
+            }
+            else
+            {
+                isUsingCard = false;
+            }
+        }
+    }
+
+    private void Awake()
+    {
         rb2d = GetComponent<Rigidbody2D>();
-		CheckPointPosition = transform.position;
-		// Debug.Log(CheckPointPosition);
+        CheckPointPosition = transform.position;
+        // Debug.Log(CheckPointPosition);
         circleCollider2D = GetComponent<CircleCollider2D>();
         boxCollider2D = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();
         playerControls = InputManager.inputActions;
         playerInput = GetComponent<PlayerInput>();
         cardTimer = FindObjectOfType<CardTimer>();
-        playerControls.Player.Magnetize.performed += ctx => {
+        playerControls.Player.Magnetize.performed += ctx =>
+        {
             isMagnetized = true;
         };
 
-        playerControls.Player.Magnetize.canceled += ctx => {
+        playerControls.Player.Magnetize.canceled += ctx =>
+        {
             isMagnetized = false;
         };
 
-        playerControls.Player.HoldRope.performed += ctx => {
+        playerControls.Player.HoldRope.performed += ctx =>
+        {
             isHoldingRope = true;
         };
 
-        playerControls.Player.HoldRope.canceled += ctx => {
+        playerControls.Player.HoldRope.canceled += ctx =>
+        {
             isHoldingRope = false;
         };
         // playerControls.Player.UseCard.performed += ctx => {
@@ -94,66 +123,70 @@ public class PlayerController : MonoBehaviour
         //         }
         //     }
         // };
-        playerControls.Player.UseFirstCard.performed += ctx => {
-            if (!isUsingCard) {
-                Card card = Inventory.instance.GetCard(0);
-                isUsingCard = true;
-                if (card != null) {
-                    card.Activate();
-                    cardTimer.Activate(card, 0);
-                } else {
-                    isUsingCard = false;
-                }
-            }
-        };
-        playerControls.Player.UseSecondCard.performed += ctx => {
-            if (!isUsingCard) {
+        playerControls.Player.UseFirstCard.performed += UseFirstCard;
+        playerControls.Player.UseSecondCard.performed += ctx =>
+        {
+            if (!isUsingCard)
+            {
                 Card card = Inventory.instance.GetCard(1);
                 isUsingCard = true;
-                if (card != null) {
+                if (card != null)
+                {
                     card.Activate();
                     cardTimer.Activate(card, 1);
-                } else {
+                }
+                else
+                {
                     isUsingCard = false;
                 }
             }
         };
 
-        
 
-        if (instance != null) {
+
+        if (instance != null)
+        {
             Debug.LogWarning("More than one inventory;");
             return;
         }
 
         instance = this;
     }
-    
-    public void OnEnable() {
+
+    public void OnEnable()
+    {
+        // Debug.Log("enable");
         playerControls.Player.Enable();
     }
 
-    public void OnDisable() {
+    public void OnDisable()
+    {
+        // Debug.Log("disable");
         playerControls.Player.Disable();
     }
 
-    public void DisablePlayerInput() {
+    public void DisablePlayerInput()
+    {
         playerInput.DeactivateInput();
     }
 
-    public void EnablePlayerInputWithDelay(float delay) {
+    public void EnablePlayerInputWithDelay(float delay)
+    {
         Invoke("EnablePlayerInput", delay);
     }
 
-    public void EnablePlayerInput() {
+    public void EnablePlayerInput()
+    {
         playerInput.ActivateInput();
     }
 
-    private void Update() {
+    private void Update()
+    {
         // Debug.Log("update");
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         // Debug.Log("fixed");
         // count++;
         // Debug.Log(count);
@@ -166,182 +199,258 @@ public class PlayerController : MonoBehaviour
         InputSystem.Update();
     }
 
-    void GetPlayerSpeed() {
+    void GetPlayerSpeed()
+    {
         finalMoveSpeed = moveSpeed * moveSpeedMultiplier;
         finalJumpSpeed = jumpSpeed * jumpSpeedMultiplier;
     }
-    
-    private void LateUpdate() {
+
+    private void LateUpdate()
+    {
         circleCollider2D.enabled = true;
     }
 
-    void GetState() {
-        if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Rope"))) {
-            if (!Keyboard.current.spaceKey.isPressed) {
-                if (isMoveUpOrDownPressed()) {
+    void GetState()
+    {
+        if (circleCollider2D.IsTouchingLayers(LayerMask.GetMask("Rope")))
+        {
+            if (!Keyboard.current.spaceKey.isPressed)
+            {
+                if (isMoveUpOrDownPressed())
+                {
                     playerState = PlayerState.OnTheRope;
                 }
             }
-            
-            if (isHoldingRope) {
+
+            if (isHoldingRope)
+            {
                 playerState = PlayerState.OnTheRope;
             }
-        } else if (boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
+        }
+        else if (boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
             playerState = PlayerState.OnTheGround;
-        } else if (isCollidedWithMagnet) { // TODO: change to iscollided
-            if (isMagnetized || isChildOfMagnet) {
+        }
+        else if (isCollidedWithMagnet)
+        { // TODO: change to iscollided
+            if (isMagnetized || isChildOfMagnet)
+            {
                 // Debug.Log(isChildOfMagnet);
                 playerState = PlayerState.OnTheMagnet;
-            } else if (boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Magnet"))) {
+            }
+            else if (boxCollider2D.IsTouchingLayers(LayerMask.GetMask("Magnet")))
+            {
                 playerState = PlayerState.OnTheGround;
-            } else {
+            }
+            else
+            {
                 playerState = PlayerState.InTheAir;
             }
-        } else {
+        }
+        else
+        {
             playerState = PlayerState.InTheAir;
         }
     }
 
-    bool isMoveUpOrDownPressed() {
-        if (Keyboard.current.upArrowKey.isPressed) {
+    bool isMoveUpOrDownPressed()
+    {
+        if (Keyboard.current.upArrowKey.isPressed)
+        {
             return true;
         }
 
-        if (Keyboard.current.wKey.isPressed) {
+        if (Keyboard.current.wKey.isPressed)
+        {
             return true;
         }
 
-        if (Keyboard.current.downArrowKey.isPressed) {
+        if (Keyboard.current.downArrowKey.isPressed)
+        {
             return true;
         }
 
-        if (Keyboard.current.sKey.isPressed) {
-            return true;
-        }
-
-        return false;
-    }
-
-    bool isMoveLeftOrRightPressed() {
-        if (Keyboard.current.leftArrowKey.isPressed) {
-            return true;
-        }
-
-        if (Keyboard.current.aKey.isPressed) {
-            return true;
-        }
-
-        if (Keyboard.current.rightArrowKey.isPressed) {
-            return true;
-        }
-
-        if (Keyboard.current.dKey.isPressed) {
+        if (Keyboard.current.sKey.isPressed)
+        {
             return true;
         }
 
         return false;
     }
 
-    void Move() {
-        if (playerState == PlayerState.OnTheGround) {
+    bool isMoveLeftOrRightPressed()
+    {
+        if (Keyboard.current.leftArrowKey.isPressed)
+        {
+            return true;
+        }
+
+        if (Keyboard.current.aKey.isPressed)
+        {
+            return true;
+        }
+
+        if (Keyboard.current.rightArrowKey.isPressed)
+        {
+            return true;
+        }
+
+        if (Keyboard.current.dKey.isPressed)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    void Move()
+    {
+        if (playerState == PlayerState.OnTheGround)
+        {
             MoveOnTheGround();
-        } else if (playerState == PlayerState.OnTheMagnet) {
+        }
+        else if (playerState == PlayerState.OnTheMagnet)
+        {
             MoveOnTheMagnet();
-        } else if (playerState == PlayerState.OnTheRope) {
-            if (!isHoldingRope) {
+        }
+        else if (playerState == PlayerState.OnTheRope)
+        {
+            if (!isHoldingRope)
+            {
                 MoveOnTheRope();
-            } else {
-                if (rope) {
+            }
+            else
+            {
+                if (rope)
+                {
                     rb2d.velocity = new Vector2(0f, 0f);
                     Rigidbody2D ropeRb2d = rope.GetComponent<Rigidbody2D>();
 
-                    if (moveInput.x != 0) {
+                    if (moveInput.x != 0)
+                    {
                         // ropeRb2d.velocity = new Vector2(swingSpeed * moveInput.x, ropeRb2d.velocity.y);
                         ropeRb2d.AddForce(new Vector2(swingSpeed * moveInput.x, 0f), ForceMode2D.Force);
                     }
                 }
             }
-        } else {
+        }
+        else
+        {
             MoveInTheAir();
         }
-    } 
-    
-    void MoveOnTheGround() {
-        if (isAccelerating()) {
+    }
+
+    void MoveOnTheGround()
+    {
+        if (isAccelerating())
+        {
             Decelerate();
-        } else {
-            if (isAllowedToFly) {
+        }
+        else
+        {
+            if (isAllowedToFly)
+            {
                 rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, moveInput.y * finalMoveSpeed);
-            } else {
+            }
+            else
+            {
                 rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, rb2d.velocity.y);
             }
         }
     }
 
-    void MoveOnTheMagnet() {
+    void MoveOnTheMagnet()
+    {
         rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, rb2d.velocity.y);
     }
 
-    void MoveOnTheRope() {
+    void MoveOnTheRope()
+    {
         rb2d.velocity = new Vector2(moveInput.x * moveSpeedOnRope, rb2d.velocity.y);
     }
 
-    void MoveInTheAir() {
-        if (isAccelerating()) {
+    void MoveInTheAir()
+    {
+        if (isAccelerating())
+        {
             Decelerate();
-        } else {
-            if (isAllowedToFly) {
+        }
+        else
+        {
+            if (isAllowedToFly)
+            {
                 rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, moveInput.y * finalMoveSpeed);
-            } else {
+            }
+            else
+            {
                 rb2d.velocity = new Vector2(moveInput.x * finalMoveSpeed, rb2d.velocity.y);
             }
         }
     }
 
-    void Decelerate() {
+    void Decelerate()
+    {
         rb2d.AddForce(new Vector2(moveInput.x * finalMoveSpeed, 0f));
 
-        if (rb2d.velocity.x > finalMoveSpeed + 3f) {
+        if (rb2d.velocity.x > finalMoveSpeed + 3f)
+        {
             rb2d.velocity -= new Vector2(horizontalSpeedLoss, verticalSpeedLoss) * Time.fixedDeltaTime;
-        } else if (rb2d.velocity.x < -finalMoveSpeed - 3f) {
-            rb2d.velocity -= new Vector2(-horizontalSpeedLoss, verticalSpeedLoss) * Time.fixedDeltaTime;   
+        }
+        else if (rb2d.velocity.x < -finalMoveSpeed - 3f)
+        {
+            rb2d.velocity -= new Vector2(-horizontalSpeedLoss, verticalSpeedLoss) * Time.fixedDeltaTime;
         }
     }
 
-    bool isAccelerating() {
-        if (rb2d.velocity.x > finalMoveSpeed + 3f) {
+    bool isAccelerating()
+    {
+        if (rb2d.velocity.x > finalMoveSpeed + 3f)
+        {
             return true;
-        } else if (rb2d.velocity.x < -finalMoveSpeed - 3f) {
+        }
+        else if (rb2d.velocity.x < -finalMoveSpeed - 3f)
+        {
             return true;
         }
 
         return false;
     }
 
-    void Jump() {
-        if (isJumpPressed) {
+    void Jump()
+    {
+        if (isJumpPressed)
+        {
             isJumpPressed = false;
 
-            if (playerState == PlayerState.OnTheGround) {
+            if (playerState == PlayerState.OnTheGround)
+            {
                 multipleJumpTimes = isAllowedToMultipleJump == false ? 0 : maxMultipleJumpTimes;
                 JumpOnTheGround();
-            } else if (playerState == PlayerState.OnTheMagnet) {
+            }
+            else if (playerState == PlayerState.OnTheMagnet)
+            {
                 multipleJumpTimes = isAllowedToMultipleJump == false ? 0 : maxMultipleJumpTimes;
                 JumpOnTheMagnet();
-            } else if (playerState == PlayerState.OnTheRope) {
+            }
+            else if (playerState == PlayerState.OnTheRope)
+            {
                 multipleJumpTimes = isAllowedToMultipleJump == false ? 0 : maxMultipleJumpTimes;
                 JumpOnTheRope();
-            } else {
+            }
+            else
+            {
                 JumpInTheAir();
             }
         }
     }
 
-    void JumpOnTheGround() {
+    void JumpOnTheGround()
+    {
         rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
     }
 
-    void JumpOnTheMagnet() {
+    void JumpOnTheMagnet()
+    {
         rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
         //if (isMagnetized || isChildOfMagnet) {
         //    rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
@@ -349,61 +458,85 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void JumpOnTheRope() {
+    void JumpOnTheRope()
+    {
         circleCollider2D.enabled = false;
         rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
     }
 
-    void JumpInTheAir() {
-        if (isAllowedToMultipleJump) {
-            if (multipleJumpTimes > 0) {
+    void JumpInTheAir()
+    {
+        if (isAllowedToMultipleJump)
+        {
+            if (multipleJumpTimes > 0)
+            {
                 multipleJumpTimes -= 1;
                 rb2d.velocity = new Vector2(rb2d.velocity.x, finalJumpSpeed);
             }
         }
     }
 
-    void Gravity() {
-        if (isAllowedToFly) {
+    void Gravity()
+    {
+        if (isAllowedToFly)
+        {
             rb2d.gravityScale = 0f;
-        } else if (playerState == PlayerState.OnTheGround) {
+        }
+        else if (playerState == PlayerState.OnTheGround)
+        {
             rb2d.gravityScale = normalGravityScale;
-        } else if (playerState == PlayerState.OnTheMagnet) {
+        }
+        else if (playerState == PlayerState.OnTheMagnet)
+        {
             rb2d.gravityScale = 0f;
-        } else if (playerState == PlayerState.OnTheRope) {
+        }
+        else if (playerState == PlayerState.OnTheRope)
+        {
             rb2d.gravityScale = 0f;
-        } else {
+        }
+        else
+        {
             rb2d.gravityScale = normalGravityScale;
         }
     }
 
-    void OnMove(InputValue value) {
+    void OnMove(InputValue value)
+    {
         moveInput = value.Get<Vector2>();
     }
 
-    void OnJump(InputValue value) {
-        if (value.isPressed) {
+    void OnJump(InputValue value)
+    {
+        if (value.isPressed)
+        {
             isJumpPressed = true;
-        } else {
+        }
+        else
+        {
             isJumpPressed = false;
         }
     }
 
-    bool hasHorizontalSpeed() {
-        if (Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon) {
+    bool hasHorizontalSpeed()
+    {
+        if (Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon)
+        {
             return true;
         }
 
         return false;
     }
 
-    void Climb() {
-        if (playerState == PlayerState.OnTheRope) {
+    void Climb()
+    {
+        if (playerState == PlayerState.OnTheRope)
+        {
             ClimbOnTheRope();
         }
     }
 
-    void ClimbOnTheRope() {
+    void ClimbOnTheRope()
+    {
         // Vector2 ropePivotDirection = (rope.transform.parent.position - transform.position).normalized;
         // rb2d.velocity = ropePivotDirection * climbSpeed * moveInput.y;
         rb2d.velocity = new Vector2(rb2d.velocity.x, climbSpeed * moveInput.y);
@@ -427,55 +560,68 @@ public class PlayerController : MonoBehaviour
     //     }
     // }
 
-    bool isPlayerMovingLeftOrRight() {
-        if (Keyboard.current.leftArrowKey.isPressed) {
+    bool isPlayerMovingLeftOrRight()
+    {
+        if (Keyboard.current.leftArrowKey.isPressed)
+        {
             return true;
         }
 
-        if (Keyboard.current.rightArrowKey.isPressed) {
+        if (Keyboard.current.rightArrowKey.isPressed)
+        {
             return true;
         }
 
         return false;
     }
 
-    public void SetRope(Rope rope) {
+    public void SetRope(Rope rope)
+    {
         this.rope = rope;
     }
 
-    public Rope GetRope() {
+    public Rope GetRope()
+    {
         return rope;
     }
 
-    public void SetIsTriggeredWithMagnet(bool isTriggered) {
+    public void SetIsTriggeredWithMagnet(bool isTriggered)
+    {
         isTriggeredWithMagnet = isTriggered;
     }
 
-    public bool GetIsTriggeredWithMagnet() {
+    public bool GetIsTriggeredWithMagnet()
+    {
         return isTriggeredWithMagnet;
     }
 
-    public void SetIsCollidedWithMagnet(bool isCollided) {
+    public void SetIsCollidedWithMagnet(bool isCollided)
+    {
         isCollidedWithMagnet = isCollided;
     }
 
-    public bool GetIsCollidedWithMagnet() {
+    public bool GetIsCollidedWithMagnet()
+    {
         return isCollidedWithMagnet;
     }
 
-    public void SetIsChildOfMagnet(bool isChild) { 
-        isChildOfMagnet = isChild; 
+    public void SetIsChildOfMagnet(bool isChild)
+    {
+        isChildOfMagnet = isChild;
     }
 
-    public bool GetIsChildOfMagnet() { 
-        return isChildOfMagnet; 
+    public bool GetIsChildOfMagnet()
+    {
+        return isChildOfMagnet;
     }
 
-    public bool GetIsMagnetized() {
+    public bool GetIsMagnetized()
+    {
         return isMagnetized;
     }
 
-    public bool GetIsHoldingRope() {
+    public bool GetIsHoldingRope()
+    {
         return isHoldingRope;
     }
 
@@ -483,13 +629,15 @@ public class PlayerController : MonoBehaviour
     // {
     //         Gizmos.color = Color.green;
     //         Gizmos.DrawWireSphere(transform.position, maxDistance);
-        
+
     // }
-	public Vector3 GetCheckPointPosition() {
-		return CheckPointPosition;
-	}
-	
-	public void UpdateCheckPointPosition(Vector3 NewPosition) {
-		CheckPointPosition = NewPosition;
-	}
+    public Vector3 GetCheckPointPosition()
+    {
+        return CheckPointPosition;
+    }
+
+    public void UpdateCheckPointPosition(Vector3 NewPosition)
+    {
+        CheckPointPosition = NewPosition;
+    }
 }

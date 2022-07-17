@@ -8505,7 +8505,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780429, y: 1}
+    m_SensorSize: {x: 1.7784172, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -19533,6 +19533,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 621326090}
     m_Modifications:
+    - target: {fileID: 5408485766654665115, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -89.22
@@ -19548,6 +19552,10 @@ PrefabInstance:
     - target: {fileID: 6917991896874991296, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876374956866868087, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8831832398218466757, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_RootOrder
@@ -24013,6 +24021,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 621326090}
     m_Modifications:
+    - target: {fileID: 5408485766654665115, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -87.31
@@ -24028,6 +24040,10 @@ PrefabInstance:
     - target: {fileID: 6917991896874991296, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876374956866868087, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8831832398218466757, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_RootOrder
@@ -24091,6 +24107,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 621326090}
     m_Modifications:
+    - target: {fileID: 5408485766654665115, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6355328137327082749, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -87.31
@@ -24106,6 +24126,10 @@ PrefabInstance:
     - target: {fileID: 6917991896874991296, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876374956866868087, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8831832398218466757, guid: 6a11cd4d047b1dc43acc45deac1c5f7c, type: 3}
       propertyPath: m_RootOrder
@@ -35106,6 +35130,22 @@ PrefabInstance:
     - target: {fileID: 251043437700384395, guid: ce50bd22af9a15f4d9fac454ecbc31bc, type: 3}
       propertyPath: m_Name
       value: Ladder Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 251043437700384395, guid: ce50bd22af9a15f4d9fac454ecbc31bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221131618169340853, guid: ce50bd22af9a15f4d9fac454ecbc31bc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221131618389923306, guid: ce50bd22af9a15f4d9fac454ecbc31bc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221131618875783886, guid: ce50bd22af9a15f4d9fac454ecbc31bc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6577872197182777256, guid: ce50bd22af9a15f4d9fac454ecbc31bc, type: 3}
       propertyPath: m_ConnectedAnchor.y

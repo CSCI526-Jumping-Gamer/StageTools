@@ -17,46 +17,63 @@ public class MovingObject : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(transform.position);
         startPosition = transform.position;
         currentDestination = transform.position;
-        tolerance = moveSpeed * Time.deltaTime;
+        tolerance = moveSpeed * Time.fixedDeltaTime;
     }
 
     void Update()
     {
-        if (destinations.Length > 0) {
-            if (transform.position != currentDestination) {
+        if (destinations.Length > 0)
+        {
+            Vector3 heading = (currentDestination - transform.position);
+
+            if (heading.magnitude >= tolerance)
+            {
                 MoveObject();
-            } else {
+            }
+            else
+            {
                 UpdateDestination();
             }
         }
     }
 
-    void MoveObject() {
+    void MoveObject()
+    {
         Vector3 heading = (currentDestination - transform.position);
         transform.position += heading.normalized * moveSpeed * Time.deltaTime;
+        heading = (currentDestination - transform.position);
 
-        if (heading.magnitude < tolerance) {
+        if (heading.magnitude < tolerance)
+        {
             transform.position = currentDestination;
             delayStart = Time.time;
         }
     }
 
-    void UpdateDestination() {
-        if (automatic) {
-            if (Time.time - delayStart > moveDelay) {
+    void UpdateDestination()
+    {
+        if (automatic)
+        {
+            if (Time.time - delayStart > moveDelay)
+            {
                 currentDestinationIndex++;
                 currentDestination = GetNextDestination();
             }
         }
     }
 
-    public Vector3 GetNextDestination() {
-        if (currentDestinationIndex == destinations.Length) {
+    public Vector3 GetNextDestination()
+    {
+        if (currentDestinationIndex == destinations.Length)
+        {
             currentDestinationIndex = -1;
             return startPosition;
-        } else {
+        }
+        else
+        {
             return destinations[currentDestinationIndex];
         }
     }

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Final Scenes/MainMenu.unity
     guid: 3583207a996f4499d80fdfea0054cc04
   - enabled: 1
     path: Assets/Scenes/Final Scenes/Level 1.unity
@@ -33,13 +33,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes/Level 7-Clock.unity
     guid: e278e5126f19cb446b3363f6863c14f2
   - enabled: 1
-    path: Assets/Scenes/EndScene.unity
+    path: Assets/Scenes/Final Scenes/EndScene.unity
     guid: 7c8f0172f871c421aa1fa50702a646e0
   - enabled: 1
     path: Assets/Scenes/Final Scenes/LevelSelect.unity
     guid: 94a29ba1b4b2d0c41ae85b6ae1e9538f
-  - enabled: 0
-    path: Assets/Scenes/LevelSelect.unity
-    guid: 8ea5f0126b9564b6ab7e7b757b765066
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 27db2dbda3dff564293cf753f1f07465, type: 2}

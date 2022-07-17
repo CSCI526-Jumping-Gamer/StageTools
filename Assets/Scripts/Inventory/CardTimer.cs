@@ -20,15 +20,18 @@ public class CardTimer : MonoBehaviour
     public string cardName = "empty";
     public float remainingTime = 0f;
     int cardKey;
-    
-    public void Activate(Card card, int i) {
+
+    public void Activate(Card card, int i)
+    {
         this.card = card;
         SetupCardTimer();
+        // Debug.Log(wrapper);
         wrapper.SetActive(true);
         isActivated = true;
         cardKey = i;
     }
-    public void Deactivate() {
+    public void Deactivate()
+    {
         card.Deactivate();
         wrapper.SetActive(false);
         // Inventory.instance.Remove(cardKey);
@@ -36,29 +39,36 @@ public class CardTimer : MonoBehaviour
         isActivated = false;
     }
 
-    void Update() {
-        if (isActivated) {
-            if (remainingTime > 0f) {
+    void Update()
+    {
+        if (isActivated)
+        {
+            if (remainingTime > 0f)
+            {
                 remainingTime -= Time.deltaTime;
                 DisplayTime();
-            } else {
+            }
+            else
+            {
                 Deactivate();
             }
         }
     }
 
-    void SetupCardTimer() {
+    void SetupCardTimer()
+    {
         remainingTime = card.time;
         cardName = card.cardName;
-        slider.maxValue = card.time;;
-        slider.value = card.time;;
+        slider.maxValue = card.time; ;
+        slider.value = card.time; ;
     }
-    
-    void DisplayTime() {
+
+    void DisplayTime()
+    {
         cardNameText.text = cardName;
         slider.value = remainingTime;
         string seconds = ((int)remainingTime).ToString();
-        string milliseconds = ((int) (remainingTime * 100f) % 100).ToString("00");
+        string milliseconds = ((int)(remainingTime * 100f) % 100).ToString("00");
         remainingTimeText.text = seconds + ":" + milliseconds;
     }
 }

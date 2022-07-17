@@ -212,22 +212,27 @@ public class CardPanel : MonoBehaviour
         // Debug.Log("Card Rank: " + currCard.rank);
         handCards.Add(currCard);
     }
-    
+
     void CreateCard(Card card, int index)
     {
         Transform parentTransform = transform.GetChild(0).GetChild(0);
         GameObject cardObject = null;
-        if (card.rank == 3) {
+        if (card.rank == 3)
+        {
             cardObject = Instantiate(goldPrefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
-        } else if (card.rank == 2) {
+        }
+        else if (card.rank == 2)
+        {
             cardObject = Instantiate(silverPrefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
-        } else if (card.rank == 1) {
+        }
+        else if (card.rank == 1)
+        {
             cardObject = Instantiate(bronzePrefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
-        } 
+        }
         // cardObject.name = "Card " + index;
         // Component[] textMeshProUGUI;
         // textMeshProUGUI = cardObject.transform.GetChild(0).GetComponents(typeof(TextMeshProUGUI));
-        Debug.Log(cardObject);
+        // Debug.Log(cardObject);
         TextMeshProUGUI timeMeshProUGUI = cardObject.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI nameMeshProUGUI = cardObject.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI detailMeshProUGUI = cardObject.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>();

@@ -12,7 +12,7 @@ public class ZeroForceZone : MonoBehaviour
         // Card cardHelper = Inventory.instance.SearchHelper();
         SlingshotHelper slingshotHelper = null;
 
-        if (card)
+        if (card && card is SlingshotHelper)
         {
             slingshotHelper = (SlingshotHelper)card;
         }

@@ -4478,7 +4478,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0068307, y: 1}
+    m_SensorSize: {x: 2.2049036, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12128,11 +12128,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 144948975928841339, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
       propertyPath: CheckPointPosition.x
-      value: 146
+      value: 151.58
       objectReference: {fileID: 0}
     - target: {fileID: 144948975928841339, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
       propertyPath: CheckPointPosition.y
-      value: 12
+      value: 10.6
       objectReference: {fileID: 0}
     - target: {fileID: 2091493508253962013, guid: ca28e724d2f04f24bac4802c61a3ff54, type: 3}
       propertyPath: m_SortingOrder

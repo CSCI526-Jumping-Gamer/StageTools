@@ -1934,6 +1934,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4444651708119811455, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5445113258954397579, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1981,6 +1985,10 @@ PrefabInstance:
     - target: {fileID: 5445113258954397580, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_Name
       value: Magnet Slingshot (0)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358503639768588887, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6413555462972140242, guid: 5437e6d72e9ad084c9335e4141bcc6cd, type: 3}
       propertyPath: m_IsActive
@@ -2574,6 +2582,10 @@ PrefabInstance:
     - target: {fileID: 791480180864403036, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5326176840407100278, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5625693256139649017, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
       propertyPath: m_SortingOrder
@@ -3661,7 +3673,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9481132, y: 1}
+    m_SensorSize: {x: 2.075377, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4461,6 +4473,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2144571803}
     m_Modifications:
+    - target: {fileID: 5326176840407100278, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7414091972377216324, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -6155,6 +6171,14 @@ PrefabInstance:
     - target: {fileID: 4353832134916025391, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420173820888786090, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396517586723488642, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8297439302912524309, guid: cdc87c938036f69468c91e2f23393eff, type: 3}
       propertyPath: m_RootOrder
@@ -11581,6 +11605,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5326176840407100278, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5625693256139649017, guid: b9fdbd6b08afff345b69a75ef1579b4b, type: 3}
       propertyPath: m_SortingOrder
       value: 100
@@ -16357,7 +16385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2689137824253412164, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2689137824253412164, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -16413,7 +16441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3862543170200975321, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3862543170200975321, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_AnchoredPosition.y

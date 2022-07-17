@@ -5,30 +5,30 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 3583207a996f4499d80fdfea0054cc04
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: 22df0117875afe344864d138167f1773
+    path: Assets/Scenes/Final Scenes/Level 1.unity
+    guid: 93dc97c2db59c6d4a8f2cecc227433dc
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
-    guid: b27b5474b812eea47812441ff96b7921
+    path: Assets/Scenes/Final Scenes/Level 2.unity
+    guid: 3750fbf751539174faf57a9127d54c31
   - enabled: 1
-    path: Assets/Scenes/Level 3.unity
-    guid: dc23eaf32efb88d439051ebbb2e88a1f
+    path: Assets/Scenes/Final Scenes/Level 3.unity
+    guid: 7d5c4f9b26fa33a4d82e46281003bcca
   - enabled: 1
-    path: Assets/Scenes/Level 4-Jump.unity
-    guid: 3a302df1b0915d84980e23dcf74514f0
+    path: Assets/Scenes/Final Scenes/Level 4-Jump.unity
+    guid: 94a16aecd15fcf34fbf201a172a89475
   - enabled: 1
-    path: Assets/Scenes/Level 5-Magnet.unity
-    guid: 445fefde42f9add46b84ce4c7ba5836e
+    path: Assets/Scenes/Final Scenes/Level 5 - Magnet -Unfinished.unity
+    guid: a839bf9dd93bc97429e77d97e7166c13
   - enabled: 1
-    path: Assets/Scenes/Level 6-Magnet.unity
-    guid: 5550ae853392f44359077960b01ec34d
+    path: Assets/Scenes/Final Scenes/Level 6 - Rotate.unity
+    guid: 777fb617d48796f4fb58ae9fbbb6d9f7
   - enabled: 1
-    path: Assets/Scenes/Level 7.unity
-    guid: 7182bd6bc80dfde40aedb09ee0a3d5bd
+    path: Assets/Scenes/Final Scenes/Level 7-Clock.unity
+    guid: e278e5126f19cb446b3363f6863c14f2
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 7c8f0172f871c421aa1fa50702a646e0

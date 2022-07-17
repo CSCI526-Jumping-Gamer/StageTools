@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     private void OnDestroy()
     {
         playerControls.Player.UseFirstCard.performed -= UseFirstCard;
-        Debug.Log("destroy");
+        playerControls.Player.UseSecondCard.performed -= UseSecondCard;
     }
 
     void UseFirstCard(InputAction.CallbackContext ctx)
@@ -81,7 +81,23 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
+    void UseSecondCard(InputAction.CallbackContext ctx)
+    {
+        if (!isUsingCard)
+        {
+            Card card = Inventory.instance.GetCard(1);
+            isUsingCard = true;
+            if (card != null)
+            {
+                card.Activate();
+                cardTimer.Activate(card, 1);
+            }
+            else
+            {
+                isUsingCard = false;
+            }
+        }
+    }
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -124,25 +140,7 @@ public class PlayerController : MonoBehaviour
         //     }
         // };
         playerControls.Player.UseFirstCard.performed += UseFirstCard;
-        playerControls.Player.UseSecondCard.performed += ctx =>
-        {
-            if (!isUsingCard)
-            {
-                Card card = Inventory.instance.GetCard(1);
-                isUsingCard = true;
-                if (card != null)
-                {
-                    card.Activate();
-                    cardTimer.Activate(card, 1);
-                }
-                else
-                {
-                    isUsingCard = false;
-                }
-            }
-        };
-
-
+        playerControls.Player.UseSecondCard.performed += UseSecondCard;
 
         if (instance != null)
         {

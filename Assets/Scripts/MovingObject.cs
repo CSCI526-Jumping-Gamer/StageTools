@@ -8,7 +8,7 @@ public class MovingObject : MonoBehaviour
     Vector3 currentDestination;
     int currentDestinationIndex = -1;
     float delayStart;
-    float tolerance;
+    [SerializeField] float tolerance;
 
     [SerializeField] Vector3[] destinations;
     [SerializeField] float moveSpeed = 5f;
@@ -43,7 +43,7 @@ public class MovingObject : MonoBehaviour
     void MoveObject()
     {
         Vector3 heading = (currentDestination - transform.position);
-        transform.position += heading.normalized * moveSpeed * Time.deltaTime;
+        transform.position += heading.normalized * moveSpeed * Time.fixedDeltaTime;
         heading = (currentDestination - transform.position);
 
         if (heading.magnitude < tolerance)

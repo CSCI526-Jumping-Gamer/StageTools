@@ -7176,6 +7176,10 @@ PrefabInstance:
       propertyPath: selfRotateSpeed
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 5407882872974016414, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_Radius
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5407882874600584913, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
       propertyPath: m_Name
       value: Rotating Magnet (1)
@@ -8524,6 +8528,10 @@ PrefabInstance:
     - target: {fileID: 1185352763, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
       propertyPath: selfRotateSpeed
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407882872974016414, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
+      propertyPath: m_Radius
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5407882874600584913, guid: d297e3bf1946c480c8dae966da8ae297, type: 3}
       propertyPath: m_Name
@@ -16635,7 +16643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2689137824253412164, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2689137824253412164, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -16691,7 +16699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3862543170200975321, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3862543170200975321, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_AnchoredPosition.y

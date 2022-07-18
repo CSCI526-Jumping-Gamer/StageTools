@@ -16,7 +16,7 @@ public class CardPanel : MonoBehaviour
     CardInventoryUI cardInventoryUI;
     DeltaDnaEventHandler deltaDnaEventHandler;
     [SerializeField] List<int> cardScores;
-    [SerializeField] bool cardEnabled = true;
+    [SerializeField] public bool cardEnabled = true;
     [SerializeField] GameObject wrapper;
     [SerializeField] GameObject goldPrefab;
     [SerializeField] GameObject silverPrefab;
@@ -315,6 +315,7 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
+        TimeControl.instance.TimerBegin();
         cardInventoryUI.OpenCardUI();
     }
 
@@ -331,6 +332,7 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
+        TimeControl.instance.TimerBegin();
         cardInventoryUI.OpenCardUI();
     }
 
@@ -347,6 +349,7 @@ public class CardPanel : MonoBehaviour
         wrapper.SetActive(false);
         PlayerController.instance.EnablePlayerInput();
         Time.timeScale = 1f;
+        TimeControl.instance.TimerBegin();
         cardInventoryUI.OpenCardUI();
     }
     private void TurnOrange(Button button)

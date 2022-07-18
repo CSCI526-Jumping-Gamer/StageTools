@@ -10,6 +10,7 @@ public class TimeControl : MonoBehaviour
     public TextMeshProUGUI timeSpentOnStage;
 
     [SerializeField] GameObject wrapper;
+    [SerializeField] CardPanel cardPanel; 
 
     private TimeSpan timeSpan;
     private float timeElapsed;
@@ -26,7 +27,9 @@ public class TimeControl : MonoBehaviour
         timeCount.text = "Time: 00:00.00";
         timeSpentOnStage.text = "00 sec";
         isTimerOn = false;
-        this.TimerBegin();
+        if (!cardPanel.enabled) {
+            this.TimerBegin();
+        }
     }
 
     public void TimerBegin()
@@ -46,7 +49,6 @@ public class TimeControl : MonoBehaviour
     public void showTimerOnEndCanvas()
     {
         timeSpentOnStage.text = timeSpan.TotalSeconds + " sec";
-        this.TimerEnd();
     }
 
     public void TimerEnd()
@@ -65,8 +67,4 @@ public class TimeControl : MonoBehaviour
             yield return null;
         }
     }
-
-
-
-
 }

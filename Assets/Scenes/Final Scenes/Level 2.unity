@@ -13091,7 +13091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: moveSpeed
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: destinations.Array.data[0].x

@@ -6644,7 +6644,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -102.84, y: 62.96, z: 0}
-  moveSpeed: 2
+  moveSpeed: 4
   moveDelay: 2
   automatic: 1
 --- !u!1 &327420796
@@ -9213,7 +9213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: moveSpeed
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: destinations.Array.data[0].x
@@ -10953,7 +10953,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -79.4, y: 35.6, z: 0}
-  moveSpeed: 3
+  moveSpeed: 6
   moveDelay: 1
   automatic: 1
 --- !u!4 &560225062 stripped
@@ -11253,7 +11253,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -84.8, y: 46.01, z: 0}
-  moveSpeed: 3
+  moveSpeed: 6
   moveDelay: 2
   automatic: 1
 --- !u!4 &570952767 stripped
@@ -15959,7 +15959,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -95.45, y: 62.96, z: 0}
-  moveSpeed: 2
+  moveSpeed: 4
   moveDelay: 1.5
   automatic: 1
 --- !u!1001 &784030133
@@ -31984,7 +31984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: moveSpeed
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: destinations.Array.size
@@ -34243,7 +34243,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -66.5, y: 35.6, z: 0}
-  moveSpeed: 3
+  moveSpeed: 6
   moveDelay: 1
   automatic: 1
 --- !u!4 &1652070481 stripped
@@ -36228,7 +36228,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -95.4, y: 35.6, z: 0}
-  moveSpeed: 3
+  moveSpeed: 6
   moveDelay: 2
   automatic: 1
 --- !u!1001 &1754926807
@@ -39437,7 +39437,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -61.45, y: 46.01, z: 0}
-  moveSpeed: 3
+  moveSpeed: 6
   moveDelay: 2
   automatic: 1
 --- !u!4 &1936657968 stripped

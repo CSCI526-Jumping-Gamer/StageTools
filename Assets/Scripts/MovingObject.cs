@@ -23,7 +23,7 @@ public class MovingObject : MonoBehaviour
         tolerance = moveSpeed * Time.fixedDeltaTime;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (destinations.Length > 0)
         {

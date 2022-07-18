@@ -5,11 +5,18 @@ using UnityEngine;
 public class BGMControl : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] AudioClip audioClip;
-
+    [SerializeField] AudioClip audioClip = null;
+    
+    [SerializeField] AudioClip audioClipBackUp;
     void Start()
     {
-        BackgroundMusic.bgm.PlayClip(audioClip);
+        if (audioClip != null) {
+            BackgroundMusic.bgm.PlayClip(audioClip);
+            BackgroundMusic.isLoadMusic = false;
+        } else if (BackgroundMusic.isLoadMusic) {
+            BackgroundMusic.bgm.PlayClip(audioClipBackUp);
+        }
+        
     }
 
     

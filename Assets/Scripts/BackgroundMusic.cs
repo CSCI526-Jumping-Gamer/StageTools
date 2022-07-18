@@ -5,9 +5,10 @@ using UnityEngine;
 public class BackgroundMusic : MonoBehaviour
 {
     
-    [SerializeField] private AudioSource _audioSource;
+    // [SerializeField] private AudioSource _audioSource;
 
-    public AudioSource AudioSource => _audioSource;
+    private AudioSource _audioSource;
+    public static bool isLoadMusic = false;
 
     // Others can only read
     // Only this class can set the value

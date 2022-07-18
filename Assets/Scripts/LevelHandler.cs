@@ -96,6 +96,7 @@ public class LevelHandler : MonoBehaviour
 
     public void OpenScene(int level) {
         SceneManager.LoadScene(level);
+        BackgroundMusic.isLoadMusic = true;
     }
 
     private void LockLevels() {

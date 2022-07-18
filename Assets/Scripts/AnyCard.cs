@@ -20,7 +20,7 @@ public class AnyCard : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!CardTriggered && Inventory.instance.cards.Count <= 1) {
+        if (other.gameObject.tag == "Player" && !CardTriggered && Inventory.instance.cards.Count <= 1) {
             Inventory.instance.Add(card);
             CardTriggered = true;
             Invoke("DestroyWithLatency", 0.2f);

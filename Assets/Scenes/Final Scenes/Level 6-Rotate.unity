@@ -7992,7 +7992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: moveSpeed
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: destinations.Array.data[0].x
@@ -8505,7 +8505,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774193, y: 1}
+    m_SensorSize: {x: 1.7771261, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16756,7 +16756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: moveSpeed
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: destinations.Array.data[0].x
@@ -22636,7 +22636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: moveSpeed
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 579715322911803749, guid: 2fa9117bff14ecf4e9fb4d680b1bf26e, type: 3}
       propertyPath: destinations.Array.data[0].x
@@ -22840,7 +22840,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -90.72, y: 29.8, z: 0}
-  moveSpeed: 2
+  moveSpeed: 6
   moveDelay: 2
   automatic: 1
 --- !u!4 &1279803560 stripped
@@ -24305,7 +24305,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5570942}
+  m_Offset: {x: 0.00000040233135, y: 0.15937674}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -24316,7 +24316,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.1141884}
+  m_Size: {x: 0.9410505, y: 1.318753}
   m_EdgeRadius: 0
 --- !u!114 &1378874163
 MonoBehaviour:
@@ -24350,7 +24350,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -79.73, y: 8.83, z: 0}
-  moveSpeed: 2
+  moveSpeed: 6
   moveDelay: 2
   automatic: 1
 --- !u!1 &1392129152
@@ -27762,7 +27762,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -53.4, y: 17.571, z: 0}
-  moveSpeed: 3
+  moveSpeed: 10
   moveDelay: 2
   automatic: 1
 --- !u!4 &1666768513 stripped
@@ -29486,7 +29486,7 @@ MonoBehaviour:
   tolerance: 0
   destinations:
   - {x: -60.77, y: 20.53, z: 0}
-  moveSpeed: 3
+  moveSpeed: 10
   moveDelay: 2
   automatic: 1
 --- !u!4 &1818497931 stripped
@@ -35133,7 +35133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.9186314
+      value: 1.3220711
       objectReference: {fileID: 0}
     - target: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
       propertyPath: m_LocalScale.z
@@ -35145,7 +35145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -36.02
+      value: -36.2217
       objectReference: {fileID: 0}
     - target: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
       propertyPath: m_LocalPosition.z

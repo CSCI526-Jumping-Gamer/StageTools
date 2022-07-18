@@ -11,8 +11,14 @@ public class SoundManage : MonoBehaviour
             PlayerPrefs.SetFloat("musicVolume", 0.5f);
         } 
         
+        
         Load();
     }
+
+    // private void Start() {
+    //     Debug.Log("musicVolume: " + PlayerPrefs.GetFloat("musicVolume"));
+    //     Load();
+    // }
 
     
     public void changeVolume() {

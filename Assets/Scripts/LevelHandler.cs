@@ -40,9 +40,9 @@ public class LevelHandler : MonoBehaviour
 
     private void InitLevels() {
         if (!PlayerPrefs.HasKey("levelAt")) {
-            PlayerPrefs.SetInt("levelAt", 2);
+            PlayerPrefs.SetInt("levelAt", 1);
         }
-        int levelAt = PlayerPrefs.GetInt("levelAt", 2);
+        int levelAt = PlayerPrefs.GetInt("levelAt", 1);
         for (int i = 0; i < levelsText.Length; i++) {
             levelsText[i].text = "LEVEL " + ROMAN_NUMBER[i + 1].ToString();
         }
@@ -55,8 +55,8 @@ public class LevelHandler : MonoBehaviour
             // Debug.Log("levelRank " + levelRank);
 
             // Unlock Levels
-            int levelAt = PlayerPrefs.GetInt("levelAt", 2);
-            if (i + 2 > levelAt)
+            int levelAt = PlayerPrefs.GetInt("levelAt", 1);
+            if (i + 1 > levelAt)
             {
                 levelsButton[i].GetComponent<Button>().interactable = false;
             }

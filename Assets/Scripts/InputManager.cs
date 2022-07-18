@@ -97,6 +97,7 @@ public class InputManager : MonoBehaviour
         {
             PlayerPrefs.SetString(action.actionMap + action.name + i, action.bindings[i].overridePath);
         }
+        PlayerPrefs.Save();
     }
 
     public static void LoadBindingOverride(string actionName)

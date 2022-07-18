@@ -245,7 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc97a6a94b0f54e5993c0a2330130c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
 --- !u!82 &78991600
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2223,6 +2222,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6340469685072518516, guid: 68d9e26dba41da24faa44e629215716f, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d79480f2696614344911e360e579cf57, type: 3}
+    - target: {fileID: 6340469685072518516, guid: 68d9e26dba41da24faa44e629215716f, type: 3}
+      propertyPath: audioClipBackUp
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6340469685072518517, guid: 68d9e26dba41da24faa44e629215716f, type: 3}
       propertyPath: m_RootOrder
       value: 4

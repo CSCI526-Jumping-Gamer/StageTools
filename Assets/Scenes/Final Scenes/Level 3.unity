@@ -701,42 +701,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 396127948}
     m_Modifications:
-    - target: {fileID: 1023889352, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
-      propertyPath: m_Distance
-      value: 6.550001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3017587621285134592, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -1.4028511
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764893910856649783, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.45000076
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764893911180219839, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.42000198
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764893911283400659, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.37999916
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764893911297414632, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.43999863
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764893911426646596, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.43999863
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764893912159203432, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.45000076
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764893912391850035, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.47000122
-      objectReference: {fileID: 0}
     - target: {fileID: 7785947862944563481, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
       propertyPath: m_Name
       value: Swingable Rope (0) 1
@@ -18739,7 +18703,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7776163, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

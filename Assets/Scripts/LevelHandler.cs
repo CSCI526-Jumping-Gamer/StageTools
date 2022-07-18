@@ -33,6 +33,7 @@ public class LevelHandler : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);
+        BackgroundMusic.isMusicContinue = true;
     }
 
     
@@ -97,6 +98,7 @@ public class LevelHandler : MonoBehaviour
     public void OpenScene(int level) {
         SceneManager.LoadScene(level);
         BackgroundMusic.isLoadMusic = true;
+        BackgroundMusic.isMusicContinue = false;
     }
 
     private void LockLevels() {

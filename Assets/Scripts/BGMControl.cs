@@ -10,6 +10,10 @@ public class BGMControl : MonoBehaviour
     [SerializeField] AudioClip audioClipBackUp;
     void Start()
     {
+        if (BackgroundMusic.isMusicContinue) {
+            return;
+        }
+        
         if (audioClip != null) {
             BackgroundMusic.bgm.PlayClip(audioClip);
             BackgroundMusic.isLoadMusic = false;

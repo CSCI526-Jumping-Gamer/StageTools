@@ -9,6 +9,8 @@ public class BackgroundMusic : MonoBehaviour
 
     private AudioSource _audioSource;
     public static bool isLoadMusic = false;
+    public static bool isMusicContinue = false;
+
 
     // Others can only read
     // Only this class can set the value

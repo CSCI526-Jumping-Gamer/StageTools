@@ -2922,6 +2922,7 @@ MonoBehaviour:
   goldPrefab: {fileID: 7940135139979576084, guid: 878bac44b095a49439a93d94b928b6c2, type: 3}
   silverPrefab: {fileID: 7940135139979576084, guid: f9781c6b4b9003b4fb8a9dcdcd561ad3, type: 3}
   bronzePrefab: {fileID: 7940135139979576084, guid: 6d7cad144f5f7494b9ce5cef46862a6a, type: 3}
+  timeControl: {fileID: 3470596815234243697}
 --- !u!1 &3289819994007983437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3055,6 +3056,8 @@ MonoBehaviour:
   timeCount: {fileID: 6302899436190072937}
   timeSpentOnStage: {fileID: 6302899436434678646}
   wrapper: {fileID: 5025891951188136239}
+  cardPanel: {fileID: 3253175576666191899}
+  isCardEnabled: 1
 --- !u!1 &3660123822918544917
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class TimeControl : MonoBehaviour
     private TimeSpan timeSpan;
     private float timeElapsed;
     private bool isTimerOn;
+    public bool isCardEnabled = true;
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class TimeControl : MonoBehaviour
         timeCount.text = "Time: 00:00.00";
         timeSpentOnStage.text = "00 sec";
         isTimerOn = false;
-        if (!cardPanel.enabled) {
+        if (!isCardEnabled) {
             this.TimerBegin();
         }
     }

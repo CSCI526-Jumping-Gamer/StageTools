@@ -21,12 +21,14 @@ public class CardPanel : MonoBehaviour
     [SerializeField] GameObject goldPrefab;
     [SerializeField] GameObject silverPrefab;
     [SerializeField] GameObject bronzePrefab;
+    [SerializeField] TimeControl timeControl;
 
     private void Awake()
     {
         deltaDnaEventHandler = FindObjectOfType<DeltaDnaEventHandler>();
         cardPool = FindObjectOfType<CardPool>();
         cardInventoryUI = FindObjectOfType<CardInventoryUI>();
+        timeControl.isCardEnabled = cardEnabled;
         // Debug.Log(cardPool.oneStarCards.Count);
     }
 

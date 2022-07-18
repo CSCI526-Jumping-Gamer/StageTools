@@ -106,7 +106,6 @@ public class PlayerController : MonoBehaviour
         circleCollider2D = GetComponent<CircleCollider2D>();
         boxCollider2D = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();
         playerControls = InputManager.inputActions;
-        Debug.Log(playerControls);
         // playerControls = new PlayerControls();
         playerInput = GetComponent<PlayerInput>();
         cardTimer = FindObjectOfType<CardTimer>();

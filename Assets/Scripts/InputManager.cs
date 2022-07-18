@@ -7,17 +7,62 @@ using System;
 
 public class InputManager : MonoBehaviour
 {
-    public static PlayerControls inputActions;
+    // public static InputManager Instance;
+    // public static PlayerControls inputActions;
 
     public static event Action rebindComplete;
     public static event Action rebindCanceled;
     public static event Action<InputAction, int> rebindStarted;
+    private static PlayerControls _inputActions;
+	public static PlayerControls inputActions
+	{
+		get
+		{
+			if(_inputActions == null)
+			{
+				SetupInputActionsInstance();
+			}
+			return _inputActions;
+		}
+	}
 
-    private void Awake()
-    {
-        if (inputActions == null)
-            inputActions = new PlayerControls();
-    }
+	private static void SetupInputActionsInstance()
+	{
+		_inputActions = new PlayerControls();
+
+		var maps = _inputActions.asset.actionMaps;
+		for(int i = 0; i < maps.Count; i++)
+		{
+			//Debug.Log("MAP: " + maps[i].name);
+
+			var actions = maps[i].actions;
+			for(int j = 0; j < actions.Count; j++)
+			{
+				//Debug.Log("---ACTION: " + actions[j].name);
+
+				//Load the custom bindings
+				LoadBindingOverride(actions[j].name);
+
+				var bindings = actions[j].bindings;
+				for(int k = 0; k < bindings.Count; k++)
+				{
+					//Debug.Log($"___---Binding path: {bindings[k].effectivePath}");
+				}
+			}
+		}
+	}
+
+    // private void Awake()
+    // {
+    //     if (inputActions == null)
+    //         inputActions = new PlayerControls();
+            
+    //     // if (Instance != null && Instance != this) { 
+    //     //     Destroy(this); 
+    //     // } else { 
+    //     //     Instance = this; 
+    //     // } 
+    // }
 
     public static void StartRebind(string actionName, int bindingIndex, Text statusText, bool excludeMouse)
     {
@@ -57,7 +102,7 @@ public class InputManager : MonoBehaviour
             if(allCompositeParts)
             {
                 var nextBindingIndex = bindingIndex + 1;
-                if (nextBindingIndex < actionToRebind.bindings.Count && actionToRebind.bindings[nextBindingIndex].isComposite)
+                if (nextBindingIndex < actionToRebind.bindings.Count && actionToRebind.bindings[nextBindingIndex].isPartOfComposite)
                     DoRebind(actionToRebind, nextBindingIndex, statusText, allCompositeParts, excludeMouse);
             }
 
@@ -84,9 +129,8 @@ public class InputManager : MonoBehaviour
 
     public static string GetBindingName(string actionName, int bindingIndex)
     {
-        if (inputActions == null)
-            inputActions = new PlayerControls();
-
+        // if (inputActions == null)
+        //     inputActions = new PlayerControls();
         InputAction action = inputActions.asset.FindAction(actionName);
         return action.GetBindingDisplayString(bindingIndex);
     }
@@ -102,8 +146,11 @@ public class InputManager : MonoBehaviour
 
     public static void LoadBindingOverride(string actionName)
     {
-        if (inputActions == null)
-            inputActions = new PlayerControls();
+        // if (inputActions == null)
+        //     inputActions = new PlayerControls();
+
+        if (actionName == null)
+            return; 
 
         InputAction action = inputActions.asset.FindAction(actionName);
 

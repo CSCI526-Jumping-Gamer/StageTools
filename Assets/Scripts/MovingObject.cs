@@ -17,7 +17,6 @@ public class MovingObject : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(transform.position);
         startPosition = transform.position;
         currentDestination = transform.position;
         tolerance = moveSpeed * Time.fixedDeltaTime;

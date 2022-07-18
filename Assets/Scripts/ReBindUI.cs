@@ -57,9 +57,11 @@ public class ReBindUI : MonoBehaviour
 
     private void OnValidate()
     {
+        // if (Application.isPlaying)
+        //     if (InputManager.Instance == null)
+        //         return;
         if (inputActionReference == null)
             return; 
-
         GetBindingInfo();
         UpdateUI();
     }

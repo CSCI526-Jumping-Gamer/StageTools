@@ -405,7 +405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6340469685072518519, guid: 68d9e26dba41da24faa44e629215716f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68d9e26dba41da24faa44e629215716f, type: 3}
@@ -1743,7 +1743,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780219, y: 1}
+    m_SensorSize: {x: 1.7785124, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -20996,8 +20996,8 @@ Transform:
   - {fileID: 1911840848}
   - {fileID: 766991708}
   - {fileID: 1471257513}
-  - {fileID: 739400498}
   - {fileID: 1963461404}
+  - {fileID: 739400498}
   - {fileID: 338858088}
   - {fileID: 618909130}
   - {fileID: 517261714}
@@ -36621,7 +36621,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1186850639}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1963461405
 PolygonCollider2D:

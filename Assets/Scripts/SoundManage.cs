@@ -17,6 +17,7 @@ public class SoundManage : MonoBehaviour
     
     public void changeVolume() {
         AudioListener.volume = volumeController.value;
+        save();
         
     }
 

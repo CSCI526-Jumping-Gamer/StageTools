@@ -26,11 +26,14 @@ public class StarColor : MonoBehaviour
         } else if (time <= twoStarTime) {
             stars[0].SetActive(true);
             stars[1].SetActive(true);
+            stars[2].SetActive(false);
             SetLevelScore("Level " + currentScene, 2);
             Scoreboard.score = 2;
             
         } else {
             stars[0].SetActive(true);
+            stars[1].SetActive(false);
+            stars[2].SetActive(false);
             SetLevelScore("Level " + currentScene, 1);
             Scoreboard.score = 1;
         }

@@ -3259,6 +3259,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6900429219970462190, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900429219970462190, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900429219970462190, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900429219970462190, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
     - target: {fileID: 8741687039354850624, guid: 5601738d3080e0c49aade45bfd04d35b, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4478,7 +4494,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780219, y: 1}
+    m_SensorSize: {x: 1.7779528, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4977,6 +4993,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6340469685072518516, guid: 68d9e26dba41da24faa44e629215716f, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cb039327fa1ad954f88eac412f9bb802, type: 3}
     - target: {fileID: 6340469685072518517, guid: 68d9e26dba41da24faa44e629215716f, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -11012,7 +11032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6350646275246781519, guid: 8b43e9c0fd31cce47adb090bdc4068cc, type: 3}
       propertyPath: m_SortingOrder
-      value: 11
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6350646275246781552, guid: 8b43e9c0fd31cce47adb090bdc4068cc, type: 3}
       propertyPath: m_RootOrder
@@ -17082,7 +17102,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 6
   m_Color: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}

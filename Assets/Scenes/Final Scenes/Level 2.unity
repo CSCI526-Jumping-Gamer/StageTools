@@ -3673,7 +3673,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780219, y: 1}
+    m_SensorSize: {x: 1.7779528, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5182,6 +5182,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 905116521}
     m_Modifications:
+    - target: {fileID: 203385055959005859, guid: ec45fa03a306b7f4aacbcf2695a8ec06, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2612396172282578445, guid: ec45fa03a306b7f4aacbcf2695a8ec06, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -5232,11 +5236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7430105648020909384, guid: ec45fa03a306b7f4aacbcf2695a8ec06, type: 3}
       propertyPath: m_Size.x
-      value: 4.1232986
+      value: 1.0603561
       objectReference: {fileID: 0}
     - target: {fileID: 7430105648020909384, guid: ec45fa03a306b7f4aacbcf2695a8ec06, type: 3}
       propertyPath: m_Offset.x
-      value: 1.5616493
+      value: 0.03017807
       objectReference: {fileID: 0}
     - target: {fileID: 7738116833821662420, guid: ec45fa03a306b7f4aacbcf2695a8ec06, type: 3}
       propertyPath: m_Name
@@ -8687,6 +8691,10 @@ PrefabInstance:
       value: 9.327744
       objectReference: {fileID: 0}
     - target: {fileID: 7688028225231557458, guid: 1c8a9f04da626cd43a365df25fb1dd2f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7688028225231557458, guid: 1c8a9f04da626cd43a365df25fb1dd2f, type: 3}
       propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
@@ -9187,6 +9195,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7688028225231557458, guid: 47ab31b4295609949add22a385697857, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7688028225231557458, guid: 47ab31b4295609949add22a385697857, type: 3}
       propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
@@ -9212,11 +9224,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7688028225231557459, guid: 47ab31b4295609949add22a385697857, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -475.6
+      value: -475.33
       objectReference: {fileID: 0}
     - target: {fileID: 7688028225231557459, guid: 47ab31b4295609949add22a385697857, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -228.99
+      value: -229.22
       objectReference: {fileID: 0}
     - target: {fileID: 7688028225231557459, guid: 47ab31b4295609949add22a385697857, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13684,7 +13696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6350646275246781519, guid: 8b43e9c0fd31cce47adb090bdc4068cc, type: 3}
       propertyPath: m_SortingOrder
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6350646275246781552, guid: 8b43e9c0fd31cce47adb090bdc4068cc, type: 3}
       propertyPath: m_RootOrder
@@ -13704,11 +13716,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6350646275246781552, guid: 8b43e9c0fd31cce47adb090bdc4068cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 113.73
+      value: 113.05
       objectReference: {fileID: 0}
     - target: {fileID: 6350646275246781552, guid: 8b43e9c0fd31cce47adb090bdc4068cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 44.88
+      value: 44.61
       objectReference: {fileID: 0}
     - target: {fileID: 6350646275246781552, guid: 8b43e9c0fd31cce47adb090bdc4068cc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15160,6 +15172,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6340469685072518516, guid: 68d9e26dba41da24faa44e629215716f, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cb039327fa1ad954f88eac412f9bb802, type: 3}
     - target: {fileID: 6340469685072518517, guid: 68d9e26dba41da24faa44e629215716f, type: 3}
       propertyPath: m_RootOrder
       value: 10

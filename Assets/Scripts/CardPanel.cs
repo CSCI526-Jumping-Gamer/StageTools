@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
-
+using UnityEngine.SceneManagement;
 public class CardPanel : MonoBehaviour
 {
     List<Card> oneStarCards; // 25%
@@ -84,12 +84,29 @@ public class CardPanel : MonoBehaviour
 
     public void GetFirstCardScore(List<int> result)
     {
+        int currSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int prevSceneIndex = currSceneIndex - 1;
+        
+        
+        if (PlayerPrefs.GetInt("Level " + currSceneIndex) != 0) {
+            Scoreboard.score = PlayerPrefs.GetInt("Level " + currSceneIndex);
+        } else if (PlayerPrefs.GetInt("Level " + prevSceneIndex) != 0) {
+            Scoreboard.score = PlayerPrefs.GetInt("Level " + prevSceneIndex);
+        } else {
+            Scoreboard.score = 1;
+        }
+        
+            
+       
+
+
         if (Scoreboard.score == 3)
         {
             if (threeStarCards.Count > 0)
             {
                 result.Add(100);
             }
+            Debug.Log("3 star card");
         }
         else if (Scoreboard.score == 2)
         {
@@ -97,6 +114,7 @@ public class CardPanel : MonoBehaviour
             {
                 result.Add(50);
             }
+            Debug.Log("2 star card");
         }
         else
         {
@@ -104,6 +122,7 @@ public class CardPanel : MonoBehaviour
             {
                 result.Add(1);
             }
+            Debug.Log("1 star card");
         }
     }
 

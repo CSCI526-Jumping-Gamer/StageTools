@@ -29,7 +29,8 @@ public class FinishLine : MonoBehaviour
         if (other.tag == "Player")
         {
             finishEffect.Play();
-            cardInventoryUI.CloseCardUI();
+            cardInventoryUI.ActiveCardUI = false;
+            TimeControl.instance.TimerEnd();
             scoreboard.transform.Find("Wrapper").gameObject.SetActive(true);
             cardTimer.transform.Find("Wrapper").gameObject.SetActive(false);
             playerController.DisablePlayerInput();

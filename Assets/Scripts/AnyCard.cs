@@ -32,7 +32,7 @@ public class AnyCard : MonoBehaviour
             }
             Inventory.instance.Add(card);
             CardTriggered = true;
-            Invoke("DestroyWithLatency", 0.2f);
+            DestroyWithLatency();
         }
     }
 

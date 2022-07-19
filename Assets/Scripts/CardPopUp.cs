@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CardPopUp : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class CardPopUp : MonoBehaviour
             AllowCardPopUp.isOn = false;
         } else {
             AllowCardPopUp.isOn = true;
+        }
+    }
+    void Update() {
+        if (Keyboard.current.escapeKey.isPressed && wrapper.activeSelf) {
+            CloseWrapper();
         }
     }
     public void switchPopUp(bool i) {

@@ -12,6 +12,7 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] bool isResetLevels = false;
 
     private static string[] ROMAN_NUMBER = new string[] { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+    // public static bool isLevelSelected = false;
 
 
     private void Awake() {
@@ -25,7 +26,7 @@ public class LevelHandler : MonoBehaviour
 
     private void Update() {
         if (isResetLevels) {
-            PlayerPrefs.SetInt("levelAt", 2);
+            PlayerPrefs.SetInt("levelAt", 1);
             LockLevels();
         }
     }
@@ -56,7 +57,7 @@ public class LevelHandler : MonoBehaviour
             // Debug.Log("levelRank " + levelRank);
 
             // Unlock Levels
-            int levelAt = PlayerPrefs.GetInt("levelAt", 1);
+            int levelAt = PlayerPrefs.GetInt("levelAt");
             if (i + 1 > levelAt)
             {
                 levelsButton[i].GetComponent<Button>().interactable = false;

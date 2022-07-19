@@ -40,8 +40,8 @@ public class CardPopUp : MonoBehaviour
         if (AllowCardPopUp.isOn) {
             wrapper.SetActive(false);
             PlayerController.instance.EnablePlayerInput();
-            transform.GetChild(0).GetChild(3).GetChild(0).GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(0).GetChild(3).GetChild(0).GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(0).GetChild(2).GetChild(0).GetChild(1).gameObject.SetActive(false);
             Time.timeScale = 1f;
         }
     }
@@ -52,7 +52,7 @@ public class CardPopUp : MonoBehaviour
             PlayerController.instance.DisablePlayerInput();
             Transform parentTransform = transform.GetChild(0).GetChild(0);
             Debug.Log(parentTransform);
-            transform.GetChild(0).GetChild(3).GetChild(0).GetChild(i).gameObject.SetActive(true);
+            transform.GetChild(0).GetChild(2).GetChild(0).GetChild(i).gameObject.SetActive(true);
             GameObject cardObject = null;
             if (card.rank == 3) {
                 cardObject = Instantiate(goldPrefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);

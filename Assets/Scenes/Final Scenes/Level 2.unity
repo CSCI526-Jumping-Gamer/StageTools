@@ -3747,7 +3747,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7773654, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10000,7 +10000,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1269089878
 Canvas:
   m_ObjectHideFlags: 0
@@ -17998,7 +17998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4321838103045444928, guid: cdb6b986c4b9c784baef211c6c382491, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4560495770703867000, guid: cdb6b986c4b9c784baef211c6c382491, type: 3}
       propertyPath: m_Pivot.x
@@ -18117,6 +18117,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 313376272, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
+      propertyPath: twoStarTime
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 313376272, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
+      propertyPath: threeStarTime
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 261419242642000571, guid: 1c271b05db2ee3c4e9ed229a3607762a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

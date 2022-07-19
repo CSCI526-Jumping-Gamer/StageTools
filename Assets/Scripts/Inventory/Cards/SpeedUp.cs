@@ -8,7 +8,7 @@ public class SpeedUp : Card
         cardName = "SPEED UP";
         cardType = "Speed";
         cardDetail = "Running Speed + 40%";
-        time = 40f;
+        time = 30f;
         rank = 1;
     }
     public override void Activate()

@@ -8,7 +8,7 @@ public class SingleUseShield : Card
         cardName = "SINGLE USE SHIELD";
         cardType = "Shield";
         cardDetail = "Made of paper";
-        time = 120f;
+        time = 30f;
         rank = 1;
     }
     public override void Activate()

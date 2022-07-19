@@ -8,7 +8,7 @@ public class LunarGravity : Card
         cardName = "LUNAR GRAVITY";
         cardDetail = "Gravity -50%";
         cardType = "Gravity";
-        time = 20f;
+        time = 15f;
         rank = 2;
     }
     public override void Activate()

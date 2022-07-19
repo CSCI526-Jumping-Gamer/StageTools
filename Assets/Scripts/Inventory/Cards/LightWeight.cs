@@ -8,7 +8,7 @@ public class LightWeight : Card
         cardName = "LIGHT WEIGHT";
         cardDetail = "Gravity -25%";
         cardType = "Gravity";
-        time = 40f;
+        time = 30f;
         rank = 1;
     }
     public override void Activate()

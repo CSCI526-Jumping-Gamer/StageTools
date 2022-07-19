@@ -8,7 +8,7 @@ public class RopeClimber : Card
         cardName = "ROPE CLIMBER";
         cardDetail = " Climbing Speed + 100%";
         cardType = "Other";
-        time = 60f;
+        time = 15f;
         rank = 1;
     }
     public override void Activate()

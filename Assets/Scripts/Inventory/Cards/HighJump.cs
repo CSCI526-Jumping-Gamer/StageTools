@@ -8,7 +8,7 @@ public class HighJump : Card
         cardName = "HIGH JUMP";
         cardType = "Jump";
         cardDetail = "Jumping Height + 40%";
-        time = 40f;
+        time = 30f;
         rank = 1;
     }
     public override void Activate()

@@ -10,6 +10,7 @@ public class SettingPanel : MonoBehaviour
     [SerializeField] GameObject rebindingWrapper;
     [SerializeField] GameObject button;
     [SerializeField] CardInventoryUI cardInventoryUI;
+    [SerializeField] ButtonUI buttonUI;
 
     private void Awake()
     {
@@ -30,6 +31,9 @@ public class SettingPanel : MonoBehaviour
     {
         wrapper.SetActive(true);
         rebindingWrapper.SetActive(false);
+        if (buttonUI) {
+            buttonUI.UpdateButtonUI();
+        }
     }
 
     public void OpenLevels()

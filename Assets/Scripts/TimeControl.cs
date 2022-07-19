@@ -50,6 +50,7 @@ public class TimeControl : MonoBehaviour
     public void showTimerOnEndCanvas()
     {
         timeSpentOnStage.text = timeSpan.TotalSeconds + " sec";
+        TimerEnd();
     }
 
     public void TimerEnd()

@@ -708,6 +708,7 @@ MonoBehaviour:
   rebindingWrapper: {fileID: 7722132881263964929}
   button: {fileID: 3356598893625282291}
   cardInventoryUI: {fileID: 0}
+  buttonUI: []
 --- !u!1 &3356598893625282291
 GameObject:
   m_ObjectHideFlags: 0
@@ -3802,6 +3803,7 @@ MonoBehaviour:
   goldPrefab: {fileID: 7940135139979576084, guid: 878bac44b095a49439a93d94b928b6c2, type: 3}
   silverPrefab: {fileID: 7940135139979576084, guid: f9781c6b4b9003b4fb8a9dcdcd561ad3, type: 3}
   bronzePrefab: {fileID: 7940135139979576084, guid: 6d7cad144f5f7494b9ce5cef46862a6a, type: 3}
+  timeControl: {fileID: 0}
 --- !u!1 &5509549836028577017
 GameObject:
   m_ObjectHideFlags: 0
@@ -4445,6 +4447,8 @@ MonoBehaviour:
   timeCount: {fileID: 4346786548393039023}
   timeSpentOnStage: {fileID: 4346786548164179888}
   wrapper: {fileID: 3356598892222678505}
+  cardPanel: {fileID: 0}
+  isCardEnabled: 1
 --- !u!1 &6796359656964344018
 GameObject:
   m_ObjectHideFlags: 0
@@ -6332,7 +6336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6340,7 +6344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6348,7 +6352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 36.487
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6356,7 +6360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -31.2435
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4965138621680918215, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_Pivot.x
@@ -8156,7 +8160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchorMin.x
@@ -8164,7 +8168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8172,7 +8176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 36.487
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8180,7 +8184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -31.2435
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4965138621680918215, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_Pivot.x

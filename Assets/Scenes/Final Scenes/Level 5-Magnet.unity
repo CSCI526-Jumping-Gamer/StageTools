@@ -6234,7 +6234,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: fa3a82efa91f9f24d8541a3314e0f5ce, type: 3}
@@ -15149,11 +15149,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.950005
+      value: 16.62
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.8899994
+      value: -4.74
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16575,7 +16575,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 11
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: fa3a82efa91f9f24d8541a3314e0f5ce, type: 3}
@@ -18620,11 +18620,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77.53001
+      value: 76.33
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -34.54
+      value: -32.64
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20804,11 +20804,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.48
+      value: 17.619
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -57.29
+      value: -55.401
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24572,7 +24572,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 12
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: fa3a82efa91f9f24d8541a3314e0f5ce, type: 3}
@@ -30795,11 +30795,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.420006
+      value: 39.33
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.939999
+      value: -7.02
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37860,11 +37860,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.86001
+      value: 39.8
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.630001
+      value: -19.32
       objectReference: {fileID: 0}
     - target: {fileID: 3630272674961342842, guid: a79e2be2812cb074086ea8c3b5fafd00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -44176,7 +44176,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.78125, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

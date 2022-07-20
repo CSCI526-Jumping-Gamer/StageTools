@@ -2557,9 +2557,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: aldhabi SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ValidKeywords:
-  - GLOW_ON
-  - UNDERLAY_ON
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -2603,13 +2601,13 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: -0.14
+    - _FaceDilate: 0.655
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 0.431
+    - _GlowInner: 0
     - _GlowOffset: 0
-    - _GlowOuter: 0.483
-    - _GlowPower: 0.464
+    - _GlowOuter: 0
+    - _GlowPower: 1
     - _GradientScale: 6
     - _LightAngle: 0
     - _MaskSoftnessX: 0
@@ -2617,12 +2615,12 @@ Material:
     - _OutlineSoftness: 0.942
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.34
+    - _OutlineWidth: 0.738
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 0.6268021
-    - _ScaleRatioB: 0.79375
-    - _ScaleRatioC: 0.79375
+    - _ScaleRatioA: 0.33036008
+    - _ScaleRatioB: 0.13125007
+    - _ScaleRatioC: 0.13125007
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -2647,11 +2645,11 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _GlowColor: {r: 1, g: 1, b: 1, a: 0.89411765}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecularColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecularColor: {r: 0.122641504, g: 0.10586507, b: 0.10586507, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_BuildTextureStacks: []

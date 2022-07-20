@@ -3464,6 +3464,10 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 603158067}
+    - target: {fileID: 2875971764911628154, guid: 36402b9f536f3df41a07cc8f64b978d5, type: 3}
+      propertyPath: cardPopUp
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36402b9f536f3df41a07cc8f64b978d5, type: 3}
 --- !u!1001 &237907470
@@ -8762,7 +8766,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.78125, y: 1}
+    m_SensorSize: {x: 1.7785124, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13895,7 +13899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2612396172282578445, guid: ec45fa03a306b7f4aacbcf2695a8ec06, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.5218591
       objectReference: {fileID: 0}
     - target: {fileID: 2612396172282578445, guid: ec45fa03a306b7f4aacbcf2695a8ec06, type: 3}
       propertyPath: m_LocalScale.y
@@ -13903,7 +13907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2612396172282578445, guid: ec45fa03a306b7f4aacbcf2695a8ec06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.1602
+      value: -35.3993
       objectReference: {fileID: 0}
     - target: {fileID: 2612396172282578445, guid: ec45fa03a306b7f4aacbcf2695a8ec06, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20525,7 +20529,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 13.160308, y: 0.10958, z: 0}
+    - position: {x: 12.464632, y: 0.10957633, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -20599,8 +20603,8 @@ SpriteShapeRenderer:
   m_Sprites:
   - {fileID: 21300028, guid: ffd2eb7803e7fe6488a86ce9382c8b92, type: 3}
   m_LocalAABB:
-    m_Center: {x: 8.284121, y: 0.1304279, z: 0}
-    m_Extent: {x: 6.179745, y: 0.8613983, z: 0}
+    m_Center: {x: 7.9362826, y: 0.13042444, z: 0}
+    m_Extent: {x: 5.83218, y: 0.8618242, z: 0}
 --- !u!1001 &1153604627
 PrefabInstance:
   m_ObjectHideFlags: 0

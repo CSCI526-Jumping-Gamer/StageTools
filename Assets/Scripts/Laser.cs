@@ -12,6 +12,7 @@ public class Laser : MonoBehaviour
     bool flag;
     Transform m_transform;
     bool isDead = false;
+    bool isShieldTriggered = false;
 
     [SerializeField] float defDistanceRay = 50;
     [SerializeField] float loadDelay = 0.2f;
@@ -46,10 +47,11 @@ public class Laser : MonoBehaviour
             // Debug.Log(_hit.transform.tag);
             if (_hit.collider.transform.tag == "Player")
             {
-                if (!isDead)
+                if (!isDead && !isShieldTriggered)
                 {
                     if (PlayerController.instance.shieldCount > 0)
                     {
+                        isShieldTriggered = true;
                         // analyticsEventHandler.RecordShieldUsed(other.transform.position);
                         PlayerController.instance.shieldCount -= 1;
                         if (PlayerController.instance.shieldCount == 0)
@@ -74,6 +76,10 @@ public class Laser : MonoBehaviour
                         Invoke("Respawn", loadDelay);
                     }
                 }
+            }
+            else
+            {
+                isShieldTriggered = false;
             }
             // Physics2D.IgnoreLayerCollision(5,2,true);
             Draw2DRay(laserFirePoint.position, _hit.point);

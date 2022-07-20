@@ -13,6 +13,8 @@ public class CardPopUp : MonoBehaviour
     [SerializeField] GameObject wrapper;
     [SerializeField] Toggle AllowCardPopUp;
     [SerializeField] public int IntCardPopUp = 1;
+    private bool isFirstCard;
+    [SerializeField] GameObject settingWrapper;
     void Start() {
         IntCardPopUp = PlayerPrefs.GetInt("AllowCardPopUp");
         if (IntCardPopUp == 0) {
@@ -38,6 +40,7 @@ public class CardPopUp : MonoBehaviour
 
     public void CloseWrapper() {
         if (AllowCardPopUp.isOn) {
+            settingWrapper.SetActive(true);
             wrapper.SetActive(false);
             PlayerController.instance.EnablePlayerInput();
             transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).gameObject.SetActive(false);
@@ -47,7 +50,9 @@ public class CardPopUp : MonoBehaviour
     }
     public void CreateCardPopUp(Card card, int i)
     {
+        DestroyCardPopup();
         if (AllowCardPopUp.isOn) {
+            settingWrapper.SetActive(false);
             wrapper.SetActive(true);
             PlayerController.instance.DisablePlayerInput();
             Transform parentTransform = transform.GetChild(0).GetChild(0);
@@ -78,6 +83,12 @@ public class CardPopUp : MonoBehaviour
             Sprite cardSign = Resources.Load<Sprite>("CardType/" + signImageRoute);
             cardObject.transform.GetChild(4).GetChild(1).GetComponent<Image>().sprite = cardSign;
             Time.timeScale = 0f;
+            isFirstCard = true;
+        }
+    }
+    public void DestroyCardPopup() {
+        if (isFirstCard) {
+            Destroy(transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
         }
     }
 }

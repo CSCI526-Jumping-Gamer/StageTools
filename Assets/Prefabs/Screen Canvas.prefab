@@ -1469,6 +1469,7 @@ MonoBehaviour:
   wrapper: {fileID: 4741267432896560759}
   AllowCardPopUp: {fileID: 6902178059184586513}
   IntCardPopUp: 1
+  settingWrapper: {fileID: 5025891949818706477}
 --- !u!1 &141188555372015403
 GameObject:
   m_ObjectHideFlags: 0
@@ -4745,7 +4746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5025891949785537078
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4914,10 +4915,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wrapper: {fileID: 6302899437729063364}
   rebindingWrapper: {fileID: 1584228295}
-  button: {fileID: 5025891949785537077}
   cardInventoryUI: {fileID: 7771296976285206263}
-  buttonUI:
-  - {fileID: 3518083612020563252}
+  buttonUIs: []
 --- !u!1 &5025891949962890444
 GameObject:
   m_ObjectHideFlags: 0
@@ -11147,7 +11146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11946,17 +11945,6 @@ PrefabInstance:
       objectReference: {fileID: -7533744898333049962, guid: d1fe40a499252c64f83d2ec59030f0f8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdb6b986c4b9c784baef211c6c382491, type: 3}
---- !u!114 &3518083612020563252 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8048268451810713602, guid: cdb6b986c4b9c784baef211c6c382491, type: 3}
-  m_PrefabInstance: {fileID: 6873495666781519158}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c972e3363a6d342b60d80bd96998a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &6929260101929488718 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4560495770703867000, guid: cdb6b986c4b9c784baef211c6c382491, type: 3}
@@ -12193,7 +12181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4895379103731712152, guid: 0acf8f5005ce6ba45b3af05fd09a47ea, type: 3}
       propertyPath: m_AnchoredPosition.y

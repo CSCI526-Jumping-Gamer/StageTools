@@ -7,16 +7,19 @@ public class CheckPoint : MonoBehaviour
     PlayerController playercontroller;
 	public bool isTriggered = false;
 	Vector3 FlagCheckPointPosition;
+	[SerializeField] GameObject glow;
 
     private void Awake() {
         playercontroller = FindObjectOfType<PlayerController>();
 		FlagCheckPointPosition = transform.parent.position;
+		glow.SetActive(false);
     }
 	
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
 			isTriggered = true;
 			UpdateCheckPoint(other);
+			glow.SetActive(true);
 		}
     }
 	
@@ -30,7 +33,6 @@ public class CheckPoint : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
 			isTriggered = false;
-			Destroy(transform.parent.gameObject);
 		}
     }
 }

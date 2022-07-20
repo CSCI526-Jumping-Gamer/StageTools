@@ -872,6 +872,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 396127948}
     m_Modifications:
+    - target: {fileID: 2702922893619366310, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702922893703006705, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702922893704717258, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702922893830151773, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702922894337232942, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702922894815265834, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702922895119494257, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7785947862944563481, guid: 3b466244d7c9b21468868fe5ce9c8501, type: 3}
       propertyPath: m_Name
       value: Swingable Rope (0) 1

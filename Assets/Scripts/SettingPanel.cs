@@ -8,13 +8,14 @@ public class SettingPanel : MonoBehaviour
 {
     [SerializeField] GameObject wrapper;
     [SerializeField] GameObject rebindingWrapper;
-    [SerializeField] GameObject button;
+    // [SerializeField] GameObject buttonUI;
     [SerializeField] CardInventoryUI cardInventoryUI;
-    [SerializeField] List<ButtonUI> buttonUI;
+    [SerializeField] ButtonUI[] buttonUIs;
 
     private void Awake()
     {
-        button.SetActive(true);
+        buttonUIs = FindObjectsOfType<ButtonUI>();
+        
     }
 
     public void LoadMainMenu()
@@ -31,10 +32,8 @@ public class SettingPanel : MonoBehaviour
     {
         wrapper.SetActive(true);
         rebindingWrapper.SetActive(false);
-        if (buttonUI[0]) {
-            foreach(ButtonUI button in buttonUI) {
-                button.UpdateButtonUI();
-            }
+        foreach(ButtonUI buttonUI in buttonUIs) {
+            buttonUI.UpdateButtonUI();
         }
     }
 

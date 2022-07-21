@@ -16,7 +16,7 @@ public class CardPopUp : MonoBehaviour
     private bool isFirstCard;
     [SerializeField] GameObject settingWrapper;
     void Start() {
-        IntCardPopUp = PlayerPrefs.GetInt("AllowCardPopUp");
+        IntCardPopUp = PlayerPrefs.GetInt("AllowCardPopUp", 1);
         if (IntCardPopUp == 0) {
             AllowCardPopUp.isOn = false;
         } else {

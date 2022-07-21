@@ -29,7 +29,6 @@ public class InstructionTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        settingPanel.SetActive(true);
         isFirstTime = false;
     }
 }

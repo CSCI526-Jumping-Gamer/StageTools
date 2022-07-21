@@ -6,14 +6,20 @@ public class InstructionTrigger : MonoBehaviour
 {
     bool isFirstTime = true;
     [SerializeField] GameObject window;
+    [SerializeField] GameObject settingPanel;
     TimeControl timeControl;
-    void start() {
+    void start()
+    {
         timeControl = FindObjectOfType<TimeControl>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Player") {
-            if (isFirstTime) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            if (isFirstTime)
+            {
+                settingPanel.SetActive(false);
                 PlayerController.instance.DisablePlayerInput();
                 window.SetActive(true);
                 Time.timeScale = 0f;
@@ -21,7 +27,9 @@ public class InstructionTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        settingPanel.SetActive(true);
         isFirstTime = false;
     }
 }

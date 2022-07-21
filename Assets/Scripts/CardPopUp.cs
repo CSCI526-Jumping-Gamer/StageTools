@@ -15,57 +15,75 @@ public class CardPopUp : MonoBehaviour
     [SerializeField] public int IntCardPopUp = 1;
     private bool isFirstCard;
     [SerializeField] GameObject settingWrapper;
-    void Start() {
+    void Start()
+    {
         IntCardPopUp = PlayerPrefs.GetInt("AllowCardPopUp", 1);
-        if (IntCardPopUp == 0) {
+        if (IntCardPopUp == 0)
+        {
             AllowCardPopUp.isOn = false;
-        } else {
+        }
+        else
+        {
             AllowCardPopUp.isOn = true;
         }
     }
-    void Update() {
-        if (Keyboard.current.escapeKey.isPressed && wrapper.activeSelf) {
+    void Update()
+    {
+        if (Keyboard.current.escapeKey.isPressed && wrapper.activeSelf)
+        {
             CloseWrapper();
         }
     }
-    public void switchPopUp(bool i) {
-        if (!AllowCardPopUp.isOn) {
+    public void switchPopUp(bool i)
+    {
+        if (!AllowCardPopUp.isOn)
+        {
             IntCardPopUp = 0;
-        } else {
+        }
+        else
+        {
             IntCardPopUp = 1;
         }
         PlayerPrefs.SetInt("AllowCardPopUp", IntCardPopUp);
         PlayerPrefs.Save();
     }
 
-    public void CloseWrapper() {
-        if (AllowCardPopUp.isOn) {
+    public void CloseWrapper()
+    {
+        if (AllowCardPopUp.isOn)
+        {
             settingWrapper.SetActive(true);
             wrapper.SetActive(false);
             PlayerController.instance.EnablePlayerInput();
-            transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(0).GetChild(2).GetChild(0).GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(0).GetChild(3).GetChild(0).GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(0).GetChild(3).GetChild(0).GetChild(1).gameObject.SetActive(false);
             Time.timeScale = 1f;
         }
     }
     public void CreateCardPopUp(Card card, int i)
     {
         DestroyCardPopup();
-        if (AllowCardPopUp.isOn) {
+        if (AllowCardPopUp.isOn)
+        {
             settingWrapper.SetActive(false);
             wrapper.SetActive(true);
             PlayerController.instance.DisablePlayerInput();
             Transform parentTransform = transform.GetChild(0).GetChild(0);
             // Debug.Log(parentTransform);
-            transform.GetChild(0).GetChild(2).GetChild(0).GetChild(i).gameObject.SetActive(true);
+            transform.GetChild(0).GetChild(3).GetChild(0).GetChild(i).gameObject.SetActive(true);
             GameObject cardObject = null;
-            if (card.rank == 3) {
+            if (card.rank == 3)
+            {
                 cardObject = Instantiate(goldPrefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
-            } else if (card.rank == 2) {
+            }
+            else if (card.rank == 2)
+            {
                 cardObject = Instantiate(silverPrefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
-            } else if (card.rank == 1) {
+            }
+            else if (card.rank == 1)
+            {
                 cardObject = Instantiate(bronzePrefab, new Vector3(0, 0, 0), Quaternion.identity, parentTransform);
-            } 
+            }
             // cardObject.name = "Card " + index;
             // Component[] textMeshProUGUI;
             // textMeshProUGUI = cardObject.transform.GetChild(0).GetComponents(typeof(TextMeshProUGUI));
@@ -86,8 +104,10 @@ public class CardPopUp : MonoBehaviour
             isFirstCard = true;
         }
     }
-    public void DestroyCardPopup() {
-        if (isFirstCard) {
+    public void DestroyCardPopup()
+    {
+        if (isFirstCard)
+        {
             Destroy(transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
         }
     }

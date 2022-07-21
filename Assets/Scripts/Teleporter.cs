@@ -22,7 +22,7 @@ public class Teleporter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
+        // Debug.Log(other.tag);
         if (other.tag == "Player")
         {
             PlayerCollider = other;

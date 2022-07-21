@@ -106,7 +106,7 @@ public class CardPanel : MonoBehaviour
             {
                 result.Add(100);
             }
-            Debug.Log("3 star card");
+            // Debug.Log("3 star card");
         }
         else if (Scoreboard.score == 2)
         {
@@ -114,7 +114,7 @@ public class CardPanel : MonoBehaviour
             {
                 result.Add(50);
             }
-            Debug.Log("2 star card");
+            // Debug.Log("2 star card");
         }
         else
         {
@@ -122,7 +122,7 @@ public class CardPanel : MonoBehaviour
             {
                 result.Add(1);
             }
-            Debug.Log("1 star card");
+            // Debug.Log("1 star card");
         }
     }
 

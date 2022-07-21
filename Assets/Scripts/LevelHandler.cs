@@ -113,13 +113,14 @@ public class LevelHandler : MonoBehaviour
     }
 
     public void UnlockLevels() {
-        int levelAt = PlayerPrefs.GetInt("levelAt", 2);
+        PlayerPrefs.SetInt("levelAt", 7);
         for (int i = 0; i < levelsButton.Length; i++)
         {
-            if (i + 2 > levelAt)
-            {
-                levelsButton[i].GetComponent<Button>().interactable = true;
-            }
+            levelsButton[i].GetComponent<Button>().interactable = true;
+            // if (i + 1 > levelAt)
+            // {
+            //     levelsButton[i].GetComponent<Button>().interactable = true;
+            // }
         }
     }
 

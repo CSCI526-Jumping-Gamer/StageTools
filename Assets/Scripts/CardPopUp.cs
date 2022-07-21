@@ -56,7 +56,7 @@ public class CardPopUp : MonoBehaviour
             wrapper.SetActive(true);
             PlayerController.instance.DisablePlayerInput();
             Transform parentTransform = transform.GetChild(0).GetChild(0);
-            Debug.Log(parentTransform);
+            // Debug.Log(parentTransform);
             transform.GetChild(0).GetChild(2).GetChild(0).GetChild(i).gameObject.SetActive(true);
             GameObject cardObject = null;
             if (card.rank == 3) {

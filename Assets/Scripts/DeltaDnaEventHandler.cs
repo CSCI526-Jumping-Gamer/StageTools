@@ -19,7 +19,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
             });
         DDNA.Instance.Settings.DefaultGameParameterHandler = new GameParametersHandler(gameParameters =>{
             // do something with the game parameters
-            Debug.Log("Received game parameters from event trigger: " + gameParameters);
+            // Debug.Log("Received game parameters from event trigger: " + gameParameters);
         });
         
         DDNA.Instance.IsPiplConsentRequired(delegate(bool isRequired)
@@ -51,7 +51,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
     }
 
     public void RecordPlayerDied(Vector3 position, string trapName, int trapId) {
-        Debug.Log("player died");
+        // Debug.Log("player died");
         string sceneName = SceneManager.GetActiveScene().name;
         GameEvent gameEvent = new GameEvent("playerDied")
             .AddParam("sceneName", sceneName)
@@ -59,13 +59,13 @@ public class DeltaDnaEventHandler : MonoBehaviour
             .AddParam("playerYPosition", position.y)
             .AddParam("trapName", trapName)
             .AddParam("trapID", trapId);
-        Debug.Log(trapName);
+        // Debug.Log(trapName);
         DDNA.Instance.RecordEvent(gameEvent);
         // DDNA.Instance.Upload();
     }
 
     public void RecordCardChose(Card card) {
-        Debug.Log("card chose");
+        // Debug.Log("card chose");
         string sceneName = SceneManager.GetActiveScene().name;
         GameEvent gameEvent = new GameEvent("cardChose")
             .AddParam("sceneName", sceneName)
@@ -75,7 +75,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
         // DDNA.Instance.Upload();
     }
     public void RecordLevelCompleted() {
-        Debug.Log("level completed");
+        // Debug.Log("level completed");
         string sceneName = SceneManager.GetActiveScene().name;
         float timeElapsed = TimeControl.instance.getTimeElapsed();
         GameEvent gameEvent = new GameEvent("levelCompleted")
@@ -85,7 +85,7 @@ public class DeltaDnaEventHandler : MonoBehaviour
         DDNA.Instance.Upload();
     }
     public void RecordtoolUsage(UtilityTool tool) {
-        Debug.Log("tool Used");
+        // Debug.Log("tool Used");
         string sceneName = SceneManager.GetActiveScene().name;
         GameEvent gameEvent = new GameEvent("toolUsed")
             .AddParam("sceneName", sceneName)

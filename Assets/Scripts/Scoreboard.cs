@@ -19,7 +19,7 @@ public class Scoreboard : MonoBehaviour
         if (nextSceneIndex > PlayerPrefs.GetInt("levelAt"))
         {
             PlayerPrefs.SetInt("levelAt", nextSceneIndex);
-            Debug.Log("nextSceneIndex: " + nextSceneIndex);
+            // Debug.Log("nextSceneIndex: " + nextSceneIndex);
         }
 
 

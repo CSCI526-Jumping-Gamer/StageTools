@@ -22,7 +22,7 @@ namespace Unity.Services.Analytics
             if (other.tag == "Player") {
                 // crashEffect.Play();
                 // GetComponent<AudioSource>().PlayOneShot(crashSFX);
-                Debug.Log("player died");
+                // Debug.Log("player died");
                 AnalyticsService.Instance.CustomData("playerDied", new Dictionary<string, object>());
                 Invoke("ReloadScene", loadDelay);
             }

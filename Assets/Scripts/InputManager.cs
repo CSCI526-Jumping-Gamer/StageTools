@@ -69,7 +69,7 @@ public class InputManager : MonoBehaviour
         InputAction action = inputActions.asset.FindAction(actionName);
         if (action == null || action.bindings.Count <= bindingIndex)
         {
-            Debug.Log("Couldn't find action or binding");
+            // Debug.Log("Couldn't find action or binding");
             return;
         }
 
@@ -167,7 +167,7 @@ public class InputManager : MonoBehaviour
 
         if(action == null || action.bindings.Count <= bindingIndex)
         {
-            Debug.Log("Could not find action or binding");
+            // Debug.Log("Could not find action or binding");
             return;
         }
 
